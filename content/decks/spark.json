@@ -4,21 +4,380 @@
   "blurb": "Warm up the night — easy laughs, light touches, and a few surprises.",
   "adult": false,
   "cards": [
-    { "id": "spark-001", "deck": "spark", "type": "ice", "level": 1, "text": "What's the most-played song in your head this week? Sing the chorus, badly, right now.", "soften": "Hum it, no words needed.", "together": true, "love": "words" },
-    { "id": "spark-002", "deck": "spark", "type": "dare", "level": 1, "text": "Give the other person a hand massage for 60 seconds. No talking allowed — only hands.", "timebox": 60, "soften": "30 seconds, one hand.", "love": "touch" },
-    { "id": "spark-003", "deck": "spark", "type": "truth", "level": 1, "text": "What's a tiny thing I do that you secretly find adorable but have never said out loud?", "love": "words" },
-    { "id": "spark-004", "deck": "spark", "type": "challenge", "level": 1, "text": "Staring contest. First to blink does a slow lap around the couch like a runway model.", "timebox": 90, "together": true, "soften": "First to blink just says 'you win' in a dramatic movie-trailer voice.", "love": "touch" },
-    { "id": "spark-005", "deck": "spark", "type": "ice", "level": 1, "text": "Describe your dream Sunday in exactly three words. No explaining.", "together": true, "love": "time" },
-    { "id": "spark-006", "deck": "spark", "type": "topic", "level": 1, "text": "If we could teleport anywhere for the next 48 hours, where are we eating breakfast tomorrow morning?", "together": true, "love": "time" },
-    { "id": "spark-007", "deck": "spark", "type": "dare", "level": 1, "text": "Slow dance to a song in your head. Pick something embarrassing and commit to it.", "timebox": 45, "speak": "While you dance, say the first thing you remember about our first kiss.", "soften": "Sway together for 20 seconds, no song.", "love": "touch" },
-    { "id": "spark-008", "deck": "spark", "type": "truth", "level": 1, "text": "What did you think about me the very first time we met? Honesty pays better than flattery.", "love": "words" },
-    { "id": "spark-009", "deck": "spark", "type": "challenge", "level": 1, "text": "Both of you: say something you appreciate about each other that happened THIS WEEK. Specific or it doesn't count.", "timebox": 120, "together": true, "soften": "One word each. The other person gets to ask why.", "love": "words" },
-    { "id": "spark-010", "deck": "spark", "type": "ice", "level": 1, "text": "Impressions battle: imitate the other person. Best impression wins a wildcard — swap any dare tonight, no cost.", "together": true, "soften": "Just pick which impression face they make most.", "love": "time" },
-    { "id": "spark-011", "deck": "spark", "type": "topic", "level": 1, "text": "What's a tradition we should invent? Ours, nobody else's, starting this week.", "together": true, "love": "time" },
-    { "id": "spark-012", "deck": "spark", "type": "dare", "level": 1, "text": "Feed the other person a bite of anything within arm's reach. Eye contact required.", "soften": "Pretend-feed them. Air bites.", "love": "service" },
-    { "id": "spark-013", "deck": "spark", "type": "dare", "level": 2, "bomb": true, "text": "Kiss them somewhere you haven't kissed them in a long time. Take your time finding the spot.", "soften": "Kiss their forehead and tell them one thing you're proud of them for.", "love": "touch" },
-    { "id": "spark-014", "deck": "spark", "type": "truth", "level": 2, "bomb": true, "text": "Whisper in their ear the thing you've been wanting tonight. Not the plan — the feeling.", "love": "words" },
-    { "id": "spark-015", "deck": "spark", "type": "dare", "level": 2, "bomb": true, "text": "Sit back-to-back and take three slow breaths together. On the third, both say one word for how this night should end.", "timebox": 60, "together": true, "soften": "Just hold the back-to-back for 30 seconds.", "love": "touch" },
-    { "id": "spark-016", "deck": "spark", "type": "dare", "level": 1, "text": "Do one tiny act of service for them right now — something that says 'I've got you' without a word. They close their eyes while you do it.", "timebox": 90, "soften": "Tell them what you WOULD do, and schedule it for tomorrow.", "love": "service" }
+    {
+      "id": "spark-001",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What's the most-played song in your head this week? Sing the chorus, badly, right now.",
+      "soften": "Hum it, no words needed.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "spark-002",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Give the other person a hand massage for 60 seconds. No talking allowed — only hands.",
+      "timebox": 60,
+      "soften": "30 seconds, one hand.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-003",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What's a tiny thing I do that you secretly find adorable but have never said out loud?",
+      "love": "words"
+    },
+    {
+      "id": "spark-004",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Staring contest. First to blink does a slow lap around the couch like a runway model.",
+      "timebox": 90,
+      "together": true,
+      "soften": "First to blink just says 'you win' in a dramatic movie-trailer voice.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-005",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "Describe your dream Sunday in exactly three words. No explaining.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "spark-006",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "If we could teleport anywhere for the next 48 hours, where are we eating breakfast tomorrow morning?",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "spark-007",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Slow dance to a song in your head. Pick something embarrassing and commit to it.",
+      "timebox": 45,
+      "speak": "While you dance, say the first thing you remember about our first kiss.",
+      "soften": "Sway together for 20 seconds, no song.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-008",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What did you think about me the very first time we met? Honesty pays better than flattery.",
+      "love": "words"
+    },
+    {
+      "id": "spark-009",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Both of you: say something you appreciate about each other that happened THIS WEEK. Specific or it doesn't count.",
+      "timebox": 120,
+      "together": true,
+      "soften": "One word each. The other person gets to ask why.",
+      "love": "words"
+    },
+    {
+      "id": "spark-010",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "Impressions battle: imitate the other person. Best impression wins a wildcard — swap any dare tonight, no cost.",
+      "together": true,
+      "soften": "Just pick which impression face they make most.",
+      "love": "time"
+    },
+    {
+      "id": "spark-011",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "What's a tradition we should invent? Ours, nobody else's, starting this week.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "spark-012",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Feed the other person a bite of anything within arm's reach. Eye contact required.",
+      "soften": "Pretend-feed them. Air bites.",
+      "love": "service"
+    },
+    {
+      "id": "spark-013",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Kiss them somewhere you haven't kissed them in a long time. Take your time finding the spot.",
+      "soften": "Kiss their forehead and tell them one thing you're proud of them for.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-014",
+      "deck": "spark",
+      "type": "truth",
+      "level": 2,
+      "bomb": true,
+      "text": "Whisper in their ear the thing you've been wanting tonight. Not the plan — the feeling.",
+      "love": "words"
+    },
+    {
+      "id": "spark-015",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Sit back-to-back and take three slow breaths together. On the third, both say one word for how this night should end.",
+      "timebox": 60,
+      "together": true,
+      "soften": "Just hold the back-to-back for 30 seconds.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-016",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Do one tiny act of service for them right now — something that says 'I've got you' without a word. They close their eyes while you do it.",
+      "timebox": 90,
+      "soften": "Tell them what you WOULD do, and schedule it for tomorrow.",
+      "love": "service"
+    },
+    {
+      "id": "spark-017",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What is the silliest thing they've done lately that still makes you smile when you think about it?",
+      "love": "words"
+    },
+    {
+      "id": "spark-018",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Tell them one small discovery you've made about them in the past month that felt like a fun surprise.",
+      "love": "time"
+    },
+    {
+      "id": "spark-019",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What easy laugh do you two fall into that always feels like home?",
+      "love": "words"
+    },
+    {
+      "id": "spark-020",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Share a tiny moment from this week when being around them just felt lighter.",
+      "love": "time"
+    },
+    {
+      "id": "spark-021",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What playful side of them do you hope never goes away?",
+      "love": "words"
+    },
+    {
+      "id": "spark-022",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Name one ordinary thing they do that still feels quietly charming to you.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-023",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite a thirty-second silly face-off: try to make each other laugh without talking.",
+      "soften": "Share one goofy expression and see if it lands.",
+      "timebox": 30,
+      "love": "time"
+    },
+    {
+      "id": "spark-024",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Offer a quick high-five, then hold on for three extra seconds just to make it awkward-sweet.",
+      "soften": "Give a normal high-five and a smile.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-025",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite them to swap seats or spots with you for one full minute and notice what feels different.",
+      "soften": "Trade places for a few seconds and comment on it.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "spark-026",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Lean over and whisper one genuine compliment like it's a secret.",
+      "speak": "I've been noticing this about you and it makes me happy.",
+      "soften": "Say one nice thing out loud in a normal voice.",
+      "love": "words"
+    },
+    {
+      "id": "spark-027",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Offer a playful shoulder bump or gentle nudge, then stay close for a beat longer than usual.",
+      "soften": "Give a light friendly bump and smile.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-028",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Invite a soft, quick kiss on the cheek or corner of the mouth, then pull back just far enough to see their reaction.",
+      "speak": "Couldn't resist.",
+      "soften": "Blow a playful air kiss instead.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-029",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Whisper one thing you find attractive about them right now, low enough that only they can hear.",
+      "speak": "This is one of the things that pulls me toward you.",
+      "soften": "Say the same thing in a normal quiet voice.",
+      "love": "words"
+    },
+    {
+      "id": "spark-030",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Invite a ten-second forehead-to-forehead pause, eyes closed, just sharing the quiet.",
+      "soften": "Rest your forehead near theirs for a few seconds.",
+      "timebox": 10,
+      "love": "touch"
+    },
+    {
+      "id": "spark-031",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Together, try to name five tiny things you both enjoy doing in the same room without needing a plan.",
+      "soften": "Each name two easy shared things you like.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "spark-032",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Take turns giving the other person a thirty-second shoulder or hand squeeze while saying one thing you appreciate.",
+      "soften": "Share a short hand squeeze and one kind word each.",
+      "together": true,
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "spark-033",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Create a quick two-item 'fun menu' together: two small playful things you could do before the day ends.",
+      "soften": "Each suggest one light idea and pick a favorite.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "spark-034",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Mirror each other's posture and expression for twenty seconds, then break into whatever laugh comes.",
+      "soften": "Copy one silly face the other makes.",
+      "together": true,
+      "timebox": 20,
+      "love": "time"
+    },
+    {
+      "id": "spark-035",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What is the easiest way they can make you smile on a regular day?",
+      "love": "words"
+    },
+    {
+      "id": "spark-036",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "Share one small thing you're looking forward to doing with them soon.",
+      "love": "time"
+    },
+    {
+      "id": "spark-037",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What light touch or gesture from them always feels friendly and welcome?",
+      "love": "touch"
+    },
+    {
+      "id": "spark-038",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "Name a silly shared joke or reference that still works on both of you.",
+      "love": "words"
+    },
+    {
+      "id": "spark-039",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "Talk about the kind of easy evening that leaves both of you feeling recharged instead of drained.",
+      "love": "time"
+    },
+    {
+      "id": "spark-040",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "Share what 'playful' looks like between you when no one else is around.",
+      "love": "words"
+    }
   ]
 }

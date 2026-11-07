@@ -4,21 +4,373 @@
   "blurb": "Real conversation that feels like winning.",
   "adult": false,
   "cards": [
-    { "id": "closer-001", "deck": "closer", "type": "truth", "level": 2, "text": "Tell them the specific thing they did this week that you keep replaying in your head. Specific or it doesn't count.", "love": "words" },
-    { "id": "closer-002", "deck": "closer", "type": "topic", "level": 2, "together": true, "text": "Finish this out loud, one each: 'I've been wanting to tell you…' No interruptions — the blank does the work.", "soften": "Write it down, trade papers, read theirs silently.", "love": "words" },
-    { "id": "closer-003", "deck": "closer", "type": "challenge", "level": 2, "together": true, "timebox": 120, "text": "One true thing each, 60 seconds. The listener's only job is to listen — no fixing, no comebacks. Then trade.", "soften": "30 seconds each, same rule.", "love": "time" },
-    { "id": "closer-004", "deck": "closer", "type": "ice", "level": 2, "together": true, "text": "If our relationship were a song right now, what's playing? Name it and defend it in one sentence.", "love": "words" },
-    { "id": "closer-005", "deck": "closer", "type": "truth", "level": 2, "text": "What's something you miss that we used to do — not from lack of trying, just life? Name it. It goes back on the calendar this week.", "love": "time" },
-    { "id": "closer-006", "deck": "closer", "type": "dare", "level": 2, "timebox": 90, "text": "Hold their hands and look at their eyes. Say the thing you've been carrying this week that's heavier than it should be.", "speak": "They just hold your hands. That's the whole rule.", "soften": "Sit back-to-back and say it without eye contact.", "love": "touch" },
-    { "id": "closer-007", "deck": "closer", "type": "topic", "level": 2, "together": true, "text": "The menu game: each build a three-item menu — one thing you want more of, one you want less of, one you're curious to try. Trade menus. Each picks one item to 'order' this week.", "soften": "Just name one item each.", "love": "words" },
-    { "id": "closer-008", "deck": "closer", "type": "truth", "level": 2, "text": "Make one wish about us out loud. The other answers either 'wish granted' (this week) or 'wish deferred' (name a date). No negotiating, no explaining.", "love": "words" },
-    { "id": "closer-009", "deck": "closer", "type": "challenge", "level": 2, "together": true, "timebox": 180, "text": "Plan our next perfect Sunday out loud, minute by minute, starting at 9am. Both hands on the wheel.", "soften": "Just agree on the breakfast.", "love": "time" },
-    { "id": "closer-010", "deck": "closer", "type": "dare", "level": 2, "timebox": 60, "text": "Do one tiny act of service for them right now, without asking what they want. They close their eyes while you decide.", "soften": "Tell them what you WOULD do, and when.", "love": "service" },
-    { "id": "closer-011", "deck": "closer", "type": "truth", "level": 2, "text": "What's a question you wish I'd ask you more often? I'm asking it now. Answer it slow.", "love": "words" },
-    { "id": "closer-012", "deck": "closer", "type": "challenge", "level": 2, "together": true, "timebox": 120, "text": "Each say one thing you'd change about us if you had a magic wand. Wand-holders collect wishes — no defending, no explaining, just 'ok'. Wishes get re-read next month.", "soften": "One wish each, deferred answers allowed.", "love": "time" },
-    { "id": "closer-013", "deck": "closer", "type": "dare", "level": 3, "bomb": true, "text": "Slowly take off one item of their choosing.", "speak": "While you do, tell them what you love about the person underneath, not just the skin.", "timebox": 120, "soften": "Hold their hand against your heart for 30 seconds instead.", "love": "touch" },
-    { "id": "closer-014", "deck": "closer", "type": "truth", "level": 3, "bomb": true, "text": "Whisper the moment you knew you were done for. Be precise — the minute, the light, the sound in the room.", "love": "words" },
-    { "id": "closer-015", "deck": "closer", "type": "dare", "level": 3, "bomb": true, "text": "Kiss their neck for 30 slow seconds.", "speak": "While you do, tell them the moment this week you were proudest of them.", "timebox": 30, "soften": "Forehead kiss plus the compliment.", "love": "touch" },
-    { "id": "closer-016", "deck": "closer", "type": "ice", "level": 2, "together": true, "text": "Trade answers: what's a small thing the other did today that you noticed and appreciated silently? Silent appreciations get said now.", "love": "words" }
+    {
+      "id": "closer-001",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Tell them the specific thing they did this week that you keep replaying in your head. Specific or it doesn't count.",
+      "love": "words"
+    },
+    {
+      "id": "closer-002",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "together": true,
+      "text": "Finish this out loud, one each: 'I've been wanting to tell you…' No interruptions — the blank does the work.",
+      "soften": "Write it down, trade papers, read theirs silently.",
+      "love": "words"
+    },
+    {
+      "id": "closer-003",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "together": true,
+      "timebox": 120,
+      "text": "One true thing each, 60 seconds. The listener's only job is to listen — no fixing, no comebacks. Then trade.",
+      "soften": "30 seconds each, same rule.",
+      "love": "time"
+    },
+    {
+      "id": "closer-004",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "together": true,
+      "text": "If our relationship were a song right now, what's playing? Name it and defend it in one sentence.",
+      "love": "words"
+    },
+    {
+      "id": "closer-005",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What's something you miss that we used to do — not from lack of trying, just life? Name it. It goes back on the calendar this week.",
+      "love": "time"
+    },
+    {
+      "id": "closer-006",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "timebox": 90,
+      "text": "Hold their hands and look at their eyes. Say the thing you've been carrying this week that's heavier than it should be.",
+      "speak": "They just hold your hands. That's the whole rule.",
+      "soften": "Sit back-to-back and say it without eye contact.",
+      "love": "touch"
+    },
+    {
+      "id": "closer-007",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "together": true,
+      "text": "The menu game: each build a three-item menu — one thing you want more of, one you want less of, one you're curious to try. Trade menus. Each picks one item to 'order' this week.",
+      "soften": "Just name one item each.",
+      "love": "words"
+    },
+    {
+      "id": "closer-008",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Make one wish about us out loud. The other answers either 'wish granted' (this week) or 'wish deferred' (name a date). No negotiating, no explaining.",
+      "love": "words"
+    },
+    {
+      "id": "closer-009",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "together": true,
+      "timebox": 180,
+      "text": "Plan our next perfect Sunday out loud, minute by minute, starting at 9am. Both hands on the wheel.",
+      "soften": "Just agree on the breakfast.",
+      "love": "time"
+    },
+    {
+      "id": "closer-010",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "timebox": 60,
+      "text": "Do one tiny act of service for them right now, without asking what they want. They close their eyes while you decide.",
+      "soften": "Tell them what you WOULD do, and when.",
+      "love": "service"
+    },
+    {
+      "id": "closer-011",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What's a question you wish I'd ask you more often? I'm asking it now. Answer it slow.",
+      "love": "words"
+    },
+    {
+      "id": "closer-012",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "together": true,
+      "timebox": 120,
+      "text": "Each say one thing you'd change about us if you had a magic wand. Wand-holders collect wishes — no defending, no explaining, just 'ok'. Wishes get re-read next month.",
+      "soften": "One wish each, deferred answers allowed.",
+      "love": "time"
+    },
+    {
+      "id": "closer-013",
+      "deck": "closer",
+      "type": "dare",
+      "level": 3,
+      "bomb": true,
+      "text": "Slowly take off one item of their choosing.",
+      "speak": "While you do, tell them what you love about the person underneath, not just the skin.",
+      "timebox": 120,
+      "soften": "Hold their hand against your heart for 30 seconds instead.",
+      "love": "touch"
+    },
+    {
+      "id": "closer-014",
+      "deck": "closer",
+      "type": "truth",
+      "level": 3,
+      "bomb": true,
+      "text": "Whisper the moment you knew you were done for. Be precise — the minute, the light, the sound in the room.",
+      "love": "words"
+    },
+    {
+      "id": "closer-015",
+      "deck": "closer",
+      "type": "dare",
+      "level": 3,
+      "bomb": true,
+      "text": "Kiss their neck for 30 slow seconds.",
+      "speak": "While you do, tell them the moment this week you were proudest of them.",
+      "timebox": 30,
+      "soften": "Forehead kiss plus the compliment.",
+      "love": "touch"
+    },
+    {
+      "id": "closer-016",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "together": true,
+      "text": "Trade answers: what's a small thing the other did today that you noticed and appreciated silently? Silent appreciations get said now.",
+      "love": "words"
+    },
+    {
+      "id": "closer-017",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Tell them one thing they did this week that you keep replaying in your head.",
+      "love": "words"
+    },
+    {
+      "id": "closer-018",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What is a small everyday moment with them that still feels like a win when you think about it?",
+      "love": "time"
+    },
+    {
+      "id": "closer-019",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Share one way they made ordinary time feel better recently without even trying.",
+      "love": "touch"
+    },
+    {
+      "id": "closer-020",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What is something you want more of from them that would make the weeks feel lighter?",
+      "love": "words"
+    },
+    {
+      "id": "closer-021",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Tell them about a quiet hope you have for the two of you over the next month.",
+      "love": "time"
+    },
+    {
+      "id": "closer-022",
+      "deck": "closer",
+      "type": "truth",
+      "level": 3,
+      "text": "What is one wish you have about us that you've been carrying but haven't said out loud yet?",
+      "love": "words"
+    },
+    {
+      "id": "closer-023",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Describe a recent moment when you felt especially glad to be on the same team.",
+      "love": "time"
+    },
+    {
+      "id": "closer-024",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Invite them to hear one specific appreciation you've been holding onto, then stay quiet while they take it in.",
+      "speak": "I've been meaning to tell you this because it stuck with me.",
+      "soften": "Share one short thing you appreciated about them this week.",
+      "love": "words"
+    },
+    {
+      "id": "closer-025",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Offer a listen-first minute: ask them what would feel good to talk about right now, then only listen and reflect back what you heard.",
+      "soften": "Ask what is on their mind and give them space to answer fully.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "closer-026",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Make one clear wish about the two of you and invite them to answer with either 'wish granted this week' or 'wish deferred' plus a date.",
+      "soften": "Share one small hopeful wish and ask how it lands.",
+      "love": "words"
+    },
+    {
+      "id": "closer-027",
+      "deck": "closer",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite a soft trade: say 'I want more of ___ from you, and in exchange I'll give you ___' and mean both parts.",
+      "speak": "This is what would feel really good to receive, and here's what I want to offer back.",
+      "soften": "Share one thing you'd like more of and one thing you're happy to give.",
+      "love": "words"
+    },
+    {
+      "id": "closer-028",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Offer to replay a specific kind moment from this week out loud, adding why it still matters to you.",
+      "soften": "Mention one kind thing they did and why it landed well.",
+      "love": "time"
+    },
+    {
+      "id": "closer-029",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Together, each build a three-item want-menu of small things that would make the coming week better. Trade menus and circle one item you can actually give.",
+      "soften": "Each name one small thing that would help, then choose one to try.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "closer-030",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Take turns granting or deferring one wish each. The grantor says 'wish granted this week' or 'wish deferred' and names a realistic date.",
+      "soften": "Each share one small wish and respond with a kind yes or later.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "closer-031",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Do a listen-first round: each person gets ninety seconds to speak about anything on their mind while the other only listens, then reflects one sentence back.",
+      "soften": "Each share for thirty seconds while the other simply listens.",
+      "together": true,
+      "timebox": 180,
+      "love": "time"
+    },
+    {
+      "id": "closer-032",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 3,
+      "text": "Trade framing challenge: each completes the sentence 'I want more of ___ from you, and in exchange I'll give you ___'. Both parts must feel genuine.",
+      "soften": "Each name one want and one offering in a lighter way.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "closer-033",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Together, name three specific things the other person did this month that still feel good to remember. Keep going until you both have a short list.",
+      "soften": "Each share one recent thing the other did that landed well.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "closer-034",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "What is one small thing that always makes you feel a little more settled when you're around them?",
+      "love": "touch"
+    },
+    {
+      "id": "closer-035",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "Share a tiny detail from today that you are glad you got to experience with them, even if it was ordinary.",
+      "love": "time"
+    },
+    {
+      "id": "closer-036",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "What is a simple way they could surprise you this week that would feel thoughtful rather than big?",
+      "love": "gifts"
+    },
+    {
+      "id": "closer-037",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "Name one everyday ritual between you that you would miss if it disappeared.",
+      "love": "time"
+    },
+    {
+      "id": "closer-038",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Talk about the difference between a week that feels connected and a week that feels like you are just sharing a calendar.",
+      "love": "time"
+    },
+    {
+      "id": "closer-039",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Share what 'feeling chosen' looks like in ordinary days, not just special ones.",
+      "love": "words"
+    },
+    {
+      "id": "closer-040",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Discuss one small trade that would make both of you feel more supported in the next couple of weeks.",
+      "love": "service"
+    }
   ]
 }
