@@ -228,7 +228,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Offer to sync your breathing with theirs for one full minute while your foreheads rest together.",
+      "text": "Sync your breathing with theirs for one full minute while your foreheads rest together.",
       "soften": "Share a few slow breaths while sitting close.",
       "timebox": 60,
       "love": "time"
@@ -298,7 +298,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Offer to hold their face gently while you kiss them like you have all the time in the world.",
+      "text": "Hold their face gently while you kiss them like you have all the time in the world.",
       "speak": "I never get tired of the way you feel this close.",
       "soften": "Cup their face for a single soft kiss.",
       "love": "touch"
@@ -501,7 +501,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Offer to dry them off or help with post-shower skin care using slow, deliberate hands if the setting allows.",
+      "text": "Dry them off or help with post-shower skin care using slow, deliberate hands if the setting allows.",
       "soften": "Offer a soft towel-handed shoulder rub or lotion on their arms.",
       "love": "service"
     },
@@ -520,7 +520,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Propose a midnight-kitchen-encounter frame: you both just ended up here, the house is quiet, and neither of you is ready to say goodnight yet.",
+      "text": "Midnight-kitchen-encounter frame: you both just ended up here, the house is quiet, and neither of you is ready to say goodnight yet.",
       "speak": "I was hoping I'd find you still awake.",
       "soften": "Share a quiet 'I'm glad you're still up' moment in the kitchen.",
       "love": "time"
@@ -573,7 +573,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Offer to hold them from behind for a full minute, chin near their shoulder, breathing together.",
+      "text": "Hold them from behind for a full minute, chin near their shoulder, breathing together.",
       "speak": "You fit here better than anywhere else.",
       "soften": "Give a short standing hug from the side.",
       "timebox": 60,
@@ -594,7 +594,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Propose a candles-and-low-light reset: dim what you can, sit close, and spend one minute only noticing each other's presence.",
+      "text": "Candles-and-low-light reset: dim what you can, sit close, and spend one minute only noticing each other's presence.",
       "soften": "Turn down one light and sit quietly near each other.",
       "timebox": 60,
       "love": "time"
@@ -843,7 +843,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Offer to dress them for the next part of the evening — choose one item and help them into it slowly.",
+      "text": "Dress them for the next part of the evening — choose one item and help them into it slowly.",
       "speak": "I want to be the one who puts this on you.",
       "soften": "Hand them one item and help with a sleeve or button.",
       "love": "service"
@@ -864,7 +864,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Propose a goodnight-kiss ritual right now: the kind that says the day is done and you're still choosing each other.",
+      "text": "Goodnight-kiss ritual right now: the kind that says the day is done and you're still choosing each other.",
       "speak": "This is the kiss I want ending our nights.",
       "soften": "Share a soft, unhurried goodnight-style kiss.",
       "love": "touch"

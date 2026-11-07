@@ -1,15 +1,17 @@
 import type { Card, Deck, DeckId } from './schema';
 
 export type Mode = 'chill' | 'heat' | 'mixup' | 'inferno';
+export type Love = 'words' | 'time' | 'touch' | 'service' | 'gifts';
 
 export const MODES: { id: Mode; name: string; blurb: string; bomb?: boolean }[] = [
   { id: 'chill', name: 'Chill', blurb: 'easy laughs and warm talk' },
-  { id: 'mixup', name: 'Mixup', blurb: 'everything, shuffled' },
+  { id: 'mixup', name: 'Mixup', blurb: 'everything but Inferno, shuffled' },
   { id: 'heat', name: 'Heat', blurb: 'turn it up' },
   { id: 'inferno', name: 'Inferno', blurb: 'all spice bombs. you were warned (literally)', bomb: true },
 ];
 
-// raw deck modules are JSON imports; loaded eagerly (tiny payloads, fully offline)
+export const ALL_DECKS: DeckId[] = ['spark', 'closer', 'slowburn', 'afterdark', 'curious', 'inferno'];
+
 import spark from '../../content/decks/spark.json';
 import closer from '../../content/decks/closer.json';
 import slowburn from '../../content/decks/slowburn.json';
@@ -21,29 +23,110 @@ export const DECKS: Record<DeckId, Deck> = Object.fromEntries(
   [spark, closer, slowburn, afterdark, curious, inferno].map((d) => [d.id, d as unknown as Deck]),
 ) as Record<DeckId, Deck>;
 
-function decksFor(mode: Mode): DeckId[] {
+export function decksFor(mode: Mode): DeckId[] {
   if (mode === 'chill') return ['spark', 'closer'];
   if (mode === 'mixup') return ['spark', 'closer', 'slowburn', 'afterdark', 'curious'];
   if (mode === 'inferno') return ['inferno'];
-  return ['slowburn', 'afterdark', 'curious']; // heat
+  return ['slowburn', 'afterdark', 'curious'];
+}
+
+// ---- persistent state (localStorage) ----
+const KEY = 'ember.v1';
+const NIGHT_KEY = 'ember.night';
+
+export interface NightLog { date: string; cards: number; mode: Mode }
+export interface Persisted { names: { a: string; b: string }; nights: NightLog[]; retired: string[] }
+
+export function load(): Persisted {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) return { retired: [], ...JSON.parse(raw) };
+  } catch { /* fresh start */ }
+  return { names: { a: '', b: '' }, nights: [], retired: [] };
+}
+
+export function save(p: Persisted) {
+  try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* private mode */ }
+}
+
+// ---- live night state (persisted every mutation so interruptions never lose a night) ----
+export interface NightState {
+  mode: Mode;
+  decks: DeckId[];
+  cardId: string | null;
+  count: number;
+  skips: number;
+  seen: string[];
+  loveCounts: Record<string, number>;
+  drawIndex: number;
+  lastBombIndex: number;
+  safeword: string;
+  landing: boolean;
+}
+
+export function loadNight(): NightState | null {
+  try {
+    const raw = localStorage.getItem(NIGHT_KEY);
+    if (raw) {
+      const n = JSON.parse(raw) as NightState;
+      if (n.cardId && n.count > 0) return { loveCounts: {}, safeword: '', landing: false, ...n };
+    }
+  } catch { /* ignore */ }
+  return null;
+}
+
+export function saveNight(n: NightState) {
+  try { localStorage.setItem(NIGHT_KEY, JSON.stringify(n)); } catch { /* ignore */ }
+}
+
+export function clearNight() {
+  try { localStorage.removeItem(NIGHT_KEY); } catch { /* ignore */ }
 }
 
 const seen = new Set<string>();
 
-export function draw(mode: Mode, except?: Card): Card | null {
-  const pool = decksFor(mode).flatMap((id) => DECKS[id].cards).filter((c) => c.id !== except?.id);
-  if (pool.length === 0) return null;
-  let fresh = pool.filter((c) => !seen.has(c.id));
-  if (fresh.length === 0) {
-    seen.clear();
-    fresh = pool;
+export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightState, except?: Card): Card | null {
+  const retiredSet = new Set(retired);
+  let pool = decks
+    .flatMap((id) => (DECKS[id] ? DECKS[id].cards : []))
+    .filter((c) => c.id !== except?.id && !retiredSet.has(c.id) && !seen.has(c.id));
+  // bomb pacing: no bomb within 3 draws of the last one
+  const bombGap = ns.drawIndex - ns.lastBombIndex;
+  if (bombGap < 3) {
+    const calm = pool.filter((c) => !c.bomb);
+    if (calm.length > 0) pool = calm;
   }
-  // 1-in-5 draws prefer spice bombs when any are unseen
-  const bombs = fresh.filter((c) => c.bomb);
-  const card =
-    bombs.length > 0 && Math.random() < 0.2
-      ? bombs[Math.floor(Math.random() * bombs.length)]
-      : fresh[Math.floor(Math.random() * fresh.length)];
+  if (pool.length === 0) {
+    // deck exhausted: reset seen, retry once
+    seen.clear();
+    pool = decks.flatMap((id) => DECKS[id].cards).filter((c) => c.id !== except?.id && !retiredSet.has(c.id));
+    if (pool.length === 0) return null;
+  }
+  // love-language balancing: half the time, prefer the least-served love language
+  let card: Card | undefined;
+  const loves = Object.entries(ns.loveCounts || {});
+  if (loves.length > 0 && Math.random() < 0.5) {
+    const min = Math.min(...loves.map(([, n]) => n));
+    const starved = loves.filter(([, n]) => n === min).map(([l]) => l);
+    const balanced = pool.filter((c) => c.love && starved.includes(c.love));
+    if (balanced.length > 0) pool = balanced;
+  }
+  const bombs = pool.filter((c) => c.bomb);
+  if (bombs.length > 0 && Math.random() < 0.2) card = bombs[Math.floor(Math.random() * bombs.length)];
+  else card = pool[Math.floor(Math.random() * pool.length)];
+  if (!card) return null;
+  seen.add(card.id);
+  return card;
+}
+
+export function drawWarmLanding(decks: DeckId[], retired: string[]): Card | null {
+  const retiredSet = new Set(retired);
+  const pool = ['spark', 'closer']
+    .flatMap((id) => (DECKS[id] ? DECKS[id].cards : []))
+    .filter((c) => !retiredSet.has(c.id) && !seen.has(c.id) && (c.type === 'truth' || c.type === 'topic' || c.type === 'challenge') && (c.level ?? 9) <= 2 && c.love !== 'touch');
+  const source = pool.length > 0 ? pool : ['spark', 'closer'].flatMap((id) => DECKS[id].cards).filter((c) => !retiredSet.has(c.id));
+  if (source.length === 0) return null;
+  const card = source[Math.floor(Math.random() * source.length)];
   seen.add(card.id);
   return card;
 }
@@ -52,28 +135,27 @@ export function markSeen(id: string) {
   seen.add(id);
 }
 
-// --- persistent (localStorage) ---
-const KEY = 'ember.v1';
+export function trackLove(ns: NightState, card: Card) {
+  if (card.love) {
+    ns.loveCounts = ns.loveCounts || {};
+    ns.loveCounts[card.love] = (ns.loveCounts[card.love] || 0) + 1;
+  }
+  if (card.bomb) ns.lastBombIndex = ns.drawIndex;
+}
 
-export interface NightLog { date: string; cards: number; mode: Mode }
-export interface Persisted { names: { a: string; b: string }; nights: NightLog[] }
-
-export function load(): Persisted {
+// ---- audio: create the context inside a user gesture so mobile autoplay policies never eat the chime ----
+let ctx: AudioContext | null = null;
+export function unlockAudio() {
   try {
-    const raw = localStorage.getItem(KEY);
-    if (raw) return JSON.parse(raw) as Persisted;
-  } catch { /* fresh start */ }
-  return { names: { a: '', b: '' }, nights: [] };
+    if (!ctx) (ctx as unknown as AudioContext | null) = new AudioContext();
+    if (ctx && ctx.state === 'suspended') ctx.resume();
+  } catch { /* silence is fine */ }
 }
 
-export function save(p: Persisted) {
-  try { localStorage.setItem(KEY, JSON.stringify(p)); } catch { /* private mode */ }
-}
-
-// soft chime — no assets
 export function chime() {
   try {
-    const ctx = new AudioContext();
+    if (!ctx) ctx = new AudioContext();
+    if (ctx.state === 'suspended') ctx.resume();
     const o = ctx.createOscillator();
     const g = ctx.createGain();
     o.type = 'sine';

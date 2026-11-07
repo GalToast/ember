@@ -465,7 +465,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Offer to take a quick selfie together right now — serious face first, then the real smile.",
+      "text": "Take a quick selfie together right now — serious face first, then the real smile.",
       "soften": "Suggest a single candid photo if a selfie feels like too much.",
       "love": "gifts"
     },
@@ -512,7 +512,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Offer to queue a three-song mini playlist for them right now and play the first track if possible.",
+      "text": "Queue a three-song mini playlist for them right now and play the first track if possible.",
       "soften": "Name one song that makes you think of them.",
       "love": "gifts"
     },
@@ -552,7 +552,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Offer to cook or assemble something tiny together in the next five minutes — even if it's just toast or a snack plate.",
+      "text": "Cook or assemble something tiny together in the next five minutes — even if it's just toast or a snack plate.",
       "soften": "Suggest making a simple snack side by side.",
       "timebox": 300,
       "love": "service"
@@ -782,7 +782,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Propose a midnight-snack-run fantasy: describe the perfect late-night food mission the two of you would take.",
+      "text": "Midnight-snack-run fantasy: describe the perfect late-night food mission the two of you would take.",
       "soften": "Name one snack you wish you had right now.",
       "love": "gifts"
     },

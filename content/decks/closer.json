@@ -261,7 +261,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Offer to replay a specific kind moment from this week out loud, adding why it still matters to you.",
+      "text": "Replay a specific kind moment from this week out loud, adding why it still matters to you.",
       "soften": "Mention one kind thing they did and why it landed well.",
       "love": "time"
     },
@@ -477,7 +477,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Offer to read them one short paragraph of a letter you would write if you were putting today's feelings on paper.",
+      "text": "Read them one short paragraph of a letter you would write if you were putting today's feelings on paper.",
       "speak": "If I wrote this down for you, it would start like this…",
       "soften": "Share one sentence you would put in a note to them.",
       "love": "words"
@@ -525,7 +525,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Offer to sit in calm together for one minute — no topic, no fix, just shared quiet.",
+      "text": "Sit in calm together for one minute — no topic, no fix, just shared quiet.",
       "soften": "Share twenty seconds of comfortable silence.",
       "timebox": 60,
       "love": "time"
@@ -758,7 +758,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Offer to recreate a simple meal or snack that carries a memory for either of you.",
+      "text": "Recreate a simple meal or snack that carries a memory for either of you.",
       "soften": "Name the memory-meal and suggest making it soon.",
       "love": "service"
     },
