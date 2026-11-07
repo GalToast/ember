@@ -10,6 +10,7 @@
     setMode,
     toggleDeck,
     resumeLabel = '',
+    onResume,
     onRestart,
     onStart,
   }: {
@@ -20,6 +21,7 @@
     setMode: (m: Mode) => void;
     toggleDeck: (id: DeckId) => void;
     resumeLabel?: string;
+    onResume: () => void;
     onRestart: () => void;
     onStart: () => void;
   } = $props();
@@ -37,7 +39,7 @@
   </header>
 
   {#if resumeLabel}
-    <button class="resume" onclick={() => { onRestart(); onStart(); }}>
+    <button class="resume" onclick={onResume}>
       <Icon name="pass" size={15} /> {resumeLabel}
     </button>
   {/if}

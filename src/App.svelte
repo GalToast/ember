@@ -184,6 +184,7 @@
     {setMode}
     {toggleDeck}
     resumeLabel={resumeAvailable ? `Resume your night — ${resumeAvailable.count} cards in` : ''}
+    onResume={resume}
     onRestart={() => { clearNight(); resumeAvailable = null; count = 0; skips = 6; }}
     onStart={() => { clearNight(); (screen = 'splash'); }}
   />
