@@ -58,7 +58,8 @@ Vite + Svelte 5 + TypeScript, static build, no framework overhead beyond that. S
 ```bash
 npm test           # engine + persistence invariants (859 assertions, no extra deps)
 npm run build      # real Svelte compile
-npm run lint:decks # all six decks: counts, levels, banned/clinical language
+npm run lint          # deck structure/voice + the card text-fit envelope
+npm run lint:decks    # all six decks: counts, levels, banned/clinical language
 ```
 
 `tests/resume.journey.mjs` is a real-browser check of the mid-night resume path
@@ -78,5 +79,11 @@ npx cap sync android
 npm run verify:apk     # APK vs dist/index.html; exit 1 = stale bundle
 npm run verify:staging # same, against android/app/src/main/assets/public
 ```
+
+`npm run lint` also enforces the fit envelope: the card is `overflow:hidden` with no
+scrollback, so text that does not fit is silently cut. `scripts/lint-fit.mjs` caps
+effective length (text + 1.6 × speak + timer) at the 260-char `xs` boundary, which is
+the point where a card stops fitting the smallest phone. Currently the widest card is
+249 (slowburn-056), so every deck is inside the envelope.
 
 Images, audio, and the Android package are not covered by these.
