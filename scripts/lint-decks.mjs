@@ -45,7 +45,7 @@ for (const f of files) {
       else if (BANNED.some((r) => r.test(c.text))) fail(f, c.id, 'banned clinical word in text');
       if (c.speak !== undefined && (typeof c.speak !== 'string' || c.speak.length > 220)) fail(f, c.id, 'speak must be string <= 220');
       if (c.soften !== undefined && typeof c.soften !== 'string') fail(f, c.id, 'soften must be string');
-      if (c.timebox !== undefined && (!Number.isFinite(c.timebox) || c.timebox < 10 || c.timebox > 900)) fail(f, c.id, 'timebox must be 10-900s');
+      if (c.timebox !== undefined && (!Number.isFinite(c.timebox) || c.timebox < 10 || c.timebox > 1500)) fail(f, c.id, 'timebox must be 10-1500s');
       if (c.bomb !== undefined && typeof c.bomb !== 'boolean') fail(f, c.id, 'bomb must be boolean');
       const LOVES = ['words', 'time', 'touch', 'service', 'gifts'];
       if (c.love !== undefined && !LOVES.includes(c.love)) fail(f, c.id, `love must be one of ${LOVES.join('|')}`);
