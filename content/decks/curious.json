@@ -4,35 +4,954 @@
   "blurb": "New things, tried together. Kink exploration for two curious people.",
   "adult": true,
   "cards": [
-    { "id": "curious-001", "deck": "curious", "type": "topic", "level": 4, "text": "The Try-New-Things menu: each writes three things you're curious to explore with me — one gentle, one bold, one wild card. Trade. Pick one to order this month.", "together": true, "soften": "Say one thing you're curious about, no list.", "love": "words" },
-    { "id": "curious-002", "deck": "curious", "type": "dare", "level": 4, "text": "Blindfold them (scarf, shirt, sleep mask). Five minutes of your undivided attention — you decide everything, gently.", "speak": "Narrate what you're about to do before you do it. Always.", "timebox": 300, "soften": "Eyes closed, one minute of touch, narrated.", "love": "touch" },
-    { "id": "curious-003", "deck": "curious", "type": "challenge", "level": 4, "text": "Power swap: one of you gives a single, gentle command; the other follows for three minutes. Then swap. Safe word exists and is sacred.", "timebox": 360, "together": true, "soften": "Just trade: each names one thing you'd want the other to take the lead on.", "love": "touch" },
-    { "id": "curious-004", "deck": "curious", "type": "dare", "level": 4, "text": "Ice trace: run an ice cube slowly along their collarbone and neck. Your other hand is not allowed to help.", "timebox": 120, "soften": "Feather-light fingertip trace instead of ice.", "love": "touch" },
-    { "id": "curious-005", "deck": "curious", "type": "truth", "level": 4, "text": "What's a fantasy you've never said out loud? The card swears confidentiality — what happens in Ember stays in Ember.", "love": "words" },
-    { "id": "curious-006", "deck": "curious", "type": "challenge", "level": 4, "text": "The tease game: whoever gives in and touches the other first loses, and grants one wish tonight. No time limit — that's the point.", "together": true, "soften": "Ten seconds of almost-touching, then swap.", "love": "touch" },
-    { "id": "curious-007", "deck": "curious", "type": "dare", "level": 4, "text": "Take control of their evening for the next hour: pick the next two cards, the music, and how close they sit.", "timebox": 600, "soften": "Take control of just the next card.", "love": "service" },
-    { "id": "curious-008", "deck": "curious", "type": "topic", "level": 4, "text": "Trade answers: what does 'being wanted' feel like for you — chased, chosen, claimed, or something else entirely?", "together": true, "love": "words" },
-    { "id": "curious-009", "deck": "curious", "type": "truth", "level": 4, "text": "Tell them one new sensation you've been quietly curious to try together and what draws you to it.", "love": "words" },
-    { "id": "curious-010", "deck": "curious", "type": "truth", "level": 4, "text": "Share a light power-exchange idea that makes you curious — either leading or following for a short stretch.", "love": "time" },
-    { "id": "curious-011", "deck": "curious", "type": "truth", "level": 4, "text": "Describe a texture, temperature, or soft object you'd love to explore on each other's skin someday.", "love": "touch" },
-    { "id": "curious-012", "deck": "curious", "type": "truth", "level": 4, "text": "What is one pacing or teasing game you've imagined that keeps both of you on the edge of wanting more?", "love": "words" },
-    { "id": "curious-013", "deck": "curious", "type": "truth", "level": 4, "text": "Name one brand-new experience you'd like to invent together just because it sounds fun to discover.", "love": "time" },
-    { "id": "curious-014", "deck": "curious", "type": "dare", "level": 4, "text": "Invite them to close their eyes or use a soft blindfold while you slowly introduce three different gentle textures or temperatures across their skin.", "speak": "Feel this one… now this… tell me which makes you shiver.", "soften": "Ask them to close their eyes and let you trail one soft scarf or your fingertips slowly.", "love": "touch" },
-    { "id": "curious-015", "deck": "curious", "type": "dare", "level": 4, "text": "Offer to take the lead for the next ten minutes: choose the pace, the touches, and the moments of pause while they simply receive.", "speak": "Just follow me for these ten minutes. I've got you.", "soften": "Ask if you can guide the next few minutes of closeness and check in after.", "timebox": 600, "love": "time" },
-    { "id": "curious-016", "deck": "curious", "type": "dare", "level": 4, "text": "Invite them into a no-touch tease: stay close enough to feel each other's breath and describe, in detail, exactly what you would do if touching were allowed.", "speak": "If I could touch you right now I'd start here and take my time…", "soften": "Sit close and share one soft, detailed description of a touch you'd like to give.", "love": "words" },
-    { "id": "curious-017", "deck": "curious", "type": "dare", "level": 4, "text": "Offer a feather, ice cube, or soft fabric and invite them to explore your skin with it however curiosity leads for one full minute.", "speak": "Show me what feels good. I'm curious too.", "soften": "Hand them a soft scarf and invite a few slow strokes across your arm or back.", "timebox": 60, "love": "touch" },
-    { "id": "curious-018", "deck": "curious", "type": "dare", "level": 4, "text": "Invite them to blindfold you gently, then narrate every soft thing you're feeling while they use only light texture or temperature play.", "speak": "That feels cool… now warmer… keep going, I want to notice everything.", "soften": "Close your eyes and simply describe the first gentle touch they offer.", "love": "touch" },
-    { "id": "curious-019", "deck": "curious", "type": "dare", "level": 4, "text": "Propose a short follow-the-leader round: they set a slow rhythm of kisses or touches and you match it exactly for sixty seconds.", "speak": "I'm matching you. Lead me.", "soften": "Ask them to set a gentle pace of kisses and follow along for a short while.", "timebox": 60, "love": "touch" },
-    { "id": "curious-020", "deck": "curious", "type": "dare", "level": 4, "text": "Invite them to hover their hands just above your skin and move them slowly so you can feel the heat without contact for a full minute.", "speak": "I can feel you right there. Don't touch yet.", "soften": "Sit close with hands near each other and notice the warmth for twenty seconds.", "timebox": 60, "love": "touch" },
-    { "id": "curious-021", "deck": "curious", "type": "dare", "level": 4, "text": "Offer to build a tiny sensory station with whatever is nearby (ice, fabric, feather, warm breath) and invite them to choose the order.", "soften": "Gather two soft things and let them pick which one you use first.", "love": "service" },
-    { "id": "curious-022", "deck": "curious", "type": "dare", "level": 4, "text": "Invite them to take your hands and guide them wherever curiosity points for thirty seconds while you keep your eyes closed.", "speak": "Show me. I'm open to whatever you want me to feel.", "soften": "Close your eyes and let them place your hands somewhere gentle.", "love": "touch" },
-    { "id": "curious-023", "deck": "curious", "type": "dare", "level": 4, "text": "Propose a pacing game: kiss or touch for ten seconds, pause for ten, repeat three times, letting the want build.", "soften": "Share three slow kisses with a short breath between each.", "love": "time" },
-    { "id": "curious-024", "deck": "curious", "type": "dare", "level": 4, "text": "Invite them to describe, out loud, one new way they'd like to be touched while you listen without acting on it yet.", "soften": "Ask them to share one soft new idea for closeness and simply thank them.", "love": "words" },
-    { "id": "curious-025", "deck": "curious", "type": "challenge", "level": 4, "text": "Together, each build a short 'try-new-things' menu of three curious ideas (sensory, pacing, or light lead/follow). Share the menus, then circle one item you both want to explore soon.", "soften": "Each name one new gentle idea you'd like to try and pick a favorite together.", "together": true, "love": "words" },
-    { "id": "curious-026", "deck": "curious", "type": "challenge", "level": 4, "text": "Take turns leading for three minutes each: the leader chooses only soft sensory play (texture, temperature, breath) while the other simply receives and notices.", "soften": "Take turns offering one minute of gentle, curious touch while the other relaxes.", "together": true, "timebox": 180, "love": "touch" },
-    { "id": "curious-027", "deck": "curious", "type": "challenge", "level": 4, "text": "Create a shared tease-without-touching game: sit close, keep hands to yourselves, and take turns saying one specific thing you'd do if touch were allowed, building the list together.", "soften": "Sit close and each share one soft description of a touch you'd like to give.", "together": true, "love": "words" },
-    { "id": "curious-028", "deck": "curious", "type": "topic", "level": 4, "text": "Talk about the difference between 'curious' and 'ready' and how you both like to signal when something new feels exciting.", "love": "words" },
-    { "id": "curious-029", "deck": "curious", "type": "topic", "level": 4, "text": "Share the softest or most surprising sensory idea either of you has ever wanted to try with the other.", "love": "touch" },
-    { "id": "curious-030", "deck": "curious", "type": "topic", "level": 4, "text": "Discuss how it feels when one of you takes the lead for a little while and what makes that feel safe and fun.", "love": "time" }
+    {
+      "id": "curious-001",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "The Try-New-Things menu: each writes three things you're curious to explore with me — one gentle, one bold, one wild card. Trade. Pick one to order this month.",
+      "together": true,
+      "soften": "Say one thing you're curious about, no list.",
+      "love": "words"
+    },
+    {
+      "id": "curious-002",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Blindfold them (scarf, shirt, sleep mask). Five minutes of your undivided attention — you decide everything, gently.",
+      "speak": "Narrate what you're about to do before you do it. Always.",
+      "timebox": 300,
+      "soften": "Eyes closed, one minute of touch, narrated.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-003",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Power swap: one of you gives a single, gentle command; the other follows for three minutes. Then swap. Safe word exists and is sacred.",
+      "timebox": 360,
+      "together": true,
+      "soften": "Just trade: each names one thing you'd want the other to take the lead on.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-004",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Ice trace: run an ice cube slowly along their collarbone and neck. Your other hand is not allowed to help.",
+      "timebox": 120,
+      "soften": "Feather-light fingertip trace instead of ice.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-005",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What's a fantasy you've never said out loud? The card swears confidentiality — what happens in Ember stays in Ember.",
+      "love": "words"
+    },
+    {
+      "id": "curious-006",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "The tease game: whoever gives in and touches the other first loses, and grants one wish tonight. No time limit — that's the point.",
+      "together": true,
+      "soften": "Ten seconds of almost-touching, then swap.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-007",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Take control of their evening for the next hour: pick the next two cards, the music, and how close they sit.",
+      "timebox": 600,
+      "soften": "Take control of just the next card.",
+      "love": "service"
+    },
+    {
+      "id": "curious-008",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Trade answers: what does 'being wanted' feel like for you — chased, chosen, claimed, or something else entirely?",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "curious-009",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them one new sensation you've been quietly curious to try together and what draws you to it.",
+      "love": "words"
+    },
+    {
+      "id": "curious-010",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Share a light power-exchange idea that makes you curious — either leading or following for a short stretch.",
+      "love": "time"
+    },
+    {
+      "id": "curious-011",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe a texture, temperature, or soft object you'd love to explore on each other's skin someday.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-012",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What is one pacing or teasing game you've imagined that keeps both of you on the edge of wanting more?",
+      "love": "words"
+    },
+    {
+      "id": "curious-013",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Name one brand-new experience you'd like to invent together just because it sounds fun to discover.",
+      "love": "time"
+    },
+    {
+      "id": "curious-014",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to close their eyes or use a soft blindfold while you slowly introduce three different gentle textures or temperatures across their skin.",
+      "speak": "Feel this one… now this… tell me which makes you shiver.",
+      "soften": "Ask them to close their eyes and let you trail one soft scarf or your fingertips slowly.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-015",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to take the lead for the next ten minutes: choose the pace, the touches, and the moments of pause while they simply receive.",
+      "speak": "Just follow me for these ten minutes. I've got you.",
+      "soften": "Ask if you can guide the next few minutes of closeness and check in after.",
+      "timebox": 600,
+      "love": "time"
+    },
+    {
+      "id": "curious-016",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them into a no-touch tease: stay close enough to feel each other's breath and describe, in detail, exactly what you would do if touching were allowed.",
+      "speak": "If I could touch you right now I'd start here and take my time…",
+      "soften": "Sit close and share one soft, detailed description of a touch you'd like to give.",
+      "love": "words"
+    },
+    {
+      "id": "curious-017",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer a feather, ice cube, or soft fabric and invite them to explore your skin with it however curiosity leads for one full minute.",
+      "speak": "Show me what feels good. I'm curious too.",
+      "soften": "Hand them a soft scarf and invite a few slow strokes across your arm or back.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "curious-018",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to blindfold you gently, then narrate every soft thing you're feeling while they use only light texture or temperature play.",
+      "speak": "That feels cool… now warmer… keep going, I want to notice everything.",
+      "soften": "Close your eyes and simply describe the first gentle touch they offer.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-019",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a short follow-the-leader round: they set a slow rhythm of kisses or touches and you match it exactly for sixty seconds.",
+      "speak": "I'm matching you. Lead me.",
+      "soften": "Ask them to set a gentle pace of kisses and follow along for a short while.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "curious-020",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to hover their hands just above your skin and move them slowly so you can feel the heat without contact for a full minute.",
+      "speak": "I can feel you right there. Don't touch yet.",
+      "soften": "Sit close with hands near each other and notice the warmth for twenty seconds.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "curious-021",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to build a tiny sensory station with whatever is nearby (ice, fabric, feather, warm breath) and invite them to choose the order.",
+      "soften": "Gather two soft things and let them pick which one you use first.",
+      "love": "service"
+    },
+    {
+      "id": "curious-022",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to take your hands and guide them wherever curiosity points for thirty seconds while you keep your eyes closed.",
+      "speak": "Show me. I'm open to whatever you want me to feel.",
+      "soften": "Close your eyes and let them place your hands somewhere gentle.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-023",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a pacing game: kiss or touch for ten seconds, pause for ten, repeat three times, letting the want build.",
+      "soften": "Share three slow kisses with a short breath between each.",
+      "love": "time"
+    },
+    {
+      "id": "curious-024",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to describe, out loud, one new way they'd like to be touched while you listen without acting on it yet.",
+      "soften": "Ask them to share one soft new idea for closeness and simply thank them.",
+      "love": "words"
+    },
+    {
+      "id": "curious-025",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Together, each build a short 'try-new-things' menu of three curious ideas (sensory, pacing, or light lead/follow). Share the menus, then circle one item you both want to explore soon.",
+      "soften": "Each name one new gentle idea you'd like to try and pick a favorite together.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "curious-026",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Take turns leading for three minutes each: the leader chooses only soft sensory play (texture, temperature, breath) while the other simply receives and notices.",
+      "soften": "Take turns offering one minute of gentle, curious touch while the other relaxes.",
+      "together": true,
+      "timebox": 180,
+      "love": "touch"
+    },
+    {
+      "id": "curious-027",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Create a shared tease-without-touching game: sit close, keep hands to yourselves, and take turns saying one specific thing you'd do if touch were allowed, building the list together.",
+      "soften": "Sit close and each share one soft description of a touch you'd like to give.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "curious-028",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the difference between 'curious' and 'ready' and how you both like to signal when something new feels exciting.",
+      "love": "words"
+    },
+    {
+      "id": "curious-029",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Share the softest or most surprising sensory idea either of you has ever wanted to try with the other.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-030",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Discuss how it feels when one of you takes the lead for a little while and what makes that feel safe and fun.",
+      "love": "time"
+    },
+    {
+      "id": "curious-031",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them one temperature contrast you've been curious to feel on your skin with them — cold to warm or the reverse.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-032",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What fantasy have you almost whispered out loud but still keep half-hidden?",
+      "love": "words"
+    },
+    {
+      "id": "curious-033",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe how you most want to be held in the quiet minutes after something intense.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-034",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What is one position or posture you've been curious to be guided into, just to see how it feels?",
+      "love": "time"
+    },
+    {
+      "id": "curious-035",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Share a taste or texture you've imagined exploring while blindfolded with them.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-036",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What would 'strangers meeting at a party' energy look like if you tried it for a few minutes at home?",
+      "love": "words"
+    },
+    {
+      "id": "curious-037",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Name one kind of body worship with words that would make you feel seen rather than exposed.",
+      "love": "words"
+    },
+    {
+      "id": "curious-038",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a temperature ladder: start with something cool on their skin, then warm it slowly with your hands or breath over ninety seconds.",
+      "speak": "Feel the change. Tell me when it turns from cool to warm.",
+      "soften": "Use only warm hands or breath for a shorter sensory pass.",
+      "timebox": 90,
+      "love": "touch"
+    },
+    {
+      "id": "curious-039",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to exchange one whispered fantasy each — speak it close to their ear, then let the silence sit for a moment.",
+      "speak": "I've been turning this over in my mind when I look at you.",
+      "soften": "Share one softer curiosity in a normal quiet voice.",
+      "love": "words"
+    },
+    {
+      "id": "curious-040",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a role-frame lite: for five minutes you are strangers who just met at a party and already feel the pull. Speak and touch only as new acquaintances.",
+      "speak": "I don't usually do this, but I had to come talk to you.",
+      "soften": "Try two minutes of 'just met' politeness with warmer eyes.",
+      "timebox": 300,
+      "love": "words"
+    },
+    {
+      "id": "curious-041",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer a blindfolded taste test: they close their eyes while you give them three small tastes or scents to identify.",
+      "speak": "Open your mouth. Tell me what you think this is.",
+      "soften": "Offer one surprise taste or scent while they keep eyes open.",
+      "timebox": 90,
+      "love": "touch"
+    },
+    {
+      "id": "curious-042",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to guide your hands with their voice alone for one minute — you touch only where and how they describe.",
+      "speak": "Tell me exactly where to put my hands next.",
+      "soften": "Ask for one place they want your hands and follow it.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "curious-043",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose an orgasm-denial-lite tease: bring the heat up with touch or kissing for two minutes, then pause completely and hold the want.",
+      "speak": "We're stopping here on purpose. Stay with me in it.",
+      "soften": "Kiss or touch for a minute then share a calm pause.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "curious-044",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a kissing-only constraint: ten full minutes of only kissing and light hands — nothing further, no matter how much you both want it.",
+      "speak": "Just this. We don't get to go further yet.",
+      "soften": "Agree to three minutes of only kissing.",
+      "timebox": 600,
+      "love": "time"
+    },
+    {
+      "id": "curious-045",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer a sealed-envelope fantasy: write one short curiosity or desire on paper, fold it, and exchange. You may open now or later.",
+      "soften": "Speak one soft curiosity instead of writing it.",
+      "love": "words"
+    },
+    {
+      "id": "curious-046",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a body-worship-with-words round: spend sixty seconds describing what you admire about their body while your hands stay still.",
+      "speak": "I need you to hear what I see when I look at you.",
+      "soften": "Offer three specific appreciative sentences.",
+      "timebox": 60,
+      "love": "words"
+    },
+    {
+      "id": "curious-047",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a commanded-position game: they suggest a posture or placement, you try it for thirty seconds, then switch.",
+      "speak": "Show me how you want me right now.",
+      "soften": "Suggest one comfortable position change and try it briefly.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "curious-048",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite an edging-adjacent pause: get close with touch or friction, then freeze for twenty seconds when either of you says 'hold.'",
+      "speak": "Hold. Stay exactly there.",
+      "soften": "Practice one intentional pause during close contact.",
+      "timebox": 90,
+      "love": "touch"
+    },
+    {
+      "id": "curious-049",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to discover massage oil or lotion together: warm it, then explore one new area of skin with slow hands for a minute.",
+      "speak": "Tell me how this pressure feels.",
+      "soften": "Use a little lotion on hands or shoulders only.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "curious-050",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to mark three yes / three maybe / three no curiosities on an invisible list, then share only one yes out loud.",
+      "soften": "Share one clear yes and one gentle maybe.",
+      "love": "words"
+    },
+    {
+      "id": "curious-051",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Whisper a short guided-self-touch instruction and let them decide whether to follow it while you watch.",
+      "speak": "If you want, move your hand here and show me.",
+      "soften": "Suggest one soft self-touch idea without watching.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-052",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a temperature play coda: end a close moment with something cool followed immediately by warm breath or lips.",
+      "speak": "Cold first… now warm. Stay with it.",
+      "soften": "Use only warm breath after a pause.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-053",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Together, each build a private yes/no/maybe list of three items each, trade lists, and discuss only one shared yes.",
+      "soften": "Each name one yes and one maybe, then pick a favorite.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "curious-054",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Run a ten-minute kissing-only contract: no further contact, just the constraint and whatever heat it builds.",
+      "soften": "Try three minutes of kissing-only with a clear end.",
+      "together": true,
+      "timebox": 600,
+      "love": "time"
+    },
+    {
+      "id": "curious-055",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Exchange sealed fantasy notes, open them at the same time, and choose one detail from each to keep in the air tonight.",
+      "soften": "Share one spoken curiosity each and keep a detail.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "curious-056",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Take turns guiding each other's hands by voice alone for ninety seconds each while eyes stay closed.",
+      "soften": "Guide one hand placement each with words.",
+      "together": true,
+      "timebox": 180,
+      "love": "touch"
+    },
+    {
+      "id": "curious-057",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Create a shared aftercare preview: each describes how they want to be held or spoken to after intensity, then practice the first thirty seconds of it.",
+      "soften": "Each name one comforting gesture and try it briefly.",
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "curious-058",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "What is one new sensory idea that feels low-stakes enough to try this month?",
+      "love": "touch"
+    },
+    {
+      "id": "curious-059",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "How do you usually signal that you're curious but not yet ready?",
+      "love": "words"
+    },
+    {
+      "id": "curious-060",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "What temperature do you most associate with feeling open and relaxed?",
+      "love": "time"
+    },
+    {
+      "id": "curious-061",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "Name one word that immediately makes an experiment feel safer for you.",
+      "love": "words"
+    },
+    {
+      "id": "curious-062",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the difference between a fantasy that stays hot in your head and one you'd actually want to try.",
+      "love": "words"
+    },
+    {
+      "id": "curious-063",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Discuss how constraints — kissing only, timed pauses, voice guidance — can make ordinary touch feel brand new.",
+      "love": "time"
+    },
+    {
+      "id": "curious-064",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Share what good aftercare looks like for each of you when the intensity has been high.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-065",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the role of 'maybe' — the things that aren't yes yet but aren't no either.",
+      "love": "words"
+    },
+    {
+      "id": "curious-066",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them about a temperature memory that still lives on your skin when you think of them.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-067",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What first-time nerves still show up for you even with someone you trust completely?",
+      "love": "words"
+    },
+    {
+      "id": "curious-068",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Share a jealousy-free fantasy that involves only the two of you and feels expansive rather than risky.",
+      "love": "time"
+    },
+    {
+      "id": "curious-069",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What kind of stillness is hardest for you to hold when someone is touching you with intent?",
+      "love": "touch"
+    },
+    {
+      "id": "curious-070",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe a persona you've been curious to try on for a few minutes just to see how it fits.",
+      "love": "words"
+    },
+    {
+      "id": "curious-071",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "What small permission from them always makes the next step feel easier?",
+      "love": "words"
+    },
+    {
+      "id": "curious-072",
+      "deck": "curious",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them one sensation you've never thought to look for around the house until right now.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-073",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a sensation scavenger hunt: find five different textures in the house and bring them back to try on each other's skin.",
+      "speak": "I found this one for you. Close your eyes.",
+      "soften": "Find two soft textures and share them.",
+      "timebox": 300,
+      "love": "touch"
+    },
+    {
+      "id": "curious-074",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to tell a short fantasy story in the dark — three minutes, no interruptions, just your voice and the dark.",
+      "speak": "Keep the lights off. Just listen.",
+      "soften": "Share a shorter spoken fantasy with a low light on.",
+      "timebox": 180,
+      "love": "words"
+    },
+    {
+      "id": "curious-075",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite an obedient-breathing game: they set the pace — slow, deep, hold — and you follow exactly for ninety seconds.",
+      "speak": "Breathe with me. Only how I say.",
+      "soften": "Match each other's breathing for thirty seconds.",
+      "timebox": 90,
+      "love": "time"
+    },
+    {
+      "id": "curious-076",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer a warm-oil-drip trace: warm a little oil between your hands, then let it drip and spread slowly along a path they approve.",
+      "speak": "Tell me if the heat is right.",
+      "soften": "Use lotion instead and keep the path short.",
+      "timebox": 90,
+      "love": "touch"
+    },
+    {
+      "id": "curious-077",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a role-audition: try on a persona for three minutes — voice, posture, and one repeated phrase — while they simply receive.",
+      "speak": "For these three minutes I am this version of me.",
+      "soften": "Try a lighter persona shift for one minute.",
+      "timebox": 180,
+      "love": "words"
+    },
+    {
+      "id": "curious-078",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a yes-escalation chain: start with one small ask; each yes unlocks one slightly bolder ask, up to five total.",
+      "speak": "Yes unlocks the next one. We can stop at any time.",
+      "soften": "Try a three-step version with softer asks.",
+      "love": "words"
+    },
+    {
+      "id": "curious-079",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite blindfolded-obedience-lite: they wear a soft blindfold while you give three simple, safe instructions to follow by touch and voice.",
+      "speak": "Trust my voice. One step at a time.",
+      "soften": "Give one simple guided instruction without a blindfold.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "curious-080",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer a permission-ladder: ask for three escalating permissions in a row, waiting for a clear yes each time before moving.",
+      "speak": "Can I…? And if yes, can I also…?",
+      "soften": "Ask for two clear permissions and honor both.",
+      "love": "words"
+    },
+    {
+      "id": "curious-081",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a stamina-and-stillness contest: stay completely still while the other person teases with light touch for sixty seconds. First to move loses.",
+      "speak": "Don't move. I want to see how long you last.",
+      "soften": "Try thirty seconds of stillness with softer touch.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "curious-082",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to invent a secret code-touch language with you: three different taps or strokes that mean yes, slower, and more.",
+      "speak": "This means yes. This means slower. Show me you understand.",
+      "soften": "Agree on one simple touch signal together.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-083",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer mirror-affirmations with touch: stand together where you can see yourselves and speak one true thing about their body while your hands rest on them.",
+      "speak": "Looking at you I need to say this out loud.",
+      "soften": "Share one affirmation without the mirror.",
+      "timebox": 60,
+      "love": "words"
+    },
+    {
+      "id": "curious-084",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite hands-tied-with-scarf follow-the-instructions: loosely bind their wrists with a soft scarf, then give three gentle instructions they can follow.",
+      "speak": "You're safe. Just follow what I ask.",
+      "soften": "Hold their hands still instead of binding and give one instruction.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "curious-085",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a temperature-memory replay: recreate a temperature sensation they've mentioned before and ask if it matches the memory.",
+      "speak": "Does this feel like the one you told me about?",
+      "soften": "Use a simple warm or cool touch and ask how it lands.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-086",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a short fantasy-storytelling trade: you start a scene in the dark, they add three sentences, you finish it.",
+      "soften": "Share a shorter back-and-forth spoken fantasy.",
+      "timebox": 180,
+      "love": "words"
+    },
+    {
+      "id": "curious-087",
+      "deck": "curious",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer an obedient-breathing cool-down: after any intensity, they guide your breathing back to calm for one full minute.",
+      "speak": "Bring me back. Set the pace.",
+      "soften": "Share a short guided breathing moment.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "curious-088",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Together, run a house-wide sensation scavenger hunt: collect five textures, then take turns trying them on each other with eyes closed.",
+      "soften": "Find three textures and share them.",
+      "together": true,
+      "timebox": 600,
+      "love": "touch"
+    },
+    {
+      "id": "curious-089",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Build a shared yes-escalation chain: alternate asks, each yes unlocking the next, stopping the moment either of you says stop or pause.",
+      "soften": "Try a short three-ask chain with clear check-ins.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "curious-090",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Create a secret code-touch language together and practice it for two minutes so both of you can fluently signal yes, slower, and more.",
+      "soften": "Invent and practice one or two signals.",
+      "together": true,
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "curious-091",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Take turns in a three-minute role-audition while the other simply receives and notices how the persona changes the air.",
+      "soften": "Each try a one-minute lighter persona.",
+      "together": true,
+      "timebox": 360,
+      "love": "words"
+    },
+    {
+      "id": "curious-092",
+      "deck": "curious",
+      "type": "challenge",
+      "level": 4,
+      "text": "Do a mutual stillness contest: one teases with permission, the other stays still; switch after sixty seconds.",
+      "soften": "Try thirty-second turns of stillness and light touch.",
+      "together": true,
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "curious-093",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "What is one texture in this home you have never thought to use for play?",
+      "love": "touch"
+    },
+    {
+      "id": "curious-094",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "How do you usually know you're ready to try a slightly bolder ask?",
+      "love": "words"
+    },
+    {
+      "id": "curious-095",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "What helps first-time nerves turn into curiosity instead of shutdown?",
+      "love": "time"
+    },
+    {
+      "id": "curious-096",
+      "deck": "curious",
+      "type": "ice",
+      "level": 4,
+      "text": "Name one word that immediately makes an experiment feel collaborative.",
+      "love": "words"
+    },
+    {
+      "id": "curious-097",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the difference between obedience that feels hot and obedience that feels heavy.",
+      "love": "words"
+    },
+    {
+      "id": "curious-098",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Discuss how a simple scarf or blindfold can change the entire tone of a familiar touch.",
+      "love": "touch"
+    },
+    {
+      "id": "curious-099",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Share what makes a fantasy feel safe enough to speak in the dark.",
+      "love": "words"
+    },
+    {
+      "id": "curious-100",
+      "deck": "curious",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the role of 'stop' and 'slower' as part of the pleasure rather than the end of it.",
+      "love": "time"
+    }
   ]
 }

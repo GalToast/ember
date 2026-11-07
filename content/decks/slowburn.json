@@ -389,6 +389,585 @@
       "level": 3,
       "text": "What small, specific thing do you both want more of when the night turns slow and close?",
       "love": "touch"
+    },
+    {
+      "id": "slowburn-041",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Tell them about a shower or bath fantasy you've had that involves both of you and plenty of warm water.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-042",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "What is one scent of theirs that immediately pulls up a close memory?",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-043",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Describe how you would undress them with your eyes first if you had a full minute to just look.",
+      "love": "words"
+    },
+    {
+      "id": "slowburn-044",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Share a waking-up-together fantasy — the light, the temperature, the first touch.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-045",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "What kind of thunderstorm-and-candles atmosphere makes you want to stay in and get closer?",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-046",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Tell them one place on your body that always softens when their hands spend time there.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-047",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "What slow kitchen moment between you still feels quietly charged when you remember it?",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-048",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe the most lingering way you want to be touched right after a shared shower while skin is still warm.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-049",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite them to sit on your lap for a full minute while you keep your hands slow and respectful on their back or waist.",
+      "speak": "Stay right here. I like the weight of you.",
+      "soften": "Invite a side-by-side lean with an arm around them.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-050",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer a slow kitchen dance to whatever music is already playing, or to silence, keeping continuous light contact.",
+      "speak": "Move with me for a little while. Nothing else matters right now.",
+      "soften": "Sway together for twenty seconds in the kitchen.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-051",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite them to let you run your fingers through their hair for sixty seconds with no other agenda.",
+      "speak": "I've been wanting to do this without rushing.",
+      "soften": "Offer a short, gentle hair touch or shoulder stroke.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-052",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Whisper one private secret or desire into the space just beside their ear while your hand rests lightly on them.",
+      "speak": "I keep thinking about this when you're close.",
+      "soften": "Share the same thought at a soft normal volume.",
+      "love": "words"
+    },
+    {
+      "id": "slowburn-053",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer to dry them off or help with post-shower skin care using slow, deliberate hands if the setting allows.",
+      "soften": "Offer a soft towel-handed shoulder rub or lotion on their arms.",
+      "love": "service"
+    },
+    {
+      "id": "slowburn-054",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite a feeding moment: offer them a grape, berry, or small bite with your fingers and wait for them to take it.",
+      "speak": "Taste this. I want to watch.",
+      "soften": "Hand them a small bite in a regular way.",
+      "love": "gifts"
+    },
+    {
+      "id": "slowburn-055",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Propose a midnight-kitchen-encounter frame: you both just ended up here, the house is quiet, and neither of you is ready to say goodnight yet.",
+      "speak": "I was hoping I'd find you still awake.",
+      "soften": "Share a quiet 'I'm glad you're still up' moment in the kitchen.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-056",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite clothing-optional-tease energy while home alone: keep everything on, but spend two minutes moving and looking as if the next layer could come off at any second.",
+      "speak": "If we stayed in this feeling long enough I'd start undressing you with my hands next.",
+      "soften": "Spend a minute close and heated without changing anything about clothing.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-057",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer a melting massage: slow hands on shoulders, neck, or scalp for ninety seconds while they do nothing but receive.",
+      "speak": "Let me take the day off you for a minute.",
+      "soften": "Give a short shoulder squeeze or neck rub.",
+      "timebox": 90,
+      "love": "service"
+    },
+    {
+      "id": "slowburn-058",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite them to dance with you to nothing — no music, just the rhythm you invent together while staying in contact.",
+      "soften": "Sway in place for a few breaths while holding on.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-059",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite a shower-and-steam fantasy out loud while sitting close: describe the water, the heat, and exactly how you would pull them under it with you.",
+      "speak": "I'd get in first and wait for you like this.",
+      "soften": "Describe a warm shared bath in softer detail.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-060",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer to hold them from behind for a full minute, chin near their shoulder, breathing together.",
+      "speak": "You fit here better than anywhere else.",
+      "soften": "Give a short standing hug from the side.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-061",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite them to let you trace slow shapes on their palm or wrist while you tell them one thing you love about their hands.",
+      "speak": "These hands do more to me than you know.",
+      "soften": "Hold their hand and mention one thing you like about it.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-062",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Propose a candles-and-low-light reset: dim what you can, sit close, and spend one minute only noticing each other's presence.",
+      "soften": "Turn down one light and sit quietly near each other.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "slowburn-063",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Together, take turns giving a two-minute melting shoulder-and-neck massage while the receiver stays completely still.",
+      "soften": "Trade one-minute gentle shoulder rubs.",
+      "together": true,
+      "timebox": 240,
+      "love": "service"
+    },
+    {
+      "id": "slowburn-064",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Create a shared shower-or-bath fantasy in three sentences each, then decide which details you both want to keep.",
+      "soften": "Each share one cozy water-related image involving both of you.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "slowburn-065",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Slow-dance in the kitchen or living room for one full song (or two minutes of silence), staying in continuous contact.",
+      "soften": "Sway together for thirty seconds.",
+      "together": true,
+      "timebox": 120,
+      "love": "time"
+    },
+    {
+      "id": "slowburn-066",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Take turns sitting on each other's lap for sixty seconds while trading one whispered want.",
+      "soften": "Share a side-by-side lean and one quiet wish.",
+      "together": true,
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-067",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Together, build a short 'home alone' scene: lights low, phones away, and five minutes of only touch and quiet words as if the rest of the world is closed.",
+      "soften": "Spend two minutes close and phone-free with softer contact.",
+      "together": true,
+      "timebox": 300,
+      "love": "time"
+    },
+    {
+      "id": "slowburn-068",
+      "deck": "slowburn",
+      "type": "topic",
+      "level": 3,
+      "text": "Talk about the kind of post-shower or late-night skin-to-skin energy that feels most comforting to both of you.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-069",
+      "deck": "slowburn",
+      "type": "topic",
+      "level": 3,
+      "text": "Share what makes a kitchen or hallway moment suddenly feel charged instead of ordinary.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-070",
+      "deck": "slowburn",
+      "type": "topic",
+      "level": 3,
+      "text": "Discuss the difference between a quick kiss and the kind that rearranges the rest of the evening.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-071",
+      "deck": "slowburn",
+      "type": "topic",
+      "level": 3,
+      "text": "Talk about scent, skin, and the small physical details that make you feel most at home with each other.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-072",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite them to close their eyes while you slowly map their forearm or shoulder with just your fingertips.",
+      "speak": "I want to learn this part of you again.",
+      "soften": "Trace a short gentle line on their arm while they watch.",
+      "timebox": 45,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-073",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer a shared blanket or throw and pull them in so you are both under it for a quiet minute.",
+      "soften": "Drape a blanket around both of you for a short moment.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-074",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Whisper the first thing you would do if you woke up before them and wanted to start the day close.",
+      "speak": "I'd stay right here and wait for you to notice.",
+      "soften": "Share a soft morning-together wish out loud.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-075",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite a one-minute 'look at me like we're already alone' pause across whatever distance you're in.",
+      "soften": "Share a longer-than-usual look with a smile.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-076",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Tell them about a time a simple cheek touch with their thumb stayed with you longer than expected.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-077",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "What is one physical feature of theirs you could appreciate out loud for a full minute?",
+      "love": "words"
+    },
+    {
+      "id": "slowburn-078",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Describe the lazy-Sunday-morning energy you most want to wake up inside together.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-079",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "What does it feel like when they watch you get ready and you notice?",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-080",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Share a late-night whisper you've held back that still wants to be said.",
+      "love": "words"
+    },
+    {
+      "id": "slowburn-081",
+      "deck": "slowburn",
+      "type": "truth",
+      "level": 3,
+      "text": "Where along your collarbone or neck do fingertips feel the most electric?",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-082",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite a coat-draped-over-shoulders walk around the room or hallway, your arm steadying them as you go.",
+      "speak": "I've got you. Stay close.",
+      "soften": "Drape a blanket or sweater around their shoulders for a moment.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-083",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer slow hands up the spine over clothing for forty-five seconds, checking in with your eyes.",
+      "speak": "Tell me if you want me to keep going.",
+      "soften": "Give a short, gentle back stroke instead.",
+      "timebox": 45,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-084",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite a kiss game with ice: hold an ice cube between your lips or fingers and trace a short cool path before warming it with a kiss.",
+      "speak": "Cold first… then me.",
+      "soften": "Skip the ice and offer a single warm kiss.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-085",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer a candlelight massage with unscented lotion on shoulders or hands for two full minutes.",
+      "speak": "Let me take my time with you.",
+      "soften": "Give a short shoulder rub without lotion.",
+      "timebox": 120,
+      "love": "service"
+    },
+    {
+      "id": "slowburn-086",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Stand behind them while they pretend to cook or stand at a counter and leave three slow shoulder kisses.",
+      "speak": "You look good even when you're not trying.",
+      "soften": "Give one soft kiss on the shoulder from the side.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-087",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite a nose-to-nose breathing pause for thirty seconds, eyes open or closed.",
+      "speak": "Just breathe with me.",
+      "soften": "Share a shorter forehead-to-forehead moment.",
+      "timebox": 30,
+      "love": "time"
+    },
+    {
+      "id": "slowburn-088",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Offer to dress them for the next part of the evening — choose one item and help them into it slowly.",
+      "speak": "I want to be the one who puts this on you.",
+      "soften": "Hand them one item and help with a sleeve or button.",
+      "love": "service"
+    },
+    {
+      "id": "slowburn-089",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Invite permission to brush or run your fingers through their hair for a full minute.",
+      "speak": "I've been wanting to do this without rushing.",
+      "soften": "Offer a short, gentle hair touch.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-090",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Propose a goodnight-kiss ritual right now: the kind that says the day is done and you're still choosing each other.",
+      "speak": "This is the kiss I want ending our nights.",
+      "soften": "Share a soft, unhurried goodnight-style kiss.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-091",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite a shower-steam-kiss-adjacent moment: describe or enact the heat of kissing just outside a steamy bathroom door, close enough to feel the warmth.",
+      "speak": "I'd pull you in before the steam even clears.",
+      "soften": "Share a warm, close kiss with a softer steam fantasy.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-092",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Offer hotel-room-energy roleplay for three minutes: the door just closed, the rest of the world is elsewhere, and you finally have privacy.",
+      "speak": "We've been waiting for this room all day.",
+      "soften": "Create a shorter 'just us' pause with lower heat.",
+      "timebox": 180,
+      "love": "time"
+    },
+    {
+      "id": "slowburn-093",
+      "deck": "slowburn",
+      "type": "dare",
+      "level": 3,
+      "text": "Hold their hand and stroke your thumb slowly across their skin for a full minute without speaking.",
+      "soften": "Hold hands with a few gentle thumb strokes.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-094",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Together, take turns giving a two-minute candlelit hand or shoulder massage with lotion while the other simply receives.",
+      "soften": "Trade one-minute gentle massages.",
+      "together": true,
+      "timebox": 240,
+      "love": "service"
+    },
+    {
+      "id": "slowburn-095",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Build a blanket-burrito cuddle: wrap yourselves in the same blanket and stay inside it for three full minutes.",
+      "soften": "Share a shorter blanket cocoon.",
+      "together": true,
+      "timebox": 180,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-096",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Do a favorite-feature appreciation rotation: each person gets ninety seconds to speak about one physical detail they love while touching it lightly.",
+      "soften": "Each share one appreciative sentence with a soft touch.",
+      "together": true,
+      "timebox": 180,
+      "love": "words"
+    },
+    {
+      "id": "slowburn-097",
+      "deck": "slowburn",
+      "type": "challenge",
+      "level": 3,
+      "text": "Create a shared slow-hug contest: hold a hug for at least ten full seconds, then see if you both want to double it.",
+      "soften": "Share one lingering hug of any length.",
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-098",
+      "deck": "slowburn",
+      "type": "topic",
+      "level": 3,
+      "text": "Talk about the difference between a quick goodnight kiss and the kind that rewrites the end of the day.",
+      "love": "touch"
+    },
+    {
+      "id": "slowburn-099",
+      "deck": "slowburn",
+      "type": "topic",
+      "level": 3,
+      "text": "Share what lazy-Sunday-morning energy needs in order to stay unbroken.",
+      "love": "time"
+    },
+    {
+      "id": "slowburn-100",
+      "deck": "slowburn",
+      "type": "topic",
+      "level": 3,
+      "text": "Discuss the small physical rituals — hair, hands, shoulders — that make ordinary moments feel chosen.",
+      "love": "touch"
     }
   ]
 }

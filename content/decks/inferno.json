@@ -1056,6 +1056,39 @@
       "bomb": true,
       "text": "Talk about which frame — strangers, first-date rewrite, new-sub night, or ownership rituals — pulls the strongest reaction from both of you and why the role itself gets hot.",
       "love": "words"
+    },
+    {
+      "id": "inferno-099",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Tell them exactly how you know the difference between intense and too much in the moment, and the clearest words you can use to name it without killing the heat.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-100",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite a full-surrender ten-minute window: one of you gives every instruction, the other obeys without question or negotiation until the time ends or a clear stop is spoken.",
+      "speak": "For these ten minutes I'm yours to direct. Tell me what to do.",
+      "soften": "Try a four-minute version with softer instructions and more check-ins.",
+      "timebox": 600,
+      "love": "time"
+    },
+    {
+      "id": "inferno-101",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Together, hold continuous contact for eight minutes while trading the ownership role at the exact halfway mark — four minutes each as the one who directs, without ever breaking touch.",
+      "soften": "Do four minutes total with a role trade at two minutes and lighter direction.",
+      "together": true,
+      "timebox": 480,
+      "love": "touch"
     }
   ]
 }

@@ -371,6 +371,534 @@
       "level": 2,
       "text": "Discuss one small trade that would make both of you feel more supported in the next couple of weeks.",
       "love": "service"
+    },
+    {
+      "id": "closer-041",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Thank them for something small they do that they would never expect to be thanked for.",
+      "love": "words"
+    },
+    {
+      "id": "closer-042",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Is there a light apology you feel you still owe them from anytime in the past year?",
+      "love": "words"
+    },
+    {
+      "id": "closer-043",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What is one question about us you've been quietly curious about but haven't asked yet?",
+      "love": "time"
+    },
+    {
+      "id": "closer-044",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What do you most need from the week ahead, in one clear sentence?",
+      "love": "words"
+    },
+    {
+      "id": "closer-045",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "If money didn't matter, what dream job or daily work would you actually want?",
+      "love": "time"
+    },
+    {
+      "id": "closer-046",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What trait of theirs do you admire most when no one else is watching?",
+      "love": "words"
+    },
+    {
+      "id": "closer-047",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "Share one real thing you have learned from being with them.",
+      "love": "time"
+    },
+    {
+      "id": "closer-048",
+      "deck": "closer",
+      "type": "truth",
+      "level": 3,
+      "text": "Is there a quiet fear about the future or about us that you've never quite put into words?",
+      "love": "words"
+    },
+    {
+      "id": "closer-049",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What song currently feels like it could be 'our song' even if you've never named it that?",
+      "love": "gifts"
+    },
+    {
+      "id": "closer-050",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What does calm actually look like for you on a regular day?",
+      "love": "time"
+    },
+    {
+      "id": "closer-051",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Invite them to receive sixty seconds of your full attention — phones down, eyes on them, no fixing, just presence.",
+      "soften": "Give them thirty seconds of undivided attention.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "closer-052",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Name one piece of invisible labor they handle that often goes unnoticed, and thank them for it out loud.",
+      "speak": "I see this thing you do, and it matters more than I've said.",
+      "soften": "Mention one helpful thing they regularly do and say thank you.",
+      "love": "service"
+    },
+    {
+      "id": "closer-053",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Offer to read them one short paragraph of a letter you would write if you were putting today's feelings on paper.",
+      "speak": "If I wrote this down for you, it would start like this…",
+      "soften": "Share one sentence you would put in a note to them.",
+      "love": "words"
+    },
+    {
+      "id": "closer-054",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Ask them what they need most this week and then reflect back what you heard in your own words.",
+      "soften": "Ask what would help them this week and listen fully.",
+      "love": "words"
+    },
+    {
+      "id": "closer-055",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Invite a two-minute 'finish this story together' improv: start a memory or imaginary scene and hand it back and forth.",
+      "soften": "Start a short shared memory and let them add one detail.",
+      "timebox": 120,
+      "love": "time"
+    },
+    {
+      "id": "closer-056",
+      "deck": "closer",
+      "type": "dare",
+      "level": 3,
+      "text": "Share one fear or worry you've kept light on purpose, and invite them to simply hold it with you for a moment.",
+      "speak": "I've been carrying this quietly and I want you to know.",
+      "soften": "Mention a small worry and let them respond however they want.",
+      "love": "words"
+    },
+    {
+      "id": "closer-057",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Point out one trait you admire in them and give a specific recent example of it in action.",
+      "soften": "Name one quality you like and leave it at that.",
+      "love": "words"
+    },
+    {
+      "id": "closer-058",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Offer to sit in calm together for one minute — no topic, no fix, just shared quiet.",
+      "soften": "Share twenty seconds of comfortable silence.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "closer-059",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Together, each name one piece of invisible work the other carries. Acknowledge it without trying to solve anything.",
+      "soften": "Each mention one helpful thing the other does behind the scenes.",
+      "together": true,
+      "love": "service"
+    },
+    {
+      "id": "closer-060",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Give each other sixty seconds of full attention in turn. The listener only nods, reflects, or says 'I hear you.'",
+      "soften": "Take thirty-second turns of focused listening.",
+      "together": true,
+      "timebox": 120,
+      "love": "time"
+    },
+    {
+      "id": "closer-061",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Build a short 'our song' shortlist together: each offers two candidates and you notice which ones both feel right.",
+      "soften": "Each suggest one song that feels like it belongs to both of you.",
+      "together": true,
+      "love": "gifts"
+    },
+    {
+      "id": "closer-062",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Take turns finishing the same story: one person starts a real or imaginary scene, the other continues, then switch again.",
+      "soften": "Co-tell one short memory with each person adding a sentence.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "closer-063",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Each share what calm looks like for you, then find one overlapping detail you can protect for each other this week.",
+      "soften": "Each describe a calm moment and notice any common ground.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "closer-064",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 3,
+      "text": "Together, name one light question about the relationship that has felt slightly avoided, and decide whether today is a good day to open it.",
+      "soften": "Each mention one gentle curiosity and agree to park or explore it.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "closer-065",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "What is one everyday thing that reliably helps you feel more settled?",
+      "love": "time"
+    },
+    {
+      "id": "closer-066",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "If you could hand the other person a single helpful tool for the week, what would it be?",
+      "love": "service"
+    },
+    {
+      "id": "closer-067",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "What is a small way they already make hard days a little easier?",
+      "love": "words"
+    },
+    {
+      "id": "closer-068",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "Name one thing you are looking forward to in the next few days.",
+      "love": "time"
+    },
+    {
+      "id": "closer-069",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "What kind of quiet feels good to you versus the kind that feels empty?",
+      "love": "time"
+    },
+    {
+      "id": "closer-070",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Talk about the difference between being busy together and actually feeling close.",
+      "love": "time"
+    },
+    {
+      "id": "closer-071",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Discuss what 'support' looks like on a Tuesday when nothing special is happening.",
+      "love": "service"
+    },
+    {
+      "id": "closer-072",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Share how you each like to be thanked so the appreciation actually lands.",
+      "love": "words"
+    },
+    {
+      "id": "closer-073",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Talk about a trait you hope you keep borrowing from each other over the years.",
+      "love": "words"
+    },
+    {
+      "id": "closer-074",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Discuss what a calm evening at home needs in order to feel restoring for both of you.",
+      "love": "time"
+    },
+    {
+      "id": "closer-075",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Share one thing you've learned about partnership simply by watching how the other person moves through the world.",
+      "love": "time"
+    },
+    {
+      "id": "closer-076",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What is one small ritual you would love to start together that you don't already have?",
+      "love": "time"
+    },
+    {
+      "id": "closer-077",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "After tension cools, what helps you feel ready to come back toward each other?",
+      "love": "words"
+    },
+    {
+      "id": "closer-078",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What is the compliment from them you still remember most clearly?",
+      "love": "words"
+    },
+    {
+      "id": "closer-079",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What matters most to you in a partnership when everything else is stripped away?",
+      "love": "time"
+    },
+    {
+      "id": "closer-080",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "How do you feel about phones at dinner or during focused time together?",
+      "love": "time"
+    },
+    {
+      "id": "closer-081",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "What is one secret dream you've been carrying that you haven't fully shared yet?",
+      "love": "words"
+    },
+    {
+      "id": "closer-082",
+      "deck": "closer",
+      "type": "truth",
+      "level": 2,
+      "text": "After a hard moment, what helps you feel like we are good again?",
+      "love": "words"
+    },
+    {
+      "id": "closer-083",
+      "deck": "closer",
+      "type": "truth",
+      "level": 3,
+      "text": "What is one thing you want more of in the way the two of you handle conflict once the heat has passed?",
+      "love": "time"
+    },
+    {
+      "id": "closer-084",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Invite them to listen while you read one paragraph from any book out loud, chosen just for them.",
+      "speak": "I picked this because it made me think of you.",
+      "soften": "Share one short sentence from a book or note.",
+      "love": "words"
+    },
+    {
+      "id": "closer-085",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Offer to recreate a simple meal or snack that carries a memory for either of you.",
+      "soften": "Name the memory-meal and suggest making it soon.",
+      "love": "service"
+    },
+    {
+      "id": "closer-086",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Say the redo: take one moment you wish you had handled more gently and say it again, the gentler way.",
+      "speak": "If I could say it again, it would sound like this.",
+      "soften": "Share one sentence you wish you'd said differently.",
+      "love": "words"
+    },
+    {
+      "id": "closer-087",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Translate one 'I love you' into their preferred love language right now — through words, time, touch, service, or a small gift.",
+      "soften": "Do one small thing that matches how they like to receive care.",
+      "love": "words"
+    },
+    {
+      "id": "closer-088",
+      "deck": "closer",
+      "type": "dare",
+      "level": 2,
+      "text": "Invite a sixty-second shared-goals check-in: name one thing you're both working toward this month.",
+      "soften": "Share one small goal you hope you're aligned on.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "closer-089",
+      "deck": "closer",
+      "type": "dare",
+      "level": 3,
+      "text": "Reveal one secret dream in a single clear sentence and let them simply hold it with you.",
+      "speak": "I've been carrying this quietly and I want you to know.",
+      "soften": "Share a lighter hope instead of a deep dream.",
+      "love": "words"
+    },
+    {
+      "id": "closer-090",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Together, design one weekly ritual you could actually keep — when, where, and what makes it feel like yours.",
+      "soften": "Each suggest one small weekly idea and pick a favorite.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "closer-091",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Build a tiny gratitude jar moment: each write or speak three specific things from the past week and place them in a shared list.",
+      "soften": "Each name two things you appreciated this week.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "closer-092",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Do a love-language translation round: each person says 'I love you' in the way the other most easily receives it.",
+      "soften": "Each offer one gesture that matches the other's style.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "closer-093",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Take turns with the redo: each of you re-says one moment you wish had gone differently, and receives it kindly.",
+      "soften": "Each share one sentence of redo and receive it kindly.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "closer-094",
+      "deck": "closer",
+      "type": "challenge",
+      "level": 2,
+      "text": "Hold a five-minute shared-goals check-in: name what you're building toward and one way you can support each other.",
+      "soften": "Each name one goal and one supporting action.",
+      "together": true,
+      "timebox": 300,
+      "love": "time"
+    },
+    {
+      "id": "closer-095",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "What small daily ritual already makes the house feel more like home?",
+      "love": "time"
+    },
+    {
+      "id": "closer-096",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "How do you know you're in a good headspace for a deeper conversation?",
+      "love": "words"
+    },
+    {
+      "id": "closer-097",
+      "deck": "closer",
+      "type": "ice",
+      "level": 2,
+      "text": "What is one value you hope never gets negotiated away between you?",
+      "love": "time"
+    },
+    {
+      "id": "closer-098",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Talk about inventing an anniversary that isn't on the calendar — a private date that only the two of you celebrate.",
+      "love": "time"
+    },
+    {
+      "id": "closer-099",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Discuss how each of you best learns the other's love dialect when it isn't obvious.",
+      "love": "words"
+    },
+    {
+      "id": "closer-100",
+      "deck": "closer",
+      "type": "topic",
+      "level": 2,
+      "text": "Share what a future-home negotiation would need to include so both of you feel heard.",
+      "love": "time"
     }
   ]
 }

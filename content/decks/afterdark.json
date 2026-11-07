@@ -4,35 +4,950 @@
   "blurb": "Where the night stops pretending. Intense, but all invitation.",
   "adult": true,
   "cards": [
-    { "id": "afterdark-001", "deck": "afterdark", "type": "truth", "level": 4, "text": "Describe the moment tonight you wanted to kiss them but didn't. What stopped you?", "love": "words" },
-    { "id": "afterdark-002", "deck": "afterdark", "type": "dare", "level": 4, "text": "Undress them slowly — their pace, their call. Every item comes off with eye contact.", "speak": "While you do, say what you love about the person underneath, not just the skin.", "timebox": 180, "soften": "Remove one item of their choosing, slowly.", "love": "touch" },
-    { "id": "afterdark-003", "deck": "afterdark", "type": "challenge", "level": 4, "text": "Mutual gaze, two minutes, no words. Hands on each other's hearts. The timer is the only voice.", "timebox": 120, "together": true, "soften": "One minute, eyes closed, foreheads touching.", "love": "touch" },
-    { "id": "afterdark-004", "deck": "afterdark", "type": "dare", "level": 4, "text": "Trace their lips with one finger. They keep their eyes closed. Describe out loud what you want to do next — you don't have to do it yet.", "speak": "Start every sentence with 'I want'.", "timebox": 120, "soften": "Trace their hand instead. Same rule.", "love": "words" },
-    { "id": "afterdark-005", "deck": "afterdark", "type": "truth", "level": 4, "text": "What's something you've been curious about with me but never brought up? Curiosity is the only price of admission.", "love": "words" },
-    { "id": "afterdark-006", "deck": "afterdark", "type": "challenge", "level": 4, "text": "Sixty seconds: describe each other's body using only words you'd want said about your soul.", "timebox": 60, "together": true, "soften": "One sentence each, whispered.", "love": "words" },
-    { "id": "afterdark-007", "deck": "afterdark", "type": "dare", "level": 4, "text": "Kiss down their neck, unhurried. The rule: wherever you pause, you must say one true thing before moving on.", "timebox": 180, "soften": "Three slow kisses, three true things.", "love": "touch" },
-    { "id": "afterdark-008", "deck": "afterdark", "type": "topic", "level": 4, "text": "Trade answers: what does desire feel like in your body — and what makes it louder for you tonight?", "together": true, "love": "words" },
-    { "id": "afterdark-009", "deck": "afterdark", "type": "truth", "level": 4, "text": "Tell them about the last time a simple look or gesture from them made your whole body light up with want.", "love": "words" },
-    { "id": "afterdark-010", "deck": "afterdark", "type": "truth", "level": 4, "text": "Share one quiet desire you've been carrying that you would love to explore together soon.", "love": "time" },
-    { "id": "afterdark-011", "deck": "afterdark", "type": "truth", "level": 4, "text": "Describe a moment from the past month when their presence alone made ordinary time feel electric.", "love": "touch" },
-    { "id": "afterdark-012", "deck": "afterdark", "type": "truth", "level": 4, "text": "What is one way they draw you in that still catches you off guard every time?", "love": "words" },
-    { "id": "afterdark-013", "deck": "afterdark", "type": "truth", "level": 4, "text": "Recall a shared night that still lives in your body as pure heat and closeness.", "love": "time" },
-    { "id": "afterdark-014", "deck": "afterdark", "type": "truth", "level": 4, "text": "Name one thing about the way they move or speak that turns the air warmer for you.", "love": "touch" },
-    { "id": "afterdark-015", "deck": "afterdark", "type": "dare", "level": 4, "text": "Invite them into a slow, lingering kiss and keep it soft and full of promise.", "speak": "I still get lost in you like this.", "soften": "Offer a warm forehead-to-forehead moment and a soft smile instead.", "love": "touch" },
-    { "id": "afterdark-016", "deck": "afterdark", "type": "dare", "level": 4, "text": "Pull them close for a quiet embrace and stay there long enough for the rest of the room to fade.", "speak": "Right here with you is exactly where I want to be.", "soften": "Give a gentle side hug and rest your head near theirs for a few breaths.", "love": "touch" },
-    { "id": "afterdark-017", "deck": "afterdark", "type": "dare", "level": 4, "text": "Trace a slow path along their arm or back while looking into their eyes.", "speak": "Every time I touch you I remember how lucky I am.", "soften": "Simply hold their hand and give a warm squeeze while smiling.", "love": "touch" },
-    { "id": "afterdark-018", "deck": "afterdark", "type": "dare", "level": 4, "text": "Lean in and offer a series of soft kisses along their jaw or cheek, unhurried.", "speak": "I could stay this close to you for hours.", "soften": "Place one gentle kiss on their cheek and linger nearby.", "love": "touch" },
-    { "id": "afterdark-019", "deck": "afterdark", "type": "dare", "level": 4, "text": "Guide their hand to rest against your chest so they can feel your heartbeat for a moment.", "speak": "This is what you do to me.", "soften": "Place your hand over theirs and hold it against your heart briefly.", "love": "touch" },
-    { "id": "afterdark-020", "deck": "afterdark", "type": "dare", "level": 4, "text": "Whisper a private invitation for later while pressing a slow kiss to their temple.", "speak": "I already know how I want tonight to end with you.", "soften": "Smile and quietly say you are looking forward to more time alone together.", "love": "words" },
-    { "id": "afterdark-021", "deck": "afterdark", "type": "dare", "level": 4, "text": "Wrap your arms around them from behind and sway together for a few breaths.", "speak": "You feel so good against me.", "soften": "Stand close and rest a hand on their shoulder while sharing a quiet moment.", "love": "touch" },
-    { "id": "afterdark-022", "deck": "afterdark", "type": "dare", "level": 4, "text": "Offer to undress them slowly by one piece of clothing, pausing to appreciate each reveal.", "speak": "I love discovering you all over again.", "soften": "Help them remove just one outer layer and leave a soft kiss on the newly bare skin.", "love": "service" },
-    { "id": "afterdark-023", "deck": "afterdark", "type": "dare", "level": 4, "text": "Sit them down and give a slow, attentive foot or hand massage for a full minute.", "soften": "Simply hold their hand or foot and give a few warm strokes.", "timebox": 60, "love": "service" },
-    { "id": "afterdark-024", "deck": "afterdark", "type": "dare", "level": 4, "text": "Invite them to close their eyes while you place three soft kisses anywhere you choose.", "soften": "Ask them to close their eyes and give one gentle kiss on the hand or cheek.", "love": "touch" },
-    { "id": "afterdark-025", "deck": "afterdark", "type": "challenge", "level": 4, "text": "Sit facing each other, keep continuous soft contact with hands or arms, and hold steady eye contact for a full minute without speaking.", "timebox": 60, "soften": "Hold hands and share soft eye contact for twenty seconds, smiling if it feels easier.", "together": true, "love": "touch" },
-    { "id": "afterdark-026", "deck": "afterdark", "type": "challenge", "level": 4, "text": "Each of you names three specific things you want more of from the other — small gestures, moments, or ways of being close — then choose one to begin tonight.", "soften": "Each share one simple thing you would enjoy more of from the other this week.", "together": true, "love": "words" },
-    { "id": "afterdark-027", "deck": "afterdark", "type": "challenge", "level": 4, "text": "Take turns leading a slow, close dance in place for one song, staying pressed close the whole time.", "soften": "Sway together gently for half a song while holding each other.", "together": true, "love": "time" },
-    { "id": "afterdark-028", "deck": "afterdark", "type": "topic", "level": 4, "text": "Talk about the kind of night that leaves you both feeling completely claimed by each other.", "love": "time" },
-    { "id": "afterdark-029", "deck": "afterdark", "type": "topic", "level": 4, "text": "Share the little signals that tell you the other is already thinking about later.", "love": "words" },
-    { "id": "afterdark-030", "deck": "afterdark", "type": "topic", "level": 4, "text": "Describe the atmosphere you both love most when the lights are low and the rest of the world has disappeared.", "love": "time" }
+    {
+      "id": "afterdark-001",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe the moment tonight you wanted to kiss them but didn't. What stopped you?",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-002",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Undress them slowly — their pace, their call. Every item comes off with eye contact.",
+      "speak": "While you do, say what you love about the person underneath, not just the skin.",
+      "timebox": 180,
+      "soften": "Remove one item of their choosing, slowly.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-003",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Mutual gaze, two minutes, no words. Hands on each other's hearts. The timer is the only voice.",
+      "timebox": 120,
+      "together": true,
+      "soften": "One minute, eyes closed, foreheads touching.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-004",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Trace their lips with one finger. They keep their eyes closed. Describe out loud what you want to do next — you don't have to do it yet.",
+      "speak": "Start every sentence with 'I want'.",
+      "timebox": 120,
+      "soften": "Trace their hand instead. Same rule.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-005",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What's something you've been curious about with me but never brought up? Curiosity is the only price of admission.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-006",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Sixty seconds: describe each other's body using only words you'd want said about your soul.",
+      "timebox": 60,
+      "together": true,
+      "soften": "One sentence each, whispered.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-007",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Kiss down their neck, unhurried. The rule: wherever you pause, you must say one true thing before moving on.",
+      "timebox": 180,
+      "soften": "Three slow kisses, three true things.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-008",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Trade answers: what does desire feel like in your body — and what makes it louder for you tonight?",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "afterdark-009",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them about the last time a simple look or gesture from them made your whole body light up with want.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-010",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Share one quiet desire you've been carrying that you would love to explore together soon.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-011",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe a moment from the past month when their presence alone made ordinary time feel electric.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-012",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What is one way they draw you in that still catches you off guard every time?",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-013",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Recall a shared night that still lives in your body as pure heat and closeness.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-014",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Name one thing about the way they move or speak that turns the air warmer for you.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-015",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them into a slow, lingering kiss and keep it soft and full of promise.",
+      "speak": "I still get lost in you like this.",
+      "soften": "Offer a warm forehead-to-forehead moment and a soft smile instead.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-016",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Pull them close for a quiet embrace and stay there long enough for the rest of the room to fade.",
+      "speak": "Right here with you is exactly where I want to be.",
+      "soften": "Give a gentle side hug and rest your head near theirs for a few breaths.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-017",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Trace a slow path along their arm or back while looking into their eyes.",
+      "speak": "Every time I touch you I remember how lucky I am.",
+      "soften": "Simply hold their hand and give a warm squeeze while smiling.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-018",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Lean in and offer a series of soft kisses along their jaw or cheek, unhurried.",
+      "speak": "I could stay this close to you for hours.",
+      "soften": "Place one gentle kiss on their cheek and linger nearby.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-019",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Guide their hand to rest against your chest so they can feel your heartbeat for a moment.",
+      "speak": "This is what you do to me.",
+      "soften": "Place your hand over theirs and hold it against your heart briefly.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-020",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Whisper a private invitation for later while pressing a slow kiss to their temple.",
+      "speak": "I already know how I want tonight to end with you.",
+      "soften": "Smile and quietly say you are looking forward to more time alone together.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-021",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Wrap your arms around them from behind and sway together for a few breaths.",
+      "speak": "You feel so good against me.",
+      "soften": "Stand close and rest a hand on their shoulder while sharing a quiet moment.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-022",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to undress them slowly by one piece of clothing, pausing to appreciate each reveal.",
+      "speak": "I love discovering you all over again.",
+      "soften": "Help them remove just one outer layer and leave a soft kiss on the newly bare skin.",
+      "love": "service"
+    },
+    {
+      "id": "afterdark-023",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Sit them down and give a slow, attentive foot or hand massage for a full minute.",
+      "soften": "Simply hold their hand or foot and give a few warm strokes.",
+      "timebox": 60,
+      "love": "service"
+    },
+    {
+      "id": "afterdark-024",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to close their eyes while you place three soft kisses anywhere you choose.",
+      "soften": "Ask them to close their eyes and give one gentle kiss on the hand or cheek.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-025",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Sit facing each other, keep continuous soft contact with hands or arms, and hold steady eye contact for a full minute without speaking.",
+      "timebox": 60,
+      "soften": "Hold hands and share soft eye contact for twenty seconds, smiling if it feels easier.",
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-026",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Each of you names three specific things you want more of from the other — small gestures, moments, or ways of being close — then choose one to begin tonight.",
+      "soften": "Each share one simple thing you would enjoy more of from the other this week.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "afterdark-027",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Take turns leading a slow, close dance in place for one song, staying pressed close the whole time.",
+      "soften": "Sway together gently for half a song while holding each other.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "afterdark-028",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the kind of night that leaves you both feeling completely claimed by each other.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-029",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Share the little signals that tell you the other is already thinking about later.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-030",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Describe the atmosphere you both love most when the lights are low and the rest of the world has disappeared.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-031",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them about the sound they make that stays in your head long after the moment ends.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-032",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What is one place on them you still consider slightly forbidden and therefore impossible to ignore?",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-033",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe how it feels when they say your name in the middle of getting lost in each other.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-034",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Share a mirror moment you've imagined — watching yourselves while something slow and heated happens.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-035",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What would you want them to whisper right before they close the distance against a wall?",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-036",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them one way you want to be undressed that still feels like a discovery every time.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-037",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What does it do to you when they take their time with your hair while kissing you?",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-038",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe the kind of lap-sitting that stops being casual and starts feeling like a decision.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-039",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What is one thing you want them to taste slowly the next time skin is available?",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-040",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to press you gently against a wall or door and kiss you like the rest of the house disappeared.",
+      "speak": "Stay right here. I'm not done with this yet.",
+      "soften": "Pin them lightly with your hands on the wall and give one long kiss.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-041",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to slide your hands into their hair while you kiss them with clear intent for a full minute.",
+      "speak": "I love the way you feel when I hold you like this.",
+      "soften": "Rest one hand in their hair during a softer kiss.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-042",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a one-item undressing trade: you remove one piece of their clothing, they remove one piece of yours, then pause and look.",
+      "speak": "Your turn. I want to see more of you.",
+      "soften": "Offer to remove one outer layer from each other with a smile.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-043",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Whisper exactly what you want to do next, then do only the first part of it and stop.",
+      "speak": "Next I'm going to… but not yet.",
+      "soften": "Whisper one soft intention and follow it with a single kiss.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-044",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to sit on your lap facing you and stay there for ninety seconds with eye contact and slow hands.",
+      "speak": "I want your weight on me while I look at you.",
+      "soften": "Invite a side sit or close lean for a shorter hold.",
+      "timebox": 90,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-045",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer a forbidden-place kiss: ask permission, then slowly kiss their wrist, the side of their neck, or the edge of their hip.",
+      "speak": "I've been thinking about tasting you here.",
+      "soften": "Kiss the back of their hand or shoulder with the same attention.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-046",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a mirror moment: move where you can both see yourselves and kiss or touch while watching the reflection for one minute.",
+      "speak": "Look at us. This is what I get to have.",
+      "soften": "Stand near a mirror and share a softer look and kiss.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-047",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to straddle your lap or hips and simply stare for thirty seconds before either of you moves again.",
+      "speak": "Don't look away. I want to feel this.",
+      "soften": "Sit close facing each other and hold a longer look.",
+      "timebox": 30,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-048",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to taste their collarbone slowly while your hands stay respectful but present.",
+      "speak": "You taste even better than I remembered.",
+      "soften": "Kiss near the collarbone or shoulder with care.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-049",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a hands-wander-with-permission game: ask before every new area, and they can say yes, slower, or not yet.",
+      "speak": "Can I go here? Tell me how it feels.",
+      "soften": "Ask once for permission to explore a little further with touch.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-050",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a slow-strip-to-music moment: choose a song and remove one item of clothing for every thirty seconds that passes, stopping whenever it feels right.",
+      "soften": "Remove one layer each while a song plays.",
+      "timebox": 120,
+      "love": "time"
+    },
+    {
+      "id": "afterdark-051",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Whisper their name the way you would if you were already further gone, then kiss them before they can answer.",
+      "speak": "The way I say your name when I want you.",
+      "soften": "Say their name softly and follow with a gentle kiss.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-052",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to undress them by one more item in the dark, using only touch to find your way.",
+      "speak": "I don't need light to know exactly how you feel.",
+      "soften": "Remove one layer in low light with care.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-053",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to press you against the nearest solid surface and keep you there with their body while kissing you slowly.",
+      "speak": "Hold me here. I'm not going anywhere.",
+      "soften": "Lean them gently against a wall for a shorter kiss.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-054",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose taking turns naming one thing you want to do next, then doing only the other person's request.",
+      "soften": "Each name one soft next step and choose one to try.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-055",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a full-minute collarbone-to-jaw exploration with lips only while they keep their hands wherever they want.",
+      "speak": "Stay still for me. I want to take my time.",
+      "soften": "Kiss slowly along their jaw or neck for a shorter stretch.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-056",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Together, take turns undressing one item from each other until you both decide to stop, pausing for a look after every piece.",
+      "soften": "Remove one layer each and pause to appreciate.",
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-057",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Create a shared mirror scene: five minutes of kissing or touching while you both watch yourselves, checking in with eyes as much as hands.",
+      "soften": "Share one minute of mirrored eye contact and soft touch.",
+      "together": true,
+      "timebox": 300,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-058",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Play the permission game together: every new touch requires a spoken yes, and either of you can change the pace at any time.",
+      "soften": "Practice asking and answering before two or three touches.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "afterdark-059",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Take turns sitting in each other's lap for ninety seconds, hands free to wander within agreed limits, eyes open.",
+      "soften": "Share a shorter lap sit or close hold with lighter touch.",
+      "together": true,
+      "timebox": 180,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-060",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Build a slow-strip playlist moment: pick one song, remove clothing only as the music moves you, and applaud each other between layers.",
+      "soften": "Remove one item each while a favorite song plays.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "afterdark-061",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the difference between a kiss that starts something and a kiss that is the whole event.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-062",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Share what makes undressing feel sacred instead of simply practical.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-063",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Discuss the places on each other that still feel electric precisely because you don't always go there.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-064",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about how watching yourselves in a mirror changes the heat of a moment.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-065",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Share what you want more of when the lights are low and time stops mattering.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-066",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them about a sound they make that you secretly wait for.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-067",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What is one place on your body that always feels under-attended and ready for more notice?",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-068",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Describe the slow-morning energy you most want to wake up inside with them.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-069",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Where do you most want their hands anchored when things start to heat up?",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-070",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What secret touch under a blanket would undo you even while a show is still playing?",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-071",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Tell them one gentle nibble or lip-pressure moment you've imagined and never asked for.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-072",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "What does a bedroom dance with zero music look like in your head?",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-073",
+      "deck": "afterdark",
+      "type": "truth",
+      "level": 4,
+      "text": "Share the kind of bath or shower steam that makes you want to stay in the water longer.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-074",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a bedroom dance with no music: move together for ninety seconds using only the rhythm you invent.",
+      "speak": "Follow me. Or make me follow you.",
+      "soften": "Sway together in the bedroom for thirty seconds.",
+      "timebox": 90,
+      "love": "time"
+    },
+    {
+      "id": "afterdark-075",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Ask permission, then offer a gentle nibble at a place they approve — lip, earlobe, or shoulder — soft enough to stay playful.",
+      "speak": "Can I taste you here, just a little?",
+      "soften": "Ask for a soft kiss on the same spot instead.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-076",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite light hair-pulling only after they say yes: a slow, careful tug while kissing to test the sensation.",
+      "speak": "Is this okay? Tell me if you want more or less.",
+      "soften": "Rest a hand in their hair without any pull.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-077",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer focused thigh-and-hip attention for one full minute with open-palm strokes and pauses.",
+      "speak": "I love how you feel right here.",
+      "soften": "Give a shorter, lighter touch along the same area.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-078",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Stand behind them and let your breath travel slowly along their neck without kissing yet.",
+      "speak": "I could stay here breathing you in all night.",
+      "soften": "Stand close behind and rest your chin near their shoulder.",
+      "timebox": 45,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-079",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to lie down and rest their head on your chest while you both listen for heartbeats for a full minute.",
+      "speak": "Just listen. That's what you do to me.",
+      "soften": "Share a shorter chest-to-ear hold.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-080",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a stripped-to-underscores round: each of you removes one item, then pauses for a look before deciding on a second.",
+      "speak": "Your turn. I want to see what you choose.",
+      "soften": "Remove one outer layer each and stop there.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-081",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a sensual twenty-questions: ask only body-and-desire questions, and answer with full honesty for five minutes.",
+      "speak": "My first question is about what you want right now.",
+      "soften": "Trade three softer desire questions.",
+      "timebox": 300,
+      "love": "words"
+    },
+    {
+      "id": "afterdark-082",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer a truth-or-strip hybrid: answer a revealing question or remove one item of clothing — their choice.",
+      "speak": "Truth or one layer. You decide.",
+      "soften": "Offer a lighter question or a single outer layer.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-083",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Start a body-part compliment rotation: name one specific place on them and why it undoes you, then invite them to do the same.",
+      "speak": "This part of you lives in my head.",
+      "soften": "Give one sincere physical compliment.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-084",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite them to point to any spot on their body; you kiss exactly that spot and nowhere else for thirty seconds.",
+      "speak": "Show me. I'll stay right there.",
+      "soften": "Kiss the spot they indicate for a shorter time.",
+      "timebox": 30,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-085",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Exchange sounds-you-love: demonstrate or describe one sound they make that you want more of.",
+      "speak": "When you sound like this I lose track of everything else.",
+      "soften": "Tell them one sound you love without demonstrating.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-086",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a remote-tease fantasy: describe in detail how you would distract them while they tried to do ordinary chores.",
+      "speak": "You'd be trying to finish the task and I'd keep making it impossible.",
+      "soften": "Share a lighter version of the same idea.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-087",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Place both hands firmly on their hips and keep them there while you kiss for a full minute.",
+      "speak": "These hips are mine for the next sixty seconds.",
+      "soften": "Rest your hands on their waist during a shorter kiss.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-088",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Offer to taste wine, whiskey, or whatever is nearby from their lips — sip, then kiss the flavor back and forth.",
+      "speak": "You make everything taste better.",
+      "soften": "Share a regular sip and a soft kiss after.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-089",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Invite a secret touch under a blanket while something plays on the screen — keep it hidden and deliberate for two minutes.",
+      "speak": "No one else gets to know what my hand is doing.",
+      "soften": "Hold hands under a blanket for a quieter minute.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-090",
+      "deck": "afterdark",
+      "type": "dare",
+      "level": 4,
+      "text": "Propose a gentle flinch game: use soft breath, light touch, or almost-kisses to see who reacts first.",
+      "speak": "I'm going to try to make you break first.",
+      "soften": "Play a softer version with only breath and near-touches.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-091",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Together, draw an invisible 'where to be touched' map on each other's skin using only a fingertip, then follow one route each.",
+      "soften": "Each trace one path and follow it briefly.",
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-092",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Take turns resting head-on-chest and listening for a full minute while the other person stays quiet and present.",
+      "soften": "Share a shorter heartbeat-listening hold.",
+      "together": true,
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-093",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Build a stripped-to-underscores sequence together: one item each per round, pausing for a look and a check-in every time.",
+      "soften": "Remove one layer each and stop.",
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-094",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Create a shared sensual twenty-questions: five questions each, all focused on desire, touch, or atmosphere.",
+      "soften": "Trade three lighter desire questions.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "afterdark-095",
+      "deck": "afterdark",
+      "type": "challenge",
+      "level": 4,
+      "text": "Spend three minutes under a blanket together with only secret, slow touch allowed while something plays in the background.",
+      "soften": "Hold hands or rest close under a blanket for a minute.",
+      "together": true,
+      "timebox": 180,
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-096",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about the difference between being touched and being mapped — when hands feel like they are learning you.",
+      "love": "touch"
+    },
+    {
+      "id": "afterdark-097",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Share what makes a slow morning together feel more intimate than a late night.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-098",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Discuss the sounds, breaths, or small reactions that tell you the other person is fully present.",
+      "love": "words"
+    },
+    {
+      "id": "afterdark-099",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Talk about how ordinary places — the couch, the kitchen, the hallway — become charged when touch turns intentional.",
+      "love": "time"
+    },
+    {
+      "id": "afterdark-100",
+      "deck": "afterdark",
+      "type": "topic",
+      "level": 4,
+      "text": "Share the kind of gentle edge — a nibble, a pull, a held hip — that stays playful and never tips into too much.",
+      "love": "touch"
+    }
   ]
 }

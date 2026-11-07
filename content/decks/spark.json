@@ -378,6 +378,547 @@
       "level": 1,
       "text": "Share what 'playful' looks like between you when no one else is around.",
       "love": "words"
+    },
+    {
+      "id": "spark-041",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What is one sleep habit of theirs that you find quietly endearing?",
+      "love": "time"
+    },
+    {
+      "id": "spark-042",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Tell them your current comfort-food craving and whether you'd share it with them.",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-043",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What secret talent of yours have they still not fully seen in action?",
+      "love": "words"
+    },
+    {
+      "id": "spark-044",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "If you two had a couple-superhero name, what would it be and what would your power be?",
+      "love": "words"
+    },
+    {
+      "id": "spark-045",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What future pet name for a possible animal companion keeps popping into your head?",
+      "love": "time"
+    },
+    {
+      "id": "spark-046",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Share one thing you think your friends would say is 'so you two' if they watched a regular evening at home.",
+      "love": "words"
+    },
+    {
+      "id": "spark-047",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What song would you put on a playlist that is secretly about them?",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-048",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Describe the dream-house detail you would give them a tour of first.",
+      "love": "time"
+    },
+    {
+      "id": "spark-049",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What small inside joke between you still works even when the timing is terrible?",
+      "love": "words"
+    },
+    {
+      "id": "spark-050",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite them to brainstorm three possible pet names for each other and vote on the most ridiculous winner.",
+      "soften": "Suggest one playful pet name and see if it sticks for a minute.",
+      "love": "words"
+    },
+    {
+      "id": "spark-051",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Offer to take a quick selfie together right now — serious face first, then the real smile.",
+      "soften": "Suggest a single candid photo if a selfie feels like too much.",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-052",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite a hand-holding walk around the room or down the hall for one full minute, no destination required.",
+      "soften": "Hold hands while standing still for twenty seconds.",
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "spark-053",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Reveal one tiny secret talent with a ten-second demonstration, no matter how useless.",
+      "soften": "Tell them about a small skill without the demo.",
+      "timebox": 15,
+      "love": "words"
+    },
+    {
+      "id": "spark-054",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Start a compliment-battle: trade genuine compliments back and forth until one of you laughs or runs out.",
+      "soften": "Give two sincere compliments and stop.",
+      "love": "words"
+    },
+    {
+      "id": "spark-055",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite them to help you create one brand-new inside joke in under a minute — a word, face, or reference that only you two will get.",
+      "soften": "Suggest a silly shared phrase and see if it lands.",
+      "love": "words"
+    },
+    {
+      "id": "spark-056",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Offer to queue a three-song mini playlist for them right now and play the first track if possible.",
+      "soften": "Name one song that makes you think of them.",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-057",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite a quick 'what would our friends say' round: each of you guesses the most likely comment friends would make about you as a pair.",
+      "soften": "Share one light guess about how friends see you two.",
+      "love": "words"
+    },
+    {
+      "id": "spark-058",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Invite a warm shower-together daydream out loud: describe the most playful, steamy-but-still-fun version of sharing a shower without leaving the room.",
+      "speak": "If we were in there right now I'd pull you closer like this.",
+      "soften": "Describe a cozy shared bath or long rinse in lighter terms.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-059",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Lean in and whisper one thing you find attractive about them in this exact moment, then stay close for three extra seconds.",
+      "speak": "Right now it's this about you that I can't ignore.",
+      "soften": "Say the same thing at normal volume with a smile.",
+      "love": "words"
+    },
+    {
+      "id": "spark-060",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Offer to cook or assemble something tiny together in the next five minutes — even if it's just toast or a snack plate.",
+      "soften": "Suggest making a simple snack side by side.",
+      "timebox": 300,
+      "love": "service"
+    },
+    {
+      "id": "spark-061",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite them to show you their best 'future pet' voice or name delivery for a fictional animal.",
+      "soften": "Ask what they would name a future pet.",
+      "love": "words"
+    },
+    {
+      "id": "spark-062",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Together, build a six-song shared playlist in five minutes: three songs each that feel like 'us' in different moods.",
+      "soften": "Each add one song that feels like the two of you.",
+      "together": true,
+      "timebox": 300,
+      "love": "gifts"
+    },
+    {
+      "id": "spark-063",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Create a couple-superhero identity together: name, powers, and one ridiculous weakness. Present it like a team announcement.",
+      "soften": "Each suggest a power and combine them into one fun identity.",
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "spark-064",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Take a two-photo series together: one 'serious couple' pose and one completely broken, laughing version.",
+      "soften": "Take one casual photo together.",
+      "together": true,
+      "love": "gifts"
+    },
+    {
+      "id": "spark-065",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Cook or prep one small thing side by side as a team challenge — no phones, just the two of you figuring it out.",
+      "soften": "Assemble a simple snack together.",
+      "together": true,
+      "timebox": 300,
+      "love": "service"
+    },
+    {
+      "id": "spark-066",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Brainstorm future pet names together until you have a shortlist of five, then crown a champion.",
+      "soften": "Each offer two pet-name ideas and pick a favorite.",
+      "together": true,
+      "love": "time"
+    },
+    {
+      "id": "spark-067",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Go on a one-minute hand-holding tour of the space you're in, pointing out one detail each as if showing a guest.",
+      "soften": "Walk a few steps together while holding hands.",
+      "together": true,
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "spark-068",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What comfort food would you want waiting for you after a long day?",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-069",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "Morning person, night person, or chaos person — where do you land this week?",
+      "love": "time"
+    },
+    {
+      "id": "spark-070",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What is the most recent photo of the two of you that still makes you happy?",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-071",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "If you could add one silly rule to the house for a day, what would it be?",
+      "love": "words"
+    },
+    {
+      "id": "spark-072",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What song instantly improves your mood when it comes on?",
+      "love": "time"
+    },
+    {
+      "id": "spark-073",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "Talk about the dream-house tour you would give each other — which room first and why.",
+      "love": "time"
+    },
+    {
+      "id": "spark-074",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "Discuss what kind of pet energy (or plant energy) would actually fit your real life together.",
+      "love": "time"
+    },
+    {
+      "id": "spark-075",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "Share what 'gossip about us' from friends would make you both laugh the hardest.",
+      "love": "words"
+    },
+    {
+      "id": "spark-076",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What is the most recent inside joke that still makes both of you laugh even when the timing is terrible?",
+      "love": "words"
+    },
+    {
+      "id": "spark-077",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Tell them about a nostalgic song that instantly pulls up a shared memory.",
+      "love": "time"
+    },
+    {
+      "id": "spark-078",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What tiny anniversary of an inside joke or silly moment do you think deserves a celebration?",
+      "love": "words"
+    },
+    {
+      "id": "spark-079",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "Share one favorite memory that still feels like it belongs on a highlight reel of the two of you.",
+      "love": "time"
+    },
+    {
+      "id": "spark-080",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What would your ideal midnight snack run look like if you could design every detail?",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-081",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "If you could vote on a future vacation right now, what destination would get your ballot?",
+      "love": "time"
+    },
+    {
+      "id": "spark-082",
+      "deck": "spark",
+      "type": "truth",
+      "level": 1,
+      "text": "What is one small thing from today that already feels worth remembering?",
+      "love": "words"
+    },
+    {
+      "id": "spark-083",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite a one-sentence love letter: write or speak a single sentence that captures how you feel about them right now.",
+      "speak": "If I only got one sentence it would be this.",
+      "soften": "Share one short appreciative sentence.",
+      "love": "words"
+    },
+    {
+      "id": "spark-084",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Offer a karaoke-for-one moment: sing four lines of any song, seriously or terribly, no judgment allowed.",
+      "soften": "Hum a few bars or quote the lyrics instead.",
+      "love": "time"
+    },
+    {
+      "id": "spark-085",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite a quick thumb-war tournament: best of three, winner gets to choose the next tiny activity.",
+      "soften": "Do one friendly thumb war and laugh about it.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-086",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Propose a midnight-snack-run fantasy: describe the perfect late-night food mission the two of you would take.",
+      "soften": "Name one snack you wish you had right now.",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-087",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite them to hide a short handwritten note somewhere in the room for you to find within two minutes.",
+      "soften": "Write a one-line note and hand it over instead.",
+      "timebox": 120,
+      "love": "gifts"
+    },
+    {
+      "id": "spark-088",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Offer a two-truths-and-a-lie about your day and let them guess the lie.",
+      "soften": "Share two true things about your day.",
+      "love": "words"
+    },
+    {
+      "id": "spark-089",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Invite a bedroom-window stargazing moment: stand or sit by the window together and point out anything that looks like a star, plane, or wish.",
+      "speak": "Make a wish with me even if it's just a streetlight.",
+      "soften": "Look out the window together for a short quiet moment.",
+      "timebox": 60,
+      "love": "time"
+    },
+    {
+      "id": "spark-090",
+      "deck": "spark",
+      "type": "dare",
+      "level": 2,
+      "bomb": true,
+      "text": "Lean in and create a brand-new secret handshake that includes one surprisingly soft or sweet gesture at the end.",
+      "speak": "This part is only ours.",
+      "soften": "Invent a simple two-move handshake.",
+      "love": "touch"
+    },
+    {
+      "id": "spark-091",
+      "deck": "spark",
+      "type": "dare",
+      "level": 1,
+      "text": "Invite a cooking-competition-lite: each of you invents a ridiculous three-ingredient snack and presents it like a contest entry.",
+      "soften": "Suggest one silly snack idea together.",
+      "love": "service"
+    },
+    {
+      "id": "spark-092",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Together, build a quick pillow-fort or blanket-fort big enough for both of you and declare it home base for five minutes.",
+      "soften": "Pile a couple of pillows and sit in the nest together.",
+      "together": true,
+      "timebox": 300,
+      "love": "time"
+    },
+    {
+      "id": "spark-093",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Create a secret handshake together that has at least four steps and one ridiculous finishing move.",
+      "soften": "Invent a short two- or three-step handshake.",
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "spark-094",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Draw quick portraits of each other in under two minutes, then reveal and celebrate the results.",
+      "soften": "Do a ten-second stick-figure portrait each.",
+      "together": true,
+      "timebox": 120,
+      "love": "gifts"
+    },
+    {
+      "id": "spark-095",
+      "deck": "spark",
+      "type": "challenge",
+      "level": 1,
+      "text": "Play footsie under the table or across the couch for one full minute without acknowledging it out loud.",
+      "soften": "Rest your feet near each other for a shorter stretch.",
+      "together": true,
+      "timebox": 60,
+      "love": "touch"
+    },
+    {
+      "id": "spark-096",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What future vacation idea keeps sneaking into your daydreams?",
+      "love": "time"
+    },
+    {
+      "id": "spark-097",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "Morning playlist, evening playlist, or chaos playlist — which one are you today?",
+      "love": "gifts"
+    },
+    {
+      "id": "spark-098",
+      "deck": "spark",
+      "type": "ice",
+      "level": 1,
+      "text": "What small comfort would make tonight feel like an automatic win?",
+      "love": "time"
+    },
+    {
+      "id": "spark-099",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "Talk about the perfect blanket-fort movie night — film, snacks, and non-negotiable rules.",
+      "love": "time"
+    },
+    {
+      "id": "spark-100",
+      "deck": "spark",
+      "type": "topic",
+      "level": 1,
+      "text": "Discuss a mystery date-night plan where one of you designs everything and the other only knows the dress code.",
+      "love": "gifts"
     }
   ]
 }
