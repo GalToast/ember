@@ -68,4 +68,15 @@ npm run lint:decks # all six decks: counts, levels, banned/clinical language
 node tests/resume.journey.mjs
 ```
 
+Android packaging order matters — `npx cap sync` copies the current `dist/`, so
+running it before a rebuild packages the *previous* bundle (blank screen, no
+error anywhere). Then verify before installing:
+
+```bash
+npm run build
+npx cap sync android
+npm run verify:apk     # APK vs dist/index.html; exit 1 = stale bundle
+npm run verify:staging # same, against android/app/src/main/assets/public
+```
+
 Images, audio, and the Android package are not covered by these.

@@ -9,7 +9,9 @@
     "preview": "vite preview --host 127.0.0.1",
     "lint:decks": "node scripts/lint-decks.mjs",
     "test": "node --experimental-strip-types --no-warnings tests/game.test.mjs",
-    "test:decks": "npm run lint:decks"
+    "test:decks": "npm run lint:decks",
+    "verify:apk": "node scripts/verify-apk.mjs",
+    "verify:staging": "node scripts/verify-apk.mjs --staging"
   },
   "devDependencies": {
     "@capacitor/assets": "^4.0.0",
