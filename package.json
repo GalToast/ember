@@ -10,9 +10,15 @@
     "lint:decks": "node scripts/lint-decks.mjs"
   },
   "devDependencies": {
+    "@capacitor/assets": "^4.0.0",
+    "@capacitor/cli": "^8.6.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "svelte": "^5.16.0",
     "typescript": "^5.7.2",
     "vite": "^6.0.7"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0"
   }
 }
