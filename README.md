@@ -52,3 +52,20 @@ npm run lint:decks
 ## Stack
 
 Vite + Svelte 5 + TypeScript, static build, no framework overhead beyond that. State is one module and one localStorage key. Deploy the `dist/` folder anywhere static.
+
+## Verify
+
+```bash
+npm test           # engine + persistence invariants (859 assertions, no extra deps)
+npm run build      # real Svelte compile
+npm run lint:decks # all six decks: counts, levels, banned/clinical language
+```
+
+`tests/resume.journey.mjs` is a real-browser check of the mid-night resume path
+(needs `npm run preview` on :4173):
+
+```bash
+node tests/resume.journey.mjs
+```
+
+Images, audio, and the Android package are not covered by these.
