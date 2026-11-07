@@ -135,6 +135,17 @@ export function markSeen(id: string) {
   seen.add(id);
 }
 
+/** Persisted truth for the seen set. The engine's `seen` is module-scoped, so
+ *  resume must re-seed it or cards served before the interruption come back. */
+export function seenIds(): string[] {
+  return [...seen];
+}
+
+export function seedSeen(ids: string[]): void {
+  seen.clear();
+  for (const id of ids) if (typeof id === 'string' && id) seen.add(id);
+}
+
 export function trackLove(ns: NightState, card: Card) {
   if (card.love) {
     ns.loveCounts = ns.loveCounts || {};

@@ -7,7 +7,9 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "lint:decks": "node scripts/lint-decks.mjs"
+    "lint:decks": "node scripts/lint-decks.mjs",
+    "test": "node --experimental-strip-types --no-warnings tests/game.test.mjs",
+    "test:decks": "npm run lint:decks"
   },
   "devDependencies": {
     "@capacitor/assets": "^4.0.0",

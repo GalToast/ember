@@ -5,7 +5,7 @@
   import CardView from './components/Card.svelte';
   import Celebration from './components/Celebration.svelte';
   import Icon from './components/Icon.svelte';
-  import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
+  import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
   import type { Card, DeckId } from './lib/schema';
 
   const persisted = $state(load());
@@ -59,6 +59,7 @@
     soft = false;
     count += 1;
     night.drawIndex += 1;
+    night.seen = [...night.seen, c.id];
     trackLove(night, c);
     landing = false;
     screen = 'play';
@@ -109,7 +110,7 @@
       night.loveCounts = n.loveCounts || {};
       night.drawIndex = n.drawIndex || 0;
       night.lastBombIndex = n.lastBombIndex ?? -99;
-      for (const id of night.seen) import('./lib/game.svelte').then(() => {}); // seen tracked via draw()
+      seedSeen(card.id ? [...night.seen, card.id] : night.seen);
       screen = 'play';
     } else {
       next();
@@ -200,7 +201,7 @@
 
     <div class="cardzone">
       {#key card.id}
-        <CardView {card} playerColor="p1" {soft} names={names} safeword={safeword} {landing} />
+        <CardView {card} playerColor="p1" {soft} names={names} safeword={safeword} {landing} onSwipe={(dir) => (dir === 'next' ? next() : skip())} />
       {/key}
     </div>
 
