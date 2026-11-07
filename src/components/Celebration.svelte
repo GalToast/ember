@@ -13,7 +13,7 @@
   <div class="glass panel" data-testid="celebration">
     <div class="crown"><Icon name="heart" size={30} /></div>
     <h2 class="display">What a night.</h2>
-    <p class="stat dim">{cards} cards · night #{nights + 1} of yours</p>
+    <p class="stat dim">{cards} cards · night #{nights} of yours</p>
     <ol>
       {#each lines as line (line)}
         <li>{line}</li>
