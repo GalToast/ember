@@ -845,6 +845,217 @@
       "bomb": true,
       "text": "Share the filthiest food-play image either of you still wants to make real — sticky, blindfolded, or fed by hand.",
       "love": "touch"
+    },
+    {
+      "id": "inferno-079",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Tell them how you would approach them if you were strangers at a bar tonight and already knew you were leaving together.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-080",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Describe the filthiest rewrite of your actual first date — same setting energy, completely different intentions.",
+      "love": "time"
+    },
+    {
+      "id": "inferno-081",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Share what 'brand-new submissive on their first night' would sound like coming out of your mouth.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-082",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "What sound or tone of voice from them would undo you fastest if it were the only sound you were allowed to react to?",
+      "love": "touch"
+    },
+    {
+      "id": "inferno-083",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Tell them which item of their clothing you most want to turn into a night-long ownership marker.",
+      "love": "gifts"
+    },
+    {
+      "id": "inferno-084",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Describe the room or piece of furniture you want claimed as exclusive territory for the rest of the night.",
+      "love": "time"
+    },
+    {
+      "id": "inferno-085",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "What scent of yours do you want left on them until morning, and where?",
+      "love": "touch"
+    },
+    {
+      "id": "inferno-086",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "If you could seal one instruction for them to open tomorrow, what would the first line say?",
+      "love": "words"
+    },
+    {
+      "id": "inferno-087",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite a strangers-at-a-bar frame for eight minutes: you have never touched before, every advance must be asked for in character, and you both already know you're leaving together.",
+      "speak": "I've been watching you all night. Tell me I can take you home.",
+      "soften": "Play the 'just met' energy for four minutes with softer asks.",
+      "timebox": 480,
+      "love": "words"
+    },
+    {
+      "id": "inferno-088",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Offer a first-date-replay frame: recreate the tone and setting energy of your real first date for seven minutes, except every polite moment is replaced with the explicit thing you wanted instead.",
+      "speak": "This is how I wanted the night to go the first time.",
+      "soften": "Replay the first-date feeling for three minutes with one honest filthy confession.",
+      "timebox": 420,
+      "love": "time"
+    },
+    {
+      "id": "inferno-089",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite a master-and-new-sub frame for twelve minutes: one of you is the experienced owner teaching, the other is on their first night of service — only permission questions and thanks allowed from the new sub.",
+      "speak": "Teach me how you want me. I'll only speak to ask and to thank you.",
+      "soften": "Try a six-minute version with lighter teaching and more check-ins.",
+      "timebox": 720,
+      "love": "service"
+    },
+    {
+      "id": "inferno-090",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Propose voice-and-sound control for six minutes: you may only make the exact sounds or words they request — moan on command, hold silence, count, beg in a given tone. No free vocalizing.",
+      "speak": "My voice belongs to you for these six minutes. Use it.",
+      "soften": "Limit free speech for three minutes and allow simple reactions.",
+      "timebox": 360,
+      "love": "words"
+    },
+    {
+      "id": "inferno-091",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite a mirror-audience frame: move where you can both see yourselves and deliver every instruction and reaction while watching the mirror for five full minutes. The mirror is the third participant.",
+      "speak": "Look at us. Tell me what you see while you use me.",
+      "soften": "Share two minutes of eye contact with your reflections and softer words.",
+      "timebox": 300,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-092",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Offer a scent-claiming ritual: mark them with your mouth or skin on a spot they choose, speak the claim out loud, and set the rule that the mark stays until morning.",
+      "speak": "This spot is mine until the sun comes up. Don't wash me off.",
+      "soften": "Leave a soft kiss-mark and a lighter spoken claim.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-093",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite a clothing-ownership ritual: choose one item they are wearing. For the rest of the night it functions as a collar-equivalent — they may only wear or remove it when you explicitly say. Presenting it becomes formal.",
+      "speak": "This belongs to me tonight. Ask before you touch it again.",
+      "soften": "Pick one item and ask them to treat it as special for the next hour.",
+      "timebox": 300,
+      "love": "gifts"
+    },
+    {
+      "id": "inferno-094",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Propose location ownership: claim one room or piece of furniture as restricted territory. The currently owned partner may only enter or use it with spoken permission every single time.",
+      "soften": "Choose one spot and add a simple permission ask for the next thirty minutes.",
+      "timebox": 600,
+      "love": "time"
+    },
+    {
+      "id": "inferno-095",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Invite the sealed multi-day instruction: write one clear, filthy or tender directive on paper, fold it, and hand it over with the rule that it cannot be opened until a specific time tomorrow or later. The writing and handing-over is the whole dare.",
+      "soften": "Write a shorter, softer sealed note for tomorrow.",
+      "timebox": 300,
+      "love": "words"
+    },
+    {
+      "id": "inferno-096",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Together, run a dual-frame scene: strangers-at-a-bar for five minutes, then without breaking physical contact slide directly into master-and-new-sub for another five. Consent check between frames.",
+      "soften": "Do three minutes of 'just met' energy then three minutes of lighter lead-and-follow.",
+      "together": true,
+      "timebox": 600,
+      "love": "time"
+    },
+    {
+      "id": "inferno-097",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Build a shared ownership kit in ten minutes: choose one clothing item, one scent mark location, one restricted spot in the home, and one sealed instruction for tomorrow. Formalize each with spoken rules.",
+      "soften": "Pick two ownership elements and set lighter rules for the evening.",
+      "together": true,
+      "timebox": 600,
+      "love": "gifts"
+    },
+    {
+      "id": "inferno-098",
+      "deck": "inferno",
+      "type": "topic",
+      "level": 4,
+      "bomb": true,
+      "text": "Talk about which frame — strangers, first-date rewrite, new-sub night, or ownership rituals — pulls the strongest reaction from both of you and why the role itself gets hot.",
+      "love": "words"
     }
   ]
 }
