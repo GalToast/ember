@@ -1,0 +1,16 @@
+{
+  "id": "curious",
+  "name": "Curious",
+  "blurb": "New things, tried together. Kink exploration for two curious people.",
+  "adult": true,
+  "cards": [
+    { "id": "curious-001", "deck": "curious", "type": "topic", "level": 4, "text": "The Try-New-Things menu: each writes three things you're curious to explore with me — one gentle, one bold, one wild card. Trade. Pick one to order this month.", "together": true, "soften": "Say one thing you're curious about, no list.", "love": "words" },
+    { "id": "curious-002", "deck": "curious", "type": "dare", "level": 4, "text": "Blindfold them (scarf, shirt, sleep mask). Five minutes of your undivided attention — you decide everything, gently.", "speak": "Narrate what you're about to do before you do it. Always.", "timebox": 300, "soften": "Eyes closed, one minute of touch, narrated.", "love": "touch" },
+    { "id": "curious-003", "deck": "curious", "type": "challenge", "level": 4, "text": "Power swap: one of you gives a single, gentle command; the other follows for three minutes. Then swap. Safe word exists and is sacred.", "timebox": 360, "together": true, "soften": "Just trade: each names one thing you'd want the other to take the lead on.", "love": "touch" },
+    { "id": "curious-004", "deck": "curious", "type": "dare", "level": 4, "text": "Ice trace: run an ice cube slowly along their collarbone and neck. Your other hand is not allowed to help.", "timebox": 120, "soften": "Feather-light fingertip trace instead of ice.", "love": "touch" },
+    { "id": "curious-005", "deck": "curious", "type": "truth", "level": 4, "text": "What's a fantasy you've never said out loud? The card swears confidentiality — what happens in Ember stays in Ember.", "love": "words" },
+    { "id": "curious-006", "deck": "curious", "type": "challenge", "level": 4, "text": "The tease game: whoever gives in and touches the other first loses, and grants one wish tonight. No time limit — that's the point.", "together": true, "soften": "Ten seconds of almost-touching, then swap.", "love": "touch" },
+    { "id": "curious-007", "deck": "curious", "type": "dare", "level": 4, "text": "Take control of their evening for the next hour: pick the next two cards, the music, and how close they sit.", "timebox": 600, "soften": "Take control of just the next card.", "love": "service" },
+    { "id": "curious-008", "deck": "curious", "type": "topic", "level": 4, "text": "Trade answers: what does 'being wanted' feel like for you — chased, chosen, claimed, or something else entirely?", "together": true, "love": "words" }
+  ]
+}

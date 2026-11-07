@@ -1,0 +1,16 @@
+{
+  "id": "afterdark",
+  "name": "After Dark",
+  "blurb": "Where the night stops pretending. Intense, but all invitation.",
+  "adult": true,
+  "cards": [
+    { "id": "afterdark-001", "deck": "afterdark", "type": "truth", "level": 4, "text": "Describe the moment tonight you wanted to kiss them but didn't. What stopped you?", "love": "words" },
+    { "id": "afterdark-002", "deck": "afterdark", "type": "dare", "level": 4, "text": "Undress them slowly — their pace, their call. Every item comes off with eye contact.", "speak": "While you do, say what you love about the person underneath, not just the skin.", "timebox": 180, "soften": "Remove one item of their choosing, slowly.", "love": "touch" },
+    { "id": "afterdark-003", "deck": "afterdark", "type": "challenge", "level": 4, "text": "Mutual gaze, two minutes, no words. Hands on each other's hearts. The timer is the only voice.", "timebox": 120, "together": true, "soften": "One minute, eyes closed, foreheads touching.", "love": "touch" },
+    { "id": "afterdark-004", "deck": "afterdark", "type": "dare", "level": 4, "text": "Trace their lips with one finger. They keep their eyes closed. Describe out loud what you want to do next — you don't have to do it yet.", "speak": "Start every sentence with 'I want'.", "timebox": 120, "soften": "Trace their hand instead. Same rule.", "love": "words" },
+    { "id": "afterdark-005", "deck": "afterdark", "type": "truth", "level": 4, "text": "What's something you've been curious about with me but never brought up? Curiosity is the only price of admission.", "love": "words" },
+    { "id": "afterdark-006", "deck": "afterdark", "type": "challenge", "level": 4, "text": "Sixty seconds: describe each other's body using only words you'd want said about your soul.", "timebox": 60, "together": true, "soften": "One sentence each, whispered.", "love": "words" },
+    { "id": "afterdark-007", "deck": "afterdark", "type": "dare", "level": 4, "text": "Kiss down their neck, unhurried. The rule: wherever you pause, you must say one true thing before moving on.", "timebox": 180, "soften": "Three slow kisses, three true things.", "love": "touch" },
+    { "id": "afterdark-008", "deck": "afterdark", "type": "topic", "level": 4, "text": "Trade answers: what does desire feel like in your body — and what makes it louder for you tonight?", "together": true, "love": "words" }
+  ]
+}

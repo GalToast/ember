@@ -1,0 +1,24 @@
+{
+  "id": "slowburn",
+  "name": "Slow Burn",
+  "blurb": "Flirty dares, sensual truths, tension you can feel.",
+  "adult": false,
+  "cards": [
+    { "id": "slowburn-001", "deck": "slowburn", "type": "truth", "level": 3, "text": "Describe our best kiss in detail. The other person is not allowed to interrupt until you're finished.", "love": "words" },
+    { "id": "slowburn-002", "deck": "slowburn", "type": "dare", "level": 3, "timebox": 60, "text": "Kiss them like you mean it, then pull away first. That's the whole dare.", "soften": "Three short kisses with eye contact between each.", "love": "touch" },
+    { "id": "slowburn-003", "deck": "slowburn", "type": "dare", "level": 3, "timebox": 120, "text": "Trace their collarbone with one fingertip, unhurried.", "speak": "While you do, say what you were thinking the first time you saw them tonight.", "soften": "Trace their forearm instead.", "love": "touch" },
+    { "id": "slowburn-004", "deck": "slowburn", "type": "truth", "level": 3, "text": "What do you think about when we're apart? Be specific — moments, not summaries.", "love": "words" },
+    { "id": "slowburn-005", "deck": "slowburn", "type": "challenge", "level": 3, "together": true, "timebox": 60, "text": "Mutual gaze, one minute, zero words. Whoever speaks first pays a kiss toll.", "soften": "Thirty seconds, eyes allowed to close.", "love": "touch" },
+    { "id": "slowburn-006", "deck": "slowburn", "type": "dare", "level": 3, "timebox": 90, "text": "Slow dance with no music. Pick the tempo with your bodies, not your words.", "speak": "Halfway through, whisper what you want tonight — the feeling, not the plan.", "soften": "Just sway, no dare beyond that.", "love": "touch" },
+    { "id": "slowburn-007", "deck": "slowburn", "type": "truth", "level": 3, "text": "When was the last time you felt genuinely wanted by me? What was I doing right?", "love": "words" },
+    { "id": "slowburn-008", "deck": "slowburn", "type": "dare", "level": 3, "timebox": 60, "text": "Kiss their neck for 30 slow seconds.", "speak": "While you do, tell them the moment this week you were proudest of them.", "soften": "Forehead kiss plus the compliment.", "love": "touch" },
+    { "id": "slowburn-009", "deck": "slowburn", "type": "topic", "level": 3, "together": true, "text": "Trade answers: what makes you feel desired — being chased, being chosen, being claimed, or something else entirely?", "love": "words" },
+    { "id": "slowburn-010", "deck": "slowburn", "type": "challenge", "level": 3, "together": true, "timebox": 120, "text": "Silence and skin: two minutes of touch with no talking. Describe nothing, ask nothing, just pay attention.", "soften": "One minute, hands only above the shoulder.", "love": "touch" },
+    { "id": "slowburn-011", "deck": "slowburn", "type": "dare", "level": 3, "timebox": 120, "text": "Describe out loud what you feel happening in your own body while they rest a hand on your heart. Full sentences. They just listen.", "speak": "They repeat back the last sentence you said before you stop.", "soften": "Describe one sensation, one sentence.", "love": "words" },
+    { "id": "slowburn-012", "deck": "slowburn", "type": "truth", "level": 3, "text": "Finish this: 'the moment I knew I was done for was…' Fill in every detail you remember.", "love": "words" },
+    { "id": "slowburn-013", "deck": "slowburn", "type": "dare", "level": 4, "bomb": true, "text": "Kiss down their neck, unhurried. Wherever you pause, say one true thing before moving on.", "timebox": 180, "soften": "Three slow kisses, three true things.", "love": "touch" },
+    { "id": "slowburn-014", "deck": "slowburn", "type": "truth", "level": 4, "bomb": true, "text": "What's something you've been curious about with me but never brought up? Curiosity is the only price of admission.", "love": "words" },
+    { "id": "slowburn-015", "deck": "slowburn", "type": "challenge", "level": 4, "bomb": true, "together": true, "timebox": 120, "text": "Describe each other's body for sixty seconds using only words you'd want said about your soul.", "soften": "One sentence each, whispered.", "love": "words" },
+    { "id": "slowburn-016", "deck": "slowburn", "type": "dare", "level": 4, "bomb": true, "text": "Trace their lips with one finger. Their eyes stay closed.", "speak": "Describe what you want to do next — starting every sentence with 'I want'. You don't have to do it yet.", "timebox": 120, "soften": "Trace their hand instead. Same rule.", "love": "words" }
+  ]
+}

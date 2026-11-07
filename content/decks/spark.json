@@ -1,0 +1,24 @@
+{
+  "id": "spark",
+  "name": "Spark",
+  "blurb": "Warm up the night — easy laughs, light touches, and a few surprises.",
+  "adult": false,
+  "cards": [
+    { "id": "spark-001", "deck": "spark", "type": "ice", "level": 1, "text": "What's the most-played song in your head this week? Sing the chorus, badly, right now.", "soften": "Hum it, no words needed.", "together": true, "love": "words" },
+    { "id": "spark-002", "deck": "spark", "type": "dare", "level": 1, "text": "Give the other person a hand massage for 60 seconds. No talking allowed — only hands.", "timebox": 60, "soften": "30 seconds, one hand.", "love": "touch" },
+    { "id": "spark-003", "deck": "spark", "type": "truth", "level": 1, "text": "What's a tiny thing I do that you secretly find adorable but have never said out loud?", "love": "words" },
+    { "id": "spark-004", "deck": "spark", "type": "challenge", "level": 1, "text": "Staring contest. First to blink does a slow lap around the couch like a runway model.", "timebox": 90, "together": true, "soften": "First to blink just says 'you win' in a dramatic movie-trailer voice.", "love": "touch" },
+    { "id": "spark-005", "deck": "spark", "type": "ice", "level": 1, "text": "Describe your dream Sunday in exactly three words. No explaining.", "together": true, "love": "time" },
+    { "id": "spark-006", "deck": "spark", "type": "topic", "level": 1, "text": "If we could teleport anywhere for the next 48 hours, where are we eating breakfast tomorrow morning?", "together": true, "love": "time" },
+    { "id": "spark-007", "deck": "spark", "type": "dare", "level": 1, "text": "Slow dance to a song in your head. Pick something embarrassing and commit to it.", "timebox": 45, "speak": "While you dance, say the first thing you remember about our first kiss.", "soften": "Sway together for 20 seconds, no song.", "love": "touch" },
+    { "id": "spark-008", "deck": "spark", "type": "truth", "level": 1, "text": "What did you think about me the very first time we met? Honesty pays better than flattery.", "love": "words" },
+    { "id": "spark-009", "deck": "spark", "type": "challenge", "level": 1, "text": "Both of you: say something you appreciate about each other that happened THIS WEEK. Specific or it doesn't count.", "timebox": 120, "together": true, "soften": "One word each. The other person gets to ask why.", "love": "words" },
+    { "id": "spark-010", "deck": "spark", "type": "ice", "level": 1, "text": "Impressions battle: imitate the other person. Best impression wins a wildcard — swap any dare tonight, no cost.", "together": true, "soften": "Just pick which impression face they make most.", "love": "time" },
+    { "id": "spark-011", "deck": "spark", "type": "topic", "level": 1, "text": "What's a tradition we should invent? Ours, nobody else's, starting this week.", "together": true, "love": "time" },
+    { "id": "spark-012", "deck": "spark", "type": "dare", "level": 1, "text": "Feed the other person a bite of anything within arm's reach. Eye contact required.", "soften": "Pretend-feed them. Air bites.", "love": "service" },
+    { "id": "spark-013", "deck": "spark", "type": "dare", "level": 2, "bomb": true, "text": "Kiss them somewhere you haven't kissed them in a long time. Take your time finding the spot.", "soften": "Kiss their forehead and tell them one thing you're proud of them for.", "love": "touch" },
+    { "id": "spark-014", "deck": "spark", "type": "truth", "level": 2, "bomb": true, "text": "Whisper in their ear the thing you've been wanting tonight. Not the plan — the feeling.", "love": "words" },
+    { "id": "spark-015", "deck": "spark", "type": "dare", "level": 2, "bomb": true, "text": "Sit back-to-back and take three slow breaths together. On the third, both say one word for how this night should end.", "timebox": 60, "together": true, "soften": "Just hold the back-to-back for 30 seconds.", "love": "touch" },
+    { "id": "spark-016", "deck": "spark", "type": "dare", "level": 1, "text": "Do one tiny act of service for them right now — something that says 'I've got you' without a word. They close their eyes while you do it.", "timebox": 90, "soften": "Tell them what you WOULD do, and schedule it for tomorrow.", "love": "service" }
+  ]
+}

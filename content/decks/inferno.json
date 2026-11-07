@@ -1,0 +1,16 @@
+{
+  "id": "inferno",
+  "name": "Inferno",
+  "blurb": "All spice bombs, all extreme. You were warned — literally.",
+  "adult": true,
+  "cards": [
+    { "id": "inferno-001", "deck": "inferno", "type": "challenge", "level": 4, "bomb": true, "text": "Edging the evening: kiss, touch, tease — but whoever breaks first and asks for more, loses control of the next three cards.", "timebox": 600, "together": true, "soften": "Ten slow kisses, no further than kissing.", "love": "touch" },
+    { "id": "inferno-002", "deck": "inferno", "type": "dare", "level": 4, "bomb": true, "text": "Undress completely. Sit where they can see you. They get sixty seconds to look, and you are not allowed to hide or fidget.", "speak": "They narrate what they see — only compliments survive this round.", "timebox": 60, "soften": "One item of clothing, their choice, sixty seconds of looking.", "love": "touch" },
+    { "id": "inferno-003", "deck": "inferno", "type": "truth", "level": 4, "bomb": true, "text": "What's the most intense thing you've ever wanted to do with me? Say it plainly. Plainness is the house style here.", "love": "words" },
+    { "id": "inferno-004", "deck": "inferno", "type": "dare", "level": 4, "bomb": true, "text": "They take the lead completely for five minutes — your only job is to receive, and to say 'yes' or 'there'. Nothing else is asked of you.", "timebox": 300, "soften": "They lead a two-minute massage. You receive, full stop.", "love": "service" },
+    { "id": "inferno-005", "deck": "inferno", "type": "challenge", "level": 4, "bomb": true, "text": "Sensation duel: take turns blindfolding each other for two minutes each — warm hands, cool air, slow touch. Guess what's coming; earn a kiss for every right answer.", "timebox": 480, "together": true, "soften": "One blindfolded minute each, hands only.", "love": "touch" },
+    { "id": "inferno-006", "deck": "inferno", "type": "dare", "level": 4, "bomb": true, "text": "Whisper the fantasy you'd only tell me. Then roll for it: even — tonight, if we both still want it; odd — saved to the wish list, no pressure, no expiry.", "soften": "Write it down, sealed, to be opened only by mutual agreement.", "love": "words" },
+    { "id": "inferno-007", "deck": "inferno", "type": "challenge", "level": 4, "bomb": true, "text": "The long way: skin-to-skin from shoulder to wrist, one inch per breath, both silent. Whoever speaks first restarts. The clock is not the point.", "timebox": 300, "together": true, "soften": "Hand-in-hand, three silent breaths.", "love": "touch" },
+    { "id": "inferno-008", "deck": "inferno", "type": "truth", "level": 4, "bomb": true, "text": "Trade one boundary each — something you'd want us never to do, said out loud, honored forever. Boundaries are how the wild stuff gets good.", "together": true, "love": "words" }
+  ]
+}
