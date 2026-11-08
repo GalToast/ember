@@ -1,7 +1,6 @@
 {
   "id": "inferno",
   "name": "Inferno",
-  "blurb": "All spice bombs, all extreme. You were warned — literally.",
   "adult": true,
   "cards": [
     {
@@ -10,11 +9,10 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Edging the evening: kiss, touch, tease — but whoever breaks first and asks for more, loses control of the next three cards.",
-      "timebox": 600,
+      "text": "Edging the evening: kiss, touch, tease — whoever breaks first and begs for more hands over control of the next three cards.",
+      "soften": "Kiss and tease for three minutes; first one to beg picks the next card anyway.",
       "together": true,
-      "soften": "Ten slow kisses, no further than kissing.",
-      "love": "touch"
+      "love": "words"
     },
     {
       "id": "inferno-002",
@@ -22,10 +20,10 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Undress completely. Sit where they can see you. They get sixty seconds to look, and you are not allowed to hide or fidget.",
-      "speak": "They narrate what they see — only compliments survive this round.",
+      "text": "Undress all the way. Sit where they can watch. Sixty seconds of being looked at — no hiding, no covering, no closing your legs.",
+      "speak": "Look all you want. Tonight you can have anything you see.",
+      "soften": "Remove one layer and let them look for thirty seconds.",
       "timebox": 60,
-      "soften": "One item of clothing, their choice, sixty seconds of looking.",
       "love": "touch"
     },
     {
@@ -34,7 +32,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "What's the most intense thing you've ever wanted to do with me? Say it plainly. Plainness is the house style here.",
+      "text": "Say the filthiest thing you've ever wanted to do to me. No romance-voice, no softening — the actual thought, word for word.",
       "love": "words"
     },
     {
@@ -43,9 +41,10 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "They take the lead completely for five minutes — your only job is to receive, and to say 'yes' or 'there'. Nothing else is asked of you.",
-      "timebox": 300,
-      "soften": "They lead a two-minute massage. You receive, full stop.",
+      "text": "Give them your mouth: they set the depth, the pace, the pauses while you keep eye contact and take exactly what they give you.",
+      "speak": "Fuck my mouth. I'll take it exactly how you want it.",
+      "soften": "Let them guide one slow, deep kiss at their pace.",
+      "timebox": 180,
       "love": "service"
     },
     {
@@ -54,10 +53,10 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Sensation duel: two minutes each blindfolded — warm hands, cool air, slow touch. Guess what's coming; earn a kiss per right answer.",
+      "text": "Sensation duel: two minutes each blindfolded — warm hands, ice, slow mouth. Guess what's touching you; wrong guesses earn a punishment you both invent.",
+      "soften": "One blindfolded minute each, hands only.",
       "timebox": 480,
       "together": true,
-      "soften": "One blindfolded minute each, hands only.",
       "love": "touch"
     },
     {
@@ -66,9 +65,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Whisper the fantasy you'd only tell me. Then roll for it: even — tonight, if we both still want it; odd — saved to the wish list, no pressure, no expiry.",
-      "soften": "Write it down, sealed, to be opened only by mutual agreement.",
-      "love": "words"
+      "text": "Show them exactly how you touch yourself when they're not there — pace, pressure, everything. Keep going while they watch and don't you dare stop.",
+      "speak": "Watch me. This is what I do when I'm thinking about you.",
+      "soften": "Show them just the first ten seconds of how you like to be touched.",
+      "timebox": 120,
+      "love": "time"
     },
     {
       "id": "inferno-007",
@@ -76,10 +77,10 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "The long way: skin-to-skin from shoulder to wrist, one inch per breath, both silent. Whoever speaks first restarts. The clock is not the point.",
-      "timebox": 300,
+      "text": "The long way: skin to skin from neck to inner thigh, one inch per breath, both silent. First one to make a sound restarts from the neck.",
+      "soften": "Two slow touches per breath, no rush, no rules about sound.",
+      "timebox": 600,
       "together": true,
-      "soften": "Hand-in-hand, three silent breaths.",
       "love": "touch"
     },
     {
@@ -88,8 +89,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Trade one boundary each — something you'd want us never to do, said out loud, honored forever. Boundaries are how the wild stuff gets good.",
-      "together": true,
+      "text": "Trade one hard limit each — the thing you want us never to do — said out loud, honored forever. Knowing the no-go is what makes the rest of this deck free.",
       "love": "words"
     },
     {
@@ -98,7 +98,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Tell them the most intense way you want to be completely taken over for a short stretch of time.",
+      "text": "Describe exactly how you want to be taken over tonight — held down? ordered? used slow until you're shaking? Say it like an instruction, because it is.",
       "love": "words"
     },
     {
@@ -107,7 +107,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Describe the filthiest praise you secretly want to hear while you're being edged.",
+      "text": "What's the filthiest praise you want poured over you while you're being edged? Say the words you need to hear out loud — I'll use them later tonight.",
       "love": "words"
     },
     {
@@ -116,38 +116,40 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Share one surrender fantasy where they decide every touch and pace for a full round.",
-      "love": "time"
+      "text": "Share the surrender fantasy you touch yourself to: they decide every touch, every pace, whether you get to finish at all. What happens in yours?",
+      "love": "words"
     },
     {
       "id": "inferno-012",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "What sensation contrast (ice then heat, soft then firm pressure) makes you ache the hardest when you imagine it with them?",
-      "love": "touch"
+      "text": "Worship circuit: one body part per round — mouth, hands, voice on each one, telling it exactly what it does to you before you move to the next.",
+      "soften": "Choose two spots and give each one slow kisses and one true compliment.",
+      "timebox": 420,
+      "love": "service"
     },
     {
       "id": "inferno-013",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Name the most explicit verbal worship you want poured over you while you're restrained with only a silk scarf.",
-      "love": "words"
+      "text": "On your knees, hands behind your back. Mouth only, and they choose every movement — how deep, how fast, when to pause and let you breathe.",
+      "speak": "Use my mouth. I'm not moving until you make me.",
+      "soften": "One kneeling kiss placed exactly where they point.",
+      "timebox": 240,
+      "love": "service"
     },
     {
       "id": "inferno-014",
       "deck": "inferno",
-      "type": "dare",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to bind your wrists loosely with a silk scarf and keep you there while they decide the next three minutes of touch.",
-      "speak": "I'm yours for these three minutes. Do anything soft and filthy you want.",
-      "soften": "Offer your wrists and let them hold them while they kiss or stroke you for a minute.",
-      "timebox": 180,
-      "love": "touch"
+      "text": "Describe exactly how you want to be rimmed — tongue, tempo, how long you want to stay open and aching for it. Graphic, please.",
+      "love": "words"
     },
     {
       "id": "inferno-015",
@@ -155,11 +157,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Offer complete surrender for five minutes: they lead every kiss, every pause, every pace while you only receive and react.",
-      "speak": "Take full control. I won't ask for anything until the time is up.",
-      "soften": "Ask them to lead the next two minutes of closeness while you simply follow.",
-      "timebox": 300,
-      "love": "time"
+      "text": "Spread them open and use your mouth on them there — slow, filthy, two full minutes. Make them tell you how good it is before you're done.",
+      "speak": "I'm not stopping until you're shaking. Tell me how it feels.",
+      "soften": "Kiss a slow trail along their lower back and cheeks.",
+      "timebox": 120,
+      "love": "service"
     },
     {
       "id": "inferno-016",
@@ -167,22 +169,20 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to edge you with slow hands or mouth for ninety seconds, stopping every time you get close.",
-      "speak": "Don't let me finish. Make me beg with my body.",
-      "soften": "Ask for slow, teasing touch that stops just before it becomes too much.",
-      "timebox": 90,
+      "text": "Wrists bound loosely with a scarf, above your head. They do whatever they want — and your only job is to beg for more instead of giving instructions.",
+      "speak": "Do anything you want to me. I'm not going anywhere.",
+      "soften": "Hold their hands still for one slow minute of being touched.",
+      "timebox": 300,
       "love": "touch"
     },
     {
       "id": "inferno-017",
       "deck": "inferno",
-      "type": "dare",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Offer a silk scarf as a blindfold and invite them to alternate ice and warm breath across your skin while you stay still.",
-      "speak": "Surprise me with cold then heat. I want to feel every switch.",
-      "soften": "Close your eyes and let them use only warm breath and light fingertips.",
-      "love": "touch"
+      "text": "How do you want to be fucked tonight? Position, pace, where, how many times. Answer like you're placing an order — because you are.",
+      "love": "words"
     },
     {
       "id": "inferno-018",
@@ -190,22 +190,23 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to hold your wrists above your head with one hand or a soft scarf and worship your body out loud for a full minute.",
-      "speak": "Tell me exactly how much you want this while you keep me still.",
-      "soften": "Ask them to hold your hands and speak one minute of warm, explicit appreciation.",
-      "timebox": 60,
-      "love": "words"
+      "text": "Pin them against the nearest wall and kiss them until their knees give — wrists held, other hand wherever you want. They don't get to touch back yet.",
+      "speak": "Don't move. This is happening to you, not with you.",
+      "soften": "A wall kiss, hands free, thirty seconds.",
+      "timebox": 120,
+      "love": "touch"
     },
     {
       "id": "inferno-019",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Verbal worship round: they stay fully clothed while you kneel or sit and describe, in graphic detail, everything you want to do to them.",
-      "speak": "I want to ruin you slowly and I need you to hear every word.",
-      "soften": "Sit close and share three explicit things you want to do to them later.",
-      "love": "words"
+      "text": "Side by side, mouths on each other at the same time — slowest round ever played. First one to rush loses and owes the winner one command, no complaints.",
+      "soften": "Take turns giving each other slow attention, one minute each.",
+      "timebox": 300,
+      "together": true,
+      "love": "touch"
     },
     {
       "id": "inferno-020",
@@ -213,22 +214,20 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to tease you without letting you touch back for two full minutes — only their hands, mouth, or breath allowed.",
-      "speak": "Keep me wanting. I don't get to touch until you say.",
-      "soften": "Ask them to give one minute of one-sided slow teasing.",
-      "timebox": 120,
-      "love": "touch"
+      "text": "Undress them one piece at a time and narrate: what each piece was hiding, what you're about to do to what's under it. Make them wait between pieces.",
+      "speak": "I've been thinking about getting this off you all day.",
+      "soften": "Remove one layer with a slow kiss to whatever you uncovered.",
+      "timebox": 300,
+      "love": "words"
     },
     {
       "id": "inferno-021",
       "deck": "inferno",
-      "type": "dare",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Offer your body for a sensation-contrast game: they choose two household temperatures or textures and switch between them while you stay restrained by a scarf.",
-      "speak": "Make the contrast sharp. I want to gasp.",
-      "soften": "Let them alternate two gentle sensations while you keep your eyes closed.",
-      "love": "touch"
+      "text": "What's the dirtiest thought you've had about me at a completely wrong time — dinner with people, a work call, a family thing? Tell me all of it.",
+      "love": "words"
     },
     {
       "id": "inferno-022",
@@ -236,10 +235,9 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to take the lead in a complete-surrender kiss: they control depth, pace, and every pause for ninety seconds.",
-      "speak": "Kiss me like you own my mouth right now.",
-      "soften": "Ask them to lead a long, deep kiss and set the rhythm.",
-      "timebox": 90,
+      "text": "Leave one mark where only they will find it tomorrow — and tell them exactly where you put it while you do it.",
+      "speak": "You're going to feel this every time you sit down tomorrow.",
+      "soften": "One soft kiss-bite on their shoulder.",
       "love": "touch"
     },
     {
@@ -248,19 +246,19 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Edge-and-hold: bring them close with your hands or mouth, then freeze completely for twenty seconds before continuing.",
-      "speak": "Feel how close you are… now wait for me.",
-      "soften": "Tease them slowly and pause once for a few breaths.",
-      "love": "touch"
+      "text": "Mouth between their legs, hands flat on their hips — and they give you directions the whole time: slower, deeper, right there. Follow every one like it's law.",
+      "speak": "Tell me exactly how. I live to take your orders.",
+      "soften": "One slow kiss, then ask them to show you the pace they like.",
+      "timebox": 300,
+      "love": "service"
     },
     {
       "id": "inferno-024",
       "deck": "inferno",
-      "type": "dare",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to use only a silk scarf and their voice: bind lightly, then talk you through every filthy thing that scarf is allowing them to do.",
-      "soften": "Offer a soft scarf around your wrists and ask for one minute of explicit talk.",
+      "text": "When you touch yourself and it's my face you're thinking about — what am I doing in the fantasy? Don't clean it up. I want the director's cut.",
       "love": "words"
     },
     {
@@ -269,10 +267,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Offer a pacing bomb: ten seconds of intense touch, ten seconds of total stillness, repeated four times while they watch your reaction.",
-      "soften": "Alternate short bursts of touch and stillness three times.",
-      "timebox": 80,
-      "love": "time"
+      "text": "Take their hand and show them exactly how you want it — pace, pressure, spot — then keep it there and make them keep going until you say stop.",
+      "speak": "Just like that. Don't you dare stop until I say.",
+      "soften": "Guide their hand for thirty seconds of exactly the right pressure.",
+      "timebox": 240,
+      "love": "touch"
     },
     {
       "id": "inferno-026",
@@ -280,52 +279,55 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Together, take turns in full surrender: three minutes each where one leads every sensation and the other only receives, no requests allowed.",
-      "soften": "Take turns leading two minutes of soft, focused attention while the other simply receives.",
-      "together": true,
-      "timebox": 180,
-      "love": "time"
-    },
-    {
-      "id": "inferno-027",
-      "deck": "inferno",
-      "type": "challenge",
-      "level": 4,
-      "bomb": true,
-      "text": "Build a shared edge game: decide on a signal, then take turns bringing each other close and stopping on the signal for a total of four edges.",
-      "soften": "Take turns with two slow teases each, stopping when asked.",
+      "text": "Face to face, joined, slowest round ever — no speeding up no matter how good it gets. Either can call a thirty-second freeze. First to cheat bottoms.",
+      "soften": "Slow and connected, one pause each whenever it feels too good.",
+      "timebox": 600,
       "together": true,
       "love": "touch"
     },
     {
-      "id": "inferno-028",
+      "id": "inferno-027",
       "deck": "inferno",
-      "type": "challenge",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Verbal worship circuit: ninety seconds each of pure explicit admiration while the other stays lightly scarf-restrained and silent.",
-      "soften": "Take turns speaking sixty seconds of warm, detailed desire while holding hands.",
-      "together": true,
-      "timebox": 90,
+      "text": "What sound do they make that turns you completely feral? Imitate it. Then tell them what you want to do to them the second you hear it tonight.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-028",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Bring them to the edge twice, then stop and ask: what are the exact words that earn the third one? Make them say the whole sentence. Out loud. Looking at you.",
+      "speak": "Beg me properly. Use your words like a good little slut.",
+      "soften": "Bring them close once and ask them to tell you one thing they want.",
+      "timebox": 420,
       "love": "words"
     },
     {
       "id": "inferno-029",
       "deck": "inferno",
-      "type": "topic",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Talk about how far 'complete surrender for a bounded time' can go between you and what makes it feel electric instead of scary.",
-      "love": "time"
+      "text": "Strip them using only your teeth and your patience. Every button, every tie, every edge — slow. They're allowed to watch you work for it.",
+      "soften": "Remove one item of clothing with your teeth only.",
+      "timebox": 240,
+      "love": "service"
     },
     {
       "id": "inferno-030",
       "deck": "inferno",
-      "type": "topic",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Share the most intense sensation-contrast or edge-tease idea either of you still wants to invent together.",
-      "love": "touch"
+      "text": "Sixty seconds of worship each: hands, mouth, and a running filthy commentary. Receiver stays silent and still — reactions only.",
+      "soften": "Thirty seconds each of compliments and slow touch, talking allowed.",
+      "timebox": 240,
+      "together": true,
+      "love": "words"
     },
     {
       "id": "inferno-031",
@@ -333,7 +335,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Tell them how long you want to be kept on the edge before you're allowed to come, and what you'll do if they make you wait longer.",
+      "text": "How long should you be kept on the edge tonight before you're allowed to come — and what should happen to you if you beg before the timer's done?",
       "love": "words"
     },
     {
@@ -342,8 +344,8 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Describe the most intense 'you come only when I say' scene you've imagined with them and how the begging sounds.",
-      "love": "time"
+      "text": "Describe the exact 'you come when I say' scene you replay in your head — the pace, the countdown, the begging. All of it.",
+      "love": "words"
     },
     {
       "id": "inferno-033",
@@ -351,7 +353,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Share what 'owned for the night' would look like between you two if it stayed reverent, hungry, and completely mutual.",
+      "text": "What does 'owned for the night' look like between us — reverent, hungry, completely mutual? Describe the version you want to try.",
       "love": "words"
     },
     {
@@ -360,8 +362,8 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Name the body part you most want worshipped slowly while you're not allowed to rush or finish.",
-      "love": "touch"
+      "text": "Name the part of you that most wants to be worshipped slowly — while you're not allowed to rush it or finish. What should they do to it?",
+      "love": "words"
     },
     {
       "id": "inferno-035",
@@ -369,8 +371,8 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Tell them how it would feel to kneel and offer service for a full ten minutes with zero expectation of being touched back.",
-      "love": "service"
+      "text": "Tell them what it does to you to kneel and give ten minutes of service with zero expectation of being touched back. Would you beg? Would you break?",
+      "love": "words"
     },
     {
       "id": "inferno-036",
@@ -378,8 +380,8 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "What countdown length makes you the most desperate when you know you still aren't allowed to come at zero?",
-      "love": "time"
+      "text": "What countdown length makes you the most desperate when you already know you're not allowed to come at zero? Tell me the number.",
+      "love": "words"
     },
     {
       "id": "inferno-037",
@@ -387,9 +389,9 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to keep you on the edge for a full three minutes, stopping every time you get close, while you stay still and only breathe.",
-      "speak": "Please don't let me finish yet. Make me wait for you.",
-      "soften": "Ask for two minutes of slow teasing with clear pauses when it gets intense.",
+      "text": "Keep them on the edge for three full minutes — stop every single time they get close. They stay still, breathe, and take it.",
+      "speak": "Not yet. You come when I decide you've earned it.",
+      "soften": "Slow teasing for ninety seconds, pausing once when it peaks.",
       "timebox": 180,
       "love": "touch"
     },
@@ -399,11 +401,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Offer complete surrender for ten minutes: they decide every touch, every pause, and whether you get to come at all.",
-      "speak": "For these ten minutes I belong to your hands and your rules.",
-      "soften": "Invite them to lead five minutes of focused attention while you only receive.",
+      "text": "Ten minutes as theirs: they decide every touch, every pause, and whether you get to come at all. You say thank you for each decision out loud.",
+      "speak": "Yes. Whatever you decide. Thank you.",
+      "soften": "Three minutes of following their lead with one check-in.",
       "timebox": 600,
-      "love": "time"
+      "love": "service"
     },
     {
       "id": "inferno-039",
@@ -411,9 +413,9 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to choose one part of your body they want worshipped; then kneel or sit and give it slow, explicit oral attention for two full minutes.",
-      "speak": "This is yours. Tell me how you want it worshipped.",
-      "soften": "Ask which area they want kissed slowly and give sixty seconds of soft attention.",
+      "text": "They pick one body part to be worshipped — then you kneel and give it slow, wet, dedicated oral attention for two minutes while they watch you do it.",
+      "speak": "I've been dying to put my mouth right here.",
+      "soften": "One slow kiss to the spot they choose.",
       "timebox": 120,
       "love": "service"
     },
@@ -423,11 +425,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Offer yourself as theirs: silk scarf as a light tether, and they speak to you like you exist tonight only for their pleasure.",
-      "speak": "I'm yours right now. Use me however you need.",
-      "soften": "Offer your hands and ask them to speak one minute of hungry, possessive appreciation.",
+      "text": "Offer yourself as theirs: scarf tether, and they talk to you like you exist tonight only for their pleasure — because for the next stretch, you do.",
+      "speak": "I'm yours. Use me until you're satisfied.",
+      "soften": "One minute of them holding you and telling you what they want.",
       "timebox": 180,
-      "love": "words"
+      "love": "service"
     },
     {
       "id": "inferno-041",
@@ -435,10 +437,10 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to edge you deliberately, then hold you right there while they count down slowly from twenty, deciding if you get release at zero.",
-      "speak": "Count for me. I'll stay right on the edge until you decide.",
-      "soften": "Ask for a slow tease followed by a short spoken countdown before any finish.",
-      "timebox": 90,
+      "text": "Edge them, hold them right there, and count down slowly from twenty — deciding at zero whether tonight they get to finish or owe you one more round.",
+      "speak": "Twenty seconds. Stay right there. I own this moment.",
+      "soften": "Count down from ten while touching them slowly — then continue.",
+      "timebox": 120,
       "love": "touch"
     },
     {
@@ -447,9 +449,9 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Service ritual: kneel, hands resting still, and offer only your mouth for them to guide for a full three minutes.",
-      "speak": "My mouth is yours. Show me how you want to use it.",
-      "soften": "Kneel and offer soft kisses wherever they guide for one minute.",
+      "text": "Service ritual: kneel, hands on your thighs, mouth offered — and let them guide everything for three minutes while you keep your eyes on theirs.",
+      "speak": "Guide me. I'll follow wherever you take it.",
+      "soften": "Kneel for one slow kiss, then trade.",
       "timebox": 180,
       "love": "service"
     },
@@ -459,10 +461,10 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to force an orgasm out of you with steady pace while you try to hold back and end up begging out loud.",
-      "speak": "Please… I can't hold it… let me come for you.",
-      "soften": "Ask for focused stimulation and permission to finish when it becomes too much.",
-      "timebox": 180,
+      "text": "Make them come undone: steady pace, no mercy, while they try to hold back — and end up begging you out loud not to stop.",
+      "speak": "Give it up. I want to feel you break for me.",
+      "soften": "Slow, steady attention and one whispered request to let go.",
+      "timebox": 420,
       "love": "touch"
     },
     {
@@ -471,9 +473,9 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Offer a longer denial round: they may touch you however they want for five minutes but you are not allowed to come, no matter how close you get.",
-      "speak": "Keep me aching. I don't get to finish until you say the word.",
-      "soften": "Invite four minutes of teasing touch with a clear agreement not to finish yet.",
+      "text": "Five minutes of anything-goes-touching — but you are not allowed to come, no matter how close you get. They remind you of the rule every time you moan.",
+      "speak": "I know. You're not allowed yet. Be good and hold it.",
+      "soften": "Two minutes of touching with permission to finish whenever.",
       "timebox": 300,
       "love": "touch"
     },
@@ -483,10 +485,10 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to sit or stand while you kneel and verbally worship the exact body part they name, describing how it owns your attention tonight.",
-      "speak": "This part of you is all I get to think about. Let me show you.",
-      "soften": "Ask them to name one area and speak thirty seconds of warm, explicit appreciation.",
-      "timebox": 90,
+      "text": "Kneel and worship the exact body part they name — your mouth and your voice describing what it does to you, until they tell you you're done.",
+      "speak": "This part of you ruins me. Let me show you how much.",
+      "soften": "Kneel and give one slow kiss plus one true compliment.",
+      "timebox": 180,
       "love": "words"
     },
     {
@@ -495,11 +497,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "'come when I say' lock: they control the pace and you must ask permission out loud before any orgasm, even if you're shaking.",
-      "speak": "I won't come until you tell me I can. Please make me wait.",
-      "soften": "Agree that you'll check in before finishing and wait for a clear yes.",
-      "timebox": 240,
-      "love": "time"
+      "text": "Come-when-I-say lock: they control everything, and you must ask permission out loud before you finish — even if you're shaking, even if you're right there.",
+      "speak": "Please — may I come? Please, I can't hold it.",
+      "soften": "Give them a gentle heads-up before you finish instead of asking.",
+      "timebox": 600,
+      "love": "words"
     },
     {
       "id": "inferno-047",
@@ -507,10 +509,10 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to use only their voice and a silk scarf: bind lightly, then give explicit commands about how still you must stay while they tease.",
-      "speak": "Tell me exactly how you want me to stay open for you.",
-      "soften": "Offer your wrists and ask for soft spoken direction during one minute of touch.",
-      "timebox": 120,
+      "text": "Voice-only: scarf around your eyes, their hands nowhere — beg with words alone, describing what you want done to you before they'll touch you.",
+      "speak": "Please touch me. I'll describe exactly what I need if you just do it.",
+      "soften": "Eyes closed, tell them one thing you want done to you.",
+      "timebox": 180,
       "love": "words"
     },
     {
@@ -519,11 +521,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Offer ten full minutes as theirs: they may edge, deny, praise, or take you whenever they choose inside that window.",
-      "speak": "For these ten minutes I'm your property. Reverent. Hungry. Yours.",
-      "soften": "Invite them to lead six minutes of whatever intensity feels good to both of you.",
+      "text": "Ten minutes as their property: they may edge you, deny you, praise you, or take you apart whenever they choose inside the window. You thank them each time.",
+      "speak": "Use me how you want. I'm counting on you to be greedy with it.",
+      "soften": "Five minutes of following their lead, one pause allowed.",
       "timebox": 600,
-      "love": "time"
+      "love": "service"
     },
     {
       "id": "inferno-049",
@@ -531,21 +533,22 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite a countdown tease: bring them to the edge, then make them hold still while you count down from fifteen before deciding whether to continue or stop.",
-      "speak": "Stay right there. Fifteen… fourteen… you don't get to move.",
-      "soften": "Tease them close and pause for a short shared countdown.",
-      "timebox": 60,
+      "text": "Countdown tease: edge them, then make them hold still while you count down from fifteen — at one, decide whether they finish or keep waiting.",
+      "speak": "Fifteen. Don't move. Your body is mine to finish or ruin.",
+      "soften": "Count down from ten slowly, then keep going.",
+      "timebox": 120,
       "love": "touch"
     },
     {
       "id": "inferno-050",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Propose mutual denial for two minutes: neither of you is allowed to finish while you both stay as close as possible.",
-      "soften": "Agree to two minutes of close teasing with a shared stop before either finishes.",
-      "timebox": 120,
+      "text": "Mutual denial round: three minutes of getting each other as close as possible — nobody finishes. Both of you hold it. Both of you want it.",
+      "soften": "Two minutes of slow mutual teasing, finish whenever it feels right.",
+      "timebox": 180,
+      "together": true,
       "love": "touch"
     },
     {
@@ -554,11 +557,11 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Together, run a ten-minute ownership window: one partner is the reverent owner, the other the willing property. Switch after ten minutes if both want.",
-      "soften": "Take turns leading five minutes of focused, possessive attention while the other simply receives.",
-      "together": true,
+      "text": "Ten-minute ownership window: one is the owner, one the willing property — used, praised, ordered. Swap at the mark if you both want more.",
+      "soften": "Three minutes each of leading, then following.",
       "timebox": 600,
-      "love": "time"
+      "together": true,
+      "love": "touch"
     },
     {
       "id": "inferno-052",
@@ -566,10 +569,10 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Create a shared orgasm-control round: decide who holds the 'you may come' power for the next stretch, then edge each other under that rule for six minutes.",
-      "soften": "Choose one person to give verbal permission for the next few minutes of teasing.",
-      "together": true,
+      "text": "Whoever holds the 'you may come' power next round decides now — then edge each other under that rule for six minutes. Power swaps only on a spoken thank-you.",
+      "soften": "Take turns teasing each other for three minutes, no rules about finishing.",
       "timebox": 360,
+      "together": true,
       "love": "words"
     },
     {
@@ -578,11 +581,20 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Kneeling service circuit: four minutes each on your knees, mouth and voice only — the receiver sets the pace and the release.",
-      "soften": "Take turns giving two minutes of focused oral attention while the other guides gently.",
+      "text": "Kneeling service circuit: four minutes each on your knees, mouth and voice only. The one receiving sets every pace — and every pause to hear you beg.",
+      "soften": "Two minutes each of slow oral attention, hands welcome.",
+      "timebox": 480,
       "together": true,
-      "timebox": 240,
       "love": "service"
+    },
+    {
+      "id": "inferno-054",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Tell me how slow and filthy you want the first finger to feel if we explore that tight heat together — and exactly what you need to hear while it happens.",
+      "love": "words"
     },
     {
       "id": "inferno-055",
@@ -590,7 +602,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Tell them how slow and filthy you want the first finger to feel if you explore that tight heat together, and what words you need while it happens.",
+      "text": "Share the deep-spot fantasy: their fingers mapping you until your legs shake and you're gripping the sheets. What happens in yours?",
       "love": "words"
     },
     {
@@ -599,8 +611,8 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Describe the exact way you want to be rimmed — tempo, depth of tongue, how long you want to stay open and dripping for it.",
-      "love": "touch"
+      "text": "What do you want licked off your skin tonight — and where does the sticky trail start before it gets to where it's going?",
+      "love": "words"
     },
     {
       "id": "inferno-057",
@@ -608,8 +620,8 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Share one prostate or deep-spot fantasy that involves their fingers mapping you until your legs shake.",
-      "love": "time"
+      "text": "Describe being fed blindfolded by them — every taste, every pause, their fingers. Would you let them decide when you've had enough?",
+      "love": "words"
     },
     {
       "id": "inferno-058",
@@ -617,26 +629,32 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "What food do you most want licked off your skin, and where should the sticky trail start and end?",
-      "love": "touch"
+      "text": "What's the longest you want to be denied tonight — and what does your begging sound like when the answer is still no?",
+      "love": "words"
     },
     {
       "id": "inferno-059",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Tell them how it would feel to be fed blindfolded while they decide every taste and every pause.",
+      "text": "Drip warm honey or chocolate down their lower back and lick every trail clean — slow strokes, no shortcuts, while they stay perfectly still for you.",
+      "speak": "Hold still. I take my time with things that are mine.",
+      "soften": "One small taste placed on your skin for them to find.",
+      "timebox": 240,
       "love": "service"
     },
     {
       "id": "inferno-060",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Describe the longest denial window you actually want — fifteen minutes or more — and what begging sounds like when the answer is still no.",
-      "love": "time"
+      "text": "Slow, patient opening: one lubed finger, their pace only, your voice the whole time — praise, check-ins, all of it filthy and gentle at once.",
+      "speak": "You're doing so well taking me. Breathe. There's more where that came from.",
+      "soften": "One lubed fingertip, still, while you kiss them slowly.",
+      "timebox": 300,
+      "love": "touch"
     },
     {
       "id": "inferno-061",
@@ -644,11 +662,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to drip warm honey or chocolate across your lower back and lick every slow trail clean while you stay still.",
-      "speak": "Make me feel every drop. Then take it back with your tongue.",
-      "soften": "Offer a small taste of something sweet on your skin and invite them to kiss it off.",
-      "timebox": 120,
-      "love": "touch"
+      "text": "Blindfold them with a scarf and feed them by hand — fruit, chocolate, your fingers — while telling them exactly what you're going to do to them after each bite.",
+      "speak": "Good. Open. Now listen to what I do to you when the plate is empty.",
+      "soften": "Feed them one bite from your hand with a kiss.",
+      "timebox": 240,
+      "love": "service"
     },
     {
       "id": "inferno-062",
@@ -656,9 +674,9 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Offer your ass for slow, lubed exploration: one finger only at first, lots of lube, constant check-ins spoken like filthy praise.",
-      "speak": "Go slow. Tell me how tight I feel while you open me.",
-      "soften": "Invite gentle external massage with plenty of lube and clear pauses.",
+      "text": "Present yourself on hands and knees, open and ready — and let them decide what the next touch is: mouth, fingers, or something they make you wait for.",
+      "speak": "I'm ready. Whatever you want to do with me, do it.",
+      "soften": "Kneel close and offer one part of you for a slow kiss.",
       "timebox": 180,
       "love": "touch"
     },
@@ -668,11 +686,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to blindfold you with a soft scarf, then feed you bites of fruit or chocolate while describing exactly what they're going to do to you next.",
-      "speak": "Feed me. Then tell me how you're going to ruin me.",
-      "soften": "Close your eyes and let them place one sweet bite on your tongue.",
-      "timebox": 120,
-      "love": "service"
+      "text": "Map their deepest spot with one careful finger — and talk the whole time about how greedily their body grips you. Watch them come apart under the narration.",
+      "speak": "Feel that? You're gripping me like you never want me to stop.",
+      "soften": "Slow touch with a running commentary on how good they feel.",
+      "timebox": 240,
+      "love": "touch"
     },
     {
       "id": "inferno-064",
@@ -680,10 +698,10 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Rimming gift: invite them to spread you open and use their tongue for a full two minutes while you stay present and vocal.",
-      "speak": "Taste me there. I want to feel how much you want this.",
-      "soften": "Invite slow kisses along the lower back and cheeks with clear consent checks.",
-      "timebox": 120,
+      "text": "Body as the plate: lay a trail with them — cream, honey, wine — then lick your work clean, edge to edge, while they watch every stroke.",
+      "speak": "Don't move. Cleaning up is going to take a while.",
+      "soften": "Place one taste on their collarbone and take your time with it.",
+      "timebox": 300,
       "love": "service"
     },
     {
@@ -692,11 +710,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite a fifteen-minute denial window: they may touch, lick, or finger you however they want, but you are not allowed to come until the time ends.",
-      "speak": "Keep me aching the whole fifteen. I'll beg and you'll still say wait.",
-      "soften": "Ask for eight minutes of teasing with a shared agreement not to finish yet.",
-      "timebox": 900,
-      "love": "time"
+      "text": "Taste-guessing with stakes: blindfold them, place flavors on your skin — every wrong guess earns thirty more seconds of being denied tonight.",
+      "speak": "Guess wrong again. I dare you to earn yourself a longer wait.",
+      "soften": "One flavor on your skin for them to name, no stakes.",
+      "timebox": 180,
+      "love": "touch"
     },
     {
       "id": "inferno-066",
@@ -704,11 +722,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Present yourself: on hands and knees or back, open and ready, while they decide whether the next touch is food, tongue, or a slow lubed finger.",
-      "speak": "I'm presenting. Use me however curiosity hits hardest.",
-      "soften": "Lie back and invite them to choose the next gentle touch.",
-      "timebox": 180,
-      "love": "touch"
+      "text": "Twenty-minute ownership stretch: they decide every escalation — food, fingers, mouth, pace — and your only jobs are to beg beautifully and receive.",
+      "speak": "Whatever you decide next, I'll take it gratefully.",
+      "soften": "Five minutes of following their lead, one safeword-style pause allowed.",
+      "timebox": 1200,
+      "love": "service"
     },
     {
       "id": "inferno-067",
@@ -716,9 +734,9 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to map your prostate or deepest sweet spot with one careful finger, talking the whole time about how your body is gripping them.",
-      "speak": "Find it. Tell me when you feel me clench around you.",
-      "soften": "Invite slow internal exploration with constant verbal check-ins and permission to stop.",
+      "text": "Ice round: trace a melting cube down their spine, follow every rivulet with your mouth before it reaches the sheets — and end wherever the ice ends.",
+      "speak": "Cold first, then my mouth. Tell me which is worse to wait for.",
+      "soften": "One ice cube traced slowly along their arm, followed by warm breath.",
       "timebox": 180,
       "love": "touch"
     },
@@ -728,11 +746,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Body-as-plate game: trail whipped cream or chocolate along their chest or thighs, then lick every path clean while they stay restrained by a silk scarf.",
-      "speak": "You're my plate tonight. I won't miss a single drop.",
-      "soften": "Place a small sweet trail and kiss it away slowly.",
-      "timebox": 120,
-      "love": "touch"
+      "text": "Begging consequence round: every time you ask to come, thirty seconds are added to your wait — and you thank them for every single one.",
+      "speak": "Thank you for making me wait. I know I haven't earned it yet.",
+      "soften": "Ask once, out loud, and let them decide kindly.",
+      "timebox": 420,
+      "love": "words"
     },
     {
       "id": "inferno-069",
@@ -740,111 +758,97 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Taste-guessing stake: blindfold them, place honey, fruit, or wine on your skin — wrong guesses earn longer denial.",
-      "speak": "Guess right or I keep you waiting even longer.",
-      "soften": "Offer one sweet taste on your skin and ask them to name it.",
-      "timebox": 90,
-      "love": "touch"
+      "text": "Feeding-and-service mix: they place chocolate or fruit somewhere on their body, and you find it with your mouth — hands behind your back the entire time.",
+      "speak": "Point me anywhere. My mouth will do all the work.",
+      "soften": "One sweet placed on their chest for you to kiss off.",
+      "timebox": 240,
+      "love": "service"
     },
     {
       "id": "inferno-070",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Offer a longer ownership stretch: twenty minutes where they decide every escalation — food, fingers, tongue, pace — while you only beg and receive.",
-      "speak": "For these twenty minutes I'm yours to open, feed, and deny.",
-      "soften": "Invite ten minutes of their lead with clear stop language available.",
-      "timebox": 1200,
-      "love": "time"
+      "text": "Each name one edible trail and one slow, patient anal idea — pick one of each to start tonight, with the consent talk kept filthy.",
+      "soften": "Each share one soft food idea and one gentle new-touch idea, then pick.",
+      "together": true,
+      "love": "words"
     },
     {
       "id": "inferno-071",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Invite them to drip ice or cold wine down your spine and catch the rivulets with their mouth before they reach the sheets.",
-      "speak": "Chase every drop. Don't let any of me go to waste.",
-      "soften": "Trail something cool and kiss the path it leaves.",
-      "timebox": 60,
+      "text": "Fifteen-minute denial circuit: alternate who controls the touch and the 'not yet' — food, tongues, careful fingers all in play, and nobody crosses the line.",
+      "soften": "Five minutes of trading slow touches, finishing allowed whenever.",
+      "timebox": 900,
+      "together": true,
       "love": "touch"
     },
     {
       "id": "inferno-072",
       "deck": "inferno",
-      "type": "dare",
+      "type": "topic",
       "level": 4,
       "bomb": true,
-      "text": "Propose slow pegging-curiosity play with only fingers: invite them to open you one knuckle at a time while praising how well you take it.",
-      "speak": "Open me like you're claiming something precious. Go slow.",
-      "soften": "Invite careful one-finger exploration with lots of lube and praise.",
-      "timebox": 240,
-      "love": "touch"
+      "text": "Talk about it: what makes slow, patient anal play feel like the most trusting thing we do — and which filthy words keep it electric instead of clinical?",
+      "love": "words"
     },
     {
       "id": "inferno-073",
       "deck": "inferno",
-      "type": "dare",
+      "type": "topic",
       "level": 4,
       "bomb": true,
-      "text": "Invite a begging consequence round: every time you ask to come, they add thirty more seconds of denial and make you thank them for it.",
-      "speak": "Please… I'll take the extra time. Thank you for making me wait.",
-      "soften": "Agree that asking to finish adds a short pause, kept playful.",
-      "timebox": 180,
+      "text": "Design the filthiest food-play night either of you can imagine — sticky, blindfolded, fed by hand. What's on the menu, and where does it go?",
       "love": "words"
     },
     {
       "id": "inferno-074",
       "deck": "inferno",
-      "type": "dare",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Offer your mouth for a feeding-and-service mix: they place chocolate or fruit on their own skin and you must lick it clean without using hands.",
-      "soften": "Invite them to place one sweet bite for you to take with only your mouth.",
-      "timebox": 90,
-      "love": "service"
+      "text": "How would you approach me if we were strangers at a bar tonight and both already knew you were leaving with me? Show me. Use your real voice.",
+      "love": "words"
     },
     {
       "id": "inferno-075",
       "deck": "inferno",
-      "type": "challenge",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Each names one edible trail and one slow anal idea, picks one of each to begin — consent talk kept filthy.",
-      "soften": "Each share one soft food idea and one gentle new touch idea, then pick favorites.",
-      "together": true,
+      "text": "Rewrite our first date as the filthiest version of itself — same place, same nerves, completely different ending. Tell me what happens instead.",
       "love": "words"
     },
     {
       "id": "inferno-076",
       "deck": "inferno",
-      "type": "challenge",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Run a fifteen-minute mutual denial circuit: alternate who controls the touch and the 'not yet' while food, tongues, and careful fingers stay in play.",
-      "soften": "Take turns leading six minutes of teasing with a shared no-finish rule.",
-      "together": true,
-      "timebox": 900,
-      "love": "time"
+      "text": "What would 'brand-new submissive on their first night' sound like coming out of your mouth? Give me one full sentence in that voice.",
+      "love": "words"
     },
     {
       "id": "inferno-077",
       "deck": "inferno",
-      "type": "topic",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Talk about how slow anal play and heavy lube communication can feel more intimate than anything else, and what words keep it electric.",
+      "text": "Which tone of theirs undoes you fastest — the whisper, the order, the praise? And what should they say in it the next time they use it on you?",
       "love": "words"
     },
     {
       "id": "inferno-078",
       "deck": "inferno",
-      "type": "topic",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Share the filthiest food-play image either of you still wants to make real — sticky, blindfolded, or fed by hand.",
-      "love": "touch"
+      "text": "Which piece of their clothing do you want to claim as a collar for tonight — and what should happen when they ask to take it off?",
+      "love": "gifts"
     },
     {
       "id": "inferno-079",
@@ -852,7 +856,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Tell them how you would approach them if you were strangers at a bar tonight and already knew you were leaving together.",
+      "text": "Which room or piece of furniture gets claimed as tonight's territory — and what exactly happens to you when you're caught inside it?",
       "love": "words"
     },
     {
@@ -861,62 +865,79 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Describe the filthiest rewrite of your actual first date — same setting energy, completely different intentions.",
-      "love": "time"
+      "text": "Where do you want your scent left on them by morning — and where do you want theirs left on you?",
+      "love": "touch"
     },
     {
       "id": "inferno-081",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Share what 'brand-new submissive on their first night' would sound like coming out of your mouth.",
+      "text": "Strangers-at-a-bar frame, eight minutes: you've never touched, every advance is asked for in character — and you both already know how tonight ends.",
+      "speak": "I've been watching you all night. Tell me I can take you home.",
+      "soften": "Play 'just met' for three minutes with soft, spoken asks.",
+      "timebox": 480,
       "love": "words"
     },
     {
       "id": "inferno-082",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "What sound or tone of voice from them would undo you fastest if it were the only sound you were allowed to react to?",
-      "love": "touch"
+      "text": "First-date replay: same nerves as the real one — but this time every polite moment is replaced with the explicit thing you actually wanted to say.",
+      "speak": "This is how that night should have gone. Let me show you.",
+      "soften": "Replay the first-date feeling with one honest confession.",
+      "timebox": 420,
+      "love": "words"
     },
     {
       "id": "inferno-083",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Tell them which item of their clothing you most want to turn into a night-long ownership marker.",
-      "love": "gifts"
+      "text": "Teacher-and-first-timer frame, twelve minutes: one instructs, one serves — permission asked out loud, thanks given after every order.",
+      "speak": "Like this? Tell me if I'm being good for you.",
+      "soften": "Five minutes of asking permission for each kiss.",
+      "timebox": 720,
+      "love": "words"
     },
     {
       "id": "inferno-084",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Describe the room or piece of furniture you want claimed as exclusive territory for the rest of the night.",
-      "love": "time"
+      "text": "Voice control, six minutes: only the sounds they call for — moan on command, hold silence, count, beg in their tone. Anything else costs a spank.",
+      "speak": "Louder. I want the whole street to know whose you are.",
+      "soften": "Make the sounds they ask for, for one minute, no penalties.",
+      "timebox": 360,
+      "love": "words"
     },
     {
       "id": "inferno-085",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "What scent of yours do you want left on them until morning, and where?",
+      "text": "Mirror-audition: five minutes in front of the mirror — every order delivered while you both watch. The mirror is your audience; perform for it.",
+      "speak": "Look at us. Watch what I let them do to me.",
+      "soften": "One minute of watching yourselves kiss in the mirror.",
+      "timebox": 300,
       "love": "touch"
     },
     {
       "id": "inferno-086",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "If you could seal one instruction for them to open tomorrow, what would the first line say?",
-      "love": "words"
+      "text": "Scent-claiming: mark the spot they choose with your mouth and skin, say the claim out loud — it stays untouched and unwashed until morning.",
+      "speak": "Mine. This spot doesn't get washed until tomorrow.",
+      "soften": "One soft kiss on the spot they choose.",
+      "love": "touch"
     },
     {
       "id": "inferno-087",
@@ -924,11 +945,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Strangers-at-a-bar frame, eight minutes: you've never touched, every advance gets asked for in character, and you're both leaving together.",
-      "speak": "I've been watching you all night. Tell me I can take you home.",
-      "soften": "Play the 'just met' energy for four minutes with softer asks.",
-      "timebox": 480,
-      "love": "words"
+      "text": "Clothing collar: pick one thing they're wearing — it's yours to command now. On or off only on your word, and they ask properly each time.",
+      "speak": "Ask me nicely if you want this off. I like hearing you ask.",
+      "soften": "Claim one piece of their clothing with a spoken rule for the next ten minutes.",
+      "timebox": 600,
+      "love": "gifts"
     },
     {
       "id": "inferno-088",
@@ -936,11 +957,11 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "First-date replay, seven minutes: the same tone and setting energy as the real one — every polite moment replaced with what you actually wanted.",
-      "speak": "This is how I wanted the night to go the first time.",
-      "soften": "Replay the first-date feeling for three minutes with one honest filthy confession.",
-      "timebox": 420,
-      "love": "time"
+      "text": "Location claim: claim one room or surface. Whoever you claim it from must ask spoken permission to enter — and enters it exactly how you say.",
+      "speak": "You want in? Then ask like you mean it.",
+      "soften": "Pick one chair as yours; the other needs a polite ask to sit.",
+      "timebox": 900,
+      "love": "words"
     },
     {
       "id": "inferno-089",
@@ -948,59 +969,52 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Master-and-new-sub frame, twelve minutes: one teaches, one serves on their first night — permission questions and thanks only.",
-      "speak": "Teach me how you want me. I'll only speak to ask and to thank you.",
-      "soften": "Try a six-minute version with lighter teaching and more check-ins.",
-      "timebox": 720,
-      "love": "service"
+      "text": "Sealed directive: write one filthy command, fold it, hand it over — sealed until a time you both name. The handing-over, and the waiting, is the dare.",
+      "speak": "Don't open it till I say. I want you wondering all day.",
+      "soften": "Write one sweet-or-filthy note to open tonight.",
+      "love": "gifts"
     },
     {
       "id": "inferno-090",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Voice control for six minutes: you make only the sounds they request — moan on command, hold silence, count, beg in their chosen tone.",
-      "speak": "My voice belongs to you for these six minutes. Use it.",
-      "soften": "Limit free speech for three minutes and allow simple reactions.",
-      "timebox": 360,
+      "text": "Dual frame: strangers for five minutes, then slide into teacher-and-student without breaking contact. A spoken check-in marks the switch.",
+      "soften": "Play one frame for five minutes with a check-in before switching.",
+      "timebox": 600,
+      "together": true,
       "love": "words"
     },
     {
       "id": "inferno-091",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Mirror-audience frame, five minutes: deliver every instruction and reaction while watching yourselves. The mirror is the third participant.",
-      "speak": "Look at us. Tell me what you see while you use me.",
-      "soften": "Share two minutes of eye contact with your reflections and softer words.",
-      "timebox": 300,
-      "love": "touch"
+      "text": "Ownership kit, ten minutes: one collar, one scent mark, one restricted room, one sealed note — each formalized with a spoken rule, accepted out loud.",
+      "soften": "Pick two tokens of ownership and make the rules together.",
+      "timebox": 600,
+      "together": true,
+      "love": "gifts"
     },
     {
       "id": "inferno-092",
       "deck": "inferno",
-      "type": "dare",
+      "type": "topic",
       "level": 4,
       "bomb": true,
-      "text": "Scent-claiming ritual: mark a spot they choose with your mouth or skin, speak the claim out loud — it stays until morning.",
-      "speak": "This spot is mine until the sun comes up. Don't wash me off.",
-      "soften": "Leave a soft kiss-mark and a lighter spoken claim.",
-      "timebox": 120,
-      "love": "touch"
+      "text": "Which frame pulls hardest — strangers, the first-date rewrite, the first-timer, the ownership rituals? Say why the role itself is the hot part.",
+      "love": "words"
     },
     {
       "id": "inferno-093",
       "deck": "inferno",
-      "type": "dare",
+      "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "Clothing-ownership ritual: pick one item they're wearing — it's a collar-equivalent now, worn or removed only when you say.",
-      "speak": "This belongs to me tonight. Ask before you touch it again.",
-      "soften": "Pick one item and ask them to treat it as special for the next hour.",
-      "timebox": 300,
-      "love": "gifts"
+      "text": "How do you tell 'intense' from 'too much' in the moment — and which words name it without killing the heat? Give me your exact safeword grammar.",
+      "love": "words"
     },
     {
       "id": "inferno-094",
@@ -1008,87 +1022,651 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Location ownership: claim one room or piece of furniture. The owned partner asks spoken permission for entry, every time.",
-      "soften": "Choose one spot and add a simple permission ask for the next thirty minutes.",
+      "text": "Full-surrender window, ten minutes: one gives every instruction, the other obeys each one instantly — until the timer sounds or a clear stop is spoken.",
+      "speak": "I'll do anything you say. Order me around completely.",
+      "soften": "Five minutes of gentle following-the-leader with pauses allowed.",
       "timebox": 600,
-      "love": "time"
+      "love": "service"
     },
     {
       "id": "inferno-095",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Write one filthy or tender directive, fold it, hand it over — sealed until a time you both name. The handing-over is the dare.",
-      "soften": "Write a shorter, softer sealed note for tomorrow.",
-      "timebox": 300,
-      "love": "words"
+      "text": "Continuous contact, eight minutes — trading who directs at the exact halfway mark. Hands never leave each other; the instructions just change hands.",
+      "soften": "Four minutes of connected touching, trading the lead once.",
+      "timebox": 480,
+      "together": true,
+      "love": "touch"
     },
     {
       "id": "inferno-096",
       "deck": "inferno",
-      "type": "challenge",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Dual frame: strangers-at-a-bar for five minutes, then slide into master-and-new-sub without breaking contact. Consent check between frames.",
-      "soften": "Do three minutes of 'just met' energy then three minutes of lighter lead-and-follow.",
-      "together": true,
-      "timebox": 600,
-      "love": "time"
+      "text": "Greedy-hands rule: they touch you everywhere at once for ninety seconds — you don't touch back. Arch, grip the sheets, take it.",
+      "speak": "All of it at once? I can't— I'll take it anyway.",
+      "soften": "Sixty seconds of their hands on you, yours resting at your sides.",
+      "timebox": 90,
+      "love": "touch"
     },
     {
       "id": "inferno-097",
       "deck": "inferno",
-      "type": "challenge",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Ownership kit, ten minutes: one clothing item, one scent mark, one restricted spot, one sealed note — formalize each with spoken rules.",
-      "soften": "Pick two ownership elements and set lighter rules for the evening.",
-      "together": true,
-      "timebox": 600,
-      "love": "gifts"
+      "text": "Ride them exactly how you want it — pace, depth, rhythm all yours — while they keep their hands flat on the bed and just watch you use them for your pleasure.",
+      "speak": "Hold still. Tonight you're mine to use until I'm done.",
+      "soften": "Take the pace you love for one slow minute.",
+      "timebox": 300,
+      "love": "touch"
     },
     {
       "id": "inferno-098",
       "deck": "inferno",
-      "type": "topic",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Which frame pulls hardest — strangers, first-date rewrite, new-sub night, or ownership rituals — and why does the role itself get hot?",
+      "text": "Filthy narration while it happens: touch them exactly how they like — while describing, out loud, in detail, what your hands are doing and what comes next.",
+      "speak": "Right now my hand is doing exactly what you love — and next it goes lower.",
+      "soften": "One whispered description while you kiss them slowly.",
+      "timebox": 240,
       "love": "words"
     },
     {
       "id": "inferno-099",
       "deck": "inferno",
-      "type": "truth",
+      "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "How do you tell intense from too much in the moment — and what words name it without killing the heat?",
-      "love": "words"
+      "text": "Spank ledger: five slow spanks, and after each one they say thank you out loud. Any sass adds one. Warm hand, patient rhythm, eye contact kept.",
+      "speak": "One. Thank you. I deserved that.",
+      "soften": "Three gentle warm swats with a kiss after each.",
+      "love": "touch"
     },
     {
       "id": "inferno-100",
       "deck": "inferno",
-      "type": "dare",
+      "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Full-surrender window, ten minutes: one gives every instruction, the other obeys until time ends or a clear stop is spoken.",
-      "speak": "For these ten minutes I'm yours to direct. Tell me what to do.",
-      "soften": "Try a four-minute version with softer instructions and more check-ins.",
+      "text": "Edging ladder, ten minutes: three counted edges each — one per round, controlled by the other, with a spoken 'I'm close' and a granted 'hold it' every time.",
+      "soften": "One edge each, granted gently, then done.",
       "timebox": 600,
-      "love": "time"
+      "together": true,
+      "love": "touch"
     },
     {
       "id": "inferno-101",
       "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "If I handed you three command tokens — each one an order I have to obey, no appeals — what would you spend all three on tonight?",
+      "love": "words"
+    },
+    {
+      "id": "inferno-102",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Command tokens: three each, spent tonight, no take-backs. Each command is obeyed exactly and thanked with a kiss. Unspent tokens die at dawn.",
+      "speak": "Token one. You heard me — knees.",
+      "soften": "One command each, both agreed in advance, obeyed playfully.",
+      "timebox": 600,
+      "love": "gifts"
+    },
+    {
+      "id": "inferno-103",
+      "deck": "inferno",
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Eight minutes of continuous contact, trading who directs at the exact halfway mark — four minutes each.",
-      "soften": "Do four minutes total with a role trade at two minutes and lighter direction.",
+      "text": "Orgasm-on-command practice: five minutes of being brought right to the line, over and over, and coming only on the spoken word. Miss the window, start over.",
+      "soften": "One practice round: bring them close and finish on their ready signal.",
+      "timebox": 300,
       "together": true,
+      "love": "words"
+    },
+    {
+      "id": "inferno-104",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Filthy countdown finish: get them right to the edge, then count down from ten — they finish exactly at one or not at all, and they know the rule.",
+      "speak": "Ten… nine… you know what happens at one. Be ready.",
+      "soften": "Count down from five while touching slowly, then let go.",
+      "timebox": 120,
+      "love": "words"
+    },
+    {
+      "id": "inferno-105",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Praise under stimulation: touch them slowly while telling them in filthy detail what their body is doing to your self-control. Don't stop either.",
+      "speak": "Every sound you make costs me a piece of my sanity. Keep going.",
+      "soften": "Slow touching with one true compliment repeated softly.",
+      "timebox": 240,
+      "love": "words"
+    },
+    {
+      "id": "inferno-106",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Describe the hottest thing you could say to me mid-act that you've never dared to say out loud. Say it now — word for word, in the voice you'd use.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-107",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Dirty-talk lesson: they touch you while you narrate exactly what you want next — pace, place, pressure — and if you go quiet, the hands stop too.",
+      "speak": "I want your mouth lower… slower… and don't stop when I shake.",
+      "soften": "Whisper one thing you want while they kiss your neck.",
+      "timebox": 300,
+      "love": "words"
+    },
+    {
+      "id": "inferno-108",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Confession under stimulation: take turns touching each other slowly while the other confesses one never-told filthy thought. Pauses allowed; secrets required.",
+      "soften": "One whispered confession each, hands held.",
       "timebox": 480,
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "inferno-109",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Wax patience: drip low-temp wax across their back — one line at a time, peeled and kissed between rounds. They hold still and count drips out loud.",
+      "speak": "There. Now hold still while I make the next one count.",
+      "soften": "Warm-oil massage with the candle unlit nearby, watching it flicker.",
+      "timebox": 420,
       "love": "touch"
+    },
+    {
+      "id": "inferno-110",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Rope patience: bind their wrists in front with a soft scarf — then one hundred seconds of kisses only, nowhere near where they're aching.",
+      "speak": "I know where you want my mouth. You're not getting it yet.",
+      "soften": "One scarf around the wrists, one minute of slow kisses.",
+      "timebox": 100,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-111",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Over-the-knee position inspection: lay them across your lap, skirt or towel up, and inspect what's yours with slow hands and a running filthy commentary.",
+      "speak": "Look at you, laid out and waiting. We're going to take our time.",
+      "soften": "One long slow back massage across your lap, hands only.",
+      "timebox": 300,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-112",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Tease torture: one finger only, barely moving, for two full minutes — and they're not allowed to move toward your hand or complain. Just breathe through it.",
+      "speak": "One finger. Barely. That's all you get — take it.",
+      "soften": "One slow finger for thirty seconds at their pace.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-113",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "No-hands round: get them off using only your mouth — no fingers, no grip, just tongue, lips, and patience while they watch you work for it.",
+      "speak": "Watch me. No hands — I don't need them for you.",
+      "soften": "One slow kiss, hands resting on their hips.",
+      "timebox": 300,
+      "love": "service"
+    },
+    {
+      "id": "inferno-114",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Both at once, slowest tempo in the house: mouths on each other, matched pace, no rushing — the first one to speed up owes a forfeit dare invented on the spot.",
+      "soften": "Take turns with slow mouths, one minute each.",
+      "timebox": 360,
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-115",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Thirty-second freeze: bring them right to the line, then make them hold completely still for thirty seconds while you whisper what happens if they move.",
+      "speak": "If you move, we start this whole thing over. Choose.",
+      "soften": "Pause at the peak for ten slow breaths, then continue.",
+      "timebox": 90,
+      "love": "words"
+    },
+    {
+      "id": "inferno-116",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Grinding lesson: straddle them fully clothed and get them aching through the fabric — no hands, no hurry, just heat and friction until they're begging for skin.",
+      "speak": "Feel that? That's what you do to me with your clothes still on.",
+      "soften": "One slow clothed kiss, full-contact, thirty seconds.",
+      "timebox": 240,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-117",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Eyes-open rule: they touch you exactly how you love — and you keep your eyes on theirs the entire time. Every blink adds ten seconds. Choose your winner.",
+      "speak": "Keep those eyes open. I want watched while I fall apart.",
+      "soften": "One minute of eye contact during slow touching, blinks forgiven.",
+      "timebox": 180,
+      "love": "time"
+    },
+    {
+      "id": "inferno-118",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Filthy voicemail: whisper your dirtiest want into a voice memo on their phone — then play it back while they touch you exactly as described.",
+      "speak": "Play it. I want to hear myself ask while you do it to me.",
+      "soften": "Record one sweet want and let them hear it once.",
+      "timebox": 300,
+      "love": "words"
+    },
+    {
+      "id": "inferno-119",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Night-window dare: stand together at the dark window, city lights only, and touch them from behind exactly how you've always wanted to in the open.",
+      "speak": "Look at the view. Nobody can see us — but I want you loud anyway.",
+      "soften": "Stand at the window together, held from behind, one slow touch.",
+      "timebox": 240,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-120",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Backseat round: out to the car after dark, back seat, windows fogged — one fast, desperate round before you can even get your breath back.",
+      "speak": "Hurry. I've wanted you in this back seat for months.",
+      "soften": "One long kiss in the back seat, hands wandering.",
+      "timebox": 600,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-121",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Film for us: prop the phone up and let it record — the video gets watched together once tonight, then deleted together on the spot. The watching is the dare.",
+      "speak": "Look at us. We delete it together — after we enjoy it once.",
+      "soften": "Take one clothed photo together you'd never show anyone; delete on request.",
+      "timebox": 600,
+      "love": "gifts"
+    },
+    {
+      "id": "inferno-122",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Neck ruin: mouth on their neck, the exact spot, for a full minute — building it up while they tell you when they can't take any more. Then thirty seconds more.",
+      "speak": "One more second. I'll stop when your knees actually give.",
+      "soften": "Slow neck kisses until they ask you to stop.",
+      "timebox": 90,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-123",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Bite map: place teeth and nails along their shoulders, ribs, hips — soft to hard as they allow — and ask each spot if that's the one they'll feel tomorrow.",
+      "speak": "This one? Tell me honestly. I want you finding it in the shower.",
+      "soften": "Three soft love-bites, each followed by a warm kiss.",
+      "timebox": 240,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-124",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Worship the hands: take each of their fingers slowly into your mouth one at a time — show them exactly what your mouth is capable of tonight.",
+      "speak": "Pay attention. Every finger is practice for what comes next.",
+      "soften": "One slow kiss to each fingertip, eyes up.",
+      "timebox": 180,
+      "love": "service"
+    },
+    {
+      "id": "inferno-125",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Kitchen-counter claim: lift them onto the counter, stand between their legs, kiss them until the cold surface is the only thing holding them up.",
+      "speak": "Right here. You're not walking anywhere until I'm done with you.",
+      "soften": "One deep kiss standing between them, hands on their hips.",
+      "timebox": 180,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-126",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Morning-after dare token: perform one perfectly filthy act now — and hide a written dare somewhere on their body or their bag for them to find tomorrow.",
+      "speak": "You'll find the next part of this when you least expect it.",
+      "soften": "Write one sweet note and tuck it into their pocket.",
+      "love": "gifts"
+    },
+    {
+      "id": "inferno-127",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Filthy bucket list, rapid fire: sixty seconds each, alternate naming acts you want to try before the year ends. No judging, no editing — the list gets kept.",
+      "soften": "Five wishes each, no time limit, laughing allowed.",
+      "timebox": 120,
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "inferno-128",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Yes/no/maybe extreme: each write ten boundary-pushing acts, trade papers, mark yes/no/maybe. All maybes get discussed tonight.",
+      "soften": "Each list three items; the discussion is gentle.",
+      "timebox": 600,
+      "together": true,
+      "love": "words"
+    },
+    {
+      "id": "inferno-129",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Position gauntlet: three positions, three minutes each, no repeats — receiver picks. Rate them out loud; the winner joins the permanent rotation.",
+      "soften": "One new position, tried slowly and rated together.",
+      "timebox": 900,
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-130",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Toy ceremony: pick one together tonight — from a shared list or a new one — and break it in slowly, taking turns on who it's used on first.",
+      "soften": "Browse together and put one in a shared cart — no pressure to buy tonight.",
+      "timebox": 600,
+      "together": true,
+      "love": "gifts"
+    },
+    {
+      "id": "inferno-131",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "What's the one thing you'd want to do to me that sounds too filthy to suggest? Say it anyway — the whole idea, and I promise you a real answer.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-132",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Which of your sounds would you be embarrassed to have recorded — and what would you be doing when it came out of you?",
+      "love": "words"
+    },
+    {
+      "id": "inferno-133",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "What's the position you secretly replay when you're alone? Describe it from the first touch to the finish — I want the details I've never heard.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-134",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "If we had a completely empty house and one whole weekend, what are the first three things you'd drag me into?",
+      "love": "words"
+    },
+    {
+      "id": "inferno-135",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "What's the kink you'd ask for if I promised — right now, out loud — no judgment and a maybe? Here's the promise. Ask.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-136",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Slow-torture ride: get on top and move one slow inch at a time — five seconds down, five up — while they're forbidden from grabbing your hips or rushing you.",
+      "speak": "One inch at a time. Suffer beautifully for me.",
+      "soften": "One slow minute on top at your own comfortable pace.",
+      "timebox": 300,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-137",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Hot-and-cold mouth round: alternate ice-cold and breath-warm mouth on the same spot — thirty seconds each — while they guess which they can't survive longer.",
+      "speak": "Cold again. Or do you want to beg for warm?",
+      "soften": "One ice-cool kiss followed by a warm one.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-138",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Count their edges: hold them at the line as many times as you can in five minutes — counting each out loud, since they'll be too wrecked to count.",
+      "speak": "That's two. Three will cost you your voice.",
+      "soften": "One held edge, counted gently, then finish.",
+      "timebox": 300,
+      "love": "words"
+    },
+    {
+      "id": "inferno-139",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Silent round: whatever they do to you for three minutes — no sound at all. Every moan leaks a forfeit. Your face does all the talking.",
+      "speak": "Make me be quiet. I dare you to try.",
+      "soften": "One quiet minute of slow touching, giggles allowed.",
+      "timebox": 180,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-140",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Worship the spot they hate: find the one place they're shy about and give it slow mouth, hands, and praise until they believe every word.",
+      "speak": "This part of you drives me out of my mind. Let me prove it.",
+      "soften": "One sincere compliment about the part of them they're shy about.",
+      "timebox": 240,
+      "love": "words"
+    },
+    {
+      "id": "inferno-141",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Needy switch: they take you how they want for five minutes — but every thirty seconds you say 'please don't stop' like you mean it.",
+      "speak": "Please don't stop. Please — I mean it.",
+      "soften": "Slow attentive round with one honest 'don't stop' whispered.",
+      "timebox": 300,
+      "love": "words"
+    },
+    {
+      "id": "inferno-142",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Synchronized ruin: hands on each other, matching stroke for stroke — whoever finishes first sets up the other's round two exactly how they like it.",
+      "soften": "Slow mutual touching, no rules, trade the lead freely.",
+      "timebox": 360,
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-143",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Doorframe pin: catch them between you and the doorframe — hands above, mouth on their neck — and let them feel exactly how patient you plan to be tonight.",
+      "speak": "Caught you. You know what happens to things I catch.",
+      "soften": "One doorway kiss, hands free, unhurried.",
+      "timebox": 120,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-144",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Undivided attention: they do nothing for three minutes — no reciprocating — while you adore every inch of them and refuse to be thanked.",
+      "speak": "Your only job is to lie there. Let me worship you properly.",
+      "soften": "One minute of all-about-them attention, no strings.",
+      "timebox": 180,
+      "love": "time"
+    },
+    {
+      "id": "inferno-145",
+      "deck": "inferno",
+      "type": "dare",
+      "level": 4,
+      "bomb": true,
+      "text": "Aftercare in the filthiest voice: once they're spent, stay exactly where you are and whisper what they just did to you — in the voice that started it all.",
+      "speak": "Look what you did to me. You're not allowed to fix it yet.",
+      "soften": "Stay close and whisper one thing you loved.",
+      "timebox": 120,
+      "love": "words"
+    },
+    {
+      "id": "inferno-146",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Bed-to-floor-to-wall gauntlet: change locations three times without breaking apart — the planning between you out loud, dirty logistics allowed and encouraged.",
+      "soften": "Two locations, unhurried, laughing allowed.",
+      "timebox": 600,
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-147",
+      "deck": "inferno",
+      "type": "challenge",
+      "level": 4,
+      "bomb": true,
+      "text": "Ruined-and-owed: edge each other once, ruin it gently on purpose, then owe a full slow finish — traded roles, generous pace, all debts honored tonight.",
+      "soften": "One slow finish each, no games, full attention.",
+      "timebox": 600,
+      "together": true,
+      "love": "touch"
+    },
+    {
+      "id": "inferno-148",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "What do you want said to you at the exact moment you come — the words, the voice, the whole sentence? Write my lines for me and I'll perform them.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-149",
+      "deck": "inferno",
+      "type": "truth",
+      "level": 4,
+      "bomb": true,
+      "text": "Whose desperate face is better — and describe exactly what mine looks like when you've taken me apart. Be detailed. I want to see myself the way you do.",
+      "love": "words"
+    },
+    {
+      "id": "inferno-150",
+      "deck": "inferno",
+      "type": "topic",
+      "level": 4,
+      "bomb": true,
+      "text": "Plan tonight's encore: the one act you both want waiting at the end of this game — filthiest details welcome, executed the moment the deck goes dark.",
+      "love": "words"
     }
   ]
 }
