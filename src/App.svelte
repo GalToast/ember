@@ -209,13 +209,13 @@
     <nav class="dock glass" data-testid="dock">
       {#if !landing}
         <button class="btn btn-ghost" onclick={() => (soft = !soft)} disabled={!card.soften} title="show the softer variant">
-          <Icon name="soften" /> {soft ? 'Back up' : 'Soften'}
+          <Icon name="soften" /> <span class="lbl">{soft ? 'Back up' : 'Soften'}</span>
         </button>
-        <button class="btn btn-ghost" onclick={skip} disabled={skips <= 0} data-testid="skip">
-          <Icon name="skip" /> Skip
+        <button class="btn btn-ghost" onclick={skip} disabled={skips <= 0} data-testid="skip" aria-label="Skip">
+          <Icon name="skip" /> <span class="lbl">Skip</span>
         </button>
-        <button class="btn btn-ghost retire" onclick={retire} title="never show this card again">
-          <Icon name="skip" /> Never again
+        <button class="btn btn-ghost retire" onclick={retire} title="never show this card again" aria-label="Never again">
+          <Icon name="skip" /> <span class="lbl">Never again</span>
         </button>
       {/if}
       {#if landing}
@@ -285,5 +285,11 @@
     flex-wrap: nowrap;
   }
   .dock .btn { white-space: nowrap; font-size: clamp(13px, 1.8vmin, 16px); padding: 12px 22px; min-height: 52px; }
+  /* small screens: ghost buttons drop their labels (icons carry the meaning) so the dock never overflows the viewport */
+  @media (max-width: 560px) {
+    .dock { gap: 10px; }
+    .dock .btn-ghost .lbl { display: none; }
+    .dock .btn-ghost { padding: 12px 14px; }
+  }
   .retire { color: var(--ink-dim); }
 </style>

@@ -244,15 +244,13 @@
   .swipe-hint.skip { left: 16px; color: var(--p2); border: 1.5px solid var(--p2); background: rgba(255, 82, 115, 0.12); }
 
   .badge-badge {
-    position: absolute;
-    top: -13px; right: 20px;
     display: inline-flex; align-items: center; gap: 6px;
     padding: 6px 13px;
     border-radius: var(--r-pill);
     font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
   }
   .badge-badge { color: #ffd9a0; background: linear-gradient(135deg, #b3451f, #8f1d3a); box-shadow: 0 8px 24px rgba(179, 69, 31, 0.45); }
-  .badge-badge.landing { right: auto; left: 20px; background: linear-gradient(135deg, #5a4a7a, #8f1d3a); color: #efe6ff; }
+  .badge-badge.landing { background: linear-gradient(135deg, #5a4a7a, #8f1d3a); color: #efe6ff; }
 
   .meta { display: flex; align-items: center; gap: 12px; color: var(--ink-dim); }
   .type {
