@@ -8,9 +8,11 @@
   import Celebration from './components/Celebration.svelte';
   import Icon from './components/Icon.svelte';
   import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
+import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   import type { Card, DeckId } from './lib/schema';
 
   const persisted = $state(load());
+  loadMuted(); // sound preference before any sound fires
   let names = $state(persisted.names);
   let mode = $state<Mode>('mixup');
   let decks = $state<DeckId[]>([...ALL_DECKS.filter((d) => d !== 'inferno')]);
@@ -245,6 +247,7 @@
     clearNight();
     unlockScreen();
     night.tokens = finalTokens; // kept in memory for the celebration's unspent-tokens finale
+    swell(); // the night's last sound: warm major bloom under the celebration
     screen = 'celebrate';
   }
 
@@ -328,6 +331,7 @@
         {#each Array(skips) as _}<i></i>{/each}
       </span>
       <button class="icon-btn" onclick={goFullscreen} title="fullscreen for the TV"><Icon name="expand" /></button>
+      <button class="icon-btn" onclick={() => { setMuted(!isMuted()); }} title={isMuted() ? 'sound off' : 'sound on'} data-testid="mute"><Icon name={isMuted() ? 'skip' : 'heart'} size={17} /></button>
     </div>
 
     <div class="cardzone">

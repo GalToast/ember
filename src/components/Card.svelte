@@ -103,21 +103,39 @@
   let running = $state(false);
   let interval: ReturnType<typeof setInterval> | undefined;
 
+  import { chime, tick as tickSound, deal as dealSound, bomb as bombSound } from '../lib/audio.svelte';
+  let lastTick = $state(-1);
+
   $effect(() => {
     total = shown.timebox ?? 0;
     remaining = total;
     running = total > 0;
+    lastTick = -1;
     if (interval) clearInterval(interval);
     if (total > 0) {
       interval = setInterval(() => {
         if (running && remaining > 0) remaining -= 1;
+        if (remaining <= 10 && remaining > 0 && running && lastTick !== remaining) {
+          lastTick = remaining;
+          tickSound();
+        }
         if (remaining === 0 && running) {
           running = false;
-          import('../lib/game.svelte').then((m) => m.chime());
+          chime();
         }
       }, 1000);
     }
     return () => { if (interval) clearInterval(interval); };
+  });
+
+  // deal + bomb sounds fire once per freshly drawn card
+  let soundedFor = $state('');
+  $effect(() => {
+    const id = shown.id + (isSoft ? ':soft' : '');
+    if (soundedFor === id) return;
+    soundedFor = id;
+    if (shown.bomb && !isSoft) bombSound();
+    else dealSound();
   });
 
   // haptics: double 10ms pulse when a fresh spice bomb is dealt
