@@ -42,7 +42,7 @@ async function main() {
 
   const g = await import(pathToFileURL(ENTRY).href + '?v=' + Date.now());
 
-  // ---- F1: decks resolve to 730 cards, six ids, no duplicate card ids ----
+  // ---- F1: decks resolve to 780 cards, six ids, no duplicate card ids ----
   const ids = Object.keys(g.DECKS);
   eq('six decks', ids.length, 6);
   let total = 0;
@@ -55,7 +55,7 @@ async function main() {
       seenIds.add(c.id);
     }
   }
-  eq('730 cards', total, 730);
+  eq('780 cards', total, 780);
 
   // ---- F2: mode → deck membership matches the fixed bundles ----
   eq('chill = spark+closer', g.decksFor('chill').join(','), 'spark,closer');
