@@ -4,6 +4,7 @@
   import Splash from './components/Splash.svelte';
   import CardView from './components/Card.svelte';
   import Browse from './components/Browse.svelte';
+  import PrivateCard from './components/PrivateCard.svelte';
   import Celebration from './components/Celebration.svelte';
   import Icon from './components/Icon.svelte';
   import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
@@ -14,7 +15,11 @@
   let mode = $state<Mode>('mixup');
   let decks = $state<DeckId[]>([...ALL_DECKS.filter((d) => d !== 'inferno')]);
   let safeword = $state('');
-  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate' | 'browse'>('setup');
+  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate' | 'browse' | 'handoff' | 'private'>('setup');
+  /** pass-the-phone: when true, every draw deals the holder a PRIVATE card (PrivateCard flow) */
+  let ptp = $state(false);
+  /** the private card currently held (already drawn + marked seen) */
+  let privateCard = $state<Card | null>(null);
   let card = $state<Card | null>(null);
   let soft = $state(false);
   let skips = $state(6);
@@ -33,7 +38,11 @@
   function persistNight() {
     night.decks = [...decks];
     night.mode = mode;
-    night.cardId = card?.id ?? null;
+    // in pass-the-phone the dealt card lives in privateCard (public `card` stays null);
+    // while a handoff is pending BOTH are null — keep the last persisted cardId so the
+    // night never looks dead mid-handoff (resume lands on the handoff screen)
+    const nextCardId = card?.id ?? privateCard?.id ?? null;
+    if (nextCardId !== null || !ptp) night.cardId = nextCardId;
     night.count = count;
     night.skips = skips;
     night.safeword = safeword;
@@ -100,7 +109,7 @@
     advance(card);
   }
 
-  function begin() {
+  function begin(silent = false) {
     unlockAudio();
     lockScreen();
     // fresh night: reset in-memory engine state (seen cards, love balance, tokens)
@@ -110,8 +119,50 @@
     night.lastBombIndex = -99;
     night.tokens = { a: 3, b: 3 };
     night.turn = 'a';
+    privateCard = null;
     seedSeen([]);
-    next();
+    ptp = false;
+    if (!silent) next(); // silent = the caller deals the first card themselves (pass-the-phone)
+  }
+
+  // ---- pass-the-phone flow ----
+  function startPtp() {
+    ptp = true;
+    nextPrivate(); // first private card goes to the turn holder (a) directly — no public draw first
+  }
+
+  function nextPrivate() {
+    const c = draw(mode, decks, persisted.retired, night, undefined);
+    if (!c) { end(); return; }
+    privateCard = c;
+    count += 1;
+    night.drawIndex += 1;
+    night.seen = [...night.seen, c.id];
+    trackLove(night, c);
+    night.cardId = c.id;
+    persistNight();
+    screen = 'private';
+  }
+
+  function privateDone() {
+    // the private card has been read; the phone passes; the other player gets theirs
+    privateCard = null;
+    night.turn = night.turn === 'a' ? 'b' : 'a';
+    // keep cardId pointing at the last dealt card so an interruption here resumes into the handoff
+    persistNight();
+    screen = 'handoff';
+  }
+
+  function handoffDone() {
+    if (!ptp) { screen = 'setup'; return; }
+    nextPrivate();
+  }
+
+  function endPtp() {
+    // leaving pass-the-phone: back to normal play (tokens/skips/skips carry over)
+    ptp = false;
+    privateCard = null;
+    end();
   }
 
   function resume() {
@@ -220,6 +271,7 @@
     onRestart={() => { clearNight(); resumeAvailable = null; count = 0; skips = 6; }}
     onStart={() => { clearNight(); (screen = 'splash'); }}
     onBrowse={() => { screen = 'browse'; }}
+    onPtp={() => { clearNight(); unlockAudio(); lockScreen(); begin(true); startPtp(); }}
   />
 {:else if screen === 'browse'}
   <Browse
@@ -227,6 +279,26 @@
     onRetire={(id) => { persisted.retired = [...persisted.retired, id]; save(persisted); }}
     onUnretire={(id) => { persisted.retired = persisted.retired.filter((r) => r !== id); save(persisted); }}
     onClose={() => { screen = 'setup'; }}
+  />
+{:else if screen === 'handoff'}
+  <div class="pcwrap handoff" data-testid="handoff">
+    <div class="handoff-card glass">
+      <div class="crown-sm"><Icon name="heart" size={26} /></div>
+      <h2 class="display">Pass the phone.</h2>
+      <p class="dim">{(night.turn === 'a' ? names.a : names.b) || 'The other player'}'s private card is waiting. Whatever was on yours is nobody's business but yours.</p>
+      <button class="btn primary" onclick={handoffDone} data-testid="handoff-continue">I'm {((night.turn === 'a' ? names.a : names.b) || 'next')} — show mine</button>
+      <div class="handoff-row">
+        <button class="btn ghost" onclick={() => { ptp = false; privateCard = null; next(); }} data-testid="ptp-exit">Leave private mode</button>
+        <button class="btn ghost" onclick={endPtp} data-testid="ptp-end">End the night</button>
+      </div>
+    </div>
+  </div>
+{:else if screen === 'private' && privateCard}
+  <PrivateCard
+    card={privateCard}
+    holder={night.turn}
+    {names}
+    onDone={privateDone}
   />
 {:else if screen === 'splash'}
   <Splash onBegin={begin} />
@@ -369,4 +441,33 @@
     .dock .btn-ghost { padding: 12px 14px; }
   }
   .retire { color: var(--ink-dim); }
+
+  /* ---- pass-the-phone handoff screen ---- */
+  .pcwrap.handoff {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    padding: clamp(16px, 3vmin, 40px);
+  }
+  .handoff-card {
+    width: min(92vw, 520px);
+    display: flex; flex-direction: column; align-items: center; gap: clamp(14px, 2.4vmin, 24px);
+    text-align: center;
+    padding: clamp(24px, 4vmin, 48px);
+    border-radius: var(--r-lg);
+  }
+  .crown-sm { color: var(--ember); }
+  .handoff-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .btn.primary {
+    background: linear-gradient(135deg, #ff7a3d, #ff5273); border-color: transparent;
+    box-shadow: 0 10px 30px rgba(255, 90, 60, 0.3); color: #fff;
+  }
+  .btn.ghost {
+    background: var(--glass); border: 1px solid var(--edge); color: var(--ink-dim);
+    padding: 10px 18px; font-size: clamp(12px, 1.6vmin, 14px);
+  }
+  .handoff-card h2 { font-size: clamp(26px, 4.6vmin, 44px); }
+  .handoff-card p { font-size: clamp(14px, 2vmin, 18px); line-height: 1.4; max-width: 40ch; }
 </style>

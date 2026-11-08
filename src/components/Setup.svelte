@@ -14,6 +14,7 @@
     onRestart,
     onStart,
     onBrowse,
+    onPtp,
   }: {
     names: { a: string; b: string };
     mode: Mode;
@@ -26,6 +27,7 @@
     onRestart: () => void;
     onStart: () => void;
     onBrowse?: () => void;
+    onPtp?: () => void;
   } = $props();
 
   let warn = $state(false);
@@ -86,6 +88,9 @@
   {/if}
   <button class="browse-btn" onclick={onBrowse} data-testid="browse-open" title="flip through any deck without starting a night">
     <Icon name="truth" size={15} /> Browse the decks first
+  </button>
+  <button class="browse-btn" onclick={onPtp} data-testid="ptp-open" title="pass-the-phone: private cards each player reads alone">
+    <Icon name="skip" size={15} /> Pass-the-phone night
   </button>
 </div>
 
