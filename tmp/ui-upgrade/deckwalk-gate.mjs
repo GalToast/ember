@@ -27,7 +27,7 @@ async function walk(vp, label) {
   await page.locator('input').nth(0).fill('Fred');
   await page.locator('input').nth(1).fill('Christen');
   // pick mode + set safeword (worst-case L4 stack)
-  await page.locator('button.mode', { hasText: MODE.charAt(0).toUpperCase() + MODE.slice(1) }).first().click();
+  await page.locator('button.mode', { hasText: (MODE==='afterdark'?'After Dark':MODE.charAt(0).toUpperCase() + MODE.slice(1)) }).first().click();
   const sw = page.locator('input[type="password"], input[placeholder*="safe" i], .warning input');
   if (await sw.count()) await sw.first().fill('red', { timeout: 2000 }).catch(() => {});
   await page.getByText('Start the night', { exact: false }).click();
