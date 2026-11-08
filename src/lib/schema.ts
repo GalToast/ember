@@ -1,6 +1,6 @@
 // Ember deck schema — content-as-code. Every card is one of five types at one heat level.
 export type CardType = 'truth' | 'dare' | 'challenge' | 'ice' | 'topic';
-export type DeckId = 'spark' | 'closer' | 'slowburn' | 'afterdark' | 'curious' | 'inferno';
+export type DeckId = 'spark' | 'closer' | 'slowburn' | 'afterdark' | 'curious' | 'inferno' | 'custom';
 
 export interface Card {
   id: string;

@@ -15,6 +15,7 @@
     onStart,
     onBrowse,
     onPtp,
+    onCustom,
   }: {
     names: { a: string; b: string };
     mode: Mode;
@@ -28,6 +29,7 @@
     onStart: () => void;
     onBrowse?: () => void;
     onPtp?: () => void;
+    onCustom?: () => void;
   } = $props();
 
   let warn = $state(false);
@@ -91,6 +93,9 @@
   </button>
   <button class="browse-btn" onclick={onPtp} data-testid="ptp-open" title="pass-the-phone: private cards each player reads alone">
     <Icon name="skip" size={15} /> Pass-the-phone night
+  </button>
+  <button class="browse-btn" onclick={onCustom} data-testid="custom-open" title="write your own cards — dealt into every mode">
+    <Icon name="heart" size={15} /> Write your own card
   </button>
 </div>
 

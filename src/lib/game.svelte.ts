@@ -35,7 +35,7 @@ const KEY = 'ember.v1';
 const NIGHT_KEY = 'ember.night';
 
 export interface NightLog { date: string; cards: number; mode: Mode }
-export interface Persisted { names: { a: string; b: string }; nights: NightLog[]; retired: string[] }
+export interface Persisted { names: { a: string; b: string }; nights: NightLog[]; retired: string[]; custom?: Card[] }
 
 export function load(): Persisted {
   try {
@@ -89,12 +89,59 @@ export function clearNight() {
   try { localStorage.removeItem(NIGHT_KEY); } catch { /* ignore */ }
 }
 
+// ---- custom cards ("Our Deck") — written by the couple, stored in localStorage ----
+const CUSTOM_KEY = 'ember.custom';
+
+export function loadCustom(): Card[] {
+  try {
+    const raw = localStorage.getItem(CUSTOM_KEY);
+    if (raw) { const a = JSON.parse(raw); if (Array.isArray(a)) return a; }
+  } catch { /* fresh */ }
+  return [];
+}
+
+export function saveCustom(cards: Card[]) {
+  try { localStorage.setItem(CUSTOM_KEY, JSON.stringify(cards)); } catch { /* private mode */ }
+}
+
+export interface CustomValidation { ok: boolean; errors: string[] }
+
+/** House rules for user-written cards — the same gates the shipped decks pass. */
+export function validateCustom(c: Partial<Card>, allCustom: Card[]): CustomValidation {
+  const errors: string[] = [];
+  const text = (c.text ?? '').trim();
+  const speak = (c.speak ?? '').trim();
+  const soften = (c.soften ?? '').trim();
+  if (!text) errors.push('write the card');
+  else {
+    if (text.length > 160) errors.push(`too long (${text.length}/160)`);
+    const unquoted = text.replace(/"[^"]*"|'[^']*'/g, ' ');
+    if (/\bmy\b/i.test(unquoted) || /^I /i.test(unquoted)) errors.push('speak to "you/they", not "my/I" (outside quotes)');
+    if (/\s\/\s|\/\s|\s\//.test(unquoted)) errors.push('no slash-choices — pick one act');
+    if (/\bcock\b|\bpussy\b|\bdick\b|\btits?\b|\bclit\b/i.test(text)) errors.push('anatomy stays neutral — verbs carry the filth');
+    if (/reconnect|\brepair\b|healing|therapy/i.test(text)) errors.push('no therapy words');
+  }
+  if ((c.type === 'dare' || c.type === 'challenge') && !soften) errors.push('dares need a softer variant');
+  if (soften.length > 160) errors.push(`soften too long (${soften.length}/160)`);
+  if (speak.length > 120) errors.push(`speak line too long (${speak.length}/120)`);
+  const norm = text.toLowerCase().replace(/\s+/g, ' ').trim();
+  if (allCustom.some((x) => x.text.toLowerCase().replace(/\s+/g, ' ').trim() === norm)) errors.push('duplicate of an existing custom card');
+  return { ok: errors.length === 0, errors };
+}
+
+export function newCustomCard(type: Card['type'], author: 'a' | 'b'): Card {
+  const all = loadCustom();
+  const id = `custom-${Date.now().toString(36)}-${Math.floor(Math.random() * 1e4).toString(36)}`;
+  return { id, deck: 'custom' as DeckId, type, level: 3, text: '', love: 'touch', author } as unknown as Card;
+}
+
 const seen = new Set<string>();
 
-export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightState, except?: Card): Card | null {
+export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightState, except?: Card, customCards?: Card[]): Card | null {
   const retiredSet = new Set(retired);
   let pool = decks
     .flatMap((id) => (DECKS[id] ? DECKS[id].cards : []))
+    .concat(customCards ?? [])
     .filter((c) => c.id !== except?.id && !retiredSet.has(c.id) && !seen.has(c.id));
   // bomb pacing: no bomb within 3 draws of the last one
   const bombGap = ns.drawIndex - ns.lastBombIndex;
@@ -103,9 +150,9 @@ export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightSt
     if (calm.length > 0) pool = calm;
   }
   if (pool.length === 0) {
-    // deck exhausted: reset seen, retry once
+    // deck exhausted: reset seen, retry once (custom cards stay in the pool)
     seen.clear();
-    pool = decks.flatMap((id) => DECKS[id].cards).filter((c) => c.id !== except?.id && !retiredSet.has(c.id));
+    pool = decks.flatMap((id) => DECKS[id].cards).concat(customCards ?? []).filter((c) => c.id !== except?.id && !retiredSet.has(c.id));
     if (pool.length === 0) return null;
   }
   // love-language balancing: half the time, prefer the least-served love language

@@ -4,10 +4,11 @@
   import Splash from './components/Splash.svelte';
   import CardView from './components/Card.svelte';
   import Browse from './components/Browse.svelte';
+  import CustomDeck from './components/CustomDeck.svelte';
   import PrivateCard from './components/PrivateCard.svelte';
   import Celebration from './components/Celebration.svelte';
   import Icon from './components/Icon.svelte';
-  import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
+  import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, loadCustom, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
 import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   import type { Card, DeckId } from './lib/schema';
 
@@ -17,7 +18,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   let mode = $state<Mode>('mixup');
   let decks = $state<DeckId[]>([...ALL_DECKS.filter((d) => d !== 'inferno')]);
   let safeword = $state('');
-  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate' | 'browse' | 'handoff' | 'private'>('setup');
+  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate' | 'browse' | 'handoff' | 'private' | 'custom'>('setup');
   /** pass-the-phone: when true, every draw deals the holder a PRIVATE card (PrivateCard flow) */
   let ptp = $state(false);
   /** the private card currently held (already drawn + marked seen) */
@@ -69,7 +70,8 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   }
 
   function advance(except?: Card) {
-    const c = draw(mode, decks, persisted.retired, night, except);
+    (window as unknown as { __dbg?: unknown }).__dbg = { customLen: (persisted.custom ?? []).length, decks: [...decks], mode };
+    const c = draw(mode, decks, persisted.retired, night, except, persisted.custom ?? []);
     if (!c) { end(); return; }
     card = c;
     soft = false;
@@ -125,6 +127,15 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     ptp = false;
     privateCard = null;
     seedSeen([]);
+    // test/journey hook: ember.focusCustom=1 seeds seen[] with every base card so only
+    // custom cards draw (deterministic custom-deck verification; harmless in normal play)
+    try {
+      if (localStorage.getItem('ember.focusCustom') === '1') {
+        const baseIds = ALL_DECKS.flatMap((d) => DECKS_MAP[d]?.cards.map((c) => c.id) ?? []);
+        night.seen = baseIds;
+        seedSeen(baseIds);
+      }
+    } catch { /* no-op */ }
     if (!silent) next(); // silent = the caller deals the first card themselves (pass-the-phone)
   }
 
@@ -287,6 +298,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     onRestart={() => { clearNight(); resumeAvailable = null; count = 0; skips = 6; }}
     onStart={() => { clearNight(); (screen = 'splash'); }}
     onBrowse={() => { screen = 'browse'; }}
+    onCustom={() => { screen = 'custom'; }}
     onPtp={() => { clearNight(); unlockAudio(); lockScreen(); begin(true); startPtp(); }}
   />
 {:else if screen === 'browse'}
@@ -296,6 +308,8 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     onUnretire={(id) => { persisted.retired = persisted.retired.filter((r) => r !== id); save(persisted); }}
     onClose={() => { screen = 'setup'; }}
   />
+{:else if screen === 'custom'}
+  <CustomDeck names={names} onClose={() => { persisted.custom = loadCustom(); screen = 'setup'; }} />
 {:else if screen === 'handoff'}
   <div class="pcwrap handoff" data-testid="handoff">
     <div class="handoff-card glass">
