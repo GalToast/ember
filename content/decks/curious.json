@@ -1091,7 +1091,7 @@
       "type": "challenge",
       "level": 4,
       "bomb": true,
-      "text": "Command tokens: 3 each. Irreversible. Play one: 'Kiss my neck.' 'Stop.' 'Faster.' No negotiation.",
+      "text": "Command tokens: 3 each. Irreversible. Spend one: \"On your knees.\" \"Slower.\" \"Eyes on me.\" No negotiation.",
       "speak": "'Token spent. Obey.'",
       "soften": "Each writes 3 commands on slips. Draw and perform. Can veto once each.",
       "together": true,
