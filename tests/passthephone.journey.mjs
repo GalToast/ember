@@ -79,6 +79,27 @@ function check(name, cond, detail = '') {
   await page.waitForTimeout(400);
   check('exit returns to play (normal dock)', await page.getByTestId('dock').count() === 1);
 
+  // 8. PRIVACY: a ptp night resumed mid-handoff must NOT render the stored card publicly.
+  //    Start a fresh ptp night, pass one card (handoff pending), reload, resume.
+  await page.evaluate(() => { localStorage.clear(); });
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(400);
+  await page.locator('input').nth(0).fill('Fred');
+  await page.locator('input').nth(1).fill('Christen');
+  await page.getByTestId('ptp-open').click();
+  await page.waitForTimeout(600);
+  const pc = page.locator('.pcard');
+  for (let i = 0; i < 3; i++) { await pc.dispatchEvent('pointerdown'); await pc.dispatchEvent('pointerup'); await page.waitForTimeout(60); }
+  await page.getByTestId('pc-done').click();
+  await page.waitForTimeout(500);
+  // reload while the handoff is pending
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(500);
+  await page.locator('button', { hasText: /Resume/i }).click();
+  await page.waitForTimeout(500);
+  check('ptp resume lands on handoff (not a public card)', await page.getByTestId('handoff').count() === 1);
+  check('ptp resume does NOT leak the private card', await page.locator('.pcard').count() === 0 && await page.getByTestId('card').count() === 0);
+
   check('zero console/page errors', errors.length === 0, errors[0] || '');
   await browser.close();
   console.log(fail ? `\nPTP JOURNEY FAIL (${fail})` : '\nPTP JOURNEY PASS');

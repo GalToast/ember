@@ -66,6 +66,8 @@ export interface NightState {
   tokens: { a: number; b: number };
   /** whose turn the night is on (alternates each draw) — token display + fair spending */
   turn: 'a' | 'b';
+  /** pass-the-phone night: private cards + handoff flow; resume must respect privacy */
+  ptp?: boolean;
 }
 
 export function loadNight(): NightState | null {

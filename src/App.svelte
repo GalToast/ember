@@ -43,6 +43,7 @@
     // night never looks dead mid-handoff (resume lands on the handoff screen)
     const nextCardId = card?.id ?? privateCard?.id ?? null;
     if (nextCardId !== null || !ptp) night.cardId = nextCardId;
+    night.ptp = ptp;
     night.count = count;
     night.skips = skips;
     night.safeword = safeword;
@@ -119,9 +120,9 @@
     night.lastBombIndex = -99;
     night.tokens = { a: 3, b: 3 };
     night.turn = 'a';
+    ptp = false;
     privateCard = null;
     seedSeen([]);
-    ptp = false;
     if (!silent) next(); // silent = the caller deals the first card themselves (pass-the-phone)
   }
 
@@ -179,11 +180,23 @@
     night.tokens = n.tokens ?? { a: 3, b: 3 };
     night.turn = n.turn ?? 'a';
     commanding = null;
-    const all = n.decks?.flatMap((id) => (window as unknown as { __EMBER_DECKS__?: never }) && id) ?? [];
-    // rebuild the card from the deck data via a draw restricted to its deck
+    // pass-the-phone resume: NEVER render the stored card publicly (privacy).
+    // Mid-handoff (ptp=true): go to the handoff screen. Mid-private-card: re-deal a fresh
+    // private card for the turn holder (the old one stays seen — no reuse, no leak).
+    if (n.ptp) {
+      ptp = true;
+      privateCard = null;
+      night.seen = n.seen || [];
+      night.loveCounts = n.loveCounts || {};
+      night.drawIndex = n.drawIndex || 0;
+      night.lastBombIndex = n.lastBombIndex ?? -99;
+      seedSeen(night.seen);
+      count = n.count;
+      screen = 'handoff';
+      persistNight();
+      return;
+    }
     const deckId = n.cardId?.split('-')[0] as DeckId;
-    const c = deckId ? (window as unknown as { __EMBER_CARD_LOOKUP__?: unknown }) : null;
-    void c; void all;
     card = lookupCard(n.cardId ?? '');
     if (card) {
       night.seen = n.seen || [];
@@ -301,7 +314,7 @@
     onDone={privateDone}
   />
 {:else if screen === 'splash'}
-  <Splash onBegin={begin} />
+  <Splash onBegin={() => begin()} />
 {:else if screen === 'play' && card}
   <main class="stage" data-testid="stage">
     <div class="topbar">
@@ -357,7 +370,7 @@
     </nav>
   </main>
 {:else if screen === 'celebrate'}
-  <Celebration cards={count} nights={persisted.nights.length} history={persisted.nights} names={names} tokens={night.tokens ?? { a: 0, b: 0 }} onAgain={begin} onHome={home} />
+  <Celebration cards={count} nights={persisted.nights.length} history={persisted.nights} names={names} tokens={night.tokens ?? { a: 0, b: 0 }} onAgain={() => begin()} onHome={home} />
 {/if}
 
 <style>
