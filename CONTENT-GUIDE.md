@@ -67,3 +67,14 @@ The 18+ register is now **filthy but anatomy-neutral, and always direct**:
 - **Hard-excluded territory** (house rule, matches consent rails): breath play/choking, blades, required intoxication, third parties physically present, anything involving strangers or the public, anything illegal.
 - **Encoding**: decks are UTF-8 with literal em-dashes (—). Never let a CP1252 mojibake (â€") into a card — the 2026-11-08 merge corrupted 40 strings that way before it was caught. If a rewrite tool escapes or mangles punctuation, fix the encoding before committing.
 - Extreme territories now covered: command-token economies, orgasm-on-command practice, edging ladders with counted edges, ruined-and-owed rounds, wax (low-temp), rope/scarf restraint, tease torture (one-finger/no-hands/freeze rounds), praise under stimulation, filming-then-deleting together, car/window semi-private frames, position gauntlets, worship circuits, aftercare-in-the-filthiest-voice.
+
+## The v2.5 hardcore pass (register rules, learned from the owner's taste verdict)
+
+The owner's verdict on v2.4: some cards don't make sense, and the language should be rougher with much more explicit cards — "hard core". Rules this locks in:
+
+- **Sense-audit gates every deck** (part of lint now): no card may force an impossible choice ("them inside you / to be inside them"), flip narrator mid-card, or address an undefined "me". Scan: `\bmy\b`, `^I `, ` / ` constructions outside quoted speech = flag.
+- **Quoted speech is the only first-person zone.** "Kiss my neck" inside a command example is correct; a narrator saying "Give me..." is not.
+- **The 18+ decks do not do polite.** A card in After Dark/Inferno/Curious that could appear in a PG-13 game un-escalated is a bug. Escalate the act in the card, not around it: massage → "push them onto their back and take them slowly with your mouth"; "describe how it feels when they say your name" → "mid-fuck, they say your name — describe exactly what that does to your body".
+- **Filth = verbs + specificity, still anatomy-neutral.** "fuck" (verb) required, "come" freely used, spit/ruin/use/wreck/beg/own encouraged; gendered anatomy and gender roles stay banned.
+- **Hardcore territories unlocked by owner taste-pass (v2.5):** deepthroat/throat rounds with tap-rule consent, spit-as-lube, overstimulation + the again-round, hair-grip rhythm setting, strap-on giving and taking, owned-hour scenarios, window fucks, cruel silence rules, taste-yourself kisses, ruined-on-purpose, whole-night stakes, mutual simultaneous ruin. Still excluded forever: breath play, blades, required intoxication, third parties physically present, public strangers, body-shaming, scorekeeping.
+- **Escalate with consent rails intact**: every hardcore card keeps soften (still sexual, genuinely gentler), safeword culture assumed, invitations not commands at unwilling bodies.
