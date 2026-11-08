@@ -213,7 +213,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite a thirty-second silly face-off: try to make each other laugh without talking.",
+      "text": "Thirty-second silly face-off: make each other laugh without a single word.",
       "soften": "Share one goofy expression and see if it lands.",
       "timebox": 30,
       "love": "time"
@@ -232,7 +232,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite them to swap seats or spots with you for one full minute and notice what feels different.",
+      "text": "Swap seats for a full minute. Notice what shifts when you see the room from their side.",
       "soften": "Trade places for a few seconds and comment on it.",
       "timebox": 60,
       "love": "time"
@@ -262,7 +262,7 @@
       "type": "dare",
       "level": 2,
       "bomb": true,
-      "text": "Invite a soft, quick kiss on the cheek or corner of the mouth, then pull back just far enough to see their reaction.",
+      "text": "Plant a soft, quick kiss on their cheek or the corner of their mouth, then pull back just enough to catch their reaction.",
       "speak": "Couldn't resist.",
       "soften": "Blow a playful air kiss instead.",
       "love": "touch"
@@ -284,7 +284,7 @@
       "type": "dare",
       "level": 2,
       "bomb": true,
-      "text": "Invite a ten-second forehead-to-forehead pause, eyes closed, just sharing the quiet.",
+      "text": "Press foreheads together for ten seconds, eyes closed. Just breathe in the quiet.",
       "soften": "Rest your forehead near theirs for a few seconds.",
       "timebox": 10,
       "love": "touch"
@@ -456,7 +456,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite them to brainstorm three possible pet names for each other and vote on the most ridiculous winner.",
+      "text": "Brainstorm three pet names for each other. Vote on the most ridiculous one — it sticks for the night.",
       "soften": "Suggest one playful pet name and see if it sticks for a minute.",
       "love": "words"
     },
@@ -474,7 +474,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite a hand-holding walk around the room or down the hall for one full minute, no destination required.",
+      "text": "Take a hand-holding lap around the room — no destination, just the walk.",
       "soften": "Hold hands while standing still for twenty seconds.",
       "timebox": 60,
       "love": "touch"
@@ -503,7 +503,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite them to help you create one brand-new inside joke in under a minute — a word, face, or reference that only you two will get.",
+      "text": "Invent a brand-new inside joke in under a minute — a word, a face, a reference only the two of you will ever get.",
       "soften": "Suggest a silly shared phrase and see if it lands.",
       "love": "words"
     },
@@ -521,7 +521,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite a quick 'what would our friends say' round: each of you guesses the most likely comment friends would make about you as a pair.",
+      "text": "Quick 'what would our friends say' round: guess the comment they'd make about you two.",
       "soften": "Share one light guess about how friends see you two.",
       "love": "words"
     },
@@ -531,7 +531,7 @@
       "type": "dare",
       "level": 2,
       "bomb": true,
-      "text": "Invite a warm shower-together daydream out loud: describe the most playful, steamy-but-still-fun version of sharing a shower without leaving the room.",
+      "text": "Shower-together daydream, out loud: describe the most playful, steamy-but-still-fun version without leaving the room.",
       "speak": "If we were in there right now I'd pull you closer like this.",
       "soften": "Describe a cozy shared bath or long rinse in lighter terms.",
       "love": "touch"
@@ -562,7 +562,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite them to show you their best 'future pet' voice or name delivery for a fictional animal.",
+      "text": "Show me your best 'future pet' voice — name delivery and all, for a fictional animal.",
       "soften": "Ask what they would name a future pet.",
       "love": "words"
     },
@@ -754,7 +754,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite a one-sentence love letter: write or speak a single sentence that captures how you feel about them right now.",
+      "text": "One-sentence love letter: write or speak the single sentence that captures how you feel right now.",
       "speak": "If I only got one sentence it would be this.",
       "soften": "Share one short appreciative sentence.",
       "love": "words"
@@ -773,7 +773,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite a quick thumb-war tournament: best of three, winner gets to choose the next tiny activity.",
+      "text": "Thumb-war tournament, best of three. Winner picks the next tiny activity.",
       "soften": "Do one friendly thumb war and laugh about it.",
       "love": "touch"
     },
@@ -791,7 +791,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite them to hide a short handwritten note somewhere in the room for you to find within two minutes.",
+      "text": "Hide a short handwritten note somewhere in the room. I have two minutes to find it.",
       "soften": "Write a one-line note and hand it over instead.",
       "timebox": 120,
       "love": "gifts"
@@ -811,7 +811,7 @@
       "type": "dare",
       "level": 2,
       "bomb": true,
-      "text": "Invite a bedroom-window stargazing moment: stand or sit by the window together and point out anything that looks like a star, plane, or wish.",
+      "text": "Bedroom-window stargazing: stand by the window together and point out every star, plane, or wish you see.",
       "speak": "Make a wish with me even if it's just a streetlight.",
       "soften": "Look out the window together for a short quiet moment.",
       "timebox": 60,
@@ -833,7 +833,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Invite a cooking-competition-lite: each of you invents a ridiculous three-ingredient snack and presents it like a contest entry.",
+      "text": "Cooking competition, lite version: each invent a ridiculous three-ingredient snack and present it like a contest entry.",
       "soften": "Suggest one silly snack idea together.",
       "love": "service"
     },

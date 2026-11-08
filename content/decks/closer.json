@@ -222,7 +222,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Invite them to hear one specific appreciation you've been holding onto, then stay quiet while they take it in.",
+      "text": "Share one specific appreciation you've been holding back. Stay quiet while they take it in.",
       "speak": "I've been meaning to tell you this because it stuck with me.",
       "soften": "Share one short thing you appreciated about them this week.",
       "love": "words"
@@ -251,7 +251,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 3,
-      "text": "Invite a soft trade: say 'I want more of ___ from you, and in exchange I'll give you ___' and mean both parts.",
+      "text": "Soft trade: 'I want more of ___ from you, and in exchange I'll give you ___.' Mean both parts.",
       "speak": "This is what would feel really good to receive, and here's what I want to offer back.",
       "soften": "Share one thing you'd like more of and one thing you're happy to give.",
       "love": "words"
@@ -457,7 +457,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Invite them to receive sixty seconds of your full attention — phones down, eyes on them, no fixing, just presence.",
+      "text": "Give them sixty seconds of full attention — phones down, eyes on them, no fixing, just presence.",
       "soften": "Give them thirty seconds of undivided attention.",
       "timebox": 60,
       "love": "time"
@@ -496,7 +496,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Invite a two-minute 'finish this story together' improv: start a memory or imaginary scene and hand it back and forth.",
+      "text": "Two-minute 'finish this story together' improv: start a memory or scene, hand it back and forth.",
       "soften": "Start a short shared memory and let them add one detail.",
       "timebox": 120,
       "love": "time"
@@ -748,7 +748,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Invite them to listen while you read one paragraph from any book out loud, chosen just for them.",
+      "text": "Read one paragraph from any book out loud, chosen just for them. They just listen.",
       "speak": "I picked this because it made me think of you.",
       "soften": "Share one short sentence from a book or note.",
       "love": "words"
@@ -786,7 +786,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Invite a sixty-second shared-goals check-in: name one thing you're both working toward this month.",
+      "text": "Sixty-second shared-goals check-in: name one thing you're both working toward this month.",
       "soften": "Share one small goal you hope you're aligned on.",
       "timebox": 60,
       "love": "time"
