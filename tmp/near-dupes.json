@@ -40,6 +40,11 @@
     "sim": 0.64
   },
   {
+    "a": "closer-008",
+    "b": "closer-026",
+    "sim": 0.63
+  },
+  {
     "a": "slowburn-037",
     "b": "slowburn-068",
     "sim": 0.63

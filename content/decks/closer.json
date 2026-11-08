@@ -76,7 +76,7 @@
       "deck": "closer",
       "type": "truth",
       "level": 2,
-      "text": "Make one wish about us out loud. The other answers either 'wish granted' (this week) or 'wish deferred' (name a date). No negotiating, no explaining.",
+      "text": "Make one wish about us out loud. The answer is \"granted this week\" or \"deferred\" with a date. No negotiating.",
       "love": "words"
     },
     {
@@ -242,7 +242,7 @@
       "deck": "closer",
       "type": "dare",
       "level": 2,
-      "text": "Wish trade: each names one wish for the other (not the relationship). The other answers granted-this-week, deferred-with-a-date, or negotiates up. Deal_allowed.",
+      "text": "Wish trade: each names one wish for the other — granted this week, deferred with a date, or negotiated up. Deal like it's business.",
       "soften": "Share one small hopeful wish and ask how it lands.",
       "love": "words"
     },
