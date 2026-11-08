@@ -12,6 +12,22 @@
   ];
   const totalCards = $derived(history.reduce((s, n) => s + n.cards, 0) + cards);
   const recent = $derived(history.slice(-3).reverse());
+  const firstNight = $derived(history.length ? history[0].date.slice(5) : new Date().toISOString().slice(5));
+  const longestNight = $derived(Math.max(cards, ...history.map((n) => n.cards)));
+  const avgCards = $derived(history.length ? Math.round((history.reduce((s, n) => s + n.cards, 0) + cards) / (nights)) : cards);
+  const LOVE_NAMES: Record<string, string> = { words: 'words', time: 'time together', touch: 'touch', service: 'care', gifts: 'surprises' };
+  const topLove = $derived.by(() => {
+    const totals: Record<string, number> = {};
+    for (const n of history) for (const [k, v] of Object.entries(n.loves ?? {})) totals[k] = (totals[k] ?? 0) + v;
+    const top = Object.entries(totals).sort((a, b) => b[1] - a[1])[0];
+    return top ? LOVE_NAMES[top[0]] : '';
+  });
+  const perWeek = $derived.by(() => {
+    if (history.length < 2) return '';
+    const t0 = new Date(history[0].date).getTime();
+    const weeks = Math.max(1, (Date.now() - t0) / (7 * 864e5));
+    return ((nights) / weeks).toFixed(1);
+  });
 </script>
 
 <div class="wrap enter">
@@ -36,6 +52,19 @@
     {/if}
     {#if nights >= 2}
       <p class="streak dim">{nights} nights · {totalCards} cards all time</p>
+    {/if}
+    {#if nights >= 3}
+      <div class="insights" data-testid="insights">
+        <div class="i-row"><span class="i-label">first night</span><span class="i-val">{firstNight}</span></div>
+        <div class="i-row"><span class="i-label">longest night</span><span class="i-val">{longestNight} cards</span></div>
+        <div class="i-row"><span class="i-label">avg night</span><span class="i-val">{avgCards} cards</span></div>
+        {#if topLove}
+          <div class="i-row"><span class="i-label">you run on</span><span class="i-val">{topLove}</span></div>
+        {/if}
+        {#if nights >= 5}
+          <div class="i-row"><span class="i-label">weekly rhythm</span><span class="i-val">{perWeek}/week</span></div>
+        {/if}
+      </div>
     {/if}
     <ol>
       {#each lines as line (line)}
@@ -76,6 +105,14 @@
   }
   @keyframes countup { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   .streak { font-size: clamp(12px, 1.6vmin, 15px); color: var(--ember-soft); font-weight: 700; letter-spacing: 0.06em; }
+  .insights {
+    width: 100%; display: flex; flex-direction: column; gap: 8px;
+    padding: 14px 18px; border-radius: 16px;
+    background: var(--glass); border: 1px solid var(--edge);
+  }
+  .i-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .i-label { color: var(--ink-dim); font-size: clamp(12px, 1.6vmin, 14px); letter-spacing: 0.08em; text-transform: uppercase; }
+  .i-val { color: var(--ink); font-weight: 700; font-size: clamp(14px, 2vmin, 18px); font-variant-numeric: tabular-nums; }
   .finale {
     display: flex; align-items: flex-start; gap: 10px;
     width: 100%;

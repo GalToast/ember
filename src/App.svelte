@@ -249,9 +249,11 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     landing = false;
     // capture tokens BEFORE clearing the night — the finale reads them
     const finalTokens = { ...(night.tokens ?? { a: 0, b: 0 }) };
+    // capture love balance for the insights panel (draw-time data, otherwise lost)
+    const finalLoves = { ...(night.loveCounts ?? {}) };
     save({
       names,
-      nights: [...persisted.nights, { date: new Date().toISOString().slice(0, 10), cards: count, mode }],
+      nights: [...persisted.nights, { date: new Date().toISOString().slice(0, 10), cards: count, mode, loves: finalLoves, tokensSpent: { a: 3 - (finalTokens.a ?? 0), b: 3 - (finalTokens.b ?? 0) } } as never],
       retired: persisted.retired,
     });
     persisted.nights = load().nights;

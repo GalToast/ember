@@ -34,7 +34,7 @@ export function decksFor(mode: Mode): DeckId[] {
 const KEY = 'ember.v1';
 const NIGHT_KEY = 'ember.night';
 
-export interface NightLog { date: string; cards: number; mode: Mode }
+export interface NightLog { date: string; cards: number; mode: Mode; loves?: Record<string, number>; tokensSpent?: { a: number; b: number } }
 export interface Persisted { names: { a: string; b: string }; nights: NightLog[]; retired: string[]; custom?: Card[] }
 
 export function load(): Persisted {
