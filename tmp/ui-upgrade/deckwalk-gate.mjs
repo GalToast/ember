@@ -36,7 +36,7 @@ async function walk(vp, label) {
   await page.waitForTimeout(400);
 
   const seen = new Set();
-  for (let i = 0; i < 160; i++) {
+  for (let i = 0; i < 210; i++) {
     const r = await page.evaluate(() => {
       const vh = window.innerHeight;
       const doc = document.documentElement;
