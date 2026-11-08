@@ -3,6 +3,7 @@
   import Setup from './components/Setup.svelte';
   import Splash from './components/Splash.svelte';
   import CardView from './components/Card.svelte';
+  import Browse from './components/Browse.svelte';
   import Celebration from './components/Celebration.svelte';
   import Icon from './components/Icon.svelte';
   import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
@@ -13,7 +14,7 @@
   let mode = $state<Mode>('mixup');
   let decks = $state<DeckId[]>([...ALL_DECKS.filter((d) => d !== 'inferno')]);
   let safeword = $state('');
-  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate'>('setup');
+  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate' | 'browse'>('setup');
   let card = $state<Card | null>(null);
   let soft = $state(false);
   let skips = $state(6);
@@ -187,6 +188,14 @@
     onResume={resume}
     onRestart={() => { clearNight(); resumeAvailable = null; count = 0; skips = 6; }}
     onStart={() => { clearNight(); (screen = 'splash'); }}
+    onBrowse={() => { screen = 'browse'; }}
+  />
+{:else if screen === 'browse'}
+  <Browse
+    retired={persisted.retired}
+    onRetire={(id) => { persisted.retired = [...persisted.retired, id]; save(persisted); }}
+    onUnretire={(id) => { persisted.retired = persisted.retired.filter((r) => r !== id); save(persisted); }}
+    onClose={() => { screen = 'setup'; }}
   />
 {:else if screen === 'splash'}
   <Splash onBegin={begin} />

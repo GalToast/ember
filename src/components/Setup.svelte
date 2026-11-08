@@ -13,6 +13,7 @@
     onResume,
     onRestart,
     onStart,
+    onBrowse,
   }: {
     names: { a: string; b: string };
     mode: Mode;
@@ -24,6 +25,7 @@
     onResume: () => void;
     onRestart: () => void;
     onStart: () => void;
+    onBrowse?: () => void;
   } = $props();
 
   let warn = $state(false);
@@ -82,6 +84,9 @@
       Start the night
     </button>
   {/if}
+  <button class="browse-btn" onclick={onBrowse} data-testid="browse-open" title="flip through any deck without starting a night">
+    <Icon name="truth" size={15} /> Browse the decks first
+  </button>
 </div>
 
 <style>
@@ -175,4 +180,13 @@
   .warning input { min-height: 44px; padding: 10px 14px; font-size: 15px; }
   .warning .btn { min-height: 48px; padding: 10px 22px; }
   .start { font-size: clamp(17px, 2.4vmin, 22px); padding: 17px 42px; }
+  .browse-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: var(--r-pill);
+    background: var(--glass); border: 1px solid var(--edge); color: var(--ink-dim);
+    font-size: clamp(13px, 1.8vmin, 15px); font-weight: 700;
+    transition: all 0.2s var(--spring);
+  }
+  .browse-btn:active { transform: scale(0.96); }
+  .browse-btn:hover { color: var(--ink); border-color: var(--edge-strong); }
 </style>
