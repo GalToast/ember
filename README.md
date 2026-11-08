@@ -43,7 +43,7 @@ Modes: **Chill** (spark+closer) · **Mixup** (everything shuffled) · **Heat** (
 
 ## Content-as-code
 
-Decks are JSON in `content/decks/`, linted by `scripts/lint-decks.mjs` (schema, dupes, length caps, banned words, soften coverage, love-language coverage). House style lives in [CONTENT-GUIDE.md](./CONTENT-GUIDE.md).
+Decks are JSON in `content/decks/`, linted by `scripts/lint-decks.mjs` (schema, dupes, length caps, banned words, soften coverage, love-language coverage). 730 cards across six decks: Spark 100 · Closer 100 · Slow Burn 100 · After Dark 130 · Curious 150 · Inferno 150. House style lives in [CONTENT-GUIDE.md](./CONTENT-GUIDE.md).
 
 ```bash
 npm run lint:decks
@@ -56,7 +56,7 @@ Vite + Svelte 5 + TypeScript, static build, no framework overhead beyond that. S
 ## Verify
 
 ```bash
-npm test           # engine + persistence invariants (859 assertions, no extra deps)
+npm test           # engine + persistence invariants (989 assertions, no extra deps)
 npm run build      # real Svelte compile
 npm run lint          # deck structure/voice + the card text-fit envelope
 npm run lint:decks    # all six decks: counts, levels, banned/clinical language

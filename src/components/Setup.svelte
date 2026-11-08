@@ -61,7 +61,7 @@
 
   <section class="decks" data-testid="decks">
     {#each ALL_DECKS as id (id)}
-      <button class="dchip" class:off={!decks.includes(id)} class:adult={DECKS[id]?.adult} onclick={() => toggleDeck(id)}>
+      <button class="dchip" class:on={decks.includes(id)} class:off={!decks.includes(id)} class:adult={DECKS[id]?.adult} onclick={() => toggleDeck(id)}>
         {DECKS[id]?.name}<span class="count dim">{deckCards(id)}</span>
       </button>
     {/each}
@@ -129,31 +129,45 @@
     text-align: left; min-height: 58px;
     transition: all 0.25s var(--spring);
   }
+  .mode:active { transform: scale(0.97); }
+  .mode:focus-visible { outline: 2px solid var(--ember-soft); outline-offset: 2px; }
   .mode.on {
-    background: linear-gradient(135deg, rgba(255, 122, 61, 0.16), rgba(255, 82, 115, 0.14));
+    background: linear-gradient(135deg, rgba(255, 122, 61, 0.2), rgba(255, 82, 115, 0.18));
     border-color: var(--ember);
-    box-shadow: 0 0 24px rgba(255, 122, 61, 0.15);
+    box-shadow: 0 0 28px rgba(255, 122, 61, 0.18);
   }
+  .mode.on .m-name { color: var(--ink); }
+  .mode.on .m-blurb { color: var(--ink-dim); }
   .m-name { font-weight: 700; font-size: clamp(14px, 1.9vmin, 16px); letter-spacing: 0.02em; }
   .m-blurb { font-size: clamp(11px, 1.5vmin, 12.5px); line-height: 1.3; }
 
   .decks { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 92vw; }
   .dchip {
-    display: inline-flex; align-items: center; gap: 6px;
-    padding: 7px 13px; border-radius: var(--r-pill); min-height: 38px; font-size: clamp(12px, 1.5vmin, 13px);
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 12px; border-radius: var(--r-pill); min-height: 36px; font-size: clamp(11px, 1.5vmin, 13px);
     font-weight: 600;
     background: var(--glass); border: 1px solid var(--edge); color: var(--ink);
     transition: all 0.2s var(--spring);
   }
+  .dchip:active { transform: scale(0.96); }
+  .dchip:focus-visible { outline: 2px solid var(--ember-soft); outline-offset: 2px; }
   .dchip .count { font-size: 11px; font-weight: 400; }
   .dchip.off { opacity: 0.3; }
+  .dchip.on {
+    background: linear-gradient(135deg, rgba(255, 122, 61, 0.22), rgba(255, 82, 115, 0.22));
+    border-color: var(--ember);
+    color: var(--ink);
+    box-shadow: 0 0 20px rgba(255, 122, 61, 0.18);
+  }
   .dchip.adult:not(.off) { border-color: rgba(255, 82, 115, 0.45); }
+  .dchip.adult.on { border-color: var(--ember); box-shadow: 0 0 20px rgba(255, 82, 115, 0.2); }
 
   .warning {
     width: min(92vw, 560px);
     display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-radius: var(--r-md);
-    background: linear-gradient(135deg, rgba(179, 69, 31, 0.18), rgba(143, 29, 58, 0.18));
-    border: 1px solid rgba(255, 122, 61, 0.4); flex-wrap: wrap;
+    background: linear-gradient(135deg, rgba(179, 69, 31, 0.24), rgba(143, 29, 58, 0.24));
+    border: 1px solid rgba(255, 122, 61, 0.55);
+    box-shadow: 0 0 30px rgba(179, 69, 31, 0.14), inset 0 1px 0 rgba(255, 122, 61, 0.3); flex-wrap: wrap;
   }
   .warning > :global(svg) { color: var(--ember-soft); flex: none; }
   .warning div { flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: clamp(13px, 1.7vmin, 15px); }

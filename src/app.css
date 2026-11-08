@@ -155,8 +155,8 @@ input[type='text']:focus {
 /* ---- motion ---- */
 .enter { animation: enter 0.5s var(--spring) both; }
 @keyframes enter { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
-.deal { animation: deal 0.45s var(--spring) both; }
-@keyframes deal { from { opacity: 0; transform: translateY(14px) scale(0.94) rotate(0.6deg); } to { opacity: 1; transform: none; } }
+.deal { animation: deal 0.26s var(--spring) both; }
+@keyframes deal { from { opacity: 0; transform: translateY(10px) scale(0.92); } to { opacity: 1; transform: none; } }
 .pop { animation: pop 0.45s var(--spring) both; }
 @keyframes pop { from { opacity: 0; transform: scale(0.88); } to { opacity: 1; transform: none; } }
 

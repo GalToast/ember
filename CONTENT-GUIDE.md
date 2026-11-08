@@ -54,3 +54,16 @@ A `bomb: true` card is hotter than its deck's baseline — the "OH!" moment. Rul
 - Gender-role scripts, porn-cliché phrasing, body-part commanding.
 - Anything that reads like a greeting card. Concrete beats abstract, always.
 - Any card that can become a weapon in a tense moment.
+
+## The v2.4 voice escalation (Inferno + 18+ decks)
+
+The 18+ register is now **filthy but anatomy-neutral, and always direct**:
+
+- **Direct command voice.** No "Invite them to…" / "Offer a…" stilted prefixes anywhere (lint warns on them). A card is the dare: "Edge them, hold them right there, count down slowly from twenty."
+- **Raunch vocabulary**: beg, ache, wreck, ruined (the orgasm sense), soaked, desperate, trembling, own/owned, use, greedy, fuck (as a verb: "fuck them slow", "fuck your mouth", "ride them until they're shaking"). Words do the work the old euphemisms did.
+- **Anatomy stays neutral.** No gendered anatomy (no cock/pussy), no gender-role scripts, {a}/{b} or "they/them" only. "On your knees", "your mouth", "inside you", "between your legs" are the register — filthy is achieved through verbs and heat, not body-part naming.
+- **"slut" sparingly** and ONLY inside a loving consensual dirty-talk frame (e.g. "Use your words like a good little slut"). Never "whore", never body-shaming, never as an insult.
+- **speak: lines are the filth carrier** — first person, imperative-adjacent, short ("Not yet. You come when I decide you've earned it.").
+- **Hard-excluded territory** (house rule, matches consent rails): breath play/choking, blades, required intoxication, third parties physically present, anything involving strangers or the public, anything illegal.
+- **Encoding**: decks are UTF-8 with literal em-dashes (—). Never let a CP1252 mojibake (â€") into a card — the 2026-11-08 merge corrupted 40 strings that way before it was caught. If a rewrite tool escapes or mangles punctuation, fix the encoding before committing.
+- Extreme territories now covered: command-token economies, orgasm-on-command practice, edging ladders with counted edges, ruined-and-owed rounds, wax (low-temp), rope/scarf restraint, tease torture (one-finger/no-hands/freeze rounds), praise under stimulation, filming-then-deleting together, car/window semi-private frames, position gauntlets, worship circuits, aftercare-in-the-filthiest-voice.

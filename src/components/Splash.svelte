@@ -33,7 +33,8 @@
     gap: clamp(14px, 2.6vmin, 24px);
     text-align: center;
   }
-  .splash > :global(svg) { color: var(--ember); filter: drop-shadow(0 0 18px rgba(255, 122, 61, 0.5)); }
+  .splash > :global(svg) { color: var(--ember); filter: drop-shadow(0 0 18px rgba(255, 122, 61, 0.5)); animation: breathe 7s ease-in-out infinite; }
+  @keyframes breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
   h2 { font-size: clamp(30px, 6vmin, 56px); }
   p {
     font-size: clamp(16px, 2.3vmin, 22px);
@@ -43,4 +44,7 @@
     text-wrap: balance;
   }
   p em { color: var(--ember-soft); font-style: normal; font-weight: 700; }
+
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 44px rgba(255, 82, 115, 0.45); }
+  .btn-primary:active { transform: scale(0.96); }
 </style>

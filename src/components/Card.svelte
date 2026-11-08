@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Card } from '../lib/schema';
   import Icon from './Icon.svelte';
+  import { haptics } from '../lib/haptics';
 
   let {
     card,
@@ -89,6 +90,7 @@
   }
   function flyCard(dir: 'right' | 'left') {
     fly = dir;
+    dir === 'right' ? haptics.next() : haptics.skip();
     setTimeout(() => {
       fly = 'none';
       if (!landing) onSwipe?.(dir === 'right' ? 'next' : 'skip');
@@ -118,6 +120,14 @@
     return () => { if (interval) clearInterval(interval); };
   });
 
+  // haptics: double 10ms pulse when a fresh spice bomb is dealt
+  let bombPulsed = $state(false);
+  $effect(() => {
+    const isBomb = shown.bomb && !isSoft;
+    if (isBomb && !bombPulsed) { haptics.bomb(); bombPulsed = true; }
+    if (!isBomb) bombPulsed = false;
+  });
+
   const ringStyle = $derived(
     total > 0
       ? `background: conic-gradient(currentColor ${(remaining / Math.max(total, 1)) * 360}deg, rgba(255,255,255,0.07) 0deg);`
@@ -127,7 +137,7 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {fly !== 'none' ? 'flying' : ''}"
+  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {shown.level === 4 ? 'l4' : ''} {fly !== 'none' ? 'flying' : ''}"
   style="{dragStyle} {flyStyle}"
   data-testid="card"
   onpointerdown={down}
@@ -321,4 +331,77 @@
   }
 
   .swipe-tip { font-size: clamp(10px, 1.4vmin, 12px); letter-spacing: 0.06em; }
+
+  /* ---- deal-in stagger: badge leads, then meta → text → speak → timer ---- */
+  @keyframes deal-reveal {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  .deal .meta,
+  .deal .text,
+  .deal .speak,
+  .deal .timer,
+  .deal .safeword {
+    animation: deal-reveal 260ms var(--spring) both;
+  }
+  .deal .meta { animation-delay: 40ms; }
+  .deal .text { animation-delay: 80ms; }
+  .deal .speak { animation-delay: 120ms; }
+  .deal .timer { animation-delay: 160ms; }
+  .deal .safeword { animation-delay: 160ms; }
+
+  /* ---- heat styling: level-4 / spice bomb ---- */
+  .card.bomb {
+    background:
+      linear-gradient(180deg, rgba(255, 122, 61, 0.10), rgba(255, 82, 115, 0.06)),
+      var(--glass-strong);
+    border-color: rgba(255, 122, 61, 0.35);
+    box-shadow: var(--shadow-card), 0 0 44px rgba(255, 122, 61, 0.10);
+  }
+  .card.bomb::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(700px circle at 50% 28%, rgba(255, 122, 61, 0.07), transparent 48%);
+    pointer-events: none;
+  }
+  .card.bomb .hairline { opacity: 1; }
+  .card.bomb .dots { color: var(--ember-soft); }
+  .card.l4 {
+    border-color: rgba(255, 122, 61, 0.3);
+    box-shadow: var(--shadow-card), 0 0 24px rgba(255, 122, 61, 0.06);
+  }
+
+  /* ---- speak block: "whisper" ---- */
+  .speak {
+    background: rgba(255, 179, 92, 0.04);
+    border-left: 2px solid var(--ember);
+    box-shadow: inset 3px 0 0 rgba(255, 122, 61, 0.35);
+  }
+  .speak-label {
+    font-size: clamp(9px, 1.2vmin, 11px);
+    letter-spacing: 0.22em;
+    color: var(--ink-dim);
+  }
+  .speak p {
+    font-size: clamp(18px, 3.2vmin, 30px);
+    font-weight: 450;
+    color: var(--ink);
+  }
+
+  /* ---- timer ring polish ---- */
+  .timer.urgent {
+    color: var(--ember-soft);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { filter: brightness(1); color: var(--ember-soft); }
+    50% { filter: brightness(1.35); color: var(--p2); }
+  }
+  .timer.done {
+    color: var(--ink-dim);
+    opacity: 0.9;
+    animation: none;
+    box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.35);
+  }
 </style>

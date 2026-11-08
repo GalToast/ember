@@ -50,10 +50,16 @@
     padding: clamp(26px, 4.6vmin, 52px);
     display: flex; flex-direction: column; align-items: center;
     gap: clamp(12px, 2.2vmin, 22px); text-align: center;
+    box-shadow: var(--shadow-card), 0 0 40px rgba(255, 122, 61, 0.10);
   }
   .crown { color: var(--ember); filter: drop-shadow(0 0 18px rgba(255, 122, 61, 0.5)); }
   h2 { font-size: clamp(28px, 5.6vmin, 52px); }
-  .stat { font-size: clamp(13px, 1.7vmin, 16px); letter-spacing: 0.08em; }
+  .stat {
+    font-size: clamp(13px, 1.7vmin, 16px);
+    letter-spacing: 0.08em;
+    animation: countup 0.8s var(--spring) both;
+  }
+  @keyframes countup { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   .streak { font-size: clamp(12px, 1.6vmin, 15px); color: var(--ember-soft); font-weight: 700; letter-spacing: 0.06em; }
   ol { list-style: none; display: flex; flex-direction: column; gap: 10px; counter-reset: n; width: 100%; }
   li {
@@ -72,7 +78,9 @@
   .h-chip {
     padding: 6px 14px; border-radius: 999px; background: var(--glass);
     border: 1px solid var(--edge); font-size: clamp(11px, 1.5vmin, 13px);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s var(--spring);
   }
+  .h-chip:hover { border-color: var(--ember); color: var(--ink); box-shadow: 0 0 12px rgba(255, 122, 61, 0.25); transform: scale(1.05); }
   .close { font-size: clamp(13px, 1.8vmin, 16px); font-style: italic; }
   .row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
 </style>
