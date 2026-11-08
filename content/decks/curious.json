@@ -239,7 +239,7 @@
       "deck": "curious",
       "type": "challenge",
       "level": 4,
-      "text": "Together, each build a short 'try-new-things' menu of three curious ideas (sensory, pacing, or light lead/follow). Share the menus, then circle one item you both want to explore soon.",
+      "text": "Each builds a three-item curiosity menu — sensory, pacing, or lead/follow. Trade, then circle one you both want to explore soon.",
       "soften": "Each name one new gentle idea you'd like to try and pick a favorite together.",
       "together": true,
       "love": "words"
@@ -260,7 +260,7 @@
       "deck": "curious",
       "type": "challenge",
       "level": 4,
-      "text": "Create a shared tease-without-touching game: sit close, keep hands to yourselves, and take turns saying one specific thing you'd do if touch were allowed, building the list together.",
+      "text": "Stay close, hands to yourselves, and take turns naming one specific thing you'd do if touch were allowed. Build the list together.",
       "soften": "Sit close and each share one soft description of a touch you'd like to give.",
       "together": true,
       "love": "words"

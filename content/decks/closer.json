@@ -67,7 +67,7 @@
       "type": "topic",
       "level": 2,
       "together": true,
-      "text": "The menu game: each build a three-item menu — one thing you want more of, one you want less of, one you're curious to try. Trade menus. Each picks one item to 'order' this week.",
+      "text": "Build a three-item menu each: one thing you want more of, one less of, one you're curious to try. Trade, then each picks one to 'order' this week.",
       "soften": "Just name one item each.",
       "love": "words"
     },
@@ -115,7 +115,7 @@
       "level": 2,
       "together": true,
       "timebox": 120,
-      "text": "Each say one thing you'd change about us if you had a magic wand. Wand-holders collect wishes — no defending, no explaining, just 'ok'. Wishes get re-read next month.",
+      "text": "Each wave the magic wand: one thing you'd change about us. Wand-holders just say 'ok' — no defending. Wishes get re-read next month.",
       "soften": "One wish each, deferred answers allowed.",
       "love": "time"
     },

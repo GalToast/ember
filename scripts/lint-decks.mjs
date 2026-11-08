@@ -42,10 +42,10 @@ for (const f of files) {
       if (!TYPES.includes(c.type)) fail(f, c.id, `bad type "${c.type}"`);
       if (!LEVELS[deckId]?.includes(c.level)) fail(f, c.id, `level ${c.level} not allowed for deck ${deckId} (want ${LEVELS[deckId]})`);
       if (!c.text || typeof c.text !== 'string') fail(f, c.id, 'missing text');
-      else if (c.text.length > 220) fail(f, c.id, `text too long (${c.text.length} > 220)`);
+      else if (c.text.length > 160) fail(f, c.id, `text too long (${c.text.length} > 160)`);
       else if (BANNED.some((r) => r.test(c.text))) fail(f, c.id, 'banned clinical word in text');
       else if (STILTED.test(c.text)) console.log(`warn ${f}:${c.id}: stilted prefix (rewrite: direct command)`);
-      if (c.speak !== undefined && (typeof c.speak !== 'string' || c.speak.length > 220)) fail(f, c.id, 'speak must be string <= 220');
+      if (c.speak !== undefined && (typeof c.speak !== 'string' || c.speak.length > 120)) fail(f, c.id, 'speak must be string <= 220');
       if (c.soften !== undefined && typeof c.soften !== 'string') fail(f, c.id, 'soften must be string');
       if (c.timebox !== undefined && (!Number.isFinite(c.timebox) || c.timebox < 10 || c.timebox > 1500)) fail(f, c.id, 'timebox must be 10-1500s');
       if (c.bomb !== undefined && typeof c.bomb !== 'boolean') fail(f, c.id, 'bomb must be boolean');

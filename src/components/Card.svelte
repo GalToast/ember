@@ -24,11 +24,12 @@
   const raw = $derived(isSoft && card.soften ? { ...card, text: card.soften, speak: undefined, timebox: undefined } : card);
 
   const sizeClass = $derived.by(() => {
-    const len = raw.text.length;
-    if (len <= 70) return 'xl';
-    if (len <= 130) return 'lg';
-    if (len <= 190) return 'md';
-    return 'sm';
+    const len = raw.text.length + (raw.speak ? raw.speak.length * 1.6 : 0) + (raw.timebox ? 40 : 0);
+    if (len <= 80) return 'xl';
+    if (len <= 145) return 'lg';
+    if (len <= 210) return 'md';
+    if (len <= 260) return 'sm';
+    return 'xs';
   });
 
   const fill = (s: string | undefined) =>
@@ -189,10 +190,8 @@
   .card {
     position: relative;
     width: min(92vw, 68vmin);
-    max-height: 80dvh;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    touch-action: pan-y;
+    overflow: hidden;
+    touch-action: none;
     padding: clamp(22px, 4vmin, 44px) clamp(20px, 3.6vmin, 40px);
     border-radius: var(--r-lg);
     display: flex;
@@ -269,6 +268,7 @@
   .text.lg { font-size: clamp(25px, 5.4vmin, 54px); }
   .text.md { font-size: clamp(22px, 4.6vmin, 44px); line-height: 1.22; }
   .text.sm { font-size: clamp(20px, 4vmin, 36px); line-height: 1.3; }
+  .text.xs { font-size: clamp(19px, 3.6vmin, 32px); line-height: 1.34; }
 
   .speak {
     width: 100%;
