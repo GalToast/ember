@@ -68,6 +68,8 @@ export interface NightState {
   turn: 'a' | 'b';
   /** pass-the-phone night: private cards + handoff flow; resume must respect privacy */
   ptp?: boolean;
+  /** release token: ONE per night, held by the current turn player; 'held'|'spent'|'gifted' */
+  release?: { holder: 'a' | 'b'; state: 'held' | 'spent' | 'gifted' };
 }
 
 export function loadNight(): NightState | null {
@@ -75,7 +77,7 @@ export function loadNight(): NightState | null {
     const raw = localStorage.getItem(NIGHT_KEY);
     if (raw) {
       const n = JSON.parse(raw) as NightState;
-      if (n.cardId && n.count > 0) return { loveCounts: {}, safeword: '', landing: false, tokens: { a: 3, b: 3 }, turn: 'a', ...n };
+      if (n.cardId && n.count > 0) return { loveCounts: {}, safeword: '', landing: false, tokens: { a: 3, b: 3 }, turn: 'a', release: { holder: 'a', state: 'held' }, ...n };
     }
   } catch { /* ignore */ }
   return null;

@@ -1,8 +1,10 @@
 <script lang="ts">
   import Icon from './Icon.svelte';
-  let { cards, nights, history = [], names = { a: '', b: '' }, tokens = { a: 0, b: 0 }, onAgain, onHome }: {
+  let { cards, nights, history = [], names = { a: '', b: '' }, tokens = { a: 0, b: 0 }, release = null, onAgain, onHome }: {
     cards: number; nights: number; history?: { date: string; cards: number; mode: string }[];
-    names?: { a: string; b: string }; tokens?: { a: number; b: number }; onAgain: () => void; onHome: () => void;
+    names?: { a: string; b: string }; tokens?: { a: number; b: number };
+    release?: { holder: 'a' | 'b'; state: 'spent' | 'gifted' } | null;
+    onAgain: () => void; onHome: () => void;
   } = $props();
 
   const lines = [
@@ -52,6 +54,11 @@
     {/if}
     {#if nights >= 2}
       <p class="streak dim">{nights} nights · {totalCards} cards all time</p>
+    {/if}
+    {#if release}
+      <p class="rel-line dim" data-testid="release-line">
+        {#if release.state === 'spent'}{(release.holder === 'a' ? names.a : names.b) || 'One of you'} kept the release tonight.{:else}The release changed hands tonight — that's the good stuff.{/if}
+      </p>
     {/if}
     {#if nights >= 3}
       <div class="insights" data-testid="insights">
@@ -105,6 +112,7 @@
   }
   @keyframes countup { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   .streak { font-size: clamp(12px, 1.6vmin, 15px); color: var(--ember-soft); font-weight: 700; letter-spacing: 0.06em; }
+  .rel-line { font-size: clamp(13px, 1.8vmin, 16px); color: var(--ember-soft); font-style: italic; }
   .insights {
     width: 100%; display: flex; flex-direction: column; gap: 8px;
     padding: 14px 18px; border-radius: 16px;

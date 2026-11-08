@@ -1,0 +1,25 @@
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const { chromium } = require('C:/Users/HP/repos/semantic-explorer/node_modules/playwright/index.js');
+(async () => {
+  const browser = await chromium.launch({ args: ['--no-sandbox'] });
+  const page = await (await browser.newContext({ viewport: { width: 390, height: 844 } })).newPage();
+  await page.goto('http://127.0.0.1:4173', { waitUntil: 'networkidle' });
+  await page.evaluate(() => localStorage.clear());
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(400);
+  await page.locator('input').nth(0).fill('F');
+  await page.locator('input').nth(1).fill('C');
+  await page.getByTestId('start').click();
+  await page.waitForTimeout(300);
+  await page.getByTestId('begin').click();
+  await page.waitForTimeout(600);
+  const night = await page.evaluate(() => JSON.parse(localStorage.getItem('ember.night') || '{}'));
+  console.log('night.turn:', night.turn, '| release:', JSON.stringify(night.release));
+  await page.getByTestId('release').click();
+  await page.waitForTimeout(300);
+  console.log('popover visible:', await page.getByTestId('release-pop').count());
+  console.log('gift visible:', await page.getByTestId('release-gift').count());
+  console.log('gift box:', JSON.stringify(await page.getByTestId('release-gift').boundingBox()));
+  await browser.close();
+})().catch(e => { console.error(e.message); process.exit(1); });

@@ -29,6 +29,8 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   let count = $state(0);
   let landing = $state(false);
   let commanding = $state<'a' | 'b' | null>(null); // whose command the current card is
+  let releaseUsed = $state<{ holder: 'a' | 'b'; state: 'spent' | 'gifted' } | null>(null); // celebration line
+  let relOpen = $state(false); // release popover
   let resumeAvailable = $state(loadNight());
   let wakeLock: { release: () => Promise<void> } | null = null;
 
@@ -107,6 +109,20 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     persistNight();
   }
 
+  // ---- release token: one per night, spend or gift (transfer is implicit in gifting) ----
+  function spendRelease() {
+    if (!night.release || night.release.state !== 'held') return;
+    night.release = { holder: night.release.holder, state: 'spent' };
+    persistNight();
+    releaseUsed = night.release;
+  }
+  function giftRelease() {
+    if (!night.release || night.release.state !== 'held') return;
+    const to = night.release.holder === 'a' ? 'b' : 'a';
+    night.release = { holder: to, state: 'held' }; // gifted = the OTHER player now holds it
+    persistNight();
+  }
+
   function retire() {
     if (!card) return;
     persisted.retired = [...persisted.retired, card.id];
@@ -124,6 +140,11 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     night.lastBombIndex = -99;
     night.tokens = { a: 3, b: 3 };
     night.turn = 'a';
+    // release starts with player b: the first advance flips turn to 'b' after dealing to
+    // the a-player... actually the deal lands on whoever's turn it WAS; release should start
+    // with the player who holds the FIRST card = 'a' (turn before the flip). After advance()
+    // turn becomes 'b' (next dealer) while release.holder stays 'a' — matching the card in play.
+    night.release = { holder: 'b', state: 'held' }; // starts with the NEXT dealer; gift/keep shows on their turn
     ptp = false;
     privateCard = null;
     seedSeen([]);
@@ -192,6 +213,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     landing = n.landing || false;
     night.tokens = n.tokens ?? { a: 3, b: 3 };
     night.turn = n.turn ?? 'a';
+    night.release = n.release ?? { holder: 'a', state: 'held' };
     commanding = null;
     // pass-the-phone resume: NEVER render the stored card publicly (privacy).
     // Mid-handoff (ptp=true): go to the handoff screen. Mid-private-card: re-deal a fresh
@@ -342,6 +364,9 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
         {#each ['a', 'b'] as who (who)}
           <span class="tk {who}" class:cur={night.turn === who}>{night.tokens[who]}</span>
         {/each}
+        {#if night.release && night.release.state === 'held'}
+          <button class="rel" data-testid="release" onclick={() => (relOpen = !relOpen)} title="the release — {(night.release.holder === 'a' ? names.a : names.b) || 'current holder'} decides who finishes tonight">✦</button>
+        {/if}
       </span>
       <span class="skips" data-testid="skips" title="skips left">
         {#each Array(skips) as _}<i></i>{/each}
@@ -382,6 +407,17 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
         <button class="btn btn-ghost token" onclick={spendToken} disabled={(night.tokens?.[night.turn] ?? 0) <= 0} data-testid="token" title="spend a command token — the next card is an order that can't be refused">
           <Icon name="bomb" /> <span class="lbl">Command</span>
         </button>
+        {#if relOpen && night.release && night.release.state === 'held'}
+          <div class="rel-pop" data-testid="release-pop">
+            <p class="rel-h dim">{(night.release.holder === 'a' ? names.a : names.b) || 'They'} hold{night.release.holder === 'a' ? 's' : ''} the release</p>
+            {#if night.release.holder === night.turn}
+              <button class="btn btn-ghost" onclick={giftRelease} data-testid="release-gift">Gift it — they decide</button>
+              <button class="btn btn-ghost" onclick={spendRelease} data-testid="release-spend">Keep it — I finish</button>
+            {:else}
+              <p class="rel-h dim">tap the star again to close</p>
+            {/if}
+          </div>
+        {/if}
         <button class="btn btn-primary" onclick={next} data-testid="next">
           Next <Icon name="pass" />
         </button>
@@ -390,7 +426,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     </nav>
   </main>
 {:else if screen === 'celebrate'}
-  <Celebration cards={count} nights={persisted.nights.length} history={persisted.nights} names={names} tokens={night.tokens ?? { a: 0, b: 0 }} onAgain={() => begin()} onHome={home} />
+  <Celebration cards={count} nights={persisted.nights.length} history={persisted.nights} names={names} tokens={night.tokens ?? { a: 0, b: 0 }} release={releaseUsed} onAgain={() => begin()} onHome={home} />
 {/if}
 
 <style>
@@ -442,6 +478,23 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     color: #ffd9a0; font-weight: 700; font-size: clamp(13px, 1.8vmin, 16px);
     white-space: nowrap;
   }
+  .rel {
+    min-width: 22px; height: 22px;
+    display: grid; place-items: center;
+    border-radius: 50%;
+    color: var(--ember-soft);
+    font-size: 14px;
+    background: none; border: none; padding: 0; cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 179, 92, 0.4);
+  }
+  .rel-pop {
+    position: fixed; left: 50%; bottom: 110px; transform: translateX(-50%);
+    display: flex; flex-direction: column; gap: 8px; align-items: stretch;
+    padding: 14px 18px; border-radius: var(--r-pill);
+    background: var(--glass); border: 1px solid var(--ember);
+    z-index: 30; min-width: 240px;
+  }
+  .rel-h { margin: 0; font-size: 12px; text-align: center; }
   .icon-btn {
     margin-left: auto;
     width: 44px;
