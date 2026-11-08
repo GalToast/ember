@@ -77,7 +77,7 @@
       "type": "dare",
       "level": 3,
       "timebox": 60,
-      "text": "Kiss their neck for thirty slow seconds — then find the spot that makes their breath catch and stay there.",
+      "text": "Kiss their neck for thirty seconds — slow enough that they close their eyes. Breathe them in at the curve.",
       "speak": "While you do, tell them the moment this week you were proudest of them.",
       "soften": "Forehead kiss plus the compliment.",
       "love": "touch"
@@ -88,7 +88,7 @@
       "type": "topic",
       "level": 3,
       "together": true,
-      "text": "Trade answers: what makes you feel desired — being chased, being chosen, being claimed, or something else entirely?",
+      "text": "Trade answers: what makes you feel wanted — the chase, the being-taken-care-of, or something you have never named?",
       "love": "words"
     },
     {
@@ -127,7 +127,7 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Kiss down their neck, unhurried. Wherever you pause, say one true thing before moving on.",
+      "text": "Kiss a slow line down their neck, unhurried, whispering at every pause what that spot does to you.",
       "timebox": 180,
       "soften": "Three slow kisses, three true things.",
       "love": "touch"
@@ -138,7 +138,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "What have you been curious about with me but never brought up? Curiosity is the only price of admission — name the want out loud.",
+      "text": "Name the curiosity you have never brought up with me — the one that sneaks in when you watch my mouth.",
       "love": "words"
     },
     {
@@ -149,7 +149,7 @@
       "bomb": true,
       "together": true,
       "timebox": 120,
-      "text": "Describe each other's body for sixty seconds using only words you'd want said about your soul.",
+      "text": "For sixty seconds, describe their body out loud using only words you would want whispered back to you.",
       "soften": "One sentence each, whispered.",
       "love": "words"
     },
@@ -159,7 +159,7 @@
       "type": "dare",
       "level": 4,
       "bomb": true,
-      "text": "Trace their lips with one finger. Their eyes stay closed.",
+      "text": "Trace their lips with one fingertip and let them almost kiss it — pull away each time. Three near-misses, then give them the real thing.",
       "speak": "Describe what you want to do next — starting every sentence with 'I want'. You don't have to do it yet.",
       "timebox": 120,
       "soften": "Trace their hand instead. Same rule.",
@@ -542,7 +542,7 @@
       "deck": "slowburn",
       "type": "dare",
       "level": 3,
-      "text": "Offer a melting massage: slow hands on shoulders, neck, or scalp for ninety seconds while they do nothing but receive.",
+      "text": "Melting massage: slow hands from shoulders down their arms to their hands. End by interlacing fingers and squeezing once.",
       "speak": "Let me take the day off you for a minute.",
       "soften": "Give a short shoulder squeeze or neck rub.",
       "timebox": 90,

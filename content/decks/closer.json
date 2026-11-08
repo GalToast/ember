@@ -146,7 +146,7 @@
       "type": "dare",
       "level": 3,
       "bomb": true,
-      "text": "Kiss their neck for 30 slow seconds.",
+      "text": "Kiss their neck for thirty slow seconds. Count them silently — they will feel the patience.",
       "speak": "While you do, tell them the moment this week you were proudest of them.",
       "timebox": 30,
       "soften": "Forehead kiss plus the compliment.",
@@ -166,7 +166,7 @@
       "deck": "closer",
       "type": "truth",
       "level": 2,
-      "text": "Tell them one thing they did this week that you keep replaying in your head.",
+      "text": "Tell them the thing they did this week that you are STILL thinking about — the moment that made you look at them differently.",
       "love": "words"
     },
     {
@@ -301,7 +301,7 @@
       "deck": "closer",
       "type": "challenge",
       "level": 3,
-      "text": "Trade framing challenge: each completes the sentence 'I want more of ___ from you, and in exchange I'll give you ___'. Both parts must feel genuine.",
+      "text": "The trade, made real: finish both sides of 'I give you ___ in exchange for ___' out loud — then shake on it like a deal.",
       "soften": "Each name one want and one offering in a lighter way.",
       "together": true,
       "love": "words"
@@ -353,7 +353,7 @@
       "deck": "closer",
       "type": "topic",
       "level": 2,
-      "text": "Talk about the difference between a week that feels connected and a week that feels like you are just sharing a calendar.",
+      "text": "Talk it through: what does a connected week feel like from the inside — and which day last week came closest?",
       "love": "time"
     },
     {
