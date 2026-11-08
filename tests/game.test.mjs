@@ -55,7 +55,7 @@ async function main() {
       seenIds.add(c.id);
     }
   }
-  eq('780 cards', total, 780);
+  eq('800 cards', total, 800);
 
   // ---- F2: mode → deck membership matches the fixed bundles ----
   eq('chill = spark+closer', g.decksFor('chill').join(','), 'spark,closer');
