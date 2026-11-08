@@ -2,34 +2,23 @@
 
 A couples party game for one phone and a TV. Truth, dare, challenges, ice breakers, and conversation cards that escalate from laughs to heat — built to get two people sitting down, wrapped around each other, actually talking.
 
-## Play it
-
-```bash
-npm install
-npm run dev        # http://127.0.0.1:5173
-```
-
-or build + preview:
-
-```bash
-npm run build
-npm run preview -- --host 0.0.0.0 --port 4173
-```
-
-Open the URL on a phone, cast or mirror the screen to a TV, and pass the phone. Installable as a PWA; plays offline after first load; zero network calls in play; zero backend; nothing leaves the device.
+**Live: https://galtoast.github.io/ember/** — installable PWA, plays offline, zero backend, nothing leaves the device. Android APK via Capacitor (sideloaded).
 
 ## The decks
 
-| Deck | Heat | What it is |
-|---|---|---|
-| Spark | warm | easy laughs, light touches, a few surprises |
-| Closer | connect | real conversation that feels like winning |
-| Slow Burn | flirty | sensual truths, kissing games, tension |
-| After Dark | 18+ | intense, all invitation |
-| Curious | 18+ | kink exploration for two curious people |
-| Inferno | 18+ | all spice bombs — you were warned (literally) |
+800 cards across six decks (+ your own):
 
-Modes: **Chill** (spark+closer) · **Mixup** (everything shuffled) · **Heat** (the hot decks) · **Inferno** (all bombs, warning screen before entry).
+| Deck | Heat | Cards | What it is |
+|---|---|---|---|
+| Spark | warm | 100 | easy laughs, light touches, a few surprises |
+| Closer | connect | 100 | real conversation that feels like winning |
+| Slow Burn | flirty | 100 | sensual truths, kissing games, tension |
+| After Dark | 18+ | 150 | explicit — sex exploration, all invitation |
+| Curious | 18+ | 150 | kink exploration for two curious people |
+| Inferno | 18+ | 200 | all spice bombs, hardcore — you were warned (literally) |
+| **Our Deck** | yours | ∞ | cards you write in-app, dealt into every mode |
+
+Modes: **Chill** (spark+closer) · **Mixup** (everything shuffled) · **Heat** (the hot decks) · **Inferno** (all bombs, warning screen before entry) · **Pass-the-Phone** (private cards each player reads alone).
 
 ## Mechanics
 
@@ -37,53 +26,59 @@ Modes: **Chill** (spark+closer) · **Mixup** (everything shuffled) · **Heat** (
 - **`speak:` dares** — a second line delivered *while* the dare happens: physical act + meaningful words at the same time
 - **Soften** — every dare and challenge ships with a lower-heat variant, one tap away
 - **Skip economy** — 6 skips a night, shown as dots, always shameless
+- **Command tokens** — 3 each per night; spend one and the next card is *yours to command* (no skip, no soften). Unspent tokens compound: the celebration names the debt, paid before the week ends
+- **Pass-the-Phone** — sealed private cards (press-and-hold to read, 3 presses to latch); handoff screen between players; resume never leaks a private card
 - **Spice bombs** — cards hotter than their deck's baseline, occasionally favored by the draw
-- **Love languages** — every card is tagged; decks must cover all five
-- **Celebration ending** — every night ends warm, by design
+- **Love languages** — every card is tagged; draw-time balancing keeps all five flowing
+- **Browse mode** — flip through any deck without starting a night; retire cards on sight
+- **Our Deck** — write your own cards in-app (live house-rule validation, author attribution, export/import as JSON)
+- **Sound** — Web Audio synthesis: deal whoosh, bomb sting, timer ticks, celebration swell; mute toggle persisted
+- **Celebration ending** — every night ends warm, by design (peak-end rule, enforced by the engine)
 
 ## Content-as-code
 
-Decks are JSON in `content/decks/`, linted by `scripts/lint-decks.mjs` (schema, dupes, length caps, banned words, soften coverage, love-language coverage). 730 cards across six decks: Spark 100 · Closer 100 · Slow Burn 100 · After Dark 130 · Curious 150 · Inferno 150. House style lives in [CONTENT-GUIDE.md](./CONTENT-GUIDE.md).
+Decks are JSON in `content/decks/`. House style lives in [CONTENT-GUIDE.md](./CONTENT-GUIDE.md). The gate battery:
 
 ```bash
-npm run lint:decks
+npm test               # engine + persistence invariants (1061 assertions, no extra deps)
+npm run lint           # deck lint + fit envelope (see below)
+npm run lint:decks     # schema, levels, banned/clinical words, sense gates (my/I, slash),
+                       # anatomy-neutral, soften coverage, love coverage, dupes
+node scripts/near-dupe-audit.mjs   # trigram near-duplicate scan (exit 1 on a pair > 0.85)
 ```
 
-## Stack
+Every gate that exists caught a real defect at least once. `npm run lint` also enforces
+the fit envelope: the card is `overflow:hidden`, so text that doesn't fit is silently cut —
+`scripts/lint-fit.mjs` caps effective length (text + 1.6 × speak + timer) at 260.
 
-Vite + Svelte 5 + TypeScript, static build, no framework overhead beyond that. State is one module and one localStorage key. Deploy the `dist/` folder anywhere static.
-
-## Verify
+## Journey tests (real browser, Playwright)
 
 ```bash
-npm test           # engine + persistence invariants (989 assertions, no extra deps)
-npm run build      # real Svelte compile
-npm run lint          # deck structure/voice + the card text-fit envelope
-npm run lint:decks    # all six decks: counts, levels, banned/clinical language
+npm run preview -- --port 4173     # then:
+node tests/resume.journey.mjs      # mid-night resume
+node tests/browse.journey.mjs      # deck browser + retirement persistence
+node tests/tokens.journey.mjs      # command tokens + finale
+node tests/passthephone.journey.mjs# private cards + handoff + resume privacy
+node tests/sound.journey.mjs       # audio wiring + mute persistence
+node tests/custom.journey.mjs      # write/validate/persist/draw custom cards
 ```
 
-`tests/resume.journey.mjs` is a real-browser check of the mid-night resume path
-(needs `npm run preview` on :4173):
+## Android packaging
 
-```bash
-node tests/resume.journey.mjs
-```
-
-Android packaging order matters — `npx cap sync` copies the current `dist/`, so
-running it before a rebuild packages the *previous* bundle (blank screen, no
-error anywhere). Then verify before installing:
+Order matters — `npx cap sync` copies the current `dist/`, so running it before a
+rebuild packages the *previous* bundle (blank screen, no error anywhere). Then verify:
 
 ```bash
 npm run build
 npx cap sync android
 npm run verify:apk     # APK vs dist/index.html; exit 1 = stale bundle
 npm run verify:staging # same, against android/app/src/main/assets/public
+adb install -r android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
-`npm run lint` also enforces the fit envelope: the card is `overflow:hidden` with no
-scrollback, so text that does not fit is silently cut. `scripts/lint-fit.mjs` caps
-effective length (text + 1.6 × speak + timer) at the 260-char `xs` boundary, which is
-the point where a card stops fitting the smallest phone. Currently the widest card is
-249 (slowburn-056), so every deck is inside the envelope.
+## Stack
 
-Images, audio, and the Android package are not covered by these.
+Vite + Svelte 5 + TypeScript, static build. State is one module + a handful of
+localStorage keys (names/nights/retired, live night, custom deck, mute). Deploy
+`dist/` anywhere static; GitHub Pages deploy runs the gates on every push to master
+(.github/workflows/deploy.yml).
