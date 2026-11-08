@@ -15,11 +15,6 @@
     "sim": 0.67
   },
   {
-    "a": "afterdark-025",
-    "b": "afterdark-079",
-    "sim": 0.67
-  },
-  {
     "a": "afterdark-127",
     "b": "inferno-198",
     "sim": 0.67
@@ -37,11 +32,6 @@
   {
     "a": "afterdark-026",
     "b": "afterdark-124",
-    "sim": 0.64
-  },
-  {
-    "a": "afterdark-060",
-    "b": "afterdark-093",
     "sim": 0.64
   },
   {

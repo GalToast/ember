@@ -13,7 +13,7 @@ for (const f of readdirSync('content/decks').filter(f => f.endsWith('.json'))) {
 }
 
 // ---- gates (house rules, enforced on every rewrite) ----
-const SENSE = [/\bmy\b/i, /^I /, / \/ /];           // first-person outside quotes / slash choices
+const SENSE = [/\bmy\b/i, /^I /, /\s\/\s|\/\s|\s\//];           // first-person outside quotes / slash constructions (both spacing forms)
 const ANATOMY = /\bcock\b|\bpussy\b|\bdick\b|\btits?\b|\bwood\b|\bclit\b/i;
 const CLINICAL = /reconnect|\brepair\b|healing|therapy/i;
 const STILTED = /^Invite (them|a|an) /;

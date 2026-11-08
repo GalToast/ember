@@ -8,6 +8,11 @@ const DECKS_DIR = 'content/decks';
 const TYPES = ['truth', 'dare', 'challenge', 'ice', 'topic'];
 const STILTED = /^Invite them to |^Invite a |^Invite an /;
 const BANNED = [/reconnect/i, /\brepair\b/i, /\bhealing\b/i, /communication exercise/i, /emotional intimacy/i, /therapy/i, /therapist/i];
+// v2.5.2: sense + anatomy gates now live in lint (was: post-hoc scripts)
+const SENSE_MY = /\bmy\b/i;
+const SENSE_I = /^I /;
+const SENSE_SLASH = /\s\/\s|\/\s|\s\//;  // slash-construction choices ("inside you / to be inside them")
+const ANATOMY = /\bcock\b|\bpussy\b|\bdick\b|\btits?\b|\bclit\b|\bwood\b/i;
 // spark/closer may carry spice bombs one level above baseline; inferno is all-bombs L4
 const LEVELS = { spark: [1, 2], closer: [2, 3], slowburn: [3, 4], afterdark: [4], curious: [4], inferno: [4] };
 const files = existsSync(DECKS_DIR) ? readdirSync(DECKS_DIR).filter((f) => f.endsWith('.json')) : [];
@@ -44,7 +49,13 @@ for (const f of files) {
       if (!c.text || typeof c.text !== 'string') fail(f, c.id, 'missing text');
       else if (c.text.length > 160) fail(f, c.id, `text too long (${c.text.length} > 160)`);
       else if (BANNED.some((r) => r.test(c.text))) fail(f, c.id, 'banned clinical word in text');
-      else if (STILTED.test(c.text)) console.log(`warn ${f}:${c.id}: stilted prefix (rewrite: direct command)`);
+      else if (ANATOMY.test(c.text)) fail(f, c.id, 'gendered anatomy in text (house style is anatomy-neutral)');
+      else {
+        // sense gates: first-person outside quoted speech + slash constructions (strip quotes first)
+        const unquoted = c.text.replace(/"[^"]*"|'[^']*'/g, ' ');
+        if (SENSE_MY.test(unquoted) || SENSE_I.test(unquoted) || SENSE_SLASH.test(unquoted)) fail(f, c.id, 'sense bug: first-person outside quotes or slash construction');
+        else if (STILTED.test(c.text)) console.log(`warn ${f}:${c.id}: stilted prefix (rewrite: direct command)`);
+      }
       if (c.speak !== undefined && (typeof c.speak !== 'string' || c.speak.length > 120)) fail(f, c.id, 'speak must be string <= 220');
       if (c.soften !== undefined && typeof c.soften !== 'string') fail(f, c.id, 'soften must be string');
       if (c.timebox !== undefined && (!Number.isFinite(c.timebox) || c.timebox < 10 || c.timebox > 1500)) fail(f, c.id, 'timebox must be 10-1500s');
