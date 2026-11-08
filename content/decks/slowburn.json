@@ -77,7 +77,7 @@
       "type": "dare",
       "level": 3,
       "timebox": 60,
-      "text": "Kiss their neck for 30 slow seconds.",
+      "text": "Kiss their neck for thirty slow seconds — then find the spot that makes their breath catch and stay there.",
       "speak": "While you do, tell them the moment this week you were proudest of them.",
       "soften": "Forehead kiss plus the compliment.",
       "love": "touch"
@@ -138,7 +138,7 @@
       "type": "truth",
       "level": 4,
       "bomb": true,
-      "text": "What's something you've been curious about with me but never brought up? Curiosity is the only price of admission.",
+      "text": "What have you been curious about with me but never brought up? Curiosity is the only price of admission — name the want out loud.",
       "love": "words"
     },
     {
