@@ -62,6 +62,10 @@ export interface NightState {
   lastBombIndex: number;
   safeword: string;
   landing: boolean;
+  /** command tokens: 3 per player per night, spent on unrefusable orders */
+  tokens: { a: number; b: number };
+  /** whose turn the night is on (alternates each draw) — token display + fair spending */
+  turn: 'a' | 'b';
 }
 
 export function loadNight(): NightState | null {
@@ -69,7 +73,7 @@ export function loadNight(): NightState | null {
     const raw = localStorage.getItem(NIGHT_KEY);
     if (raw) {
       const n = JSON.parse(raw) as NightState;
-      if (n.cardId && n.count > 0) return { loveCounts: {}, safeword: '', landing: false, ...n };
+      if (n.cardId && n.count > 0) return { loveCounts: {}, safeword: '', landing: false, tokens: { a: 3, b: 3 }, turn: 'a', ...n };
     }
   } catch { /* ignore */ }
   return null;

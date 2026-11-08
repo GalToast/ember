@@ -130,7 +130,17 @@ async function main() {
   g.clearNight();
   eq('clearNight drops the resume offer', g.loadNight(), null);
 
-  // ---- F7: degraded storage must not throw ----
+  // ---- F7: token economy defaults + round-trip ----
+  const withTokens = { ...live, tokens: { a: 2, b: 1 }, turn: 'b' };
+  g.saveNight(withTokens);
+  const rt = g.loadNight();
+  ok('token state round-trips', rt && rt.tokens && rt.tokens.a === 2 && rt.tokens.b === 1 && rt.turn === 'b');
+  const fresh = { mode: 'heat', decks: ['slowburn'], cardId: 'slowburn-003', count: 2, skips: 3, seen: ['slowburn-001'] };
+  g.saveNight(fresh);
+  const defaulted = g.loadNight();
+  ok('token state defaults 3/3 + turn a when absent', defaulted && defaulted.tokens && defaulted.tokens.a === 3 && defaulted.tokens.b === 3 && defaulted.turn === 'a');
+
+  // ---- F8: degraded storage must not throw ----
   globalThis.localStorage = {
     getItem: () => '{broken json',
     setItem: () => { throw new Error('quota'); },

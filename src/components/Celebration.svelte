@@ -1,8 +1,8 @@
 <script lang="ts">
   import Icon from './Icon.svelte';
-  let { cards, nights, history = [], names = { a: '', b: '' }, onAgain, onHome }: {
+  let { cards, nights, history = [], names = { a: '', b: '' }, tokens = { a: 0, b: 0 }, onAgain, onHome }: {
     cards: number; nights: number; history?: { date: string; cards: number; mode: string }[];
-    names?: { a: string; b: string }; onAgain: () => void; onHome: () => void;
+    names?: { a: string; b: string }; tokens?: { a: number; b: number }; onAgain: () => void; onHome: () => void;
   } = $props();
 
   const lines = [
@@ -19,6 +19,21 @@
     <div class="crown"><Icon name="heart" size={30} /></div>
     <h2 class="display">What a night{names.a && names.b ? `, ${names.a} & ${names.b}` : ''}.</h2>
     <p class="stat dim">{cards} cards tonight · night #{nights} of yours</p>
+    {#if tokens.a + tokens.b > 0}
+      <div class="finale" data-testid="token-finale">
+        <Icon name="bomb" size={16} />
+        <span>
+          {tokens.a + tokens.b} command token{tokens.a + tokens.b === 1 ? '' : 's'} unspent. 
+          {#if tokens.a > 0 && tokens.b > 0}
+            Neither spent everything — each names one unspent command; both get paid before the week ends. No refusal.
+          {:else if tokens.a > 0}
+            {names.a || 'You'} still hold {tokens.a}. Name the order before the week ends — no refusal.
+          {:else}
+            {names.b || 'They'} still hold {tokens.b}. The order gets named before the week ends — no refusal.
+          {/if}
+        </span>
+      </div>
+    {/if}
     {#if nights >= 2}
       <p class="streak dim">{nights} nights · {totalCards} cards all time</p>
     {/if}
@@ -61,6 +76,16 @@
   }
   @keyframes countup { from { transform: scale(0.9); opacity: 0; } to { transform: scale(1); opacity: 1; } }
   .streak { font-size: clamp(12px, 1.6vmin, 15px); color: var(--ember-soft); font-weight: 700; letter-spacing: 0.06em; }
+  .finale {
+    display: flex; align-items: flex-start; gap: 10px;
+    width: 100%;
+    padding: 13px 16px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(179, 69, 31, 0.35), rgba(143, 29, 58, 0.3));
+    border: 1px solid var(--ember);
+    color: #ffd9a0; font-size: clamp(13px, 1.9vmin, 17px); font-weight: 600;
+    text-align: left;
+    line-height: 1.45;
+  }
   ol { list-style: none; display: flex; flex-direction: column; gap: 10px; counter-reset: n; width: 100%; }
   li {
     counter-increment: n; padding: 14px 18px; border-radius: 16px;
