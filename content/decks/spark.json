@@ -582,7 +582,7 @@
       "deck": "spark",
       "type": "challenge",
       "level": 1,
-      "text": "Create a couple-superhero identity together: name, powers, and one ridiculous weakness. Present it like a team announcement.",
+      "text": "Design each other's superhero ENTRY: the walk, the pose, the one-liner. Perform both. Judge brutally.",
       "soften": "Each suggest a power and combine them into one fun identity.",
       "together": true,
       "love": "words"
@@ -613,7 +613,7 @@
       "deck": "spark",
       "type": "challenge",
       "level": 1,
-      "text": "Brainstorm future pet names together until you have a shortlist of five, then crown a champion.",
+      "text": "Pet-name draft day: each nominates two, the other votes, and the winner becomes official vocabulary for a month.",
       "soften": "Each offer two pet-name ideas and pick a favorite.",
       "together": true,
       "love": "time"
@@ -791,7 +791,7 @@
       "deck": "spark",
       "type": "dare",
       "level": 1,
-      "text": "Hide a short handwritten note somewhere in the room. I have two minutes to find it.",
+      "text": "Hide a short handwritten note somewhere in the room. They get two minutes to find it — write a second one if they fail.",
       "soften": "Write a one-line note and hand it over instead.",
       "timebox": 120,
       "love": "gifts"
@@ -853,7 +853,7 @@
       "deck": "spark",
       "type": "challenge",
       "level": 1,
-      "text": "Create a secret handshake together that has at least four steps and one ridiculous finishing move.",
+      "text": "Build a four-step secret handshake ending in something ridiculous — jazz hands, finger guns, your choice — then perform it for no one.",
       "soften": "Invent a short two- or three-step handshake.",
       "together": true,
       "love": "touch"
