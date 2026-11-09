@@ -32,6 +32,14 @@ landing/celebration → kill/resume → deck-exhaustion probes → back-swipe sk
 - Sound: mute persists; timer chime present on challenge cards.
 - Zero console/page errors across every drive.
 
+## Viewport matrix (drive6/6b + probes, 2026-11-09)
+- Landscape phone (844x390): setup renders (earlier blank shot = headless capture timing
+  during the 0.5s enter animation, NOT an app bug — re-verified at +1.5s twice), card + dock
+  fit, celebration fine.
+- Tablet (1280x800): full flow, zero errors.
+- Desktop (1920x1080): full flow, zero errors — setup is genuinely handsome at this width.
+- Overflow: 0px horizontal and vertical at every width; dock never clipped.
+
 ## Taste-gated (for Fred, not fixable by machine)
 - ICE density in Chill feels high if both players are talkative — could cap ICE per-N-night.
   (left alone: Chill is *supposed* to be the talky mode)
