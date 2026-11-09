@@ -1,5 +1,18 @@
 apply plugin: 'com.android.application'
 
+// Single source of truth for version: package.json. versionCode = versionMajor*1000 + versionMinor*100 + versionPatch.
+def pkg = new groovy.json.JsonSlurper().parseText(file('../../package.json').text)
+def (maj, min, pat) = pkg.version.tokenize('.').collect { it.toInteger() }
+def vCode = maj * 1000 + min * 100 + pat
+
+// Release keystore: android/keystore.properties (gitignored, never committed).
+def keystorePropertiesFile = rootProject.file('keystore.properties')
+def keystoreProps = new Properties()
+def hasKeystore = keystorePropertiesFile.exists()
+if (hasKeystore) {
+    keystorePropertiesFile.withReader { keystoreProps.load(it) }
+}
+
 android {
     namespace = "com.fredcouples.ember"
     compileSdk = rootProject.ext.compileSdkVersion
@@ -7,8 +20,8 @@ android {
         applicationId "com.fredcouples.ember"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "1.1"
+        versionCode vCode
+        versionName "${pkg.version}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -20,6 +33,18 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // Release signing from android/keystore.properties (gitignored). Falls back to
+            // debug signing so assembleRelease still produces an installable APK on dev boxes.
+            if (hasKeystore) {
+                signingConfig signingConfigs.create('release') {
+                    storeFile file(keystoreProps['storeFile'])
+                    storePassword keystoreProps['storePassword']
+                    keyAlias keystoreProps['keyAlias']
+                    keyPassword keystoreProps['keyPassword']
+                }
+            } else {
+                signingConfig signingConfigs.debug
+            }
         }
     }
 }

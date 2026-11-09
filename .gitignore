@@ -12,3 +12,5 @@ assets/
 tmp/playtest/shots/
 tmp/*.log
 tmp/preview.pid
+android/keystore.properties
+android/*.jks

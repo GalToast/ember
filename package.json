@@ -1,7 +1,7 @@
 {
   "name": "ember",
   "private": true,
-  "version": "0.1.0",
+  "version": "2.7.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
@@ -13,7 +13,8 @@
     "verify:apk": "node scripts/verify-apk.mjs",
     "verify:staging": "node scripts/verify-apk.mjs --staging",
     "lint:fit": "node scripts/lint-fit.mjs",
-    "lint": "npm run lint:decks && npm run lint:fit"
+    "lint": "npm run lint:decks && npm run lint:fit",
+    "test:journeys": "node scripts/run-journeys.mjs"
   },
   "devDependencies": {
     "@capacitor/assets": "^4.0.0",
