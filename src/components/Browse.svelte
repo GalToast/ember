@@ -67,7 +67,7 @@
 
 <div class="wrap enter" data-testid="browse">
   <header class="head">
-    <button class="icon-btn" onclick={onClose} title="back to setup" data-testid="browse-close"><Icon name="skip" /> Back</button>
+    <button class="icon-btn" onclick={onClose} title="back to setup" data-testid="browse-close" aria-label="Back to setup"><Icon name="skip" /> Back</button>
     <div class="brand"><Icon name="heart" size={18} /> Browse the decks</div>
     <span class="dim pos">{index + 1} / {cards.length}</span>
   </header>
