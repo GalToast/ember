@@ -1,0 +1,8 @@
+npm warn Unknown user config "pm-cache". This will stop working in the next major version of npm.
+npm error code ENOSPC
+npm error syscall write
+npm error errno -4055
+npm error nospc ENOSPC: no space left on device, write
+npm error nospc There appears to be insufficient space on your system to finish.
+npm error nospc Clear up some disk space and try again.
+npm error A complete log of this run can be found in: D:\npm-cache\_logs\2026-11-09T00_57_23_378Z-debug-0.log

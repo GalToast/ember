@@ -371,8 +371,8 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
       <span class="skips" data-testid="skips" title="skips left">
         {#each Array(skips) as _}<i></i>{/each}
       </span>
-      <button class="icon-btn" onclick={goFullscreen} title="fullscreen for the TV"><Icon name="expand" /></button>
-      <button class="icon-btn" onclick={() => { setMuted(!isMuted()); }} title={isMuted() ? 'sound off' : 'sound on'} data-testid="mute"><Icon name={isMuted() ? 'skip' : 'heart'} size={17} /></button>
+      <button class="icon-btn" onclick={goFullscreen} title="fullscreen for the TV" aria-label="Fullscreen"><Icon name="expand" /></button>
+      <button class="icon-btn" onclick={() => { setMuted(!isMuted()); }} title={isMuted() ? 'sound off' : 'sound on'} data-testid="mute" aria-label={isMuted() ? 'Sound on' : 'Sound off'}><Icon name={isMuted() ? 'skip' : 'heart'} size={17} /></button>
     </div>
 
     <div class="cardzone">
@@ -421,7 +421,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
         <button class="btn btn-primary" onclick={next} data-testid="next">
           Next <Icon name="pass" />
         </button>
-        <button class="icon-btn end" onclick={end} title="end the night warm"><Icon name="end" /></button>
+        <button class="icon-btn end" onclick={end} title="end the night warm" aria-label="End the night"><Icon name="end" /></button>
       {/if}
     </nav>
   </main>
