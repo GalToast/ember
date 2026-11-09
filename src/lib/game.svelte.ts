@@ -70,6 +70,10 @@ export interface NightState {
   ptp?: boolean;
   /** release token: ONE per night, held by the current turn player; 'held'|'spent'|'gifted' */
   release?: { holder: 'a' | 'b'; state: 'held' | 'spent' | 'gifted' };
+  /** last draw's card type (truth/topic/dare/challenge) — pacing cap: never 3 same-type in a row */
+  lastType?: string;
+  /** consecutive same-type draws so far */
+  typeRun?: number;
 }
 
 export function loadNight(): NightState | null {
@@ -166,6 +170,11 @@ export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightSt
     const balanced = pool.filter((c) => c.love && starved.includes(c.love));
     if (balanced.length > 0) pool = balanced;
   }
+  // pacing cap: never deal 3+ same-type cards in a row (ICE-ICE-ICE runs read flat)
+  if (ns.lastType && (ns.typeRun ?? 0) >= 2) {
+    const varied = pool.filter((c) => c.type !== ns.lastType);
+    if (varied.length > 0) pool = varied;
+  }
   const bombs = pool.filter((c) => c.bomb);
   if (bombs.length > 0 && Math.random() < 0.2) card = bombs[Math.floor(Math.random() * bombs.length)];
   else card = pool[Math.floor(Math.random() * pool.length)];
@@ -176,12 +185,26 @@ export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightSt
 
 export function drawWarmLanding(decks: DeckId[], retired: string[]): Card | null {
   const retiredSet = new Set(retired);
-  const pool = ['spark', 'closer']
-    .flatMap((id) => (DECKS[id] ? DECKS[id].cards : []))
+  const base = ['spark', 'closer'].flatMap((id) => (DECKS[id] ? DECKS[id].cards : []));
+  const pool = base
     .filter((c) => !retiredSet.has(c.id) && !seen.has(c.id) && (c.type === 'truth' || c.type === 'topic' || c.type === 'challenge') && (c.level ?? 9) <= 2 && c.love !== 'touch');
-  const source = pool.length > 0 ? pool : ['spark', 'closer'].flatMap((id) => DECKS[id].cards).filter((c) => !retiredSet.has(c.id));
-  if (source.length === 0) return null;
-  const card = source[Math.floor(Math.random() * source.length)];
+  if (pool.length > 0) {
+    const card = pool[Math.floor(Math.random() * pool.length)];
+    seen.add(card.id);
+    return card;
+  }
+  // fallback: everything gentle is already seen tonight. Prefer the OLDEST-seen card
+  // (furthest back in the night) so the landing never echoes the card you just played,
+  // and only randomize among the first third of the night's history.
+  const gentle = base.filter((c) => !retiredSet.has(c.id) && (c.type === 'truth' || c.type === 'topic' || c.type === 'challenge') && (c.level ?? 9) <= 2 && c.love !== 'touch');
+  if (gentle.length === 0) return null;
+  const nightSeen = [...seen];
+  const oldestFirst = gentle
+    .map((c) => ({ c, at: nightSeen.indexOf(c.id) }))
+    .filter((x) => x.at >= 0)
+    .sort((a, b) => a.at - b.at);
+  const candidates = (oldestFirst.length > 0 ? oldestFirst.slice(0, Math.max(3, Math.ceil(oldestFirst.length / 3))).map((x) => x.c) : gentle);
+  const card = candidates[Math.floor(Math.random() * candidates.length)];
   seen.add(card.id);
   return card;
 }
@@ -207,6 +230,12 @@ export function trackLove(ns: NightState, card: Card) {
     ns.loveCounts[card.love] = (ns.loveCounts[card.love] || 0) + 1;
   }
   if (card.bomb) ns.lastBombIndex = ns.drawIndex;
+  // pacing: track same-type runs so draw() can cap them at 2
+  if (ns.lastType === card.type) ns.typeRun = (ns.typeRun ?? 0) + 1;
+  else {
+    ns.lastType = card.type;
+    ns.typeRun = 1;
+  }
 }
 
 // ---- audio: create the context inside a user gesture so mobile autoplay policies never eat the chime ----

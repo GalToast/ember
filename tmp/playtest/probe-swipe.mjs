@@ -1,0 +1,27 @@
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const { chromium } = require('C:/Users/HP/repos/semantic-explorer/node_modules/playwright/index.js');
+(async () => {
+  const browser = await chromium.launch({ args: ['--no-sandbox'] });
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true });
+  const page = await ctx.newPage();
+  await page.goto('http://127.0.0.1:4173', { waitUntil: 'networkidle' });
+  await page.evaluate(() => localStorage.clear());
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForTimeout(500);
+  await page.locator('input').nth(0).fill('F');
+  await page.locator('input').nth(1).fill('C');
+  await page.getByTestId('start').click();
+  await page.waitForTimeout(300);
+  await page.locator('button', { hasText: /ready/i }).click();
+  await page.waitForTimeout(700);
+  const skips0 = await page.evaluate(() => JSON.parse(localStorage.getItem('ember.night')).skips ?? 4);
+  await page.locator('.cardzone').dispatchEvent('touchstart', { touches: [{ clientX: 300, clientY: 420, identifier: 1 }], changedTouches: [{ clientX: 300, clientY: 420, identifier: 1 }] });
+  await page.locator('.cardzone').dispatchEvent('touchmove', { touches: [{ clientX: 140, clientY: 420, identifier: 1 }], changedTouches: [{ clientX: 140, clientY: 420, identifier: 1 }] });
+  await page.locator('.cardzone').dispatchEvent('touchend', { touches: [], changedTouches: [{ clientX: 140, clientY: 420, identifier: 1 }] });
+  await page.waitForTimeout(700);
+  await page.screenshot({ path: 'C:/Users/HP/repos/ember/tmp/playtest/shots/38-backswipe.png' });
+  const n = await page.evaluate(() => JSON.parse(localStorage.getItem('ember.night') || '{}'));
+  console.log('SKIPS_AFTER_BACKSWIPE:', skips0, '->', n.skips, '| count:', n.count);
+  await browser.close();
+})().catch(e => { console.error('ERR:', e.message.slice(0, 300)); process.exit(1); });

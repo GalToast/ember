@@ -402,14 +402,14 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
           <Icon name="skip" /> <span class="lbl">Skip</span>
         </button>
         <button class="btn btn-ghost retire" onclick={retire} title="never show this card again" aria-label="Never again">
-          <Icon name="skip" /> <span class="lbl">Never again</span>
+          <Icon name="ban" /> <span class="lbl">Never again</span>
         </button>
         <button class="btn btn-ghost token" onclick={spendToken} disabled={(night.tokens?.[night.turn] ?? 0) <= 0} data-testid="token" title="spend a command token — the next card is an order that can't be refused">
           <Icon name="bomb" /> <span class="lbl">Command</span>
         </button>
         {#if relOpen && night.release && night.release.state === 'held'}
           <div class="rel-pop" data-testid="release-pop">
-            <p class="rel-h dim">{(night.release.holder === 'a' ? names.a : names.b) || 'They'} hold{night.release.holder === 'a' ? 's' : ''} the release</p>
+            <p class="rel-h dim">{(night.release.holder === 'a' ? names.a : names.b) || 'They'} hold{names.a || names.b ? 's' : ''} the release</p>
             {#if night.release.holder === night.turn}
               <button class="btn btn-ghost" onclick={giftRelease} data-testid="release-gift">Gift it — they decide</button>
               <button class="btn btn-ghost" onclick={spendRelease} data-testid="release-spend">Keep it — I finish</button>

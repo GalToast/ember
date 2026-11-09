@@ -2,7 +2,7 @@
   // Ember custom icon set — thin geometric strokes, currentColor, no emoji ever.
   export type IconName =
     | 'truth' | 'dare' | 'challenge' | 'ice' | 'topic'
-    | 'bomb' | 'flame' | 'timer' | 'pass' | 'skip' | 'soften' | 'end' | 'expand' | 'heart' | 'warning';
+    | 'bomb' | 'flame' | 'timer' | 'pass' | 'skip' | 'soften' | 'end' | 'expand' | 'heart' | 'warning' | 'ban';
   let { name, size = 20 }: { name: IconName; size?: number } = $props();
 
   const paths: Record<IconName, string> = {
@@ -16,6 +16,7 @@
     timer: 'M12 8v5l3 2M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16ZM9 2h6', // clock
     pass: 'M5 12h13m0 0-5-5m5 5-5 5', // arrow right
     skip: 'M6 6l12 12M18 6 6 18', // cross
+    ban: 'M7 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17zM4 7.5l9.5 9.5', // slashed circle — never again
     soften: 'M4 9l8 8 8-8', // chevron down
     end: 'M12 3v9M6.3 6.3a8 8 0 1 0 11.4 0', // power
     expand: 'M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5', // fullscreen corners
