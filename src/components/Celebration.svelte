@@ -30,6 +30,23 @@
     const weeks = Math.max(1, (Date.now() - t0) / (7 * 864e5));
     return ((nights) / weeks).toFixed(1);
   });
+
+  function exportHistory() {
+    // plain-text keepsake — the story, not a database dump
+    const who = `${names.a || 'You'} & ${names.b || 'them'}`;
+    const lines = [`Ember — ${who}`, ''.padEnd(30, '~'), ''];
+    for (const n of history) {
+      lines.push(`${n.date} — ${n.cards} cards — ${n.mode}`);
+    }
+    lines.push('', `${nights} night${nights === 1 ? '' : 's'}, ${totalCards} cards.`, 'Say them out loud.');
+    const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ember-${who.replace(/[^a-z]+/gi, '-').toLowerCase()}-${new Date().toISOString().slice(0, 10)}.txt`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }
 </script>
 
 <div class="wrap enter">
@@ -91,6 +108,11 @@
       <button class="btn btn-ghost" onclick={onHome}>Change the mode</button>
       <button class="btn btn-primary" onclick={onAgain}>Keep going</button>
     </div>
+    {#if nights >= 1}
+      <button class="btn btn-ghost export" data-testid="export-history" onclick={exportHistory} title="write your night history to a text file — stays on your device until you share it">
+        Write our story down
+      </button>
+    {/if}
   </div>
 </div>
 
@@ -153,4 +175,5 @@
   .h-chip:hover { border-color: var(--ember); color: var(--ink); box-shadow: 0 0 12px rgba(255, 122, 61, 0.25); transform: scale(1.05); }
   .close { font-size: clamp(13px, 1.8vmin, 16px); font-style: italic; }
   .row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
+  .export { margin-top: 10px; font-size: clamp(13px, 1.7vmin, 15px); opacity: 0.85; }
 </style>
