@@ -102,12 +102,18 @@
 <style>
   .wrap {
     flex: 1;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    display: flex; flex-direction: column; justify-content: safe center; align-items: center;
     gap: clamp(14px, 2.6vmin, 26px);
-    /* S23 play-test defect 1 (2026-11-10): the APK draws edge-to-edge (IMMERSIVE_STICKY
-       + LAYOUT_FULLSCREEN in MainActivity), so env(safe-area-inset-top) is what stands in
-       for the status bar; desktop browsers resolve it to 0 and are unaffected. Only the
-       top inset was missing — bottom was already handled here and on #app. */
+    /* S23 play-test defect 1 (2026-11-10), CORRECTED 07:1xZ. Two attempts, only one works:
+       (1) env(safe-area-inset-top) does NOT help here — MainActivity sets
+           SYSTEM_UI_FLAG_FULLSCREEN, which hides the status bar entirely, so the inset
+           resolves to 0 and max(clamp(16px,3vmin,40px), 0) is byte-identical padding.
+       (2) The real cause: this column's content is TALLER than the viewport, and
+           `justify-content: center` centres an OVERFLOWING flex box — which pushes the
+           first row above the scroll origin, so it is unreachable by scrolling, not merely
+           hidden. `safe center` is the spec-correct answer: centre when the content fits,
+           fall back to start alignment when it overflows. Keeps the desktop look, fixes the APK.
+       Regression test: uiautomator dump -> the h1 bounds top must be > 0. */
     padding: max(clamp(16px, 3vmin, 40px), env(safe-area-inset-top)) clamp(16px, 3vmin, 40px) max(clamp(16px, 3vmin, 40px), env(safe-area-inset-bottom));
     z-index: 1; overflow-y: auto;
   }
