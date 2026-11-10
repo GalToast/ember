@@ -538,7 +538,15 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   }
   .icon-btn:active { transform: scale(0.92); }
   .icon-btn.end { margin-left: 0; color: var(--ink-dim); }
-  .cardzone { flex: 1; display: grid; place-items: center; min-height: 0; }
+  /* S23 play-test defect 5 (2026-11-10): same class as defect 1, in GRID form. With
+     place-items:center a grid item TALLER than its row is centred and overflows BOTH ends, so a
+     long card (e.g. 'Body as the plate: lay a trail...') pushed its own header — the SPICE BOMB
+     badge at top=3 and the INFERNO label behind the status bar. Measured on device.
+     Two-part fix, because alignment alone cannot help content that is simply too tall:
+       (a) safe centring: fall back to start when the item overflows;
+       (b) let the card scroll internally instead of growing the row. */
+  .cardzone { flex: 1; display: grid; place-items: safe center; min-height: 0; overflow: hidden; }
+  .cardzone > :global(*) { max-height: 100%; }
   /* S23 play-test defect 3 (2026-11-10): quiet undo for the irreversible retire action.
      A modal would interrupt the moment (the wrong fix in this context); a 6s inline bar with a
      real Undo button catches the mis-tap without demanding a decision. Kept >=48dp so the
@@ -570,6 +578,27 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     border-radius: 999px;
     flex-wrap: nowrap;
   }
+  /* S23 play-test defect 3, layout half (2026-11-10): 'Never again' sat 153px from 'Skip' at
+     identical size, so thumb drift between two adjacent buttons could silently retire a card.
+     The undo bar makes that recoverable; this makes it LESS LIKELY in the first place.
+     Destructive actions get: extra separation (a real gap, not just the dock rhythm), a divider
+     rule so the boundary is visible rather than inferred, and a muted resting weight so it does
+     not read as a peer of Skip. Measured target: >= 1 finger-width of clear space to its left. */
+  .dock .retire {
+    margin-left: clamp(14px, 3.2vmin, 26px);
+    position: relative;
+    opacity: 0.72;
+    font-weight: 500;
+  }
+  .dock .retire::before {
+    content: '';
+    position: absolute;
+    left: calc(-1 * clamp(7px, 1.6vmin, 13px));
+    top: 18%; bottom: 18%; width: 1px;
+    background: var(--edge-strong);
+  }
+  .dock .retire:active,
+  .dock .retire:focus-visible { opacity: 1; }
   .dock .btn { white-space: nowrap; font-size: clamp(13px, 1.8vmin, 16px); padding: 12px 22px; min-height: 52px; }
   /* small screens: ghost buttons drop their labels (icons carry the meaning) so the dock never overflows the viewport */
   @media (max-width: 560px) {

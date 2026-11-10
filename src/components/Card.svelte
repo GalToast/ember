@@ -218,6 +218,9 @@
   .card {
     position: relative;
     width: min(92vw, 68vmin);
+    /* Height-capped so it can never outgrow .cardzone (defect 5); the inner .text absorbs the
+       slack and scrolls, everything else stays fixed. */
+    max-height: 100%;
     overflow: hidden;
     touch-action: none;
     padding: clamp(22px, 4vmin, 44px) clamp(20px, 3.6vmin, 40px);
@@ -289,7 +292,18 @@
     line-height: 1.16;
     text-wrap: pretty;
     overflow-wrap: break-word;
+    /* S23 play-test defect 5 (2026-11-10), second attempt. First attempt added
+       min-height:0 + overflow-y:auto, but in a flex column that shrinks the box only as far as its
+       CONTENT allows — the card clipped the text mid-word ('wine — then lick' cut at the baseline)
+       because .text had no flex basis to claim the slack. flex:1 makes it the element that absorbs
+       the available height and scrolls, so the badge, timer and controls stay fixed. */
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
   }
+  .text::-webkit-scrollbar { display: none; }
   .text.xl { font-size: clamp(27px, 6.4vmin, 66px); }
   .text.lg { font-size: clamp(25px, 5.4vmin, 54px); }
   .text.md { font-size: clamp(22px, 4.6vmin, 44px); line-height: 1.22; }
