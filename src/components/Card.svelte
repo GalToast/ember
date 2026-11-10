@@ -34,6 +34,30 @@
     return 'xs';
   });
 
+  /**
+   * S23 play-test defect 6 (2026-11-10): a long prompt scrolls inside a fixed card, and without a cue
+   * the reader sees a sentence cut mid-word and cannot tell whether the card is broken or just long.
+   * Track real overflow so the fade only appears while content is actually hidden below.
+   */
+  let textWrap = $state<HTMLDivElement | null>(null);
+  let textEl = $state<HTMLParagraphElement | null>(null);
+  let overflowing = $state(false);
+  function updateOverflow() {
+    const w = textWrap;
+    if (!w) { overflowing = false; return; }
+    // "more below" = scrollable AND not already scrolled to the end
+    const more = w.scrollHeight - w.scrollTop - w.clientHeight > 4;
+    if (more !== overflowing) overflowing = more;
+  }
+  $effect(() => {
+    // re-evaluate whenever the card content or its size class changes
+    const _text = shown.text;
+    const _cls = sizeClass;
+    void _text; void _cls;
+    const t = setTimeout(updateOverflow, 0);
+    return () => clearTimeout(t);
+  });
+
   const fill = (s: string | undefined) =>
     s ? s.replaceAll('{a}', names.a || 'you').replaceAll('{b}', names.b || 'them') : s;
 
@@ -152,11 +176,23 @@
       ? `background: conic-gradient(currentColor ${(remaining / Math.max(total, 1)) * 360}deg, rgba(255,255,255,0.07) 0deg);`
       : '',
   );
+  /**
+   * Text-heavy cards (sm/xs) get a compact timer. The ring is 112px of decoration on a 618px card;
+   * taking it back is what lets a long prompt FIT instead of scrolling behind a dimming fade. The
+   * number is the information, the ring is not - so an inline style is used here because ringStyle
+   * above is inline and would otherwise win over a class.
+   */
+  const texty = $derived(sizeClass === 'sm' || sizeClass === 'xs');
+  const timerStyle = $derived(
+    texty
+      ? 'background: rgba(255,179,92,0.10); border: 1px solid rgba(255,179,92,0.28); padding: 5px 14px; width: auto; height: auto; aspect-ratio: auto; border-radius: 999px;'
+      : ringStyle,
+  );
 </script>
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {heatBand(shown.level)} {fly !== 'none' ? 'flying' : ''}"
+  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {heatBand(shown.level)} {texty ? 'texty' : ''} {fly !== 'none' ? 'flying' : ''}"
   style="{dragStyle} {flyStyle}"
   data-testid="card"
   onpointerdown={down}
@@ -185,7 +221,10 @@
     </span>
   </header>
 
-  <p class="text {sizeClass}">{shown.text}</p>
+  <div class="textscroll" class:more={overflowing} bind:this={textWrap}
+       onscroll={() => updateOverflow()}>
+    <p class="text {sizeClass}" bind:this={textEl}>{shown.text}</p>
+  </div>
 
   {#if shown.speak && !isSoft}
     <aside class="speak">
@@ -199,7 +238,7 @@
   {/if}
 
   {#if total > 0}
-    <div class="timer" class:done={remaining === 0} class:urgent={remaining <= 10 && remaining > 0} style={ringStyle}>
+    <div class="timer" class:done={remaining === 0} class:urgent={remaining <= 10 && remaining > 0} style={timerStyle}>
       <div class="timer-inner">
         {#if remaining === 0}
           <span>take your time anyway</span>
@@ -222,6 +261,9 @@
     /* Height-capped so it can never outgrow .cardzone (defect 5); the inner .text absorbs the
        slack and scrolls, everything else stays fixed. */
     max-height: 100%;
+    /* Use the whole zone: a card with prompt + speak + timer needs more than the old implicit size
+       on a 780px viewport, and centred content in a short box is what produced the mid-word clips. */
+    height: 100%;
     overflow: hidden;
     touch-action: none;
     padding: clamp(22px, 4vmin, 44px) clamp(20px, 3.6vmin, 40px);
@@ -299,26 +341,29 @@
     line-height: 1.16;
     text-wrap: pretty;
     overflow-wrap: break-word;
-    /* S23 play-test defect 5 (2026-11-10), second attempt. First attempt added
-       min-height:0 + overflow-y:auto, but in a flex column that shrinks the box only as far as its
-       CONTENT allows — the card clipped the text mid-word ('wine — then lick' cut at the baseline)
-       because .text had no flex basis to claim the slack. flex:1 makes it the element that absorbs
-       the available height and scrolls, so the badge, timer and controls stay fixed. */
+    width: 100%;
+  }
+  /* Affordance for hidden content: a fade at the BOTTOM edge only while more text remains below.
+     The `local` gradient trick painted a band across the first line instead (visible as a dark
+     rectangle behind the opening words), because `local` positions relative to the scroll origin.
+     A sibling overlay anchored to the scroll container's bottom is predictable. */
+  .textscroll {
+    position: relative;
     flex: 1 1 auto;
-    min-height: 0;
-    /* Floor for the READABILITY of the primary text: without it, .text (the point of the card) gets
-       squeezed to ~3 lines while .speak and .timer take the room. 5.5em ≈ 4 lines at this size. */
     min-height: 5.5em;
+    width: 100%;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;
   }
+  .textscroll::-webkit-scrollbar { display: none; }
+  .textscroll.more::after { opacity: 1; }
   .text::-webkit-scrollbar { display: none; }
   .text.xl { font-size: clamp(27px, 6.4vmin, 66px); }
   .text.lg { font-size: clamp(25px, 5.4vmin, 54px); }
   .text.md { font-size: clamp(22px, 4.6vmin, 44px); line-height: 1.22; }
   .text.sm { font-size: clamp(20px, 4vmin, 36px); line-height: 1.3; }
-  .text.xs { font-size: clamp(19px, 3.6vmin, 32px); line-height: 1.34; }
+  .text.xs { font-size: clamp(17px, 3.2vmin, 28px); line-height: 1.3; }
 
   .speak {
     width: 100%;
@@ -327,11 +372,11 @@
     background: rgba(255, 179, 92, 0.07);
     border-left: 2px solid var(--ember-soft);
     text-align: left;
-    /* The speak block was unbounded (224px measured) and squeezed .text to 85px — about three
-       lines — on a card whose prompt needed 397px. Secondary content must yield to the prompt, so
-       cap it and let it scroll rather than push the primary text out of the reading window. */
+    /* Secondary content yields to the prompt. 38% was still too generous on a 618px card: with
+       prompt 203px + timer 112px + badges, the speak block had 138px for 88 chars and clipped
+       mid-word with no cue. Cap tighter and let it scroll; the fade below applies to .text only. */
     flex: 0 1 auto;
-    max-height: 38%;
+    max-height: 30%;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;
@@ -358,6 +403,21 @@
   }
   .safeword strong { color: var(--ember-soft); letter-spacing: 0.1em; text-transform: uppercase; }
 
+  /* The timer RING is 112px of decoration. On a text-heavy card (sizeClass sm/xs) that is the
+     single biggest non-essential consumer, and taking it back is what lets the prompt fit instead of
+     being dimmed behind a fade. Compact form keeps the number - which is the actual information. */
+  .card.texty .timer {
+    width: auto;
+    aspect-ratio: auto;
+    height: auto;
+    border-radius: var(--r-pill);
+    padding: 5px 14px;
+    background: rgba(255, 179, 92, 0.10);
+    border: 1px solid rgba(255, 179, 92, 0.28);
+  }
+  .card.texty .timer .ring,
+  .card.texty .timer svg { display: none; }
+
   .timer {
     width: clamp(78px, 13vmin, 120px);
     aspect-ratio: 1;
@@ -365,7 +425,12 @@
     display: grid; place-items: center;
     color: var(--ember-soft);
     padding: 4px;
-    flex: none;
+    /* S23 play-test defect 6 (2026-11-10): flex:none made the ring an unshrinkable 112px on a card
+       that also had a 224px speak block, leaving the PROMPT 85px (~3 lines) and clipping both text
+       blocks mid-word. The ring is decorative relative to the words, so it yields first: it may
+       shrink, and it is removed from the flow entirely when the card is short. */
+    flex: 0 1 auto;
+    min-height: 0;
   }
   .timer.done { color: var(--ink-dim); }
   .timer.urgent { animation: pulse 1s ease-in-out infinite; }
