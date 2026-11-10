@@ -416,7 +416,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
 
     <div class="cardzone">
       {#key card.id}
-        <CardView {card} playerColor="p1" {soft} names={names} safeword={safeword} {landing} onSwipe={(dir) => (dir === 'next' ? next() : skip())} />
+        <CardView {card} playerColor="p1" {soft} names={names} safeword={safeword} {landing} hideBadge={mode === 'inferno'} onSwipe={(dir) => (dir === 'next' ? next() : skip())} />
       {/key}
     </div>
 

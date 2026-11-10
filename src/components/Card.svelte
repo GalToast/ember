@@ -11,6 +11,10 @@
     names = { a: '', b: '' },
     safeword = '',
     landing = false,
+    /** suppress the SPICE BOMB badge (UX-5): in inferno mode EVERY card is a bomb,
+     *  so the badge carries no information there — it only means "surprising heat"
+     *  when the card's deck is hotter than the night's ambient mode. */
+    hideBadge = false,
     onSwipe,
   }: {
     card: Card;
@@ -206,7 +210,7 @@
     <div class="swipe-hint {hint} pop">{hint === 'next' ? 'NEXT' : 'SKIP'}</div>
   {/if}
 
-  {#if shown.bomb && !isSoft}
+  {#if shown.bomb && !isSoft && !hideBadge}
     <div class="badge-badge pop"><Icon name="bomb" size={15} /> SPICE BOMB</div>
   {:else if landing}
     <div class="badge-badge landing pop"><Icon name="heart" size={14} /> THE LANDING</div>
