@@ -23,14 +23,19 @@ Modes: **Chill** (spark+closer) · **Mixup** (everything shuffled) · **Heat** (
 ## Mechanics
 
 - **Five card types:** TRUTH · DARE · CHALLENGE (both play) · ICE BREAKER · TOPIC
+- **Heat scale 1-10** — the old flat 1-4 scale is now ten rungs so "hotter" is additive, not a redefinition; the meter is five dots with half-steps (each dot owns two levels, an odd level renders half-lit); content was reclassified onto the scale (afterdark widened to [4,5,6], eight curious cards corrected down, inferno re-mapped)
+- **Heat ceiling** — a night can cap the draw pool (`night.heatCeiling`, default 6); the safeword reminder fires from level 7 (the negotiation gate), not the adult gate
 - **`speak:` dares** — a second line delivered *while* the dare happens: physical act + meaningful words at the same time
-- **Soften** — every dare and challenge ships with a lower-heat variant, one tap away
-- **Skip economy** — 6 skips a night, shown as dots, always shameless
-- **Command tokens** — 3 each per night; spend one and the next card is *yours to command* (no skip, no soften). Unspent tokens compound: the celebration names the debt, paid before the week ends
+- **Soften** — every dare and challenge ships with a lower-heat variant, one tap away; the retire undo bar echoes the card's own words so a mis-tap is recognizable in the dark
+- **Skip economy** — 6 skips a night, shown as tally bars (a count looks like a count, not a second meter), always shameless
+- **Arm-to-confirm ending** — "End the night" is a two-step: the first tap arms an inline "End it?" pill, the second confirms; a stray thumb can't end a night (the dock's most destructive action is no longer its smallest unlabeled target)
+- **First-night splash** — "Get close." earns its modal moment on night 1; later nights get a two-second "Welcome back. Cuddle in." with tap-anywhere begin
+- **Command tokens** — 3 each per night; spend one and the next card is *yours to command* (no skip, no soften). Unspent tokens compound: the celebration names the debt — as a promise between the two of you, not an ultimatum — paid before the week ends
 - **Pass-the-Phone** — sealed private cards (press-and-hold to read, 3 presses to latch); handoff screen between players; resume never leaks a private card
-- **Spice bombs** — cards hotter than their deck's baseline, occasionally favored by the draw
+- **Spice bombs** — cards hotter than their deck's baseline, occasionally favored by the draw; the badge is suppressed in Inferno mode where every card is one (a badge that fires always means nothing)
 - **Love languages** — every card is tagged; draw-time balancing keeps all five flowing
-- **Browse mode** — flip through any deck without starting a night; retire cards on sight
+- **Browse mode** — flip through any deck without starting a night; retire cards on sight; a deck-position progress bar tracks depth
+- **Stale-night exit** — a resumed night that's actually an old session has a quiet "start fresh instead" link; the resume counter no longer grows unbounded
 - **Our Deck** — write your own cards in-app (live house-rule validation, author attribution, export/import as JSON)
 - **Sound** — Web Audio synthesis: deal whoosh, bomb sting, timer ticks, celebration swell; mute toggle persisted
 - **Celebration ending** — every night ends warm, by design (peak-end rule, enforced by the engine)
