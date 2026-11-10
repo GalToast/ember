@@ -186,7 +186,18 @@
   .dchip:active { transform: scale(0.96); }
   .dchip:focus-visible { outline: 2px solid var(--ember-soft); outline-offset: 2px; }
   .dchip .count { font-size: 11px; font-weight: 400; }
-  .dchip.off { opacity: 0.3; }
+  /* S23 play-test defect 2b (2026-11-10): `.off` used to be opacity:0.3, which reads as
+     DISABLED/AVAILABLE-NO rather than DESELECTED. Measured on device: the Inferno chip had
+     enabled=true, clickable=true, checked=false - it was fully tappable, just not selected,
+     and it looked broken next to five orange neighbours. A toggle must look unselected, not
+     unavailable: dim the SURFACE only, keep the label at full contrast and the border intact. */
+  .dchip.off {
+    background: rgba(255, 255, 255, 0.02);
+    border-color: var(--edge);
+    color: var(--ink-dim);
+    opacity: 1;
+  }
+  .dchip.off .count { opacity: 0.75; }
   .dchip.on {
     background: linear-gradient(135deg, rgba(255, 122, 61, 0.22), rgba(255, 82, 115, 0.22));
     border-color: var(--ember);

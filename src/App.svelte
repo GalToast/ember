@@ -32,6 +32,22 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   let releaseUsed = $state<{ holder: 'a' | 'b'; state: 'spent' | 'gifted' } | null>(null); // celebration line
   let relOpen = $state(false); // release popover
   let resumeAvailable = $state(loadNight());
+  /** S23 play-test defect 3 (2026-11-10): 'Never again' is irreversible AND sits 180px from
+   *  'Skip' at the same size, so a mis-tap silently retires a card forever. Retiring still
+   *  happens immediately (a modal in bed interrupts the moment and is its own harm), but an
+   *  undo affordance appears for a few seconds with the card id available to restore.
+   *  Styled as a quiet bar, not a dialog. */
+  let retiredUndo = $state<{ id: string; timer: ReturnType<typeof setTimeout> } | null>(null);
+  function clearRetiredUndo() {
+    if (retiredUndo) { clearTimeout(retiredUndo.timer); retiredUndo = null; }
+  }
+  function undoRetire() {
+    if (!retiredUndo) return;
+    const id = retiredUndo.id;
+    clearRetiredUndo();
+    persisted.retired = persisted.retired.filter((x) => x !== id);
+    save(persisted);
+  }
   let wakeLock: { release: () => Promise<void> } | null = null;
 
   const night = $state(loadNight() ?? {
@@ -125,8 +141,13 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
 
   function retire() {
     if (!card) return;
-    persisted.retired = [...persisted.retired, card.id];
+    const id = card.id;
+    persisted.retired = [...persisted.retired, id];
     save(persisted);
+    // Keep the undo scoped to the card just retired, and only for a short window: the point is
+    // to catch a mis-tap, not to make retiring reversible forever.
+    clearRetiredUndo();
+    retiredUndo = { id, timer: setTimeout(() => { retiredUndo = null; }, 6000) };
     advance(card);
   }
 
@@ -381,6 +402,14 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
       {/key}
     </div>
 
+    {#if retiredUndo}
+      <!-- S23 play-test defect 3: mis-tap recovery for the irreversible retire action. -->
+      <div class="undobar" data-testid="retire-undo" role="status">
+        <span>Never showing that card again.</span>
+        <button class="undobtn" onclick={undoRetire} data-testid="retire-undo-btn">Undo</button>
+      </div>
+    {/if}
+
     <nav class="dock glass" data-testid="dock">
       {#if landing}
         <button class="btn btn-primary" onclick={end} data-testid="finish">
@@ -510,6 +539,28 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   .icon-btn:active { transform: scale(0.92); }
   .icon-btn.end { margin-left: 0; color: var(--ink-dim); }
   .cardzone { flex: 1; display: grid; place-items: center; min-height: 0; }
+  /* S23 play-test defect 3 (2026-11-10): quiet undo for the irreversible retire action.
+     A modal would interrupt the moment (the wrong fix in this context); a 6s inline bar with a
+     real Undo button catches the mis-tap without demanding a decision. Kept >=48dp so the
+     recovery control is not itself hard to hit in the dark. */
+  .undobar {
+    position: fixed; left: 50%; transform: translateX(-50%);
+    bottom: calc(96px + env(safe-area-inset-bottom));
+    z-index: 40;
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 14px 12px 18px; border-radius: var(--r-pill);
+    background: rgba(20, 16, 14, 0.94); border: 1px solid var(--edge-strong);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    font-size: clamp(13px, 1.8vmin, 15px); color: var(--ink);
+    max-width: min(92vw, 460px);
+  }
+  .undobtn {
+    flex: 0 0 auto; min-height: 48px; padding: 0 18px; border-radius: var(--r-pill);
+    background: var(--glass-strong); border: 1px solid var(--edge-strong);
+    color: var(--ember-soft); font-weight: 700; font-size: inherit;
+  }
+  .undobtn:active { transform: scale(0.96); }
   .dock {
     display: flex;
     align-items: center;
