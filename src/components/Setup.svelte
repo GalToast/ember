@@ -53,6 +53,10 @@
     <button class="resume" onclick={onResume}>
       <Icon name="pass" size={15} /> {resumeLabel}
     </button>
+    <!-- UX-12 (audit 2026-11-10): the resume counter grows unbounded across test sessions
+         and there was no way to discard an old night. A quiet 'start fresh' link, not a
+         destructive-looking control — most nights you just resume. -->
+    <button class="fresh" onclick={onRestart}>start fresh instead</button>
   {/if}
 
   <section class="names">
@@ -144,6 +148,13 @@
     padding: 11px 22px; border-radius: var(--r-pill);
     background: rgba(126, 201, 138, 0.1); border: 1px solid rgba(126, 201, 138, 0.4);
     color: var(--good); font-weight: 600; font-size: clamp(13px, 1.8vmin, 15px);
+  }
+  /* UX-12: quiet link-style discard for a stale night */
+  .fresh {
+    display: block; margin: 8px auto 0; padding: 6px 14px;
+    background: none; border: none; color: var(--ink-dim);
+    font-size: 12.5px; text-decoration: underline; text-underline-offset: 3px;
+    min-height: 36px;
   }
 
   .names { display: flex; align-items: center; gap: clamp(8px, 1.6vmin, 16px); width: min(92vw, 500px); }

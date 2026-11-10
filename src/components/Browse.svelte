@@ -70,6 +70,11 @@
   <header class="head">
     <button class="icon-btn" onclick={onClose} title="back to setup" data-testid="browse-close" aria-label="Back to setup"><Icon name="skip" /> Back</button>
     <div class="brand"><Icon name="heart" size={18} /> Browse the decks</div>
+    <!-- UX-7 (audit 2026-11-10): '1 / 100' 12px dim text was the only orientation cue;
+         a deck-colored progress bar gives position at a glance in a dark room. -->
+    <div class="prog" aria-hidden="true">
+      <div class="prog-fill" style="width: {((index + 1) / cards.length) * 100}%"></div>
+    </div>
     <span class="dim pos">{index + 1} / {cards.length}</span>
   </header>
 
@@ -129,9 +134,16 @@
     padding: clamp(12px, 2.4vmin, 28px);
     min-height: 0;
   }
-  .head { display: flex; align-items: center; gap: 14px; }
-  .brand { font-weight: 800; letter-spacing: 0.08em; font-size: clamp(13px, 1.8vmin, 16px); }
-  .pos { margin-left: auto; font-variant-numeric: tabular-nums; font-size: clamp(12px, 1.6vmin, 14px); }
+  .head { display: flex; align-items: center; gap: 10px; }
+  .brand { font-weight: 800; letter-spacing: 0.08em; font-size: clamp(13px, 1.8vmin, 16px); white-space: nowrap; }
+  .pos { margin-left: auto; font-variant-numeric: tabular-nums; font-size: clamp(12px, 1.6vmin, 14px); white-space: nowrap; }
+  /* UX-7: deck progress bar — position at a glance, deck-colored */
+  .prog {
+    margin-left: auto; width: 56px; flex: none; height: 3px; border-radius: 2px;
+    background: var(--glass); overflow: hidden;
+  }
+  .prog + .pos { margin-left: 10px; }
+  .prog-fill { height: 100%; border-radius: 2px; background: var(--ember-soft); transition: width 0.25s var(--spring); }
   .icon-btn {
     display: inline-flex; align-items: center; gap: 6px;
     padding: 8px 14px; border-radius: var(--r-pill);
