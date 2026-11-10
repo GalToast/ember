@@ -39,7 +39,7 @@
 
 <div class="wrap enter">
   <header>
-    <div class="brand"><Icon name="heart" size={24} /> Ember</div>
+    <div class="brand" aria-label="Ember"><Icon name="heart" size={24} /> Ember</div>
     <h1 class="display">Played best <em>tangled up</em> together.</h1>
     <p class="dim">Cuddle in, get comfortable — the phone is the only thing allowed between you tonight.</p>
   </header>
@@ -104,7 +104,11 @@
     flex: 1;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     gap: clamp(14px, 2.6vmin, 26px);
-    padding: clamp(16px, 3vmin, 40px) clamp(16px, 3vmin, 40px) max(clamp(16px, 3vmin, 40px), env(safe-area-inset-bottom));
+    /* S23 play-test defect 1 (2026-11-10): the APK draws edge-to-edge (IMMERSIVE_STICKY
+       + LAYOUT_FULLSCREEN in MainActivity), so env(safe-area-inset-top) is what stands in
+       for the status bar; desktop browsers resolve it to 0 and are unaffected. Only the
+       top inset was missing — bottom was already handled here and on #app. */
+    padding: max(clamp(16px, 3vmin, 40px), env(safe-area-inset-top)) clamp(16px, 3vmin, 40px) max(clamp(16px, 3vmin, 40px), env(safe-area-inset-bottom));
     z-index: 1; overflow-y: auto;
   }
   header { text-align: center; max-width: 640px; display: flex; flex-direction: column; gap: 12px; }
@@ -156,7 +160,16 @@
   .m-name { font-weight: 700; font-size: clamp(14px, 1.9vmin, 16px); letter-spacing: 0.02em; }
   .m-blurb { font-size: clamp(11px, 1.5vmin, 12.5px); line-height: 1.3; }
 
+  /* S23 play-test defect 2 (2026-11-10): the wrapping flex row landed 3/2/1 at density
+     480 and left 'Inferno 200' alone + dimmed on its own line, reading as DISABLED.
+     Fixed grid: 2 columns on every phone width (6 decks = clean 3 rows), desktop keeps
+     the roomy auto layout. The dimmed state now also keeps an explicit disabled style so
+     .off never looks like a rendering accident. */
   .decks { display: flex; gap: 6px; flex-wrap: wrap; justify-content: center; max-width: 92vw; }
+  @media (max-width: 560px) {
+    .decks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: min(92vw, 420px); }
+    .dchip { justify-content: center; width: 100%; }
+  }
   .dchip {
     display: inline-flex; align-items: center; gap: 5px;
     padding: 6px 12px; border-radius: var(--r-pill); min-height: 36px; font-size: clamp(11px, 1.5vmin, 13px);
