@@ -13,8 +13,11 @@ const SENSE_MY = /\bmy\b/i;
 const SENSE_I = /^I /;
 const SENSE_SLASH = /\s\/\s|\/\s|\s\//;  // slash-construction choices ("inside you / to be inside them")
 const ANATOMY = /\bcock\b|\bpussy\b|\bdick\b|\btits?\b|\bclit\b|\bwood\b/i;
-// spark/closer may carry spice bombs one level above baseline; inferno is all-bombs L4
-const LEVELS = { spark: [1, 2], closer: [2, 3], slowburn: [3, 4], afterdark: [4], curious: [4], inferno: [4] };
+// Bands on the 1-10 scale (owner decision 2026-11-10): spark 1-2, closer 2-3, slowburn 3-4,
+// afterdark 4-6 (target 4-5; nine 'Specific' cards sit at 6 by judgment — see heat-migration receipt),
+// curious 2-6 (consent/scaffolding cards as low as 2-3 — mis-tiered at 4 under the old flat scale),
+// inferno 4-10 (where the new headroom lives). Spice bombs = one level above deck baseline.
+const LEVELS = { spark: [1, 2], closer: [2, 3], slowburn: [3, 4], afterdark: [4, 5, 6], curious: [2, 3, 4, 5, 6], inferno: [4, 5, 6, 7, 8, 9, 10] };
 const files = existsSync(DECKS_DIR) ? readdirSync(DECKS_DIR).filter((f) => f.endsWith('.json')) : [];
 
 if (files.length === 0) {
