@@ -18,8 +18,8 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { homedir } from 'node:os';
-import { dirname, join } from 'node:path';
-import { apkPath } from './apk-path-lib.mjs';
+import { dirname, isAbsolute, join } from 'node:path';
+import { apkPathIn } from './apk-path-lib.mjs';
 import { fileURLToPath } from 'node:url';
 
 const args = process.argv.slice(2);
@@ -45,7 +45,7 @@ function resolveSdk() {
   const candidates = [
     (() => {
       try {
-        const line = readFileSync('android/local.properties', 'utf8')
+        const line = readFileSync(join(repoRoot, 'android', 'local.properties'), 'utf8')
           .split('\n').find((l) => l.trim().startsWith('sdk.dir='));
         return line ? line.split('=').slice(1).join('=') : null;
       } catch { return null; }
@@ -91,6 +91,15 @@ function storeCert(store, storePassword) {
   return m ? m[1].split(':').map((h) => h.padStart(2, '0')).join('').toLowerCase() : null;
 }
 
+// keystore.properties' storeFile is often absolute on this box (and the
+// docs tell people to use one), but join() on an absolute Windows path mangles
+// it to "C:android\C:\Users\k.ks" — silently looking like a MISSING
+// store. Absolute wins; relative is resolved against android/. Measured
+// 2026-11-10: `C:\Android\release.keystore` was reported missing.
+function storePath(dir, value) {
+  return isAbsolute(value) ? value : join(dir, value);
+}
+
 function readProps(dir) {
   const file = join(dir, 'keystore.properties');
   if (!existsSync(file)) return null;
@@ -132,7 +141,7 @@ function main() {
       console.log(`${cert || '(unreadable)'}  ${existsSync(s.path) ? 'present' : 'absent'}  ${s.label}`);
     }
     if (props) {
-      const store = props.storeFile.startsWith('.') ? join(keystoreDir, props.storeFile) : join(keystoreDir, props.storeFile);
+      const store = storePath(keystoreDir, props.storeFile);
       let cert = null;
       try { cert = existsSync(store) ? storeCert(store, props.storePassword) : null; } catch { cert = null; }
       console.log(`${cert || '(unreadable)'}  ${existsSync(store) ? 'present' : 'absent'}  release (${props.storeFile})`);
@@ -145,7 +154,7 @@ function main() {
   let keyDetail = '';
 
   if (releaseProps && releaseProps.storeFile) {
-    const store = join(keystoreDir, releaseProps.storeFile);
+    const store = storePath(keystoreDir, releaseProps.storeFile);
     if (!existsSync(store)) {
       console.error(`signing-verify: keystore ${store} named in ${join(keystoreDir, 'keystore.properties')} is MISSING`);
       process.exit(1);
@@ -163,7 +172,7 @@ function main() {
     process.exit(1);
   }
 
-  const target = installedAt || apkPath();
+  const target = installedAt || apkPathIn(repoRoot);
   if (!existsSync(target)) {
     console.error(`signing-verify: ${target} not found`);
     process.exit(1);

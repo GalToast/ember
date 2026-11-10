@@ -166,6 +166,77 @@ async function main() {
     }
   }
 
+  // Cwd-independence: the gate must resolve the APK next to its own script,
+  // NOT next to the caller. Measured 2026-11-10: invoked from a directory with
+  // no android/ tree, the gate printed "<cwd>/android/.../app-debug.apk not
+  // found" while the repo's own build was green. Running from repo root hid it.
+  {
+    const dir = mkdtempSync(join(tmpdir(), 'ember-rel-'));
+    const decoy = mkdtempSync(join(tmpdir(), 'ember-decoy-'));
+    mkdirSync(join(dir, 'scripts'), { recursive: true });
+    mkdirSync(join(dir, 'android'), { recursive: true });
+    try {
+      copyFileSync(join(root, 'scripts', 'signing-verify.mjs'), join(dir, 'scripts', 'signing-verify.mjs'));
+      copyFileSync(join(root, 'scripts', 'apk-path-lib.mjs'), join(dir, 'scripts', 'apk-path-lib.mjs'));
+      const a = makeKeystore(join(dir, 'android'), 'a', 'pw-a-1234');
+      const relapk = join(dir, 'android', 'app', 'build', 'outputs', 'apk', 'release', 'app-release.apk');
+      mkdirSync(dirname(relapk), { recursive: true });
+      makeApk(relapk);
+      const props = [
+        'storeFile=' + a.store.split(/[\\/]/).pop(),
+        'storePassword=' + a.password,
+        'keyAlias=' + a.alias,
+        'keyPassword=' + a.password,
+        '',
+      ].join('\n');
+      writeFileSync(join(dir, 'android', 'keystore.properties'), props);
+      execBat(APKSIG, ['sign', '--min-sdk-version', '24', '--ks', a.store, '--ks-pass', 'pass:' + a.password,
+        '--key-pass', 'pass:' + a.password, '--ks-key-alias', a.alias, relapk], {
+        encoding: 'utf8', windowsHide: true });
+      // The decoy has NO android/ tree; only the script path points at the fixture.
+      const out = runIn(decoy, join(dir, 'scripts', 'signing-verify.mjs'));
+      eq('cwd-independent: rc 0 from an unrelated cwd', out.rc, 0);
+      ok('cwd-independent: reports MATCH on the fixture APK',
+        /MATCH/.test(out.stdout), (out.stdout + out.stderr).slice(0, 160));
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+      rmSync(decoy, { recursive: true, force: true });
+    }
+  }
+
+  // Absolute storeFile must resolve as-is. `join()` on an absolute Windows path
+  // produces "C:android\C:\Users\k.ks", which the gate reports as MISSING.
+  // This was the real-world shape on this box (C:\Android\release.keystore).
+  {
+    const dir = mkdtempSync(join(tmpdir(), 'ember-abs-'));
+    mkdirSync(join(dir, 'scripts'), { recursive: true });
+    mkdirSync(join(dir, 'android'), { recursive: true });
+    try {
+      copyFileSync(join(root, 'scripts', 'signing-verify.mjs'), join(dir, 'scripts', 'signing-verify.mjs'));
+      copyFileSync(join(root, 'scripts', 'apk-path-lib.mjs'), join(dir, 'scripts', 'apk-path-lib.mjs'));
+      mkdirSync(join(dir, 'outside'), { recursive: true });
+      const a = makeKeystore(join(dir, 'outside'), 'a', 'pw-a-1234');
+      const relapk = join(dir, 'android', 'app', 'build', 'outputs', 'apk', 'release', 'app-release.apk');
+      mkdirSync(dirname(relapk), { recursive: true });
+      makeApk(relapk);
+      // storeFile is ABSOLUTE and lives OUTSIDE android/.
+      writeFileSync(join(dir, 'android', 'keystore.properties'),
+        'storeFile=' + a.store + '\nstorePassword=' + a.password +
+        '\nkeyAlias=' + a.alias + '\nkeyPassword=' + a.password + '\n');
+      execBat(APKSIG, ['sign', '--min-sdk-version', '24', '--ks', a.store, '--ks-pass', 'pass:' + a.password,
+        '--key-pass', 'pass:' + a.password, '--ks-key-alias', a.alias, relapk], {
+        encoding: 'utf8', windowsHide: true });
+      const out = runIn(dir, 'scripts/signing-verify.mjs');
+      ok('absolute storeFile: resolves without mangling', out.rc === 0 && /MATCH/.test(out.stdout),
+        (out.stdout + out.stderr).slice(0, 200));
+      ok('absolute storeFile: no mangled C:android path in output',
+        !/android[\\/]*C:[\\/]/.test(out.stdout + out.stderr),
+        (out.stdout + out.stderr).slice(0, 200));
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
   console.log(`\n${pass} passed, ${fails.length} failed`);
   if (fails.length) {
     for (const f of fails) console.error('  ' + f);

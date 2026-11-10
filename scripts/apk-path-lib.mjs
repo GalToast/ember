@@ -12,6 +12,19 @@ export function apkPath() {
   return existsSync(RELEASE_APK) ? RELEASE_APK : DEBUG_APK;
 }
 
+/**
+ * Same precedence as apkPath(), but rooted at [root].
+ *
+ * Why: a verifier invoked from outside the repo must not resolve against the
+ * caller's cwd. Measured 2026-11-10 — signing-verify run from semantic-explorer
+ * read that tree's (absent) APK and printed "not found" for a green build.
+ */
+export function apkPathIn(root) {
+  return existsSync(join(root, RELEASE_APK))
+    ? join(root, RELEASE_APK)
+    : join(root, DEBUG_APK);
+}
+
 /** All existing APK variants, release first (stable for assertions). */
 export function apkVariants() {
   return [RELEASE_APK, DEBUG_APK].filter((p) => existsSync(p));
