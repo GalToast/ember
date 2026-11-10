@@ -42,7 +42,8 @@ const seedNights = [
   await page.locator('input').nth(1).fill('Christen');
   await page.getByTestId('start').click();
   await page.waitForTimeout(300);
-  await page.getByTestId('begin').click();
+  // UX-8: seeded nights mean Start lands on the late splash
+  await page.getByTestId('begin-late').click().catch(() => page.getByTestId('begin').click());
   await page.waitForTimeout(400);
   // end immediately (landing → finish)
   // UX-2 arm-to-confirm: first tap arms, second tap (confirm) ends

@@ -81,7 +81,8 @@ function check(name, cond, detail = '') {
   await page.evaluate(() => localStorage.setItem('ember.focusCustom', '1'));
   await page.getByTestId('start').click();
   await page.waitForTimeout(300);
-  await page.getByTestId('begin').click();
+  // UX-8: seeded nights mean Start lands on the late splash
+  await page.getByTestId('begin-late').click().catch(() => page.getByTestId('begin').click());
   await page.waitForTimeout(500);
   let found = false;
   for (let i = 0; i < 6 && !found; i++) {

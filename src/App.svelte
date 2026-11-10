@@ -2,6 +2,7 @@
   import Mesh from './components/Mesh.svelte';
   import Setup from './components/Setup.svelte';
   import Splash from './components/Splash.svelte';
+  import SplashLate from './components/SplashLate.svelte';
   import CardView from './components/Card.svelte';
   import Browse from './components/Browse.svelte';
   import CustomDeck from './components/CustomDeck.svelte';
@@ -392,7 +393,14 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     onDone={privateDone}
   />
 {:else if screen === 'splash'}
-  <Splash onBegin={() => begin()} />
+  <!-- UX-8 (audit 2026-11-10): 'Get close.' is a fact (the phone is the only thing between
+       you), not a choice — it earns its modal moment on the FIRST night, then gets out of
+       the way. Later nights start straight into play. -->
+  {#if persisted.nights.length === 0}
+    <Splash onBegin={() => begin()} />
+  {:else}
+    <SplashLate onBegin={() => begin()} />
+  {/if}
 {:else if screen === 'play' && card}
   <main class="stage" data-testid="stage">
     <div class="topbar">

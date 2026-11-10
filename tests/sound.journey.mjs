@@ -36,7 +36,8 @@ function check(name, cond, detail = '') {
   await page.waitForTimeout(300);
 
   // 1. mute toggle exists on the play topbar and round-trips
-  await page.getByTestId('begin').click();
+  // UX-8: seeded nights mean Start lands on the late splash
+  await page.getByTestId('begin-late').click().catch(() => page.getByTestId('begin').click());
   await page.waitForTimeout(500);
   check('mute button present', await page.getByTestId('mute').count() === 1);
   await page.getByTestId('mute').click();

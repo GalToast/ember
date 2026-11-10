@@ -254,7 +254,9 @@
   {/if}
 
   {#if !landing && !isSoft}
-    <div class="swipe-tip dim">swipe for next · swipe back to skip</div>
+    <!-- UX-11 (audit 2026-11-10): the ONLY affordance for the core gesture was 10-12px at
+         dim contrast — below WCAG 1.4.3 in a dark room. 12px floor + full-strength color. -->
+    <div class="swipe-tip">swipe for next · swipe back to skip</div>
   {/if}
 </div>
 
@@ -448,7 +450,7 @@
     padding: 6px; text-align: center;
   }
 
-  .swipe-tip { font-size: clamp(10px, 1.4vmin, 12px); letter-spacing: 0.06em; }
+  .swipe-tip { font-size: clamp(12px, 1.5vmin, 13px); letter-spacing: 0.06em; color: var(--ink-dim); }
 
   /* ---- deal-in stagger: badge leads, then meta → text → speak → timer ---- */
   @keyframes deal-reveal {
