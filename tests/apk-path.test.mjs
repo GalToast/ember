@@ -163,6 +163,36 @@ async function main() {
       /export function apkPath\(/.test(lib), 'apkPath() not exported');
   }
 
+  // Cwd-independence: verify-apk must read THIS tree's dist/ and APK even
+  // when invoked from elsewhere. It used to walk the caller's cwd, printing
+  // "no APK in android/app/build/outputs/apk/..." on a green release.
+  // The decoy holds no android/ artifacts; only the script path is ours.
+  {
+    const dir = mkdtempSync(join(tmpdir(), 'ember-var-'));
+    const decoy = mkdtempSync(join(tmpdir(), 'ember-var-decoy-'));
+    mkdirSync(join(dir, 'scripts'), { recursive: true });
+    mkdirSync(join(dir, 'android', 'app', 'src', 'main', 'assets', 'public', 'assets'), { recursive: true });
+    try {
+      copyFileSync(join(root, 'scripts', 'verify-apk.mjs'), join(dir, 'scripts', 'verify-apk.mjs'));
+      copyFileSync(join(root, 'scripts', 'apk-path-lib.mjs'), join(dir, 'scripts', 'apk-path-lib.mjs'));
+      mkdirSync(join(dir, 'dist', 'assets'), { recursive: true });
+      writeFileSync(join(dir, 'dist', 'index.html'),
+        '<link rel="stylesheet" href="/assets/index-BwBI-kAv.css" />' +
+        '<script type="module" src="/assets/index-BAhKqkTU.js"></script>\n');
+      // Staging mirrors what `cap sync` copies; only the bundle assets matter.
+      writeFileSync(join(dir, 'android', 'app', 'src', 'main', 'assets', 'public', 'assets', 'index-BAhKqkTU.js'), 'x');
+      writeFileSync(join(dir, 'android', 'app', 'src', 'main', 'assets', 'public', 'assets', 'index-BwBI-kAv.css'), 'x');
+      const st = runIn(decoy, join(dir, 'scripts', 'verify-apk.mjs'), ['--staging']);
+      ok('--staging: rc 0 from an unrelated cwd with a valid dist tree', st.rc === 0,
+        (st.stdout + st.stderr).slice(0, 160));
+      ok('--staging: verdict names the fixture assets',
+        /index-BAhKqkTU\.js: present/.test(st.stdout), st.stdout.slice(0, 160));
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+      rmSync(decoy, { recursive: true, force: true });
+    }
+  }
+
   console.log(`\n${pass} passed, ${fails.length} failed`);
   if (fails.length) {
     for (const f of fails) console.error('  ' + f);

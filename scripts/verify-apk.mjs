@@ -12,19 +12,27 @@
 // Exit 0 = in sync. Exit 1 = stale, with the exact rebuild/sync/install order.
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-import { apkPath } from './apk-path-lib.mjs';
+import { apkPathIn } from './apk-path-lib.mjs';
+
+// Anchor everything to this script's repo root. Measured 2026-11-10: run from
+// another checkout, the gate reported "no APK in android/app/build/..." for a
+// green release, because both the APK path and dist/ were cwd-relative.
+const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
 
 const staging = process.argv.includes('--staging');
-const apk = apkPath();
-if (!existsSync(apk)) {
+const apk = apkPathIn(repoRoot);
+// --staging verifies what `cap sync` copied, so it does not need an APK.
+// Without this guard it aborted every staging check on a machine with no build.
+if (!existsSync(apk) && !staging) {
   console.error('verify-apk: no APK in android/app/build/outputs/apk/{release,debug} — build one first.');
   process.exit(1);
 }
 
-const distDir = 'dist';
+const distDir = join(repoRoot, 'dist');
 const indexPath = join(distDir, 'index.html');
 if (!existsSync(indexPath)) {
   console.error(`verify-apk: ${indexPath} missing — run \`npm run build\` first.`);
@@ -63,7 +71,7 @@ const problems = [];
 const lines = [];
 
 if (staging) {
-  const root = join('android', 'app', 'src', 'main', 'assets', 'public');
+  const root = join(repoRoot, 'android', 'app', 'src', 'main', 'assets', 'public');
   for (const ref of refs) {
     const has = existsSync(join(root, 'assets', ref));
     (has ? lines : problems).push(`staging assets/${ref}: ${has ? 'present' : 'MISSING'}`);
