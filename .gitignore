@@ -3,7 +3,6 @@ dist/
 
 loop-guard-handoff.json
 
-# androidndroid/app/build/
 android/.gradle/
 android/app/build/
 android/build/
@@ -14,3 +13,4 @@ tmp/*.log
 tmp/preview.pid
 android/keystore.properties
 android/*.jks
+android/*.keystore

@@ -37,7 +37,11 @@ android {
             // debug signing so assembleRelease still produces an installable APK on dev boxes.
             if (hasKeystore) {
                 signingConfig signingConfigs.create('release') {
-                    storeFile file(keystoreProps['storeFile'])
+                    // Resolve the keystore relative to android/ (where keystore.properties lives),
+                    // NOT relative to the app module — `file()` here means app/<name>, which is how
+                    // the 2026-11-10 build failed with "Keystore file ... app\ember-release.keystore
+                    // not found" even though the keystore sat in android/.
+                    storeFile rootProject.file(keystoreProps['storeFile'])
                     storePassword keystoreProps['storePassword']
                     keyAlias keystoreProps['keyAlias']
                     keyPassword keystoreProps['keyPassword']
