@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Card, DeckId } from '../lib/schema';
+  import { heatDots } from '../lib/heat';
   import { DECKS, ALL_DECKS } from '../lib/game.svelte';
   import Icon from './Icon.svelte';
 
@@ -91,7 +92,7 @@
       {/if}
       <header class="meta">
         <span class="type"><Icon name={typeIcon} size={15} /> {shown.type.toUpperCase()}</span>
-        <span class="dots">{#each Array(4) as _, i (i)}<i class:on={i < shown.level}></i>{/each}</span>
+        <span class="dots">{#each heatDots(shown.level) as state, i (i)}<i class:on={state === 'on'} class:half={state === 'half'}></i>{/each}</span>
       </header>
       <p class="text {sizeClass}">{shown.text}</p>
       {#if shown.speak && !isSoft}

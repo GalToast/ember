@@ -1,4 +1,8 @@
 import type { Card, Deck, DeckId } from './schema';
+import { clampLevel, type HeatLevel } from './schema';
+
+/** Default heat ceiling for a night (10-level scale). See draw()'s HEAT CEILING comment. */
+export const DEFAULT_HEAT_CEILING: HeatLevel = 6;
 
 export type Mode = 'chill' | 'heat' | 'mixup' | 'inferno';
 export type Love = 'words' | 'time' | 'touch' | 'service' | 'gifts';
@@ -62,6 +66,11 @@ export interface NightState {
   lastBombIndex: number;
   safeword: string;
   landing: boolean;
+  /**
+   * Top heat level this couple has opted into (10-level scale). Cards above it are never dealt.
+   * Optional so existing persisted nights keep working; draw() falls back to DEFAULT_HEAT_CEILING.
+   */
+  heatCeiling?: HeatLevel;
   /** command tokens: 3 per player per night, spent on unrefusable orders */
   tokens: { a: number; b: number };
   /** whose turn the night is on (alternates each draw) — token display + fair spending */
@@ -145,10 +154,16 @@ const seen = new Set<string>();
 
 export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightState, except?: Card, customCards?: Card[]): Card | null {
   const retiredSet = new Set(retired);
+  // HEAT CEILING (10-level scale, 2026-11-10). Without this, the first level-8 card anyone writes
+  // into a deck would be dealt to couples who never opted into that band. `night.heatCeiling` is the
+  // top level this couple has agreed to; anything above it is simply not in the pool.
+  // Default 6 preserves the pre-migration feel (everything used to be level 4) while leaving the
+  // negotiable tiers opt-in only.
+  const ceiling = ns.heatCeiling ?? DEFAULT_HEAT_CEILING;
   let pool = decks
     .flatMap((id) => (DECKS[id] ? DECKS[id].cards : []))
     .concat(customCards ?? [])
-    .filter((c) => c.id !== except?.id && !retiredSet.has(c.id) && !seen.has(c.id));
+    .filter((c) => c.id !== except?.id && !retiredSet.has(c.id) && !seen.has(c.id) && clampLevel(c.level) <= ceiling);
   // bomb pacing: no bomb within 3 draws of the last one
   const bombGap = ns.drawIndex - ns.lastBombIndex;
   if (bombGap < 3) {
@@ -158,7 +173,7 @@ export function draw(mode: Mode, decks: DeckId[], retired: string[], ns: NightSt
   if (pool.length === 0) {
     // deck exhausted: reset seen, retry once (custom cards stay in the pool)
     seen.clear();
-    pool = decks.flatMap((id) => DECKS[id].cards).concat(customCards ?? []).filter((c) => c.id !== except?.id && !retiredSet.has(c.id));
+    pool = decks.flatMap((id) => DECKS[id].cards).concat(customCards ?? []).filter((c) => c.id !== except?.id && !retiredSet.has(c.id) && clampLevel(c.level) <= ceiling);
     if (pool.length === 0) return null;
   }
   // love-language balancing: half the time, prefer the least-served love language

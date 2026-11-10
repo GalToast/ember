@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Card } from '../lib/schema';
+  import { heatDots, heatBand } from '../lib/heat';
   import Icon from './Icon.svelte';
   import { haptics } from '../lib/haptics';
 
@@ -155,7 +156,7 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {shown.level === 4 ? 'l4' : ''} {fly !== 'none' ? 'flying' : ''}"
+  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {heatBand(shown.level)} {fly !== 'none' ? 'flying' : ''}"
   style="{dragStyle} {flyStyle}"
   data-testid="card"
   onpointerdown={down}
@@ -177,9 +178,9 @@
 
   <header class="meta">
     <span class="type"><Icon name={typeIcon} size={16} /> {isSoft ? 'Softer take' : typeName}</span>
-    <span class="dots" title="heat level">
-      {#each Array(4) as _, i (i)}
-        <i class:on={i < shown.level}></i>
+    <span class="dots" title="heat level {shown.level} of 10">
+      {#each heatDots(shown.level) as state, i (i)}
+        <i class:on={state === 'on'} class:half={state === 'half'}></i>
       {/each}
     </span>
   </header>
@@ -193,7 +194,7 @@
     </aside>
   {/if}
 
-  {#if safeword && shown.level === 4 && !isSoft}
+  {#if safeword && shown.level >= 7 && !isSoft}
     <div class="safeword">safe word <strong>{safeword}</strong> — say it anytime, no questions</div>
   {/if}
 
@@ -283,6 +284,12 @@
   .dots { display: inline-flex; gap: 4px; }
   .dots i { width: 5px; height: 5px; border-radius: 50%; background: rgba(255, 255, 255, 0.18); }
   .dots i.on { background: currentColor; box-shadow: 0 0 6px currentColor; }
+  /* 10-level scale on 5 dots: a half-lit dot marks the odd level inside a 2-level step, so 4 vs 5
+     (and 9 vs 10) stay distinguishable without shrinking dots below legibility in a dark room. */
+  .dots i.half {
+    background: linear-gradient(90deg, currentColor 50%, rgba(255, 255, 255, 0.18) 50%);
+    box-shadow: 0 0 4px currentColor;
+  }
 
   .text {
     font-family: var(--font-display);
@@ -400,6 +407,16 @@
   .card.l4 {
     border-color: rgba(255, 122, 61, 0.3);
     box-shadow: var(--shadow-card), 0 0 24px rgba(255, 122, 61, 0.06);
+  }
+  /* Heat bands for the 10-level scale. Deep = negotiation territory, Reserve = the floor of the
+     drawer. The visual weight should say "this is serious" without shouting - the content shouts. */
+  .card.heat-deep {
+    border-color: rgba(255, 82, 115, 0.42);
+    box-shadow: var(--shadow-card), 0 0 28px rgba(255, 82, 115, 0.10);
+  }
+  .card.heat-reserve {
+    border-color: rgba(220, 40, 70, 0.58);
+    box-shadow: var(--shadow-card), 0 0 34px rgba(220, 40, 70, 0.16);
   }
 
   /* ---- speak block: "whisper" ---- */
