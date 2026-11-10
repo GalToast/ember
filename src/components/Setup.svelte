@@ -33,6 +33,11 @@
   } = $props();
 
   let warn = $state(false);
+  // UX-1 (audit 2026-11-10): on Inferno select, the inline warning mounts below the fold —
+  // bring it into view so the state change is visible feedback, not a silent no-op.
+  function warnReveal(node: HTMLElement) {
+    node.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
   const canStart = $derived(names.a.trim().length > 0 && names.b.trim().length > 0 && decks.length > 0);
   const deckCards = (id: DeckId) => DECKS[id]?.cards.length ?? 0;
 </script>
@@ -74,7 +79,9 @@
   </section>
 
   {#if warn}
-    <div class="warning pop" data-testid="inferno-warning">
+    <!-- UX-1 (audit 2026-11-10): the warning rendered below the fold, so tapping Inferno
+         looked like the tap did nothing. Scroll it into view when it mounts. -->
+    <div class="warning pop" data-testid="inferno-warning" use={warnReveal}>
       <Icon name="warning" size={20} />
       <div>
         <strong>Inferno is all spice bombs — the whole deck, extreme, no gates past this point.</strong>

@@ -53,18 +53,22 @@
   <div class="glass panel" data-testid="celebration">
     <div class="crown"><Icon name="heart" size={30} /></div>
     <h2 class="display">What a night{names.a && names.b ? `, ${names.a} & ${names.b}` : ''}.</h2>
-    <p class="stat dim">{cards} cards tonight · night #{nights} of yours</p>
+    <p class="stat dim">{cards} card{cards === 1 ? '' : 's'} tonight · night #{nights} of yours</p>
     {#if tokens.a + tokens.b > 0}
       <div class="finale" data-testid="token-finale">
         <Icon name="bomb" size={16} />
         <span>
+          <!-- UX-6 (audit 2026-11-10): celebration tone. The token banner repeated the
+               play-screen's threat voice ('No refusal.') at the peak-end moment — wrong
+               register. The contract is real but it's a promise between the two of you,
+               not an ultimatum from the app. -->
           {tokens.a + tokens.b} command token{tokens.a + tokens.b === 1 ? '' : 's'} unspent. 
           {#if tokens.a > 0 && tokens.b > 0}
-            Neither spent everything — each names one unspent command; both get paid before the week ends. No refusal.
+            Neither spent everything — each of you names one unspent command before the week ends.
           {:else if tokens.a > 0}
-            {names.a || 'You'} still hold {tokens.a}. Name the order before the week ends — no refusal.
+            {names.a || 'You'} still hold {tokens.a} — name {tokens.a === 1 ? 'it' : 'them'} before the week ends.
           {:else}
-            {names.b || 'They'} still hold {tokens.b}. The order gets named before the week ends — no refusal.
+            {names.b || 'They'} still hold {tokens.b} — name {tokens.b === 1 ? 'it' : 'them'} before the week ends.
           {/if}
         </span>
       </div>

@@ -31,6 +31,21 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   let commanding = $state<'a' | 'b' | null>(null); // whose command the current card is
   let releaseUsed = $state<{ holder: 'a' | 'b'; state: 'spent' | 'gifted' } | null>(null); // celebration line
   let relOpen = $state(false); // release popover
+  // UX-2 (audit 2026-11-10): 'End the night' is the most destructive action on the dock and
+  // sat 22px from Next with no confirmation — one mis-tap ended the night. Arm-to-confirm:
+  // first tap asks, second tap (or the confirm pill) ends. No modal — a dialog in bed
+  // interrupts the moment; a quiet inline question doesn't.
+  let endArmed = $state(false);
+  let endArmTimer: ReturnType<typeof setTimeout> | null = null;
+  function requestEnd() {
+    if (endArmed) { cancelEndArm(); end(); return; }
+    endArmed = true;
+    endArmTimer = setTimeout(() => { endArmed = false; }, 5000);
+  }
+  function cancelEndArm() {
+    endArmed = false;
+    if (endArmTimer) { clearTimeout(endArmTimer); endArmTimer = null; }
+  }
   let resumeAvailable = $state(loadNight());
   /** S23 play-test defect 3 (2026-11-10): 'Never again' is irreversible AND sits 180px from
    *  'Skip' at the same size, so a mis-tap silently retires a card forever. Retiring still
@@ -450,7 +465,16 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
         <button class="btn btn-primary" onclick={next} data-testid="next">
           Next <Icon name="pass" />
         </button>
-        <button class="icon-btn end" onclick={end} title="end the night warm" aria-label="End the night"><Icon name="end" /></button>
+        <!-- UX-2: two-step end. Tap 1 arms (pill shows), tap 2 or 'End it' confirms.
+             Larger target (44px btn), moved visually apart by the armed pill itself. -->
+        {#if endArmed}
+          <div class="end-confirm" data-testid="end-confirm" role="alertdialog" aria-label="End the night?">
+            <span class="end-q">End it?</span>
+            <button class="end-yes" onclick={() => { cancelEndArm(); end(); }} data-testid="end-confirm-yes">End it</button>
+            <button class="end-no" onclick={cancelEndArm} aria-label="Keep playing">✕</button>
+          </div>
+        {/if}
+        <button class="icon-btn end" class:armed={endArmed} onclick={requestEnd} title="end the night warm" aria-label={endArmed ? 'Tap again to end the night' : 'End the night'}><Icon name="end" /></button>
       {/if}
     </nav>
   </main>
@@ -538,6 +562,24 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   }
   .icon-btn:active { transform: scale(0.92); }
   .icon-btn.end { margin-left: 0; color: var(--ink-dim); }
+  .icon-btn.end.armed { color: var(--ink); border-color: var(--edge-strong); }
+  /* UX-2: the arm-to-confirm pill — same quiet-bar language as the retire undo */
+  .end-confirm {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px 8px 16px; border-radius: var(--r-pill);
+    background: rgba(20, 16, 14, 0.94); border: 1px solid var(--edge-strong);
+    backdrop-filter: blur(18px);
+    font-size: clamp(13px, 1.8vmin, 15px); color: var(--ink);
+    white-space: nowrap;
+  }
+  .end-confirm .end-yes {
+    min-width: 48px; min-height: 40px; padding: 8px 14px;
+    border-radius: var(--r-pill); background: var(--ember); color: #fff; font-weight: 600;
+  }
+  .end-confirm .end-no {
+    width: 40px; height: 40px; border-radius: 50%; color: var(--ink-dim);
+    display: grid; place-items: center;
+  }
   /* S23 play-test defect 5 (2026-11-10): same class as defect 1, in GRID form. With
      place-items:center a grid item TALLER than its row is centred and overflows BOTH ends, so a
      long card (e.g. 'Body as the plate: lay a trail...') pushed its own header — the SPICE BOMB
