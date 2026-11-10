@@ -371,6 +371,20 @@
   .text.sm { font-size: clamp(20px, 4vmin, 36px); line-height: 1.3; }
   .text.xs { font-size: clamp(17px, 3.2vmin, 28px); line-height: 1.3; }
 
+  /* UX-10(B) (audit 2026-11-10): the wide-screen card. Below 1024px nothing changes —
+     mobile is the design center and is bit-identical. On a desk/tablet canvas the
+     vmin-driven card stalled at ~610px and the Fraunces headline stopped scaling, so
+     the display face never read like print. Widen the card AND raise the type caps:
+     the card is the product, let it breathe. Pure CSS, no new DOM. */
+  @media (min-width: 1024px) and (min-height: 700px) {
+    .card { width: min(88vw, 880px); }
+    .text.xl { font-size: clamp(30px, 5.4vmin, 84px); }
+    .text.lg { font-size: clamp(28px, 4.8vmin, 72px); }
+    .text.md { font-size: clamp(25px, 4.1vmin, 58px); }
+    .text.sm { font-size: clamp(23px, 3.6vmin, 48px); }
+    .text.xs { font-size: clamp(20px, 3vmin, 38px); }
+  }
+
   .speak {
     width: 100%;
     padding: clamp(10px, 1.6vmin, 15px) clamp(14px, 2.4vmin, 22px);
