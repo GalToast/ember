@@ -45,7 +45,9 @@ const seedNights = [
   await page.getByTestId('begin').click();
   await page.waitForTimeout(400);
   // end immediately (landing → finish)
+  // UX-2 arm-to-confirm: first tap arms, second tap (confirm) ends
   await page.locator('.icon-btn.end').click();
+  await page.getByTestId('end-confirm-yes').click();
   await page.waitForTimeout(300);
   await page.getByTestId('finish').click();
   await page.waitForTimeout(500);
@@ -71,7 +73,9 @@ const seedNights = [
   await page2.waitForTimeout(300);
   await page2.getByTestId('begin').click();
   await page2.waitForTimeout(400);
+  // UX-2 arm-to-confirm: first tap arms, second tap (confirm) ends
   await page2.locator('.icon-btn.end').click();
+  await page2.getByTestId('end-confirm-yes').click();
   await page2.waitForTimeout(300);
   await page2.getByTestId('finish').click();
   await page2.waitForTimeout(500);

@@ -64,7 +64,9 @@ function check(name, cond, detail = '') {
   check('tokens survive resume', /2/.test(afterReload || ''), afterReload || '');
 
   // 6. end the night with an unspent token -> finale banner (two-step: landing, then finish)
+  // UX-2 arm-to-confirm: first tap arms, second tap (confirm) ends
   await page.locator('.icon-btn.end').click();
+  await page.getByTestId('end-confirm-yes').click();
   await page.waitForTimeout(400);
   await page.getByTestId('finish').click();
   await page.waitForTimeout(500);

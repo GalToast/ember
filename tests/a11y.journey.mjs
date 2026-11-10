@@ -56,7 +56,9 @@ function check(name, cond, detail = '') {
   check('keyboard reaches Next and Enter advances', reached === 1);
 
   // 5. export button appears on celebration and has a name
+  // UX-2 arm-to-confirm: first tap arms, second tap (confirm) ends
   await page.locator('.icon-btn.end').click();
+  await page.getByTestId('end-confirm-yes').click();
   await page.waitForTimeout(400);
   await page.getByTestId('finish').click();
   await page.waitForTimeout(600);

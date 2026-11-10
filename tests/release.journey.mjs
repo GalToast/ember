@@ -87,7 +87,9 @@ function check(name, cond, detail = '') {
   check('release star hidden after spend', await page.getByTestId('release').count() === 0);
 
   // 6. end the night → celebration names it
+  // UX-2 arm-to-confirm: first tap arms, second tap (confirm) ends
   await page.locator('.icon-btn.end').click();
+  await page.getByTestId('end-confirm-yes').click();
   await page.waitForTimeout(300);
   await page.getByTestId('finish').click();
   await page.waitForTimeout(500);
