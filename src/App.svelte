@@ -52,7 +52,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
    *  happens immediately (a modal in bed interrupts the moment and is its own harm), but an
    *  undo affordance appears for a few seconds with the card id available to restore.
    *  Styled as a quiet bar, not a dialog. */
-  let retiredUndo = $state<{ id: string; timer: ReturnType<typeof setTimeout> } | null>(null);
+  let retiredUndo = $state<{ id: string; text: string; timer: ReturnType<typeof setTimeout> } | null>(null);
   function clearRetiredUndo() {
     if (retiredUndo) { clearTimeout(retiredUndo.timer); retiredUndo = null; }
   }
@@ -162,7 +162,8 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     // Keep the undo scoped to the card just retired, and only for a short window: the point is
     // to catch a mis-tap, not to make retiring reversible forever.
     clearRetiredUndo();
-    retiredUndo = { id, timer: setTimeout(() => { retiredUndo = null; }, 6000) };
+    // UX-3: carry the card text so the undo bar can echo what was retired
+    retiredUndo = { id, text: card.text.length > 60 ? card.text.slice(0, 57) + '…' : card.text, timer: setTimeout(() => { retiredUndo = null; }, 6000) };
     advance(card);
   }
 
@@ -404,8 +405,10 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
           <button class="rel" data-testid="release" onclick={() => (relOpen = !relOpen)} title="the release — {(night.release.holder === 'a' ? names.a : names.b) || 'current holder'} decides who finishes tonight">✦</button>
         {/if}
       </span>
-      <span class="skips" data-testid="skips" title="skips left">
+      <span class="skips" data-testid="skips" title="skips left: {skips} of 6">
+        <span class="skips-lbl">skips</span>
         {#each Array(skips) as _}<i></i>{/each}
+        {#if skips === 0}<span class="skips-none">none</span>{/if}
       </span>
       <button class="icon-btn" onclick={goFullscreen} title="fullscreen for the TV" aria-label="Fullscreen"><Icon name="expand" /></button>
       <button class="icon-btn" onclick={() => { setMuted(!isMuted()); }} title={isMuted() ? 'sound off' : 'sound on'} data-testid="mute" aria-label={isMuted() ? 'Sound on' : 'Sound off'}><Icon name={isMuted() ? 'skip' : 'heart'} size={17} /></button>
@@ -420,7 +423,9 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     {#if retiredUndo}
       <!-- S23 play-test defect 3: mis-tap recovery for the irreversible retire action. -->
       <div class="undobar" data-testid="retire-undo" role="status">
-        <span>Never showing that card again.</span>
+        <!-- UX-3 (audit 2026-11-10): echo the retired card's own words — in a dark room
+             you can't tell whether you nuked the card you loved without its text. -->
+        <span>Never showing “{retiredUndo?.text}” again.</span>
         <button class="undobtn" onclick={undoRetire} data-testid="retire-undo-btn">Undo</button>
       </div>
     {/if}
@@ -500,13 +505,23 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     text-transform: uppercase;
     color: var(--ink-dim);
   }
-  .skips { display: inline-flex; gap: 5px; }
+  .skips { display: inline-flex; gap: 3px; align-items: center; }
+  .skips-lbl {
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-right: 4px;
+  }
+  .skips-none { font-size: 0.6rem; color: var(--dim); }
+  /* tally BARS, not dots — round glowing dots next to the card's heat meter read
+     as a second intensity scale (UX-4); a count should look like a count */
   .skips i {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
+    width: 3px;
+    height: 10px;
+    border-radius: 2px;
     background: var(--ember-soft);
-    box-shadow: 0 0 8px rgba(255, 179, 92, 0.6);
+    box-shadow: 0 0 6px rgba(255, 179, 92, 0.45);
   }
   .tokens { display: inline-flex; gap: 6px; align-items: center; }
   .tk {
