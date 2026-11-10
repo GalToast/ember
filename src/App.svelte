@@ -26,6 +26,11 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   let privateCard = $state<Card | null>(null);
   let card = $state<Card | null>(null);
   let soft = $state(false);
+  // UX-10(C) (audit 2026-11-10): stage mode — what the 'fullscreen for the TV' button
+  // always promised. Fullscreen + a .stage-mode class on the app root; CSS fades the
+  // chrome to whispers and lets the card become the screen. Tap any control to restore it
+  // (hover on desktop, tap on touch); the card itself never fades.
+  let stageMode = $state(false);
   let skips = $state(6);
   let count = $state(0);
   let landing = $state(false);
@@ -97,9 +102,18 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     wakeLock = null;
   }
   async function goFullscreen() {
+    // UX-10(C): the toggle is driven by OUR state, not document.fullscreenElement — the
+    // fullscreen API can fail or lose its element (headless runners, iOS Safari) and a
+    // fullscreenElement-keyed toggle then desyncs: second tap re-requests fullscreen and
+    // stage mode becomes a roach motel. stageMode leads; the API is best-effort garnish.
     try {
-      if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
-      else await document.exitFullscreen();
+      if (!stageMode) {
+        if (!document.fullscreenElement) await document.documentElement.requestFullscreen().catch(() => {});
+        stageMode = true;
+      } else {
+        if (document.fullscreenElement) await document.exitFullscreen().catch(() => {});
+        stageMode = false;
+      }
     } catch { /* best effort */ }
   }
 
@@ -402,7 +416,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     <SplashLate onBegin={() => begin()} />
   {/if}
 {:else if screen === 'play' && card}
-  <main class="stage" data-testid="stage">
+  <main class="stage" class:stage-mode={stageMode} data-testid="stage">
     <div class="topbar">
       <span class="modetag">{landing ? 'the landing' : MODES.find((m) => m.id === mode)?.name}</span>
       <span class="tokens" data-testid="tokens" title="command tokens — {names.a || 'you'}: {night.tokens.a}, {names.b || 'them'}: {night.tokens.b}">
@@ -504,6 +518,26 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     padding: clamp(12px, 2.4vmin, 28px);
     gap: clamp(10px, 2vmin, 20px);
     min-height: 0;
+  }
+  /* UX-10(C) stage mode: the card IS the screen. Chrome fades to whispers but stays
+     interactive (a tap restores its element — hover/focus rules below). The card itself
+     never fades. Desktop-width card treatment reused (the >=1024px breakpoint), plus a
+     wider cap since the chrome is out of the way. */
+  .stage.stage-mode { padding: clamp(10px, 1.6vmin, 20px); }
+  .stage.stage-mode .topbar,
+  .stage.stage-mode .dock { opacity: 0.22; transition: opacity 0.3s ease; }
+  .stage.stage-mode .topbar:hover,
+  .stage.stage-mode .dock:hover,
+  .stage.stage-mode .topbar:focus-within,
+  .stage.stage-mode .dock:focus-within { opacity: 1; }
+  .stage.stage-mode .topbar { margin-top: calc(-1 * clamp(4px, 0.8vmin, 10px)); }
+  @media (min-width: 1024px) {
+    .stage.stage-mode .cardzone :global(.card) { width: min(90vw, 1120px); }
+    .stage.stage-mode .cardzone :global(.text.xl) { font-size: clamp(32px, 5vmin, 96px); }
+    .stage.stage-mode .cardzone :global(.text.lg) { font-size: clamp(30px, 4.5vmin, 82px); }
+    .stage.stage-mode .cardzone :global(.text.md) { font-size: clamp(27px, 3.9vmin, 68px); }
+    .stage.stage-mode .cardzone :global(.text.sm) { font-size: clamp(24px, 3.4vmin, 56px); }
+    .stage.stage-mode .cardzone :global(.text.xs) { font-size: clamp(21px, 2.8vmin, 44px); }
   }
   .topbar { display: flex; align-items: center; gap: 14px; }
   .modetag {
