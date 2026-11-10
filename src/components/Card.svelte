@@ -306,6 +306,9 @@
        the available height and scrolls, so the badge, timer and controls stay fixed. */
     flex: 1 1 auto;
     min-height: 0;
+    /* Floor for the READABILITY of the primary text: without it, .text (the point of the card) gets
+       squeezed to ~3 lines while .speak and .timer take the room. 5.5em ≈ 4 lines at this size. */
+    min-height: 5.5em;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: none;
@@ -319,12 +322,21 @@
 
   .speak {
     width: 100%;
-    padding: clamp(12px, 2vmin, 18px) clamp(14px, 2.4vmin, 22px);
+    padding: clamp(10px, 1.6vmin, 15px) clamp(14px, 2.4vmin, 22px);
     border-radius: var(--r-sm);
     background: rgba(255, 179, 92, 0.07);
     border-left: 2px solid var(--ember-soft);
     text-align: left;
+    /* The speak block was unbounded (224px measured) and squeezed .text to 85px — about three
+       lines — on a card whose prompt needed 397px. Secondary content must yield to the prompt, so
+       cap it and let it scroll rather than push the primary text out of the reading window. */
+    flex: 0 1 auto;
+    max-height: 38%;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
   }
+  .speak::-webkit-scrollbar { display: none; }
   .speak-label {
     display: flex; align-items: center; gap: 6px;
     font-size: clamp(10px, 1.3vmin, 12px); font-weight: 700; letter-spacing: 0.16em;
