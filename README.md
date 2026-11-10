@@ -71,10 +71,47 @@ rebuild packages the *previous* bundle (blank screen, no error anywhere). Then v
 ```bash
 npm run build
 npx cap sync android
-npm run verify:apk     # APK vs dist/index.html; exit 1 = stale bundle
+npm run verify:apk     # APK vs dist/index.html; exit 1 = stale bundle; freshest of release/debug
 npm run verify:staging # same, against android/app/src/main/assets/public
-adb install -r android/app/build/outputs/apk/debug/app-debug.apk
+# install whichever artifact shipped most freshly (verify:apk reports it):
+adb install -r $(node scripts/apk-path.mjs)
 ```
+
+### Which key signs the APK
+
+Signing identity is the cert SHA-1, never the file name or mtime — the same app
+package built twice can carry four different keys on this box and every build
+still "succeeds".
+
+`release` signs from `android/keystore.properties` when it exists; otherwise it
+falls back to `signingConfig signingConfigs.debug` and inherits whatever
+`$ANDROID_USER_HOME` selects. The three debug stores are distinct identities:
+
+| store | cert SHA-1 |
+|---|---|
+| `~/.android/debug.keystore` (Apr 2026) | `3397a757...` |
+| `C:/Android/debug.keystore` (minted on demand) | `d1d0a89f...` |
+| `C:/Android/.android/debug.keystore` (Aug 2026) | `ac39ad8e...` |
+
+`android/keystore.properties` now names `ember-release.keystore` (cert
+`e6fbae21...`). That is a **different key from every installed copy**, so
+`adb install -r` returns `INSTALL_FAILED_UPDATE_INCOMPATIBLE`; a fresh install
+is the only path, and it costs the local save. Signing with `ac39ad8e...` would
+preserve update in place. Owner decision, recorded in
+`C:/tmp/EMBER-BUILD-R2-RECEIPT-20261110.md`.
+
+### These gates decide before adb does
+
+```
+npm run verify:apk     # dist/index.html assets == the APK actually installed
+npm run verify:sign    # release APK == key declared in keystore.properties
+npm run verify:sign:installed C:/tmp/base.apk   # predict UPDATE_INCOMPATIBLE
+node scripts/signing-verify.mjs --list          # every key on this box
+```
+
+`verify:sign` answers "would this update an existing install?" from the
+cert, not from `aapt2` output. An APK whose cert differs from the device's
+exits **2** and prints the exact adb failure before you lose a data directory.
 
 ## Stack
 

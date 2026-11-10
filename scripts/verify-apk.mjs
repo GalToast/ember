@@ -11,34 +11,31 @@
 //
 // Exit 0 = in sync. Exit 1 = stale, with the exact rebuild/sync/install order.
 
-import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+
+import { apkPath } from './apk-path-lib.mjs';
+
+const staging = process.argv.includes('--staging');
+const apk = apkPath();
+if (!existsSync(apk)) {
+  console.error('verify-apk: no APK in android/app/build/outputs/apk/{release,debug} — build one first.');
+  process.exit(1);
+}
 
 const distDir = 'dist';
 const indexPath = join(distDir, 'index.html');
-
 if (!existsSync(indexPath)) {
   console.error(`verify-apk: ${indexPath} missing — run \`npm run build\` first.`);
   process.exit(1);
 }
-
 const html = readFileSync(indexPath, 'utf8');
 const refs = [...html.matchAll(/assets\/(index-[A-Za-z0-9_-]+\.(?:js|css))/g)].map((m) => m[1]);
 if (refs.length === 0) {
   console.error(`verify-apk: dist/index.html references no hashed assets (css/js).`);
   process.exit(1);
 }
-
-const staging = process.argv.includes('--staging');
-const apkPath = join(
-  'android',
-  'app',
-  'build',
-  'outputs',
-  'apk',
-  'debug',
-  'app-debug.apk',
-);
 
 // APK is a zip; the platform has unzip, so read the central directory via a
 // small helper instead of pulling in a dependency.
@@ -79,10 +76,10 @@ if (staging) {
     if (refs.includes(ref)) continue;
     problems.push(`staging has stale bundle ${ref} not referenced by dist/index.html`);
   }
-} else if (existsSync(apkPath)) {
-  const buf = readFileSync(apkPath);
+} else if (existsSync(apk)) {
+  const buf = readFileSync(apk);
   if (buf.toString('utf8', 0, 2) !== 'PK') {
-    console.error(`verify-apk: ${apkPath} is not a zip/APK.`);
+    console.error(`verify-apk: ${apk} is not a zip/APK.`);
     process.exit(1);
   }
   const entries = crcParse(buf);
@@ -107,8 +104,10 @@ if (staging) {
     lines.push(`note: APK also carries unreferenced ${name}`);
   }
 } else {
-  console.log(`verify-apk: no APK at ${apkPath} — skipping (build one with \`npx cap sync android\` + \`npx cap open android\`).`);
-  process.exit(0);
+  // Unreachable: an absent APK exits 1 earlier. Keep one clear failure message
+  // instead of a green "skipping" line, which is how a missing artifact hides.
+  console.error(`verify-apk: no APK at ${apk} to inspect — build one first.`);
+  process.exit(1);
 }
 
 for (const line of lines) console.log(line);

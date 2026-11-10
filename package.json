@@ -8,13 +8,17 @@
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
     "lint:decks": "node scripts/lint-decks.mjs",
-    "test": "node --experimental-strip-types --no-warnings tests/game.test.mjs",
+    "test": "node --experimental-strip-types --no-warnings tests/game.test.mjs && node tests/apk-path.test.mjs && node tests/signing-verify.test.mjs",
     "test:decks": "npm run lint:decks",
     "verify:apk": "node scripts/verify-apk.mjs",
     "verify:staging": "node scripts/verify-apk.mjs --staging",
     "lint:fit": "node scripts/lint-fit.mjs",
     "lint": "npm run lint:decks && npm run lint:fit",
-    "test:journeys": "node scripts/run-journeys.mjs"
+    "test:journeys": "node scripts/run-journeys.mjs",
+    "verify:sign": "node scripts/signing-verify.mjs",
+    "verify:sign:installed": "node scripts/signing-verify.mjs --installed",
+    "truth:board": "node scripts/board-roster-truth.mjs --tasks",
+    "truth:board:json": "node scripts/board-roster-truth.mjs --json"
   },
   "devDependencies": {
     "@capacitor/assets": "^4.0.0",
