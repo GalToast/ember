@@ -418,8 +418,8 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
         {#each Array(skips) as _}<i></i>{/each}
         {#if skips === 0}<span class="skips-none">none</span>{/if}
       </span>
-      <button class="icon-btn" onclick={goFullscreen} title="fullscreen for the TV" aria-label="Fullscreen"><Icon name="expand" /></button>
-      <button class="icon-btn" onclick={() => { setMuted(!isMuted()); }} title={isMuted() ? 'sound off' : 'sound on'} data-testid="mute" aria-label={isMuted() ? 'Sound on' : 'Sound off'}><Icon name={isMuted() ? 'skip' : 'heart'} size={17} /></button>
+      <button class="icon-btn" onclick={goFullscreen} title="fullscreen for the TV" aria-label="Fullscreen"><Icon name="expand" /><span class="ib-lbl">TV</span></button>
+      <button class="icon-btn" onclick={() => { setMuted(!isMuted()); }} title={isMuted() ? 'sound off' : 'sound on'} data-testid="mute" aria-label={isMuted() ? 'Sound on' : 'Sound off'}><Icon name={isMuted() ? 'skip' : 'heart'} size={17} /><span class="ib-lbl">{isMuted() ? 'off' : 'on'}</span></button>
     </div>
 
     <div class="cardzone">
@@ -487,7 +487,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
             <button class="end-no" onclick={cancelEndArm} aria-label="Keep playing">✕</button>
           </div>
         {/if}
-        <button class="icon-btn end" class:armed={endArmed} onclick={requestEnd} title="end the night warm" aria-label={endArmed ? 'Tap again to end the night' : 'End the night'}><Icon name="end" /></button>
+        <button class="icon-btn end" class:armed={endArmed} onclick={requestEnd} title="end the night warm" aria-label={endArmed ? 'Tap again to end the night' : 'End the night'}><Icon name="end" /><span class="ib-lbl">end</span></button>
       {/if}
     </nav>
   </main>
@@ -583,6 +583,20 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     color: var(--ink-dim);
     transition: color 0.2s ease, transform 0.2s var(--spring);
   }
+  /* UX-9 (audit 2026-11-10): icon-only buttons forced glyph recognition in a dark room.
+     A 9px label sits under the glyph — TV / sound state / end — so recognition is
+     instant. Width grows to hold the label; still round. */
+  .ib-lbl {
+    position: absolute;
+    bottom: 3px;
+    font-size: 9px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: currentColor;
+    opacity: 0.85;
+  }
+  .icon-btn { position: relative; width: auto; min-width: 44px; padding: 0 12px; gap: 0; display: inline-flex; flex-direction: column; justify-content: center; }
   .icon-btn:active { transform: scale(0.92); }
   .icon-btn.end { margin-left: 0; color: var(--ink-dim); }
   .icon-btn.end.armed { color: var(--ink); border-color: var(--edge-strong); }
