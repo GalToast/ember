@@ -65,7 +65,13 @@ const eq = (name, got, want) => ok(name, Object.is(got, want), `got ${JSON.strin
  *
  * Timeout is now its own outcome: rc -1 with `timeout: true`.
  */
-function runIn(cwd, file, args = [], { timeoutMs = 90_000 } = {}) {
+// Budget policy (pi-0004, 2026-11-11, board 6780/6782): a signing gate must be SLOWER
+// on a loaded box, never absent. pi-0006 measured >4 min for the 25-case file under
+// tonight's load — the 90s default is what made it flaky. 300s covers the measured
+// characteristic with headroom; a genuine timeout at that budget is a real failure
+// worth failing on. SKIP-with-reason was rejected: a release gate that skips on a
+// loaded runner is exactly where a real signing breakage hides.
+function runIn(cwd, file, args = [], { timeoutMs = 300_000 } = {}) {
   try {
     const stdout = execFileSync(process.execPath, [file, ...args], {
       cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: timeoutMs, windowsHide: true,
