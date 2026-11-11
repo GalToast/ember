@@ -52,15 +52,53 @@ const ok = (name, cond, detail) => {
 };
 const eq = (name, got, want) => ok(name, Object.is(got, want), `got ${JSON.stringify(got)}, want ${JSON.stringify(want)}`);
 
-function runIn(cwd, file, args = []) {
+/**
+ * Run a script and classify the outcome.
+ *
+ * A TIMEOUT must never look like a wrong exit code. `execFileSync` reports a
+ * timeout as err.status = null (not a number), err.code = 'ETIMEDOUT',
+ * err.signal = 'SIGTERM'. The old fallback `typeof err.status === 'number' ?
+ * err.status : 1` therefore collapsed every timeout into rc 1 — indistinguishable
+ * from the gate genuinely failing — and the assertion text ("same key rc 0 —
+ * got 1, want 0") pointed at the signing logic instead of at the real cause:
+ * the box being too slow to start a JVM inside the budget.
+ *
+ * Timeout is now its own outcome: rc -1 with `timeout: true`.
+ */
+function runIn(cwd, file, args = [], { timeoutMs = 90_000 } = {}) {
   try {
     const stdout = execFileSync(process.execPath, [file, ...args], {
-      cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: 90_000, windowsHide: true,
+      cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], timeout: timeoutMs, windowsHide: true,
     });
-    return { rc: 0, stdout, stderr: '' };
+    return { rc: 0, timeout: false, stdout, stderr: '' };
   } catch (err) {
-    return { rc: typeof err.status === 'number' ? err.status : 1, stdout: err.stdout || '', stderr: err.stderr || '' };
+    const stdout = err.stdout || '';
+    const stderr = err.stderr || '';
+    if (err.code === 'ETIMEDOUT' || err.signal === 'SIGTERM') {
+      // A timeout produces no stderr, so this marker is the ONLY trace of what
+      // happened. Without it the failure reads as a signing bug.
+      return {
+        rc: -1,
+        timeout: true,
+        timeoutMs,
+        stdout,
+        stderr: stderr || `TIMED OUT after ${timeoutMs}ms`,
+      };
+    }
+    return {
+      rc: typeof err.status === 'number' ? err.status : 1,
+      timeout: false,
+      stdout,
+      stderr,
+    };
   }
+}
+
+/** Describe an outcome for an assertion message, so a timeout says so. */
+function outcome(res) {
+  return res.timeout
+    ? `TIMED OUT after ${res.timeoutMs}ms (rc=${res.rc})`
+    : `rc=${res.rc}${res.stderr ? ` stderr=${res.stderr.slice(0, 120)}` : ''}`;
 }
 
 // Mint a throwaway PKCS12 keystore with keytool, then sign a placeholder APK
@@ -128,7 +166,7 @@ async function main() {
       // 1. Correct release key → exit 0 and MATCH.
       const good = runIn(dir, 'scripts/signing-verify.mjs');
       eq(`${mode}: pgp match rc 0`, good.rc, 0);
-      ok(`${mode}: match is stated`, /MATCH/.test(good.stdout), good.stdout.slice(0, 120));
+      ok(`${mode}: match is stated`, /MATCH/.test(good.stdout), outcome(good));
 
       // 2. Installed APK on a DIFFERENT key → the case that matters most:
       //    the gate must warn about INSTALL_FAILED_UPDATE_INCOMPATIBLE.
@@ -140,11 +178,12 @@ async function main() {
       const bad = runIn(dir, 'scripts/signing-verify.mjs', ['--installed', other]);
       eq(`${mode}: foreign key rc`, bad.rc, 2);
       ok(`${mode}: names UPDATE_INCOMPATIBLE`,
-        /UPDATE_INCOMPATIBLE/.test(bad.stdout + bad.stderr), (bad.stdout + bad.stderr).slice(0, 160));
+        /UPDATE_INCOMPATIBLE/.test(bad.stdout + bad.stderr), outcome(bad));
 
       // 3. Same key → MATCH even in installed mode.
       const same = runIn(dir, 'scripts/signing-verify.mjs', ['--installed', apk]);
       eq(`${mode}: same key rc 0`, same.rc, 0);
+      ok(`${mode}: same key outcome is legible`, !same.timeout, outcome(same));
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
@@ -232,6 +271,45 @@ async function main() {
       ok('absolute storeFile: no mangled C:android path in output',
         !/android[\\/]*C:[\\/]/.test(out.stdout + out.stderr),
         (out.stdout + out.stderr).slice(0, 200));
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  // --- Timeout is its own outcome, not rc 1 -------------------------------
+  // Regression: `npm test` was flaky on a loaded box, failing with
+  // "same key rc 0 - got 1, want 0" while a quiet box passed. The cause was
+  // NOT a signing bug: a child that exceeded its timeout was reported by
+  // runIn as rc 1, because execFileSync sets err.status = null on timeout
+  // and the old fallback mapped any non-number to 1. The failure text then
+  // pointed at the signing logic instead of at the slow box.
+  {
+    const dir = mkdtempSync(join(tmpdir(), 'ember-timeout-'));
+    try {
+      // A child that outlives its budget.
+      writeFileSync(join(dir, 'slow.mjs'),
+        'setTimeout(() => {}, 60_000);\n');
+      const slow = runIn(dir, 'slow.mjs', [], { timeoutMs: 1_200 });
+      ok('timeout: is flagged as a timeout', slow.timeout === true,
+        `timeout=${slow.timeout} rc=${slow.rc}`);
+      ok('timeout: does NOT masquerade as rc 1', slow.rc !== 1,
+        `rc=${slow.rc} — a timeout reported as rc 1 is indistinguishable from a real failure`);
+      ok('timeout: reports the budget it blew', /TIMED OUT after 1200ms/.test(slow.stderr),
+        `stderr=${JSON.stringify(slow.stderr)}`);
+      ok('timeout: outcome() says TIMED OUT, not "rc=1"',
+        /TIMED OUT/.test(outcome(slow)), outcome(slow));
+
+      // A child that fails for a REAL reason must still be reported as a
+      // genuine non-zero exit, NOT as a timeout. This is the other half of
+      // the contract: the fix must not turn real failures into timeouts.
+      writeFileSync(join(dir, 'boom.mjs'),
+        'process.exit(3);\n');
+      const boom = runIn(dir, 'boom.mjs', [], { timeoutMs: 30_000 });
+      ok('genuine failure: still reports its own exit code', boom.rc === 3,
+        `rc=${boom.rc} timeout=${boom.timeout}`);
+      ok('genuine failure: is not flagged as a timeout', boom.timeout === false,
+        `timeout=${boom.timeout}`);
+      ok('genuine failure: outcome() shows the rc', /rc=3/.test(outcome(boom)), outcome(boom));
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
