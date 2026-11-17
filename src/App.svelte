@@ -10,6 +10,7 @@
   import Celebration from './components/Celebration.svelte';
   import Icon from './components/Icon.svelte';
   import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, loadCustom, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
+  import { createInitialState, type Screen, type Turn, type Tokens, type ReleaseState } from './lib/machine';
 import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   import type { Card, DeckId } from './lib/schema';
 
@@ -71,11 +72,11 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   }
   let wakeLock: { release: () => Promise<void> } | null = null;
 
-  const night = $state(loadNight() ?? {
-    mode: 'mixup' as Mode, decks: [...decks], cardId: null, count: 0, skips: 6,
-    seen: [] as string[], loveCounts: {}, drawIndex: 0, lastBombIndex: -99, safeword: '', landing: false,
-    tokens: { a: 3, b: 3 }, turn: 'a' as 'a' | 'b',
-  });
+  // Phase 1 state-machine wiring: the night's initial shape comes from the typed
+  // factory in lib/machine.ts so the Screen/NightState types have one source of truth.
+  // Behavior is unchanged — resume still overwrites from loadNight() below.
+  const initial = createInitialState();
+  const night = $state(initial.night);
 
   function persistNight() {
     night.decks = [...decks];

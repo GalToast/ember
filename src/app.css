@@ -3,19 +3,20 @@
 
 :root {
   /* two players, two colors — they meet in ember light */
-  --p1: #5aa7ff;
+  --p1: #4a9eff;
   --p1-deep: #1b4d99;
-  --p2: #ff5273;
+  --p2: #ff3d6e;
   --p2-deep: #8f1d3a;
-  --ember: #ff7a3d;
-  --ember-soft: #ffb35c;
+  --ember: #ff6b35;
+  --ember-soft: #ffc46b;
   --good: #7ec98a;
+  --gold: #d4a574;
 
-  /* warm-violet dark, not pure black */
-  --bg: #0e0a12;
-  --bg-2: #171020;
-  --glass: rgba(255, 255, 255, 0.055);
-  --glass-strong: rgba(255, 255, 255, 0.09);
+  /* deeper, warmer dark — candlelight in a dark room */
+  --bg: #0a0609;
+  --bg-2: #120c18;
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-strong: rgba(255, 255, 255, 0.075);
   --edge: rgba(255, 255, 255, 0.12);
   --edge-strong: rgba(255, 255, 255, 0.18);
   --ink: #f3f0fa;
@@ -53,6 +54,26 @@ body {
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+}
+
+/* film grain — the tactile layer that makes everything feel printed */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+/* heat-responsive ambient gradient — the room warms as the night deepens */
+#app {
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 110%, rgba(255, 107, 53, 0.04), transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(74, 158, 255, 0.03), transparent 60%),
+    var(--bg);
+  transition: background 1.5s ease;
 }
 
 #app {
