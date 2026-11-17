@@ -12,6 +12,8 @@
     names = { a: '', b: '' },
     safeword = '',
     landing = false,
+    /** command card: the night's command token is being spent — golden flash */
+    command = false,
     /** suppress the SPICE BOMB badge (UX-5): in inferno mode EVERY card is a bomb,
      *  so the badge carries no information there — it only means "surprising heat"
      *  when the card's deck is hotter than the night's ambient mode. */
@@ -24,6 +26,7 @@
     names?: { a: string; b: string };
     safeword?: string;
     landing?: boolean;
+    command?: boolean;
     onSwipe?: (dir: 'next' | 'skip') => void;
   } = $props();
 
@@ -197,7 +200,7 @@
 
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
-  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {heatBand(shown.level)} {texty ? 'texty' : ''} {fly !== 'none' ? 'flying' : ''}"
+  class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {heatBand(shown.level)} {texty ? 'texty' : ''} {fly !== 'none' ? 'flying' : ''} {command ? 'command' : ''}"
   data-level={shown.level}
   data-type={shown.type}
   style="{dragStyle} {flyStyle}"
@@ -564,6 +567,15 @@
     15% { box-shadow: var(--shadow-card), 0 0 80px rgba(255, 107, 53, 0.3), inset 0 0 60px rgba(255, 107, 53, 0.08); }
     100% { box-shadow: var(--shadow-card), 0 0 44px rgba(255, 122, 61, 0.10); }
   }
+
+  /* ---- command golden flash: the token's power made visible ---- */
+  .card.command { animation: commandFlash 1s ease-out both; }
+  @keyframes commandFlash {
+    0% { box-shadow: var(--shadow-card); }
+    20% { box-shadow: var(--shadow-card), 0 0 60px rgba(212, 165, 116, 0.4), inset 0 0 40px rgba(212, 165, 116, 0.1); }
+    100% { box-shadow: var(--shadow-card), 0 0 44px rgba(255, 122, 61, 0.10); }
+  }
+  .card.command .hairline { opacity: 1; background: linear-gradient(90deg, transparent, var(--gold), var(--ember), transparent); }
 
   /* ---- speak block: "whisper" ---- */
   .speak {
