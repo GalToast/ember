@@ -199,6 +199,7 @@
 <div
   class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {heatBand(shown.level)} {texty ? 'texty' : ''} {fly !== 'none' ? 'flying' : ''}"
   data-level={shown.level}
+  data-type={shown.type}
   style="{dragStyle} {flyStyle}"
   data-testid="card"
   onpointerdown={down}
@@ -526,6 +527,35 @@
   .card[data-level="10"] { box-shadow: var(--shadow-card), 0 0 48px rgba(255, 61, 110, 0.18); }
   .card[data-level="9"] .hairline,
   .card[data-level="10"] .hairline { opacity: 1; background: linear-gradient(90deg, transparent, var(--p2), var(--ember), transparent); }
+
+  /* ---- card-type accents: each type has a visual personality ---- */
+  /* TRUTH: clean, trustworthy — cool blue left border */
+  .card[data-type="truth"] { border-left: 3px solid rgba(74, 158, 255, 0.35); }
+  .card[data-type="truth"] .type { color: rgba(74, 158, 255, 0.7); }
+
+  /* DARE: bold, energetic — ember gradient left border */
+  .card[data-type="dare"] { border-left: 3px solid rgba(255, 107, 53, 0.4); }
+  .card[data-type="dare"] .type { color: var(--ember-soft); }
+
+  /* CHALLENGE: balanced, two-sided — split p1→p2 gradient */
+  .card[data-type="challenge"] { border-left: 3px solid transparent; border-image: linear-gradient(to bottom, var(--p1), var(--p2)) 1; }
+  .card[data-type="challenge"] .type { color: var(--ink); }
+
+  /* ICE: light, airy — gold tint */
+  .card[data-type="ice"] { border-left: 3px solid rgba(212, 165, 116, 0.3); }
+  .card[data-type="ice"] .type { color: var(--gold); }
+
+  /* TOPIC: conversational, flowing — warm violet */
+  .card[data-type="topic"] { border-left: 3px solid rgba(160, 130, 200, 0.3); }
+  .card[data-type="topic"] .type { color: rgba(180, 150, 220, 0.7); }
+
+  /* ---- soften cooling sweep: blue tint when switching to the softer variant ---- */
+  .card.soft { animation: coolSweep 0.6s ease-out both; }
+  @keyframes coolSweep {
+    0% { box-shadow: var(--shadow-card); }
+    30% { box-shadow: var(--shadow-card), 0 0 60px rgba(74, 158, 255, 0.15); }
+    100% { box-shadow: var(--shadow-card); }
+  }
 
   /* ---- speak block: "whisper" ---- */
   .speak {
