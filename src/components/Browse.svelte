@@ -73,7 +73,7 @@
     <!-- UX-7 (audit 2026-11-10): '1 / 100' 12px dim text was the only orientation cue;
          a deck-colored progress bar gives position at a glance in a dark room. -->
     <div class="prog" aria-hidden="true">
-      <div class="prog-fill" style="width: {((index + 1) / cards.length) * 100}%"></div>
+      <div class="prog-fill" data-deck={deck} style="width: {((index + 1) / cards.length) * 100}%"></div>
     </div>
     <span class="dim pos">{index + 1} / {cards.length}</span>
   </header>
@@ -143,7 +143,14 @@
     background: var(--glass); overflow: hidden;
   }
   .prog + .pos { margin-left: 10px; }
-  .prog-fill { height: 100%; border-radius: 2px; background: var(--ember-soft); transition: width 0.25s var(--spring); }
+  .prog-fill { height: 100%; border-radius: 2px; background: var(--ember-soft); transition: width 0.25s var(--spring), background 0.4s ease; }
+  /* deck-colored progress: each deck's watermark color */
+  .prog-fill[data-deck="spark"] { background: rgba(255, 179, 92, 0.8); }
+  .prog-fill[data-deck="closer"] { background: rgba(74, 158, 255, 0.7); }
+  .prog-fill[data-deck="slowburn"] { background: rgba(255, 107, 53, 0.8); }
+  .prog-fill[data-deck="afterdark"] { background: rgba(160, 130, 200, 0.7); }
+  .prog-fill[data-deck="curious"] { background: rgba(212, 165, 116, 0.7); }
+  .prog-fill[data-deck="inferno"] { background: rgba(255, 61, 110, 0.8); }
   .icon-btn {
     display: inline-flex; align-items: center; gap: 6px;
     padding: 8px 14px; border-radius: var(--r-pill);
@@ -181,6 +188,13 @@
     backdrop-filter: blur(28px) saturate(140%);
     -webkit-backdrop-filter: blur(28px) saturate(140%);
     box-shadow: var(--shadow-card);
+    transition: opacity 0.25s ease, transform 0.25s var(--spring);
+  }
+  /* card flip: subtle slide when changing cards in browse */
+  .bcard { animation: cardReveal 0.3s ease-out both; }
+  @keyframes cardReveal {
+    from { opacity: 0.4; transform: translateX(8px); }
+    to { opacity: 1; transform: none; }
   }
   .bcard.hot {
     background: linear-gradient(160deg, rgba(255,122,61,0.10), rgba(255,82,115,0.06)), var(--glass-strong);
