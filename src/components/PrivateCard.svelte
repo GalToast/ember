@@ -105,7 +105,14 @@
   .pcard.sealed { background: var(--glass-strong); backdrop-filter: blur(28px); }
   .pcard.open.a { background: linear-gradient(160deg, rgba(90,167,255,0.14), rgba(255,255,255,0.02)), var(--glass-strong); border-color: color-mix(in srgb, var(--p1) 60%, transparent); }
   .pcard.open.b { background: linear-gradient(160deg, rgba(255,82,115,0.14), rgba(255,255,255,0.02)), var(--glass-strong); border-color: color-mix(in srgb, var(--p2) 60%, transparent); }
+  /* smooth reveal: sealed -> open is a gentle unfurl, not a snap */
+  .pcard { transition: filter 0.3s ease, transform 0.3s var(--spring), background 0.4s ease, border-color 0.4s ease; }
   .seal { display: flex; flex-direction: column; align-items: center; gap: 10px; color: var(--ink-dim); }
+  .seal :global(svg) { animation: sealBreathe 3s ease-in-out infinite; }
+  @keyframes sealBreathe {
+    0%, 100% { opacity: 0.5; filter: drop-shadow(0 0 8px rgba(255, 122, 61, 0.3)); }
+    50% { opacity: 0.9; filter: drop-shadow(0 0 18px rgba(255, 122, 61, 0.5)); }
+  }
   .seal-word { font-family: var(--font-display); font-size: clamp(20px, 3.4vmin, 30px); font-weight: 600; color: var(--ink); }
   .seal-dim { font-size: clamp(11px, 1.5vmin, 13px); }
   .pc-top { display: flex; align-items: center; gap: 12px; color: var(--ink-dim); }
