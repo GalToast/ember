@@ -2,6 +2,7 @@
   import type { Card } from '../lib/schema';
   import { heatDots, heatBand } from '../lib/heat';
   import Icon from './Icon.svelte';
+  import DeckWatermark from './DeckWatermark.svelte';
   import { haptics } from '../lib/haptics';
 
   let {
@@ -197,6 +198,7 @@
 <!-- svelte-ignore a11y_no_static_element_interactions -->
 <div
   class="card deal {playerColor} {isSoft ? 'soft' : ''} {shown.bomb ? 'bomb' : ''} {heatBand(shown.level)} {texty ? 'texty' : ''} {fly !== 'none' ? 'flying' : ''}"
+  data-level={shown.level}
   style="{dragStyle} {flyStyle}"
   data-testid="card"
   onpointerdown={down}
@@ -205,6 +207,7 @@
   onpointercancel={up}
 >
   <div class="hairline" aria-hidden="true"></div>
+  <DeckWatermark deck={shown.deck} />
 
   {#if hint}
     <div class="swipe-hint {hint} pop">{hint === 'next' ? 'NEXT' : 'SKIP'}</div>
@@ -515,6 +518,14 @@
     border-color: rgba(220, 40, 70, 0.58);
     box-shadow: var(--shadow-card), 0 0 34px rgba(220, 40, 70, 0.16);
   }
+
+  /* heat-responsive glow: the card's ambient light intensifies with the level */
+  .card[data-level="7"],
+  .card[data-level="8"] { box-shadow: var(--shadow-card), 0 0 32px rgba(255, 82, 115, 0.12); }
+  .card[data-level="9"],
+  .card[data-level="10"] { box-shadow: var(--shadow-card), 0 0 48px rgba(255, 61, 110, 0.18); }
+  .card[data-level="9"] .hairline,
+  .card[data-level="10"] .hairline { opacity: 1; background: linear-gradient(90deg, transparent, var(--p2), var(--ember), transparent); }
 
   /* ---- speak block: "whisper" ---- */
   .speak {
