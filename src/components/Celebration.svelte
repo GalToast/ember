@@ -1,11 +1,76 @@
 <script lang="ts">
   import Icon from './Icon.svelte';
+  import { onMount } from 'svelte';
+
   let { cards, nights, history = [], names = { a: '', b: '' }, tokens = { a: 0, b: 0 }, release = null, onAgain, onHome }: {
     cards: number; nights: number; history?: { date: string; cards: number; mode: string }[];
     names?: { a: string; b: string }; tokens?: { a: number; b: number };
     release?: { holder: 'a' | 'b'; state: 'spent' | 'gifted' } | null;
     onAgain: () => void; onHome: () => void;
   } = $props();
+
+  // ---- ember particle canvas (peak-end moment) ----
+  let canvas: HTMLCanvasElement;
+  let ctx: CanvasRenderingContext2D | null = null;
+  let raf = 0;
+  let particles: { x: number; y: number; vx: number; vy: number; life: number; maxLife: number; size: number; hue: number }[] = [];
+
+  function resize() {
+    if (!canvas) return;
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
+
+  function spawnEmber() {
+    if (!ctx || !canvas) return;
+    const x = Math.random() * canvas.width;
+    const y = canvas.height + 10;
+    particles.push({
+      x, y,
+      vx: (Math.random() - 0.5) * 0.4,
+      vy: -0.3 - Math.random() * 0.6,
+      life: 0,
+      maxLife: 200 + Math.random() * 200,
+      size: 1 + Math.random() * 2.5,
+      hue: 20 + Math.random() * 30, // ember to gold
+    });
+  }
+
+  function tick() {
+    if (!ctx || !canvas) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // spawn
+    if (particles.length < 60 && Math.random() < 0.3) spawnEmber();
+
+    // update + draw
+    particles = particles.filter(p => p.life < p.maxLife);
+    for (const p of particles) {
+      p.life++;
+      p.x += p.vx + Math.sin(p.life * 0.02) * 0.3;
+      p.y += p.vy;
+      const alpha = 1 - p.life / p.maxLife;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size * alpha, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${p.hue}, 80%, 60%, ${alpha * 0.6})`;
+      ctx.fill();
+    }
+
+    raf = requestAnimationFrame(tick);
+  }
+
+  onMount(() => {
+    // respect reduced motion — skip entirely
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    ctx = canvas.getContext('2d');
+    resize();
+    window.addEventListener('resize', resize);
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('resize', resize);
+    };
+  });
 
   const lines = [
     'One thing you\'re celebrating about them tonight.',
@@ -50,6 +115,7 @@
 </script>
 
 <div class="wrap enter">
+  <canvas class="ember-canvas" bind:this={canvas} aria-hidden="true"></canvas>
   <div class="glass panel" data-testid="celebration">
     <div class="crown"><Icon name="heart" size={30} /></div>
     <h2 class="display">What a night{names.a && names.b ? `, ${names.a} & ${names.b}` : ''}.</h2>
@@ -121,7 +187,16 @@
 </div>
 
 <style>
-  .wrap { flex: 1; display: grid; place-items: center; padding: clamp(20px, 4vmin, 48px); z-index: 1; overflow-y: auto; }
+  .wrap { flex: 1; display: grid; place-items: center; padding: clamp(20px, 4vmin, 48px); z-index: 1; overflow-y: auto; position: relative; }
+  .ember-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .panel { position: relative; z-index: 1; }
   .panel {
     width: min(92vw, 640px);
     padding: clamp(26px, 4.6vmin, 52px);
