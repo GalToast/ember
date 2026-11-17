@@ -67,7 +67,7 @@
 
   <section class="modes" data-testid="modes">
     {#each MODES as m (m.id)}
-      <button class="mode" class:on={mode === m.id} onclick={() => { setMode(m.id); warn = m.id === 'inferno'; }}>
+      <button class="mode" class:on={mode === m.id} data-mode={m.id} onclick={() => { setMode(m.id); warn = m.id === 'inferno'; }}>
         <span class="m-name">{m.name}</span>
         <span class="m-blurb dim">{m.blurb}</span>
       </button>
@@ -134,6 +134,12 @@
     font-family: var(--font-ui);
     font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; font-size: 12px; color: var(--ember-soft);
   }
+  /* eccentric touch: the brand heart breathes with ember light */
+  .brand :global(svg) { animation: emberBreathe 3s ease-in-out infinite; }
+  @keyframes emberBreathe {
+    0%, 100% { filter: drop-shadow(0 0 6px rgba(255, 122, 61, 0.4)); }
+    50% { filter: drop-shadow(0 0 14px rgba(255, 122, 61, 0.7)); }
+  }
   h1 { font-size: clamp(30px, 6vmin, 58px); }
   h1 em {
     font-style: italic;
@@ -162,7 +168,11 @@
   .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; box-shadow: 0 0 12px currentColor; }
   .dot.p1 { background: var(--p1); color: var(--p1); }
   .dot.p2 { background: var(--p2); color: var(--p2); }
-  .amp { font-family: var(--font-display); font-size: clamp(22px, 3.4vmin, 34px); color: var(--ink-dim); }
+  .amp { font-family: var(--font-display); font-size: clamp(22px, 3.4vmin, 34px); color: var(--ink-dim); animation: ampGlow 4s ease-in-out infinite; }
+  @keyframes ampGlow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; text-shadow: 0 0 20px rgba(255, 179, 92, 0.3); }
+  }
 
   .modes { display: grid; grid-template-columns: repeat(2, minmax(130px, 170px)); gap: 8px; width: min(92vw, 480px); }
   .mode {
@@ -181,6 +191,15 @@
   }
   .mode.on .m-name { color: var(--ink); }
   .mode.on .m-blurb { color: var(--ink-dim); }
+  /* mode-specific accent colors: each mode has its own temperature */
+  .mode[data-mode="chill"].on { border-color: rgba(74, 158, 255, 0.5); box-shadow: 0 0 28px rgba(74, 158, 255, 0.12); }
+  .mode[data-mode="mixup"].on { border-color: var(--ember); box-shadow: 0 0 28px rgba(255, 122, 61, 0.18); }
+  .mode[data-mode="heat"].on { border-color: rgba(255, 61, 110, 0.5); box-shadow: 0 0 28px rgba(255, 61, 110, 0.15); }
+  .mode[data-mode="inferno"].on { border-color: rgba(255, 61, 110, 0.6); box-shadow: 0 0 32px rgba(255, 61, 110, 0.22); animation: infernoPulse 2s ease-in-out infinite; }
+  @keyframes infernoPulse {
+    0%, 100% { box-shadow: 0 0 32px rgba(255, 61, 110, 0.22); }
+    50% { box-shadow: 0 0 44px rgba(255, 61, 110, 0.35); }
+  }
   .m-name { font-weight: 700; font-size: clamp(14px, 1.9vmin, 16px); letter-spacing: 0.02em; }
   .m-blurb { font-size: clamp(11px, 1.5vmin, 12.5px); line-height: 1.3; }
 
@@ -238,6 +257,11 @@
   .warning input { min-height: 44px; padding: 10px 14px; font-size: 15px; }
   .warning .btn { min-height: 48px; padding: 10px 22px; }
   .start { font-size: clamp(17px, 2.4vmin, 22px); padding: 17px 42px; }
+  .start:not(:disabled) { animation: startGlow 2.5s ease-in-out infinite; }
+  @keyframes startGlow {
+    0%, 100% { box-shadow: 0 10px 30px rgba(255, 90, 60, 0.3); }
+    50% { box-shadow: 0 10px 40px rgba(255, 90, 60, 0.5); }
+  }
   .browse-btn {
     display: inline-flex; align-items: center; gap: 8px;
     padding: 12px 24px; border-radius: var(--r-pill);
