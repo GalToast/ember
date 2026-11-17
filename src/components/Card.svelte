@@ -557,6 +557,14 @@
     100% { box-shadow: var(--shadow-card); }
   }
 
+  /* ---- spice bomb screen-edge pulse: the room reacts when a bomb is drawn ---- */
+  .card.bomb { animation: bombPulse 1.2s ease-out both; }
+  @keyframes bombPulse {
+    0% { box-shadow: var(--shadow-card); }
+    15% { box-shadow: var(--shadow-card), 0 0 80px rgba(255, 107, 53, 0.3), inset 0 0 60px rgba(255, 107, 53, 0.08); }
+    100% { box-shadow: var(--shadow-card), 0 0 44px rgba(255, 122, 61, 0.10); }
+  }
+
   /* ---- speak block: "whisper" ---- */
   .speak {
     background: rgba(255, 179, 92, 0.04);
