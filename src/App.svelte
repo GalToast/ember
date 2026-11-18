@@ -39,6 +39,10 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
       soft = next.screen.soft;
       landing = next.screen.landing;
     }
+    // Write back: celebrate screen tokens (the celebration reads night.tokens)
+    if (next.screen.type === 'celebrate') {
+      night.tokens = { ...next.screen.tokens };
+    }
     // Write back: night fields the reducer may have advanced
     if (next.night !== state.night) {
       night.count = next.night.count;
@@ -348,34 +352,9 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   };
 
   function end() {
-    if (!landing) {
-      // warm landing: one final gentle card before the celebration (peak-end rule, enforced)
-      const w = drawWarmLanding(decks, persisted.retired);
-      if (w) {
-        card = w;
-        soft = false;
-        landing = true;
-        screen = 'play';
-        persistNight();
-        return;
-      }
-    }
-    landing = false;
-    // capture tokens BEFORE clearing the night — the finale reads them
-    const finalTokens = { ...(night.tokens ?? { a: 0, b: 0 }) };
-    // capture love balance for the insights panel (draw-time data, otherwise lost)
-    const finalLoves = { ...(night.loveCounts ?? {}) };
-    save({
-      names,
-      nights: [...persisted.nights, { date: new Date().toISOString().slice(0, 10), cards: count, mode, loves: finalLoves, tokensSpent: { a: 3 - (finalTokens.a ?? 0), b: 3 - (finalTokens.b ?? 0) } } as never],
-      retired: persisted.retired,
-    });
-    persisted.nights = load().nights;
-    clearNight();
+    dispatch({ type: 'END' });
     unlockScreen();
-    night.tokens = finalTokens; // kept in memory for the celebration's unspent-tokens finale
-    swell(); // the night's last sound: warm major bloom under the celebration
-    screen = 'celebrate';
+    swell();
   }
 
   function home() {
