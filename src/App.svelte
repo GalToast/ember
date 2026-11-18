@@ -176,7 +176,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     return c;
   }
 
-  function next() { advance(card ?? undefined); }
+  function next() { dispatch({ type: 'NEXT' }); }
 
   function skip() {
     if (skips <= 0) return;
