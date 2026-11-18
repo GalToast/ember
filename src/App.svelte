@@ -184,8 +184,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
 
   function skip() {
     if (skips <= 0) return;
-    skips -= 1;
-    advance(card ?? undefined);
+    dispatch({ type: 'SKIP' });
   }
 
   function spendToken() {
@@ -216,14 +215,10 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   function retire() {
     if (!card) return;
     const id = card.id;
-    persisted.retired = [...persisted.retired, id];
-    save(persisted);
-    // Keep the undo scoped to the card just retired, and only for a short window: the point is
-    // to catch a mis-tap, not to make retiring reversible forever.
+    const text = card.text.length > 60 ? card.text.slice(0, 57) + '…' : card.text;
     clearRetiredUndo();
-    // UX-3: carry the card text so the undo bar can echo what was retired
-    retiredUndo = { id, text: card.text.length > 60 ? card.text.slice(0, 57) + '…' : card.text, timer: setTimeout(() => { retiredUndo = null; }, 6000) };
-    advance(card);
+    retiredUndo = { id, text, timer: setTimeout(() => { retiredUndo = null; }, 6000) };
+    dispatch({ type: 'RETIRE' });
   }
 
   function begin(silent = false) {
