@@ -1,11 +1,14 @@
 <script lang="ts">
   import Icon from './Icon.svelte';
   import { onMount } from 'svelte';
+  import type { Seed } from '../lib/seeds';
 
-  let { cards, nights, history = [], names = { a: '', b: '' }, tokens = { a: 0, b: 0 }, release = null, onAgain, onHome }: {
+  let { cards, nights, history = [], names = { a: '', b: '' }, tokens = { a: 0, b: 0 }, release = null, seeds = [] as Seed[], onAgain, onHome }: {
     cards: number; nights: number; history?: { date: string; cards: number; mode: string }[];
     names?: { a: string; b: string }; tokens?: { a: number; b: number };
     release?: { holder: 'a' | 'b'; state: 'spent' | 'gifted' } | null;
+    /** the night's planted seeds — the reveal is the point of the mechanic */
+    seeds?: Seed[];
     onAgain: () => void; onHome: () => void;
   } = $props();
 
@@ -147,6 +150,28 @@
         {#if release.state === 'spent'}{(release.holder === 'a' ? names.a : names.b) || 'One of you'} kept the release tonight.{:else}The release changed hands tonight — that's the good stuff.{/if}
       </p>
     {/if}
+    {#if seeds.length > 0}
+      <!-- SEED REVEAL: the payoff of two-sided authorship. Until this moment the
+           card carried no author, so naming them here is the point of the mechanic
+           rather than a formality. Boundaries are honoured but never quoted. -->
+      <div class="seeds" data-testid="seed-reveal">
+        <div class="s-label dim">planted before the night</div>
+        {#each seeds as s (s.who)}
+          <div class="s-row" data-testid="seed-reveal-row" data-who={s.who}>
+            <span class="s-who">{s.who === 'a' ? (names.a || 'One of you') : (names.b || 'One of you')}</span>
+            <span class="s-text">“{s.wish}”</span>
+            {#if s.at}
+              <span class="s-when dim">came up as card {s.at}</span>
+            {:else}
+              <span class="s-when dim">never came up</span>
+            {/if}
+          </div>
+        {/each}
+        {#if seeds.some((s) => s.boundary)}
+          <p class="s-boundary dim" data-testid="seed-boundary-honoured">One line stayed off the table, exactly as asked.</p>
+        {/if}
+      </div>
+    {/if}
     {#if nights >= 3}
       <div class="insights" data-testid="insights">
         <div class="i-row"><span class="i-label">first night</span><span class="i-val">{firstNight}</span></div>
@@ -244,8 +269,7 @@
     border-radius: 50%; background: linear-gradient(135deg, var(--ember), var(--p2));
     font-size: 13px; font-weight: 800;
   }
-  .history { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }
-  .h-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; width: 100%; }
+  .history { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: center; }  .h-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; width: 100%; }
   .h-chip {
     padding: 6px 14px; border-radius: 999px; background: var(--glass);
     border: 1px solid var(--edge); font-size: clamp(11px, 1.5vmin, 13px);
@@ -253,6 +277,20 @@
   }
   .h-chip:hover { border-color: var(--ember); color: var(--ink); box-shadow: 0 0 12px rgba(255, 122, 61, 0.25); transform: scale(1.05); }
   .close { font-size: clamp(13px, 1.8vmin, 16px); font-style: italic; }
+  /* ---- seed reveal ---- */
+  .seeds {
+    width: 100%; display: flex; flex-direction: column; gap: 8px;
+    padding: 14px 18px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(255, 122, 61, 0.14), rgba(143, 29, 58, 0.12));
+    border: 1px solid rgba(255, 122, 61, 0.45);
+    text-align: left;
+  }
+  .s-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
+  .s-row { display: flex; flex-direction: column; gap: 2px; }
+  .s-who { color: var(--ember-soft); font-weight: 700; font-size: clamp(12px, 1.7vmin, 15px); letter-spacing: 0.04em; }
+  .s-text { color: var(--ink); font-size: clamp(14px, 2vmin, 18px); line-height: 1.4; font-style: italic; }
+  .s-when { font-size: 11.5px; letter-spacing: 0.06em; }
+  .s-boundary { font-size: clamp(12px, 1.6vmin, 14px); font-style: italic; margin-top: 2px; }
   .row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 6px; }
   .export { margin-top: 10px; font-size: clamp(13px, 1.7vmin, 15px); opacity: 0.85; }
 </style>

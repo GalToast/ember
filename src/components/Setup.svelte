@@ -16,6 +16,8 @@
     onBrowse,
     onPtp,
     onCustom,
+    seedsPlanted = 0,
+    onSeeds,
   }: {
     names: { a: string; b: string };
     mode: Mode;
@@ -30,6 +32,8 @@
     onBrowse?: () => void;
     onPtp?: () => void;
     onCustom?: () => void;
+    seedsPlanted?: number;
+    onSeeds?: () => void;
   } = $props();
 
   let warn = $state(false);
@@ -107,6 +111,9 @@
   </button>
   <button class="browse-btn" onclick={onCustom} data-testid="custom-open" title="write your own cards — dealt into every mode">
     <Icon name="heart" size={15} /> Write your own card
+  </button>
+  <button class="browse-btn planted" class:on={seedsPlanted > 0} onclick={onSeeds} data-testid="seeds-open" title="each of you writes one wish the other won't see — it arrives tonight as a card, and they find out it was you at the end">
+    <Icon name="bomb" size={15} /> {seedsPlanted > 0 ? `Planted — ${seedsPlanted} sealed for tonight` : 'Plant something for them'}
   </button>
 </div>
 
@@ -271,4 +278,9 @@
   }
   .browse-btn:active { transform: scale(0.96); }
   .browse-btn:hover { color: var(--ink); border-color: var(--edge-strong); }
+  .browse-btn.planted.on {
+    border-color: var(--ember);
+    color: var(--ink);
+    box-shadow: 0 0 20px rgba(255, 122, 61, 0.18);
+  }
 </style>

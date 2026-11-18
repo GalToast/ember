@@ -14,6 +14,7 @@ import type { Card } from './schema';
 import type { NightState } from './game.svelte';
 import { draw, drawWarmLanding, save, saveNight, clearNight, trackLove, seedSeen, load } from './game.svelte';
 import type { State, Screen, Event, Turn, Tokens, ReleaseState } from './machine';
+import { dueSeed, seedToCard } from './seeds';
 
 // ---- Transition helpers ----
 
@@ -22,6 +23,31 @@ function playScreen(card: Card, soft: boolean, landing: boolean): Screen {
 }
 
 function advanceNight(state: State, except?: Card): State {
+  // ---- seeded authorship (see lib/seeds.ts) ----
+  // On its card number a seed REPLACES the normal draw. It is dealt in the same
+  // shape as any other card and carries no author badge — the finale names the
+  // author, which is the whole point. Placed before draw() so a seed can never be
+  // starved by deck exhaustion or the heat ceiling.
+  const nextCardNumber = state.night.drawIndex + 1;
+  const seed = dueSeed(state.night.seeds, nextCardNumber);
+  if (seed) {
+    const seeded = seedToCard(seed, nextCardNumber);
+    const seeds = (state.night.seeds ?? []).map((s) =>
+      s === seed ? { ...s, at: nextCardNumber, cardId: seeded.id } : s,
+    );
+    const night: NightState = {
+      ...state.night,
+      seeds,
+      drawIndex: nextCardNumber,
+      seen: [...state.night.seen, seeded.id],
+      cardId: seeded.id,
+      turn: state.night.turn === 'a' ? 'b' : 'a',
+      lastType: seeded.type,
+      typeRun: state.night.lastType === seeded.type ? (state.night.typeRun ?? 0) + 1 : 1,
+    };
+    return { ...state, screen: playScreen(seeded, false, false), night };
+  }
+
   const c = draw(
     state.night.mode,
     state.night.decks,

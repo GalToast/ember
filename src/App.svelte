@@ -8,6 +8,8 @@
   import CustomDeck from './components/CustomDeck.svelte';
   import PrivateCard from './components/PrivateCard.svelte';
   import Celebration from './components/Celebration.svelte';
+  import SeedSetup from './components/SeedSetup.svelte';
+  import { loadSeeds, saveSeeds, clearSeeds, seedCardById, type Seed } from './lib/seeds';
   import Icon from './components/Icon.svelte';
   import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, loadCustom, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
   import { createInitialState, type Screen, type Turn, type Tokens, type ReleaseState, type State, type Event } from './lib/machine';
@@ -62,6 +64,9 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
       night.typeRun = next.night.typeRun;
       night.lastBombIndex = next.night.lastBombIndex;
       if (next.night.loveCounts) night.loveCounts = next.night.loveCounts;
+      // Seeds carry `at`/`cardId` once dealt; without this write-back the persisted
+      // night kept the pre-deal array and a resumed night could not rebuild the card.
+      if (next.night.seeds) night.seeds = next.night.seeds;
       // The reducer owns the night's numbers now; these component mirrors must
       // follow it or the dock tally and the finale drift from the real night.
       // (Phase 6 deleted advance(), which was the only thing that wrote them.)
@@ -86,10 +91,19 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     stageMode = next.stageMode;
   }
   let names = $state(persisted.names);
+  // Names are captured once and must outlive a reload the way the night does.
+  // They used to reach storage only as a side effect of ending a night, so a
+  // couple who reloaded mid-night came back anonymous — the finale said
+  // "What a night." and the seed reveal said "One of you".
+  $effect(() => {
+    if (names.a || names.b) save({ ...persisted, names });
+  });
   let mode = $state<Mode>('mixup');
   let decks = $state<DeckId[]>([...ALL_DECKS.filter((d) => d !== 'inferno')]);
   let safeword = $state('');
-  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate' | 'browse' | 'handoff' | 'private' | 'custom'>('setup');
+  let screen = $state<'setup' | 'splash' | 'play' | 'celebrate' | 'browse' | 'handoff' | 'private' | 'custom' | 'seed'>('setup');
+  /** Seeds planted but not yet carried into a night (lib/seeds.ts). */
+  let pendingSeeds = $state<Seed[]>(loadSeeds());
   /** pass-the-phone: when true, every draw deals the holder a PRIVATE card (PrivateCard flow) */
   let ptp = $state(false);
   /** the private card currently held (already drawn + marked seen) */
@@ -245,6 +259,12 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     night.release = { holder: 'b', state: 'held' }; // starts with the NEXT dealer; gift/keep shows on their turn
     ptp = false;
     privateCard = null;
+    // Carry the planted seeds into the night. They are the only part of the night
+    // written by the couple rather than dealt to them, so they survive begin()
+    // and are cleared from pre-night storage the moment the night owns them.
+    night.seeds = pendingSeeds.map((s) => ({ ...s }));
+    clearSeeds();
+    pendingSeeds = [];
     seedSeen([]);
     // test/journey hook: ember.focusCustom=1 seeds seen[] with every base card so only
     // custom cards draw (deterministic custom-deck verification; harmless in normal play)
@@ -330,7 +350,9 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
       return;
     }
     const deckId = n.cardId?.split('-')[0] as DeckId;
-    card = lookupCard(n.cardId ?? '');
+    // A dealt seed is not in any deck — rebuild it from the night's own seeds,
+    // or a resumed night would silently step over the card the couple was on.
+    card = seedCardById(n.cardId ?? '', n.seeds) ?? lookupCard(n.cardId ?? '');
     if (card) {
       night.seen = n.seen || [];
       night.loveCounts = n.loveCounts || {};
@@ -392,7 +414,16 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     onStart={() => { clearNight(); (screen = 'splash'); }}
     onBrowse={() => { screen = 'browse'; }}
     onCustom={() => { screen = 'custom'; }}
+    seedsPlanted={pendingSeeds.length}
+    onSeeds={() => { screen = 'seed'; }}
     onPtp={() => { clearNight(); unlockAudio(); lockScreen(); begin(true); startPtp(); }}
+  />
+{:else if screen === 'seed'}
+  <SeedSetup
+    names={names}
+    existing={pendingSeeds}
+    onDone={(s) => { pendingSeeds = s; saveSeeds(s); screen = 'setup'; }}
+    onClose={() => { screen = 'setup'; }}
   />
 {:else if screen === 'browse'}
   <Browse
@@ -523,7 +554,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     </nav>
   </main>
 {:else if screen === 'celebrate'}
-  <Celebration cards={count} nights={persisted.nights.length} history={persisted.nights} names={names} tokens={night.tokens ?? { a: 0, b: 0 }} release={releaseUsed} onAgain={() => begin()} onHome={home} />
+  <Celebration cards={count} nights={persisted.nights.length} history={persisted.nights} names={names} tokens={night.tokens ?? { a: 0, b: 0 }} release={releaseUsed} seeds={night.seeds ?? []} onAgain={() => begin()} onHome={home} />
 {/if}
 
 <style>
