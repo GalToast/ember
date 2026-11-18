@@ -161,25 +161,6 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     } catch { /* best effort */ }
   }
 
-  function advance(except?: Card) {
-    (window as unknown as { __dbg?: unknown }).__dbg = { customLen: (persisted.custom ?? []).length, decks: [...decks], mode };
-    const c = draw(mode, decks, persisted.retired, night, except, persisted.custom ?? []);
-    if (!c) { end(); return; }
-    card = c;
-    soft = false;
-    count += 1;
-    night.drawIndex += 1;
-    night.seen = [...night.seen, c.id];
-    trackLove(night, c);
-    landing = false;
-    commanding = null; // a command card is consumed by the very next advance
-    // turn alternates every normal draw so token spending stays fair
-    night.turn = night.turn === 'a' ? 'b' : 'a';
-    screen = 'play';
-    persistNight();
-    return c;
-  }
-
   function next() { dispatch({ type: 'NEXT' }); }
 
   function skip() {
