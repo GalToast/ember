@@ -379,12 +379,8 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   }
 
   function home() {
+    dispatch({ type: 'HOME' });
     unlockScreen();
-    screen = 'setup';
-    card = null;
-    count = 0;
-    skips = 6;
-    landing = false;
     resumeAvailable = loadNight();
   }
 
