@@ -506,7 +506,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
           Done <Icon name="pass" />
         </button>
       {:else}
-        <button class="btn btn-ghost" onclick={() => (soft = !soft)} disabled={!card.soften} title="show the softer variant">
+        <button class="btn btn-ghost" onclick={() => dispatch({ type: 'SOFTEN' })} disabled={!card.soften} title="show the softer variant">
           <Icon name="soften" /> <span class="lbl">{soft ? 'Back up' : 'Soften'}</span>
         </button>
         <button class="btn btn-ghost" onclick={skip} disabled={skips <= 0} data-testid="skip" aria-label="Skip">
