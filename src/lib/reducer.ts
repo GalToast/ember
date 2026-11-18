@@ -105,7 +105,14 @@ export function reducer(state: State, event: Event): State {
       // begin() dispatches this after resetting night state. It draws the first
       // card and transitions to play. Unlike NEXT, it works from ANY screen
       // (splash, setup) because it's the entry point, not a mid-play advance.
-      return advanceNight(state);
+      //
+      // count + 1 because this IS the first card. Without it the reducer counted
+      // one fewer card than the couple was dealt (4 shown, finale said 3), and the
+      // finale is the product's peak-end moment — it must report the night they had.
+      return advanceNight({
+        ...state,
+        night: { ...state.night, count: state.night.count + 1 },
+      });
 
     case 'NEXT':
     case 'SKIP': {
@@ -127,8 +134,28 @@ export function reducer(state: State, event: Event): State {
       return advanceNight({ ...state, persisted, night: { ...state.night, count: state.night.count + 1 } }, state.screen.card);
     }
 
+    case 'PTP_EXIT':
+      // Leaving pass-the-phone mid-night. The exit button used to fire NEXT, which
+      // the reducer refuses outside 'play' — so "Leave private mode" was a dead
+      // button on the handoff screen (passthephone.journey: "exit returns to play").
+      // This is the same advance as NEXT, but reachable from handoff/private, and it
+      // counts the public card it deals.
+      return advanceNight({
+        ...state,
+        night: { ...state.night, count: state.night.count + 1 },
+      });
+
     case 'END':
-      if (state.screen.type === 'play') return endNight(state);
+      // Ending is legal from the private/handoff screens too: a couple can decide to
+      // stop mid-pass-the-phone, and 'End the night' there is a real control, not a
+      // no-op. The warm landing + celebration path is identical.
+      if (
+        state.screen.type === 'play' ||
+        state.screen.type === 'handoff' ||
+        state.screen.type === 'private'
+      ) {
+        return endNight(state);
+      }
       return state;
 
     case 'HOME':
