@@ -10,12 +10,51 @@
   import Celebration from './components/Celebration.svelte';
   import Icon from './components/Icon.svelte';
   import { draw, drawWarmLanding, load, save, loadNight, saveNight, clearNight, trackLove, unlockAudio, seedSeen, loadCustom, type Mode, MODES, ALL_DECKS } from './lib/game.svelte';
-  import { createInitialState, type Screen, type Turn, type Tokens, type ReleaseState } from './lib/machine';
+  import { createInitialState, type Screen, type Turn, type Tokens, type ReleaseState, type State, type Event } from './lib/machine';
+  import { reducer } from './lib/reducer';
 import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
   import type { Card, DeckId } from './lib/schema';
 
   const persisted = $state(load());
   loadMuted(); // sound preference before any sound fires
+
+  // ---- Phase 3 bridge: dispatch() routes transitions through the pure reducer ----
+  // The UI keeps reading the same $state variables; dispatch() builds a State
+  // snapshot, runs the reducer, and writes the result back. One transition at a
+  // time gets wired this way; each is independently revertable.
+  function dispatch(event: Event) {
+    // Build the Screen discriminated union from the live screen string + payloads
+    let screenState: Screen;
+    if (screen === 'play' && card) {
+      screenState = { type: 'play', card, soft, landing };
+    } else {
+      screenState = { type: screen } as Screen;
+    }
+    const state: State = { screen: screenState, night, persisted, stageMode };
+    const next = reducer(state, event);
+    // Write back: screen string + play payloads
+    screen = next.screen.type as typeof screen;
+    if (next.screen.type === 'play') {
+      card = next.screen.card;
+      soft = next.screen.soft;
+      landing = next.screen.landing;
+    }
+    // Write back: night fields the reducer may have advanced
+    if (next.night !== state.night) {
+      night.count = next.night.count;
+      night.skips = next.night.skips;
+      night.seen = next.night.seen;
+      night.drawIndex = next.night.drawIndex;
+      night.cardId = next.night.cardId;
+      night.turn = next.night.turn;
+      night.landing = next.night.landing;
+      night.lastType = next.night.lastType;
+      night.typeRun = next.night.typeRun;
+      night.lastBombIndex = next.night.lastBombIndex;
+      if (next.night.loveCounts) night.loveCounts = next.night.loveCounts;
+    }
+    stageMode = next.stageMode;
+  }
   let names = $state(persisted.names);
   let mode = $state<Mode>('mixup');
   let decks = $state<DeckId[]>([...ALL_DECKS.filter((d) => d !== 'inferno')]);
