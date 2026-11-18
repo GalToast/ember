@@ -229,7 +229,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
         seedSeen(baseIds);
       }
     } catch { /* no-op */ }
-    if (!silent) next(); // silent = the caller deals the first card themselves (pass-the-phone)
+    if (!silent) dispatch({ type: 'START_NIGHT' }); // silent = the caller deals the first card themselves (pass-the-phone)
   }
 
   // ---- pass-the-phone flow ----

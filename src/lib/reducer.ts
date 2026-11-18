@@ -101,6 +101,12 @@ export function reducer(state: State, event: Event): State {
         screen: { type: 'splash', firstNight: state.persisted.nights.length === 0 },
       };
 
+    case 'START_NIGHT':
+      // begin() dispatches this after resetting night state. It draws the first
+      // card and transitions to play. Unlike NEXT, it works from ANY screen
+      // (splash, setup) because it's the entry point, not a mid-play advance.
+      return advanceNight(state);
+
     case 'NEXT':
     case 'SKIP': {
       if (state.screen.type !== 'play') return state;

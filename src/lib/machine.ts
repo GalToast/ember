@@ -25,6 +25,7 @@ export type Screen =
 
 export type Event =
   | { type: 'START' }
+  | { type: 'START_NIGHT' }
   | { type: 'RESUME' }
   | { type: 'RESTART' }
   | { type: 'NEXT' }
