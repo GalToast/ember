@@ -149,10 +149,10 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     try {
       if (!stageMode) {
         if (!document.fullscreenElement) await document.documentElement.requestFullscreen().catch(() => {});
-        stageMode = true;
+        dispatch({ type: 'SET_STAGE_MODE', value: true });
       } else {
         if (document.fullscreenElement) await document.exitFullscreen().catch(() => {});
-        stageMode = false;
+        dispatch({ type: 'SET_STAGE_MODE', value: false });
       }
     } catch { /* best effort */ }
   }
