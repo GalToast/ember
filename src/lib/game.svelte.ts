@@ -83,6 +83,12 @@ export interface NightState {
   lastType?: string;
   /** consecutive same-type draws so far */
   typeRun?: number;
+  /**
+   * Seeds: the two privately-written wishes this night is carrying (see lib/seeds.ts).
+   * Stored on the night so a resumed night still delivers them, and so the finale can
+   * attribute each one to its author. Never rendered until its card is dealt.
+   */
+  seeds?: import('./seeds').Seed[];
 }
 
 export function loadNight(): NightState | null {
