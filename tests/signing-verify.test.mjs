@@ -143,6 +143,27 @@ function makeApk(dst) {
 }
 
 async function main() {
+  // Platform guard (2026-11-19). This gate drives the Android SDK's
+  // apksigner.bat through `cmd /c`, reads keytool.exe, and needs a REAL APK
+  // fixture — and android/app/build/ is gitignored, so a fresh Linux checkout
+  // has no APK at all. It therefore CANNOT run on the ubuntu runner that
+  // publishes the Pages PWA, and the failure surfaced as a red deploy rather
+  // than as "wrong host".
+  //
+  // Why an explicit skip rather than deleting the gate from `npm test`: on
+  // Windows the 25 cases still run on every invoke, so real signing breakage
+  // is still caught where the Android build actually happens. The skip is
+  // deliberately LOUD and says "not verified" — the file's own warning about
+  // silent skips stands; this one cannot hide, and it names the command that
+  // does the real check.
+  if (process.platform !== 'win32') {
+    console.log(`SKIP signing-verify: NOT VERIFIED on this host (platform=${process.platform}).`);
+    console.log('  Needs apksigner.bat + keytool.exe + a built APK; android/app/build/ is gitignored.');
+    console.log('  This is a Windows-only gate — run `npm test` on Windows (or in the Android build job) for real coverage.');
+    console.log('  0 passed, 0 failed (skipped — no signing assertions executed here)');
+    return;
+  }
+
   for (const mode of ['release', 'installed']) {
     const dir = mkdtempSync(join(tmpdir(), 'ember-signing-'));
     mkdirSync(join(dir, 'scripts'), { recursive: true });
