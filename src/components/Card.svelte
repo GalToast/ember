@@ -3,6 +3,7 @@
   import { heatDots, heatBand } from '../lib/heat';
   import Icon from './Icon.svelte';
   import DeckWatermark from './DeckWatermark.svelte';
+  import CardArt from './CardArt.svelte';
   import { haptics } from '../lib/haptics';
 
   let {
@@ -212,6 +213,9 @@
 >
   <div class="hairline" aria-hidden="true"></div>
   <DeckWatermark deck={shown.deck} />
+  <!-- illustration band: the deck motif promoted from faint texture to a drawn-on focal
+       gesture. Sits above the text so it is visible without scrolling (visual-ambition slice 1). -->
+  <CardArt deck={shown.deck} cardId={shown.id ?? ''} />
 
   {#if hint}
     <div class="swipe-hint {hint} pop">{hint === 'next' ? 'NEXT' : 'SKIP'}</div>
