@@ -85,7 +85,7 @@ async function main() {
   {
     const dir = materialize(cases.releaseOnly);
     const out = runIn(dir, 'scripts/apk-path.mjs');
-    eq('release-only: prints release path', out.stdout.trim(), 'android\\app\\build\\outputs\\apk\\release\\app-release.apk');
+    eq('release-only: prints release path', out.stdout.trim(), join('android', 'app', 'build', 'outputs', 'apk', 'release', 'app-release.apk'));
     eq('release-only: rc 0', out.rc, 0);
     const check = runIn(dir, 'scripts/apk-path.mjs', ['--check']);
     eq('release-only: --check rc 0', check.rc, 0);
@@ -99,7 +99,7 @@ async function main() {
     writeFileSync(debugPath, 'newer debug artifact\n');
     const out = runIn(dir, 'scripts/apk-path.mjs');
     eq('both: release wins over a newer debug',
-      out.stdout.trim(), 'android\\app\\build\\outputs\\apk\\release\\app-release.apk');
+      out.stdout.trim(), join('android', 'app', 'build', 'outputs', 'apk', 'release', 'app-release.apk'));
     eq('both: rc 0', out.rc, 0);
     rmSync(dir, { recursive: true, force: true });
   }
@@ -109,7 +109,7 @@ async function main() {
     const dir = materialize(cases.debugOnly);
     const out = runIn(dir, 'scripts/apk-path.mjs');
     eq('debug-only: prints debug path',
-      out.stdout.trim(), 'android\\app\\build\\outputs\\apk\\debug\\app-debug.apk');
+      out.stdout.trim(), join('android', 'app', 'build', 'outputs', 'apk', 'debug', 'app-debug.apk'));
     eq('debug-only: rc 0', out.rc, 0);
     const check = runIn(dir, 'scripts/apk-path.mjs', ['--check']);
     eq('debug-only: --check rc 0', check.rc, 0);
