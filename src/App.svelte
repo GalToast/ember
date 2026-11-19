@@ -35,6 +35,12 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
     // Write back: screen string + play payloads
     screen = next.screen.type as typeof screen;
     if (next.screen.type === 'play') {
+      // A command is consumed by the very next deal. `commanding = null` used to live
+      // in advance(); with advance() gone, the banner stayed mounted forever after the
+      // first command and the dock never came back (tokens.journey: "dock restored
+      // after command"). Cleared only when the card actually changed, so a SOFTEN
+      // cannot be used to escape a command card.
+      if (next.screen.card.id !== card?.id) commanding = null;
       card = next.screen.card;
       soft = next.screen.soft;
       landing = next.screen.landing;
@@ -56,7 +62,27 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
       night.typeRun = next.night.typeRun;
       night.lastBombIndex = next.night.lastBombIndex;
       if (next.night.loveCounts) night.loveCounts = next.night.loveCounts;
+      // The reducer owns the night's numbers now; these component mirrors must
+      // follow it or the dock tally and the finale drift from the real night.
+      // (Phase 6 deleted advance(), which was the only thing that wrote them.)
+      count = next.night.count;
+      skips = next.night.skips;
     }
+    // Write back: persisted. The reducer appends to `nights` in endNight() and
+    // saves it, but the component kept its pre-night array — so the finale said
+    // "night #0 of yours" the run after a night had been saved, and every
+    // streak/insight read a stale list.
+    if (next.persisted !== state.persisted) {
+      persisted.names = next.persisted.names;
+      persisted.nights = next.persisted.nights;
+      persisted.retired = next.persisted.retired;
+      persisted.custom = next.persisted.custom;
+    }
+    // Persist the live night on every transition that changed it, so a reload
+    // mid-night still offers "Resume your night" (CRITIQUES #1). Guarded against
+    // the celebrate transition: the reducer CLEARS the night there, and re-saving
+    // it would resurrect a ghost night the couple already finished.
+    if (next.night !== state.night && next.screen.type !== 'celebrate') persistNight();
     stageMode = next.stageMode;
   }
   let names = $state(persisted.names);
@@ -385,7 +411,7 @@ import { swell, isMuted, setMuted, loadMuted } from './lib/audio.svelte';
       <p class="dim">{(night.turn === 'a' ? names.a : names.b) || 'The other player'}'s private card is waiting. Whatever was on yours is nobody's business but yours.</p>
       <button class="btn primary" onclick={handoffDone} data-testid="handoff-continue">I'm {((night.turn === 'a' ? names.a : names.b) || 'next')} — show mine</button>
       <div class="handoff-row">
-        <button class="btn ghost" onclick={() => { ptp = false; privateCard = null; next(); }} data-testid="ptp-exit">Leave private mode</button>
+        <button class="btn ghost" onclick={() => { ptp = false; privateCard = null; dispatch({ type: 'PTP_EXIT' }); }} data-testid="ptp-exit">Leave private mode</button>
         <button class="btn ghost" onclick={endPtp} data-testid="ptp-end">End the night</button>
       </div>
     </div>
