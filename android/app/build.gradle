@@ -20,6 +20,10 @@ android {
         applicationId "com.fredcouples.ember"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_17
+            targetCompatibility JavaVersion.VERSION_17
+        }
         versionCode vCode
         versionName "${pkg.version}"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
