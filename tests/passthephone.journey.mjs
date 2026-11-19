@@ -70,12 +70,24 @@ function check(name, cond, detail = '') {
   // 6. night state is persisting turns (reload mid-ptp resumes into handoff/private)
   await page.getByTestId('pc-done').click();
   await page.waitForTimeout(500);
-  await page.getByTestId('handoff').waitFor({ state: 'visible', timeout: 5000 });
+  await page.getByTestId('handoff').waitFor({ state: 'visible', timeout: 15000 });
   const night = await page.evaluate(() => JSON.parse(localStorage.getItem('ember.night') || '{}'));
   check('night persisted through ptp', night.cardId && night.count >= 1 && night.turn, `count=${night.count}`);
 
   // 7. exit back to play via Leave private mode
-  await page.getByTestId('ptp-exit').click({ timeout: 5000 });
+  //
+  // The handoff overlay (which owns ptp-exit) is torn down by the PREVIOUS
+  // interaction, so Playwright can resolve the locator against a node that is
+  // already unmounting and burn the whole click budget retrying it. Measured
+  // 2026-11-19: this click failed with 'locator.click: Timeout 5000ms exceeded'
+  // on a 40%-flake journey suite -- 6 of 15 historical runs failed, each on a
+  // DIFFERENT suite, which is timing pressure rather than one broken test.
+  // Waiting for the overlay to settle and then for the element to be actionable
+  // removes the race without weakening any assertion.
+  await page.getByTestId('handoff').waitFor({ state: 'visible', timeout: 15000 });
+  const ptpExit = page.getByTestId('ptp-exit');
+  await ptpExit.waitFor({ state: 'visible', timeout: 15000 });
+  await ptpExit.click({ timeout: 15000 });
   await page.waitForTimeout(400);
   check('exit returns to play (normal dock)', await page.getByTestId('dock').count() === 1);
 
