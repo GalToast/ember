@@ -76,11 +76,36 @@ rebuild packages the *previous* bundle (blank screen, no error anywhere). Then v
 ```bash
 npm run build
 npx cap sync android
-npm run verify:apk     # APK vs dist/index.html; exit 1 = stale bundle; freshest of release/debug
+npm run verify:apk     # APK vs dist/index.html; exit 1 = stale bundle; checks the RELEASE apk when one exists
 npm run verify:staging # same, against android/app/src/main/assets/public
-# install whichever artifact shipped most freshly (verify:apk reports it):
+# install the artifact apk-path selects (release wins over debug whenever it exists):
 adb install -r $(node scripts/apk-path.mjs)
 ```
+
+**Which APK gets picked is release-first, NOT newest-first.** `apkPathIn()` in
+`scripts/apk-path-lib.mjs` returns the release artifact whenever it exists, even
+if a debug build is newer. Measured 2026-11-19: release was dated 20:25 while a
+fresh `assembleDebug` wrote 23:44, so `verify:apk` checked the *older* artifact.
+That run happened to be harmless — both APKs carried the same
+`assets/index-CKDUEiuZ.js` — but the check only passes because the content
+matched, not because the picker looked at time. After changing `dist/`, rebuild
+release (or delete the stale release APK) before trusting `verify:apk`.
+
+**Pin JAVA_HOME when building.** This box has two JDKs installed and they
+disagree: `JAVA_HOME` points at `LibericaJDK-17-Lite` (17.0.18), while `java` on
+`PATH` resolves to `LibericaJDK-21-Lite` (21.0.12). Gradle's `compileOptions`
+are set to 17, so a build that resolves 21 fails with
+`error: invalid source release: 21`. Build explicitly:
+
+```bash
+JAVA_HOME="C:/Program Files/BellSoft/LibericaJDK-17-Lite" ./gradlew :app:assembleDebug
+```
+
+`android/app/capacitor.build.gradle` is generated — `npx cap sync android`
+rewrites it, and its template sets Java 21. The durable pin lives in
+`android/app/build.gradle`, *after* the `apply from: 'capacitor.build.gradle'`
+line, so a later block wins. Do not "fix" a sync-induced 21 by editing the
+generated file; it will be overwritten again.
 
 ### Which key signs the APK
 
